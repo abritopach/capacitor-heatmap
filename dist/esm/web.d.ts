@@ -9,6 +9,10 @@ export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     _data: any[];
     _circle: any;
     _heatmapLogger: any;
+    _grad: any;
+    _r: any;
+    defaultGradient: any;
+    defaultRadius: number;
     constructor();
     echo(options: {
         value: string;
@@ -23,6 +27,9 @@ export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
         value: HTMLCanvasElement;
     }>;
     draw(minOpacity?: number): Promise<void>;
+    private radius;
+    private gradient;
+    private _colorize;
     private _createCanvas;
 }
 declare const Heatmap: HeatmapWeb;

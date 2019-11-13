@@ -14,7 +14,6 @@ export class HomePage implements OnInit {
   ngOnInit() {
     console.log('HomePage::ngOnInit() | method called');
     this.createHeatmap();
-    this.draw();
   }
 
   async createHeatmap() {
@@ -122,6 +121,9 @@ export class HomePage implements OnInit {
     const options = {canvas: 'testCanvas', data: data, debug: true};
     const result = await Heatmap.createHeatmap(options);
     console.log('result', result);
+    console.time('draw');
+    this.draw();
+    console.timeEnd('draw');
   }
 
   async draw() {

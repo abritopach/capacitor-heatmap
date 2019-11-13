@@ -13,6 +13,17 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
   _data: any[];
   _circle: any;
   _heatmapLogger: any;
+  _grad: any;
+  _r: any;
+
+  defaultGradient: any = {
+    0.4: 'blue',
+    0.6: 'cyan',
+    0.7: 'lime',
+    0.8: 'yellow',
+    1.0: 'red'
+  };
+  defaultRadius = 25;
 
   constructor() {
     super({
@@ -34,7 +45,8 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
       this._ctx = this._canvas.getContext('2d');
       this._width = this._canvas.width;
       this._height = this._canvas.height;
-      this._max = 1;
+      // this._max = 1;
+      this._max = 18;
       this._data = options.data;
     }
     return this._canvas;
@@ -42,7 +54,11 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
 
   async draw(minOpacity?: number) {
     this._heatmapLogger.log("draw");
-    this._circle = this._createCanvas();
+
+    if (!this._circle) this.radius(this.defaultRadius);
+    if (!this._grad) this.gradient(this.defaultGradient);
+
+    this._heatmapLogger.log("circle", {circle: this._circle});
 
     const ctx = this._ctx;
     ctx.clearRect(0, 0, this._width, this._height);
@@ -53,13 +69,74 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
       ctx.globalAlpha = Math.min(Math.max(point[2] / this._max, minOpacity === undefined ? 0.05 : minOpacity), 1);
       ctx.drawImage(this._circle, point[0] - 25, point[1] - 25);
     });
+
+    // Colorize the heatmap, using opacity value of each pixel to get the right color from our gradient.
+    const colored = ctx.getImageData(0, 0, this._width, this._height);
+    this._heatmapLogger.log("colored", {colored: colored});
+    this._colorize(colored.data, this._grad);
+    ctx.putImageData(colored, 0, 0);
+  }
+
+  private radius(r: number, blur?: number) {
+    blur = blur === undefined ? 15 : blur;
+
+    // Create a grayscale blurred circle image that we'll use for drawing points.
+    const circle = this._circle = this._createCanvas(),
+        ctx = circle.getContext('2d'),
+        r2 = this._r = r + blur;
+
+    circle.width = circle.height = r2 * 2;
+
+    ctx.shadowOffsetX = ctx.shadowOffsetY = r2 * 2;
+    ctx.shadowBlur = blur;
+    ctx.shadowColor = 'black';
+
+    ctx.beginPath();
+    ctx.arc(-r2, -r2, r, 0, Math.PI * 2, true);
+    ctx.closePath();
+    ctx.fill();
+  }
+
+  private gradient (grad: any) {
+    this._heatmapLogger.log("gradient", {grad: grad});
+    // Create a 256x1 gradient that we'll use to turn a grayscale heatmap into a colored one.
+    const canvas = this._createCanvas(),
+        ctx = canvas.getContext('2d'),
+        gradient = ctx.createLinearGradient(0, 0, 0, 256);
+
+    canvas.width = 1;
+    canvas.height = 256;
+
+    for (var i in grad) {
+        gradient.addColorStop(+i, grad[i]);
+    }
+
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, 1, 256);
+
+    this._grad = ctx.getImageData(0, 0, 1, 256).data;
+    this._heatmapLogger.log("gradient", {canvas: canvas, ctx: ctx});
+  }
+
+  private _colorize (pixels: any, gradient: any) {
+    this._heatmapLogger.log("_colorize", {pixels: pixels, gradient: gradient});
+    for (var i = 0, len = pixels.length, j; i < len; i += 4) {
+        j = pixels[i + 3] * 4; // get gradient color from opacity value
+
+        if (j) {
+            pixels[i] = gradient[j];
+            pixels[i + 1] = gradient[j + 1];
+            pixels[i + 2] = gradient[j + 2];
+        }
+    }
   }
 
   private _createCanvas() {
+    this._heatmapLogger.log("_createCanvas");
     if (typeof document !== 'undefined') {
         return document.createElement('canvas');
     }
-}
+  }
 
 }
 
