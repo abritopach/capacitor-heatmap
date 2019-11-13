@@ -9,6 +9,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
   _height: number;
   _max: number;
   _data: any[];
+  _circle: any;
 
   constructor() {
     super({
@@ -22,15 +23,37 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     return options;
   }
 
-  async createHeatmap(options: {canvas: string | HTMLCanvasElement}): Promise<{value: HTMLCanvasElement}> {
+  async createHeatmap(options: {canvas: string | HTMLCanvasElement, data: any[]}): Promise<{value: HTMLCanvasElement}> {
     this._canvas = typeof options.canvas === 'string' ? document.getElementById(options.canvas) : options.canvas;
-    this._ctx = this._canvas.getContext('2d');
-    this._width = this._canvas.width;
-    this._height = this._canvas.height;
-    this._max = 1;
-    this._data = [];
+    if ((this._canvas !== null) && (typeof this._canvas !== 'undefined')) {
+      this._ctx = this._canvas.getContext('2d');
+      this._width = this._canvas.width;
+      this._height = this._canvas.height;
+      this._max = 1;
+      this._data = options.data;
+    }
     return this._canvas;
   }
+
+  async draw(minOpacity?: number) {
+
+    this._circle = this._createCanvas();
+
+    const ctx = this._ctx;
+    ctx.clearRect(0, 0, this._width, this._height);
+
+    // Draw a grayscale heatmap by putting a blurred circle at each data point.
+    this._data.map(point => {
+      ctx.globalAlpha = Math.min(Math.max(point[2] / this._max, minOpacity === undefined ? 0.05 : minOpacity), 1);
+      ctx.drawImage(this._circle, point[0] - 25, point[1] - 25);
+    });
+  }
+
+  private _createCanvas() {
+    if (typeof document !== 'undefined') {
+        return document.createElement('canvas');
+    }
+}
 
 }
 

@@ -6,4 +6,5 @@ declare module "@capacitor/core" {
 
 export interface HeatmapPlugin {
   echo(options: { value: string }): Promise<{value: string}>;
+  createHeatmap(options: {canvas: string | HTMLCanvasElement}): Promise<{value: HTMLCanvasElement}>;
 }

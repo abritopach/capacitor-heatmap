@@ -9,4 +9,9 @@ export interface HeatmapPlugin {
     }): Promise<{
         value: string;
     }>;
+    createHeatmap(options: {
+        canvas: string | HTMLCanvasElement;
+    }): Promise<{
+        value: HTMLCanvasElement;
+    }>;
 }
