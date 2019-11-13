@@ -8,6 +8,7 @@ export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     _max: number;
     _data: any[];
     _circle: any;
+    _heatmapLogger: any;
     constructor();
     echo(options: {
         value: string;
@@ -17,6 +18,7 @@ export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     createHeatmap(options: {
         canvas: string | HTMLCanvasElement;
         data: any[];
+        debug?: boolean;
     }): Promise<{
         value: HTMLCanvasElement;
     }>;

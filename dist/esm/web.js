@@ -8,6 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import { WebPlugin } from '@capacitor/core';
+import { Log } from './log';
 export class HeatmapWeb extends WebPlugin {
     constructor() {
         super({
@@ -23,6 +24,8 @@ export class HeatmapWeb extends WebPlugin {
     }
     createHeatmap(options) {
         return __awaiter(this, void 0, void 0, function* () {
+            this._heatmapLogger = new Log(options.debug);
+            this._heatmapLogger.log("createHeatmap");
             this._canvas = typeof options.canvas === 'string' ? document.getElementById(options.canvas) : options.canvas;
             if ((this._canvas !== null) && (typeof this._canvas !== 'undefined')) {
                 this._ctx = this._canvas.getContext('2d');
@@ -36,11 +39,13 @@ export class HeatmapWeb extends WebPlugin {
     }
     draw(minOpacity) {
         return __awaiter(this, void 0, void 0, function* () {
+            this._heatmapLogger.log("draw");
             this._circle = this._createCanvas();
             const ctx = this._ctx;
             ctx.clearRect(0, 0, this._width, this._height);
             // Draw a grayscale heatmap by putting a blurred circle at each data point.
             this._data.map(point => {
+                this._heatmapLogger.log("data", { point: point });
                 ctx.globalAlpha = Math.min(Math.max(point[2] / this._max, minOpacity === undefined ? 0.05 : minOpacity), 1);
                 ctx.drawImage(this._circle, point[0] - 25, point[1] - 25);
             });

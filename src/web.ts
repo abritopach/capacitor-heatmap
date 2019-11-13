@@ -1,6 +1,8 @@
 import { WebPlugin } from '@capacitor/core';
 import { HeatmapPlugin } from './definitions';
 
+import { Log } from './log';
+
 export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
 
   _canvas: any;
@@ -10,6 +12,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
   _max: number;
   _data: any[];
   _circle: any;
+  _heatmapLogger: any;
 
   constructor() {
     super({
@@ -23,7 +26,9 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     return options;
   }
 
-  async createHeatmap(options: {canvas: string | HTMLCanvasElement, data: any[]}): Promise<{value: HTMLCanvasElement}> {
+  async createHeatmap(options: {canvas: string | HTMLCanvasElement, data: any[], debug?: boolean}): Promise<{value: HTMLCanvasElement}> {
+    this._heatmapLogger = new Log(options.debug);
+    this._heatmapLogger.log("createHeatmap");
     this._canvas = typeof options.canvas === 'string' ? document.getElementById(options.canvas) : options.canvas;
     if ((this._canvas !== null) && (typeof this._canvas !== 'undefined')) {
       this._ctx = this._canvas.getContext('2d');
@@ -36,7 +41,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
   }
 
   async draw(minOpacity?: number) {
-
+    this._heatmapLogger.log("draw");
     this._circle = this._createCanvas();
 
     const ctx = this._ctx;
@@ -44,6 +49,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
 
     // Draw a grayscale heatmap by putting a blurred circle at each data point.
     this._data.map(point => {
+      this._heatmapLogger.log("data", {point: point});
       ctx.globalAlpha = Math.min(Math.max(point[2] / this._max, minOpacity === undefined ? 0.05 : minOpacity), 1);
       ctx.drawImage(this._circle, point[0] - 25, point[1] - 25);
     });

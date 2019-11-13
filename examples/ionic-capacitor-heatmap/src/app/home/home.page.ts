@@ -119,7 +119,7 @@ export class HomePage implements OnInit {
 
 
 
-    const options = {canvas: 'testCanvas', data: data};
+    const options = {canvas: 'testCanvas', data: data, debug: true};
     const result = await Heatmap.createHeatmap(options);
     console.log('result', result);
   }
