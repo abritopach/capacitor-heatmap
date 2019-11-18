@@ -19,14 +19,26 @@ export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     }): Promise<{
         value: string;
     }>;
-    createHeatmap(options: {
+    initialize(options: {
         canvas: string | HTMLCanvasElement;
-        data: any[];
+        data?: any[];
         debug?: boolean;
     }): Promise<{
         value: HTMLCanvasElement;
     }>;
-    draw(minOpacity?: number): Promise<void>;
+    /*********/
+    /*********/
+    setData(data: any[]): Promise<{
+        value: any[];
+    }>;
+    /*********/
+    /*********/
+    draw(options: {
+        minOpacity?: number;
+        data?: any[];
+    }): Promise<{
+        value: boolean;
+    }>;
     private radius;
     private gradient;
     private _colorize;

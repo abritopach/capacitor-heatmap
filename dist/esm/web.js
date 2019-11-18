@@ -30,10 +30,10 @@ export class HeatmapWeb extends WebPlugin {
             return options;
         });
     }
-    createHeatmap(options) {
+    initialize(options) {
         return __awaiter(this, void 0, void 0, function* () {
             this._heatmapLogger = new Log(options.debug);
-            this._heatmapLogger.log("createHeatmap");
+            this._heatmapLogger.log("initialize");
             this._canvas = typeof options.canvas === 'string' ? document.getElementById(options.canvas) : options.canvas;
             if ((this._canvas !== null) && (typeof this._canvas !== 'undefined')) {
                 this._ctx = this._canvas.getContext('2d');
@@ -41,14 +41,33 @@ export class HeatmapWeb extends WebPlugin {
                 this._height = this._canvas.height;
                 // this._max = 1;
                 this._max = 18;
-                this._data = options.data;
+                this._data = typeof options.data !== 'undefined' ? options.data :
+                    (this._heatmapLogger.warn("Data is undefined or empty. Passes heatmap data into draw function or set heatmap data with setData function."),
+                        []);
             }
-            return this._canvas;
+            else {
+                this._heatmapLogger.error("ERROR -> Undefined canvas id or html canvas.");
+            }
+            return { value: this._canvas };
         });
     }
-    draw(minOpacity) {
+    /*********/
+    // Methods for handling heatmap data.
+    /*********/
+    setData(data) {
+        return __awaiter(this, void 0, void 0, function* () {
+            this._data = data;
+            return { value: this._data };
+        });
+    }
+    /*********/
+    // Methods for rendering heatmap.
+    /*********/
+    draw(options) {
         return __awaiter(this, void 0, void 0, function* () {
             this._heatmapLogger.log("draw");
+            if (typeof options.data !== 'undefined')
+                this._data = options.data;
             if (!this._circle)
                 this.radius(this.defaultRadius);
             if (!this._grad)
@@ -59,7 +78,7 @@ export class HeatmapWeb extends WebPlugin {
             // Draw a grayscale heatmap by putting a blurred circle at each data point.
             this._data.map(point => {
                 this._heatmapLogger.log("data", { point: point });
-                ctx.globalAlpha = Math.min(Math.max(point[2] / this._max, minOpacity === undefined ? 0.05 : minOpacity), 1);
+                ctx.globalAlpha = Math.min(Math.max(point[2] / this._max, options.minOpacity === undefined ? 0.05 : options.minOpacity), 1);
                 ctx.drawImage(this._circle, point[0] - 25, point[1] - 25);
             });
             // Colorize the heatmap, using opacity value of each pixel to get the right color from our gradient.
@@ -67,6 +86,7 @@ export class HeatmapWeb extends WebPlugin {
             this._heatmapLogger.log("colored", { colored: colored });
             this._colorize(colored.data, this._grad);
             ctx.putImageData(colored, 0, 0);
+            return { value: true };
         });
     }
     radius(r, blur) {
