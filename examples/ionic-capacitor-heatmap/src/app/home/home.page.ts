@@ -13,10 +13,10 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     console.log('HomePage::ngOnInit() | method called');
-    this.createHeatmap();
+    this.initializeHeatmap();
   }
 
-  async createHeatmap() {
+  async initializeHeatmap() {
 
 
     const data = [[38,20,2],[38,690,3],[48,30,1],[48,40,1],[48,670,1],[58,640,1],[58,680,1],[67,630,1],[86,10,1],
@@ -118,17 +118,31 @@ export class HomePage implements OnInit {
 
 
 
-    const options = {canvas: 'testCanvas', data: data, debug: true};
+    const options = {canvas: 'testCanvas', debug: true};
     const result = await Heatmap.initialize(options);
     console.log('result', result);
+
+    result.value.onmousemove = (e) => {
+      console.log([e.clientX, e.clientY]);
+    };
+
+    const d = await Heatmap.setData(data);
+    console.log('d', d);
     console.time('draw');
-    this.draw();
+    this.drawHeatmap();
     console.timeEnd('draw');
   }
 
-  async draw() {
+  async drawHeatmap() {
     const options = {};
-    await Heatmap.draw(options);
+    const result = await Heatmap.draw(options);
+  }
+
+  async onClickResize() {
+    console.log('HomePage::onClickResize() | method called');
+    const options = {width: 500, height: 300};
+    const result = await Heatmap.resize(options);
+    console.log('result', result);
   }
 
 }

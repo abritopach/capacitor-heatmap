@@ -16,13 +16,31 @@ export interface HeatmapPlugin {
     }): Promise<{
         value: HTMLCanvasElement;
     }>;
+    /*********/
+    /*********/
     setData(data: any[]): Promise<{
         value: any[];
     }>;
+    clearData(): Promise<{
+        value: any[];
+    }>;
+    /*********/
+    /*********/
     draw(options: {
         minOpacity?: number;
         data?: any[];
     }): Promise<{
         value: boolean;
+    }>;
+    /*********/
+    /*********/
+    resize(options: {
+        width: number;
+        height: number;
+    }): Promise<{
+        value: {
+            newWidth: number;
+            newHeight: number;
+        };
     }>;
 }

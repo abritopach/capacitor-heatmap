@@ -31,6 +31,9 @@ export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     setData(data: any[]): Promise<{
         value: any[];
     }>;
+    clearData(): Promise<{
+        value: any[];
+    }>;
     /*********/
     /*********/
     draw(options: {
@@ -39,6 +42,20 @@ export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     }): Promise<{
         value: boolean;
     }>;
+    /*********/
+    /*********/
+    resize(options: {
+        width: number;
+        height: number;
+    }): Promise<{
+        value: {
+            newWidth: number;
+            newHeight: number;
+        };
+    }>;
+    /*********/
+    /*********/
+    private clearCanvas;
     private radius;
     private gradient;
     private _colorize;

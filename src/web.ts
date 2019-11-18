@@ -66,7 +66,14 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
   /*********/
 
   async setData(data: any[]): Promise<{value: any[]}> {
+    this._heatmapLogger.log("setData");
     this._data = data;
+    return {value: this._data};
+  }
+
+  async clearData(): Promise<{value: any[]}> {
+    this._heatmapLogger.log("clearData");
+    this._data = [];
     return {value: this._data};
   }
 
@@ -79,7 +86,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
   async draw(options: {minOpacity?: number, data?: any[]}): Promise<{value: boolean}> {
     this._heatmapLogger.log("draw");
 
-    if (typeof options.data !== 'undefined') this._data = options.data;
+    if ( typeof options.data !== 'undefined') this._data = options.data;
 
     if (!this._circle) this.radius(this.defaultRadius);
     if (!this._grad) this.gradient(this.defaultGradient);
@@ -103,6 +110,27 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     ctx.putImageData(colored, 0, 0);
 
     return {value: true};
+  }
+
+  /*********/
+  // Methods for handling heatmap appearance.
+  /*********/
+  async resize(options: {width: number, height: number}): Promise<{value: {newWidth: number, newHeight: number}}> {
+    this.clearCanvas();
+    this._width = options.width;
+    this._height = options.height;
+    const opt = {};
+    this.draw(opt);
+    return {value: {newWidth: this._canvas.width, newHeight: this._canvas.height}};
+  }
+
+
+  /*********/
+  // Private methods.
+  /*********/
+
+  private clearCanvas() {
+    this._ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
   }
 
   private radius(r: number, blur?: number) {

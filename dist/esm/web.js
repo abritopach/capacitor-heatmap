@@ -56,7 +56,15 @@ export class HeatmapWeb extends WebPlugin {
     /*********/
     setData(data) {
         return __awaiter(this, void 0, void 0, function* () {
+            this._heatmapLogger.log("setData");
             this._data = data;
+            return { value: this._data };
+        });
+    }
+    clearData() {
+        return __awaiter(this, void 0, void 0, function* () {
+            this._heatmapLogger.log("clearData");
+            this._data = [];
             return { value: this._data };
         });
     }
@@ -88,6 +96,25 @@ export class HeatmapWeb extends WebPlugin {
             ctx.putImageData(colored, 0, 0);
             return { value: true };
         });
+    }
+    /*********/
+    // Methods for handling heatmap appearance.
+    /*********/
+    resize(options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            this.clearCanvas();
+            this._width = options.width;
+            this._height = options.height;
+            const opt = {};
+            this.draw(opt);
+            return { value: { newWidth: this._canvas.width, newHeight: this._canvas.height } };
+        });
+    }
+    /*********/
+    // Private methods.
+    /*********/
+    clearCanvas() {
+        this._ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
     }
     radius(r, blur) {
         blur = blur === undefined ? 15 : blur;
