@@ -5,16 +5,17 @@ import { Log } from './log';
 
 export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
 
-  _canvas: any;
-  _ctx: any;
+  _canvas: HTMLCanvasElement;
+  _ctx: CanvasRenderingContext2D;
   _width: number;
   _height: number;
   _max: number;
-  _data: any[];
-  _circle: any;
+  // _data: any[];
+  _data: Array<Array<number>>;
+  _circle: HTMLCanvasElement;
   _heatmapLogger: any;
   _grad: any;
-  _r: any;
+  _r: number;
 
   defaultGradient: any = {
     0.4: 'blue',
@@ -23,7 +24,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     0.8: 'yellow',
     1.0: 'red'
   };
-  defaultRadius = 25;
+  static readonly DEFAULT_RADIUS = 25;
 
   constructor() {
     super({
@@ -37,10 +38,10 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     return options;
   }
 
-  async initialize(options: {canvas: string | HTMLCanvasElement, data?: any[], debug?: boolean}): Promise<{value: HTMLCanvasElement}> {
+  async initialize(options: {canvas: string | HTMLCanvasElement, data?: Array<Array<number>>, debug?: boolean}): Promise<{value: HTMLCanvasElement}> {
     this._heatmapLogger = new Log(options.debug);
     this._heatmapLogger.log("initialize");
-    this._canvas = typeof options.canvas === 'string' ? document.getElementById(options.canvas) : options.canvas;
+    this._canvas = typeof options.canvas === 'string' ? document.getElementById(options.canvas) as HTMLCanvasElement : options.canvas;
     if ((this._canvas !== null) && (typeof this._canvas !== 'undefined')) {
       this._ctx = this._canvas.getContext('2d');
       this._width = this._canvas.width;
@@ -65,7 +66,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
 
   /*********/
 
-  async setData(data: any[]): Promise<{value: any[]}> {
+  async setData(data: Array<Array<number>>): Promise<{value: any[]}> {
     this._heatmapLogger.log("setData");
     this._data = data;
     return {value: this._data};
@@ -89,12 +90,12 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
 
   /*********/
 
-  async draw(options: {minOpacity?: number, data?: any[]}): Promise<{value: boolean}> {
+  async draw(options: {minOpacity?: number, data?: Array<Array<number>>}): Promise<{value: boolean}> {
     this._heatmapLogger.log("draw");
 
     if ( typeof options.data !== 'undefined') this._data = options.data;
 
-    if (!this._circle) this.radius(this.defaultRadius);
+    if (!this._circle) this.radius(HeatmapWeb.DEFAULT_RADIUS);
     if (!this._grad) this.gradient(this.defaultGradient);
 
     this._heatmapLogger.log("circle", {circle: this._circle});

@@ -22,7 +22,6 @@ export class HeatmapWeb extends WebPlugin {
             0.8: 'yellow',
             1.0: 'red'
         };
-        this.defaultRadius = 25;
     }
     echo(options) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -70,6 +69,7 @@ export class HeatmapWeb extends WebPlugin {
     }
     addPoint(point) {
         return __awaiter(this, void 0, void 0, function* () {
+            this._heatmapLogger.log("addPoint", { newPoint: point });
             this._data.push(point);
             return { value: this._data };
         });
@@ -83,7 +83,7 @@ export class HeatmapWeb extends WebPlugin {
             if (typeof options.data !== 'undefined')
                 this._data = options.data;
             if (!this._circle)
-                this.radius(this.defaultRadius);
+                this.radius(HeatmapWeb.DEFAULT_RADIUS);
             if (!this._grad)
                 this.gradient(this.defaultGradient);
             this._heatmapLogger.log("circle", { circle: this._circle });
@@ -167,6 +167,7 @@ export class HeatmapWeb extends WebPlugin {
         }
     }
 }
+HeatmapWeb.DEFAULT_RADIUS = 25;
 const Heatmap = new HeatmapWeb();
 export { Heatmap };
 import { registerWebPlugin } from '@capacitor/core';
