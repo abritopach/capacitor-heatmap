@@ -77,6 +77,12 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     return {value: this._data};
   }
 
+  async addPoint(point: any): Promise<{value: any[]}> {
+    this._heatmapLogger.log("addPoint", {newPoint: point});
+    this._data.push(point);
+    return {value: this._data};
+  }
+
   /*********/
 
   // Methods for rendering heatmap.

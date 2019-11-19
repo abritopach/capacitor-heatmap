@@ -68,6 +68,12 @@ export class HeatmapWeb extends WebPlugin {
             return { value: this._data };
         });
     }
+    addPoint(point) {
+        return __awaiter(this, void 0, void 0, function* () {
+            this._data.push(point);
+            return { value: this._data };
+        });
+    }
     /*********/
     // Methods for rendering heatmap.
     /*********/

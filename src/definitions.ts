@@ -12,6 +12,7 @@ export interface HeatmapPlugin {
   /*********/
   setData(data: any[]): Promise<{value: any[]}>;
   clearData(): Promise<{value: any[]}>;
+  addPoint(point: any): Promise<{value: any[]}>;
   /*********/
   // Methods for rendering heatmap.
   /*********/

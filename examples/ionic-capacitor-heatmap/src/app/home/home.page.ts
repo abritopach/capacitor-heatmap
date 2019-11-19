@@ -2,12 +2,16 @@ import { Component, OnInit } from '@angular/core';
 
 import { Heatmap } from 'capacitor-heatmap';
 
+window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame;
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
+
+  frame: any;
 
   constructor() {}
 
@@ -124,6 +128,9 @@ export class HomePage implements OnInit {
 
     result.value.onmousemove = (e) => {
       console.log([e.clientX, e.clientY]);
+      const resultAddPoint = Heatmap.addPoint([e.clientX, e.clientY, 1]);
+      console.log('resultAddPoint', resultAddPoint);
+      this.frame = this.frame || window.requestAnimationFrame(this.drawHeatmap);
     };
 
     const d = await Heatmap.setData(data);
@@ -136,6 +143,7 @@ export class HomePage implements OnInit {
   async drawHeatmap() {
     const options = {};
     const result = await Heatmap.draw(options);
+    // this.frame = null;
   }
 
   async onClickResize() {

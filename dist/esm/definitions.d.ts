@@ -24,6 +24,9 @@ export interface HeatmapPlugin {
     clearData(): Promise<{
         value: any[];
     }>;
+    addPoint(point: any): Promise<{
+        value: any[];
+    }>;
     /*********/
     /*********/
     draw(options: {
