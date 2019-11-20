@@ -11,10 +11,6 @@ window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequ
 })
 export class HomePage implements OnInit {
 
-  @HostListener('window:resize', ['$event']) async onResize(event) {
-    this.resizeHeatmap(event.target.innerWidth, event.target.innerHeight);
- }
-
   frame: any;
   data = [[38,20,2],[38,690,3],[48,30,1],[48,40,1],[48,670,1],[58,640,1],[58,680,1],[67,630,1],[86,10,1],
     [86,660,1],[96,0,1],[96,80,1],[96,530,1],[96,540,2],[96,560,1],[96,620,1],[96,640,1],[105,530,1],[105,560,3],
@@ -113,6 +109,10 @@ export class HomePage implements OnInit {
     [921,340,1],[921,720,1],[930,490,1],[930,500,1],[940,180,2],[940,430,1],[940,510,1],[940,580,1],[949,120,5],
     [949,150,1],[949,180,1],[949,370,1],[949,390,1],[949,570,2],[949,720,1],[949,770,2],[949,780,1],[949,860,1]];
 
+  @HostListener('window:resize', ['$event']) async onResize(event) {
+    this.resizeHeatmap(event.target.innerWidth, event.target.innerHeight);
+  }
+
   constructor() {}
 
   ngOnInit() {
@@ -133,9 +133,12 @@ export class HomePage implements OnInit {
 
     result.value.onmousemove = (e) => {
       console.log([e.clientX, e.clientY]);
-      const resultAddPoint = Heatmap.addPoint([e.clientX, e.clientY, 18]);
+      const rect = result.value.getBoundingClientRect();
+      console.log([e.clientX - rect.left, e.clientY - rect.top]);
+      const resultAddPoint = Heatmap.addPoint([e.clientX - rect.left, e.clientY - rect.top, 18]);
       console.log('resultAddPoint', resultAddPoint);
-      this.frame = this.frame || window.requestAnimationFrame(this.drawHeatmap);
+      // this.frame = this.frame || window.requestAnimationFrame(this.drawHeatmap);
+      window.requestAnimationFrame(this.drawHeatmap);
     };
 
     const d = await Heatmap.setData(this.data);
