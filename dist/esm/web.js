@@ -82,18 +82,20 @@ export class HeatmapWeb extends WebPlugin {
             this._heatmapLogger.log("draw");
             if (typeof options.data !== 'undefined')
                 this._data = options.data;
+            this._heatmapLogger.log("draw", { length: this._data.length });
             if (!this._circle)
                 this.radius(HeatmapWeb.DEFAULT_RADIUS);
             if (!this._grad)
                 this.gradient(this.defaultGradient);
             this._heatmapLogger.log("circle", { circle: this._circle });
+            this._heatmapLogger.log("width&height", { width: this._width, height: this._height });
             const ctx = this._ctx;
             ctx.clearRect(0, 0, this._width, this._height);
             // Draw a grayscale heatmap by putting a blurred circle at each data point.
-            this._data.map(point => {
+            this._data.map((point) => {
                 this._heatmapLogger.log("data", { point: point });
                 ctx.globalAlpha = Math.min(Math.max(point[2] / this._max, options.minOpacity === undefined ? 0.05 : options.minOpacity), 1);
-                ctx.drawImage(this._circle, point[0] - 25, point[1] - 25);
+                ctx.drawImage(this._circle, point[0] - this._r, point[1] - this._r);
             });
             // Colorize the heatmap, using opacity value of each pixel to get the right color from our gradient.
             const colored = ctx.getImageData(0, 0, this._width, this._height);
@@ -108,11 +110,14 @@ export class HeatmapWeb extends WebPlugin {
     /*********/
     resize(options) {
         return __awaiter(this, void 0, void 0, function* () {
+            this._heatmapLogger.log("resize", { options: options });
             this.clearCanvas();
-            this._width = options.width;
-            this._height = options.height;
+            this._canvas.width = options.width;
+            this._canvas.height = options.height;
+            this._width = this._canvas.width;
+            this._height = this._canvas.height;
             const opt = {};
-            this.draw(opt);
+            yield this.draw(opt);
             return { value: { newWidth: this._canvas.width, newHeight: this._canvas.height } };
         });
     }

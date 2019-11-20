@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 import { Heatmap } from 'capacitor-heatmap';
 
@@ -11,19 +11,12 @@ window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequ
 })
 export class HomePage implements OnInit {
 
+  @HostListener('window:resize', ['$event']) async onResize(event) {
+    this.resizeHeatmap(event.target.innerWidth, event.target.innerHeight);
+ }
+
   frame: any;
-
-  constructor() {}
-
-  ngOnInit() {
-    console.log('HomePage::ngOnInit() | method called');
-    this.initializeHeatmap();
-  }
-
-  async initializeHeatmap() {
-
-
-    const data = [[38,20,2],[38,690,3],[48,30,1],[48,40,1],[48,670,1],[58,640,1],[58,680,1],[67,630,1],[86,10,1],
+  data = [[38,20,2],[38,690,3],[48,30,1],[48,40,1],[48,670,1],[58,640,1],[58,680,1],[67,630,1],[86,10,1],
     [86,660,1],[96,0,1],[96,80,1],[96,530,1],[96,540,2],[96,560,1],[96,620,1],[96,640,1],[105,530,1],[105,560,3],
     [105,590,1],[105,610,1],[115,300,1],[115,310,4],[125,260,1],[125,280,1],[125,300,1],[125,500,1],[125,530,1],
     [134,250,1],[134,260,1],[134,280,1],[144,40,1],[144,260,1],[144,270,4],[144,320,1],[144,330,1],[153,220,1],
@@ -120,20 +113,32 @@ export class HomePage implements OnInit {
     [921,340,1],[921,720,1],[930,490,1],[930,500,1],[940,180,2],[940,430,1],[940,510,1],[940,580,1],[949,120,5],
     [949,150,1],[949,180,1],[949,370,1],[949,390,1],[949,570,2],[949,720,1],[949,770,2],[949,780,1],[949,860,1]];
 
+  constructor() {}
 
+  ngOnInit() {
+    console.log('HomePage::ngOnInit() | method called');
+    console.log(window.innerWidth, window.innerHeight);
+    this.initializeHeatmap();
+  }
+
+  async initializeHeatmap() {
 
     const options = {canvas: 'testCanvas', debug: true};
     const result = await Heatmap.initialize(options);
     console.log('result', result);
 
+    if ((result.value.width > window.innerWidth) || (result.value.height > window.innerHeight)) {
+      this.resizeHeatmap(window.innerWidth, window.innerHeight);
+    }
+
     result.value.onmousemove = (e) => {
       console.log([e.clientX, e.clientY]);
-      const resultAddPoint = Heatmap.addPoint([e.clientX, e.clientY, 1]);
+      const resultAddPoint = Heatmap.addPoint([e.clientX, e.clientY, 18]);
       console.log('resultAddPoint', resultAddPoint);
       this.frame = this.frame || window.requestAnimationFrame(this.drawHeatmap);
     };
 
-    const d = await Heatmap.setData(data);
+    const d = await Heatmap.setData(this.data);
     console.log('d', d);
     console.time('draw');
     this.drawHeatmap();
@@ -146,11 +151,19 @@ export class HomePage implements OnInit {
     // this.frame = null;
   }
 
-  async onClickResize() {
+  onClickResize() {
     console.log('HomePage::onClickResize() | method called');
-    const options = {width: 500, height: 300};
-    const result = await Heatmap.resize(options);
-    console.log('result', result);
+    this.resizeHeatmap(500, 300);
+  }
+
+  async resizeHeatmap(width: number, height: number) {
+    const options = {width: width, height: height};
+    const elements = document.getElementsByClassName('container');
+    const element = elements.item(0) as HTMLElement;
+    element.style.width = options.width + 'px';
+    element.style.height = options.height + 'px';
+    const resultResize = await Heatmap.resize(options);
+    console.log('result resize', resultResize);
   }
 
 }
