@@ -9,9 +9,6 @@ export interface IHeatmapLog {
 export interface IHeatmapPoint {
     x: number;
     y: number;
-    value: number;
+    thickness: number;
 }
 
-export interface IHeatmapData {
-    data: IHeatmapPoint[];
-}

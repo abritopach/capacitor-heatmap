@@ -109,11 +109,19 @@ export class HomePage implements OnInit {
     [921,340,1],[921,720,1],[930,490,1],[930,500,1],[940,180,2],[940,430,1],[940,510,1],[940,580,1],[949,120,5],
     [949,150,1],[949,180,1],[949,370,1],[949,390,1],[949,570,2],[949,720,1],[949,770,2],[949,780,1],[949,860,1]];
 
+  data2 = [
+    {x: 38, y: 20, thickness: 2},
+    {x: 38, y: 690, thickness: 3},
+    {x: 48, y: 30, thickness: 1}
+  ];
+
   @HostListener('window:resize', ['$event']) async onResize(event) {
     this.resizeHeatmap(event.target.innerWidth, event.target.innerHeight);
   }
 
-  constructor() {}
+  constructor() {
+    console.log('data2', this.data2);
+  }
 
   ngOnInit() {
     console.log('HomePage::ngOnInit() | method called');
