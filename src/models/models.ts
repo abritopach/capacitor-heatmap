@@ -12,3 +12,6 @@ export interface IHeatmapPoint {
     thickness: number;
 }
 
+export type HeatmapPoint = Array<number> | IHeatmapPoint;
+export type HeatmapData = Array<Array<number>> /*| Array<IHeatmapPoint>*/;
+

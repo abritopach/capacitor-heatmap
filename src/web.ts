@@ -3,6 +3,8 @@ import { HeatmapPlugin } from './definitions';
 
 import { Log } from './log';
 
+import { HeatmapPoint, HeatmapData } from './models/models';
+
 export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
 
   _canvas: HTMLCanvasElement;
@@ -10,7 +12,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
   _width: number;
   _height: number;
   _max: number;
-  _data: Array<Array<number>> /*| Array<IHeatmapPoint>*/;
+  _data: HeatmapData;
   _circle: HTMLCanvasElement;
   _heatmapLogger: any;
   _grad: any;
@@ -37,7 +39,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     return options;
   }
 
-  async initialize(options: {canvas: string | HTMLCanvasElement, data?: Array<Array<number>> /*| Array<IHeatmapPoint>*/, debug?: boolean}): Promise<{value: HTMLCanvasElement}> {
+  async initialize(options: {canvas: string | HTMLCanvasElement, data?: HeatmapData, debug?: boolean}): Promise<{value: HTMLCanvasElement}> {
     this._heatmapLogger = new Log(options.debug);
     this._heatmapLogger.log("initialize");
     this._canvas = typeof options.canvas === 'string' ? document.getElementById(options.canvas) as HTMLCanvasElement : options.canvas;
@@ -47,7 +49,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
       this._height = this._canvas.height;
       // this._max = 1;
       this._max = 18;
-      this._data = typeof options.data !== 'undefined' ? options.data :
+      this._data = typeof options.data !== 'undefined' ? options.data : [];
       (
         this._heatmapLogger.warn("Data is undefined or empty. Passes heatmap data into draw function or set heatmap data with setData function."),
         []
@@ -65,7 +67,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
 
   /*********/
 
-  async setData(data: Array<Array<number>> /*| Array<IHeatmapPoint>*/): Promise<{value: any[]}> {
+  async setData(data: HeatmapData): Promise<{value: any[]}> {
     this._heatmapLogger.log("setData");
     this._data = data;
     return {value: this._data};
@@ -77,7 +79,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     return {value: this._data};
   }
 
-  async addPoint(point: Array<number>): Promise<{value: Array<Array<number>> /*| Array<IHeatmapPoint>*/}> {
+  async addPoint(point: Array<number>): Promise<{value: HeatmapData}> {
     this._heatmapLogger.log("addPoint", {newPoint: point});
     this._data.push(point);
     return {value: this._data};
@@ -89,7 +91,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
 
   /*********/
 
-  async draw(options: {minOpacity?: number, data?: Array<Array<number>> /*| Array<IHeatmapPoint>*/}): Promise<{value: boolean}> {
+  async draw(options: {minOpacity?: number, data?: HeatmapData}): Promise<{value: boolean}> {
     this._heatmapLogger.log("draw");
 
     if ( typeof options.data !== 'undefined') this._data = options.data;
@@ -104,7 +106,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     ctx.clearRect(0, 0, this._width, this._height);
 
     // Draw a grayscale heatmap by putting a blurred circle at each data point.
-    this._data.map((point: Array<number> | IHeatmapPoint) => {
+    this._data.map((point: HeatmapPoint) => {
       this._heatmapLogger.log("data", {point: point});
       const thickness = Array.isArray(point) ? point[2] : point.thickness;
       const x = Array.isArray(point) ? point[0] : point.x;
@@ -214,5 +216,4 @@ const Heatmap = new HeatmapWeb();
 export { Heatmap };
 
 import { registerWebPlugin } from '@capacitor/core';
-import { IHeatmapPoint } from './models/models';
 registerWebPlugin(Heatmap);

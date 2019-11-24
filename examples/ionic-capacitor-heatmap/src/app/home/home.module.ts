@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
 
+import { SafePipe } from '../pipes/safe.pipe';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -18,6 +20,6 @@ import { HomePage } from './home.page';
       }
     ])
   ],
-  declarations: [HomePage]
+  declarations: [HomePage, SafePipe]
 })
 export class HomePageModule {}
