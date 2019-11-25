@@ -35,14 +35,16 @@ export class HeatmapWeb extends WebPlugin {
             this._heatmapLogger.log("initialize");
             this._canvas = typeof options.canvas === 'string' ? document.getElementById(options.canvas) : options.canvas;
             if ((this._canvas !== null) && (typeof this._canvas !== 'undefined')) {
+                this._heatmapLogger.log("parent width&height", { parent: this._canvas.parentNode, width: this._canvas.parentNode.parentElement.clientWidth,
+                    height: this._canvas.parentNode.parentElement.clientHeight });
                 this._ctx = this._canvas.getContext('2d');
                 this._width = this._canvas.width;
                 this._height = this._canvas.height;
                 // this._max = 1;
                 this._max = 18;
-                this._data = typeof options.data !== 'undefined' ? options.data :
-                    (this._heatmapLogger.warn("Data is undefined or empty. Passes heatmap data into draw function or set heatmap data with setData function."),
-                        []);
+                this._data = typeof options.data !== 'undefined' ? options.data : [];
+                (this._heatmapLogger.warn("Data is undefined or empty. Passes heatmap data into draw function or set heatmap data with setData function."),
+                    []);
             }
             else {
                 this._heatmapLogger.error("ERROR -> Undefined canvas id or html canvas.");
@@ -94,8 +96,11 @@ export class HeatmapWeb extends WebPlugin {
             // Draw a grayscale heatmap by putting a blurred circle at each data point.
             this._data.map((point) => {
                 this._heatmapLogger.log("data", { point: point });
-                ctx.globalAlpha = Math.min(Math.max(point[2] / this._max, options.minOpacity === undefined ? 0.05 : options.minOpacity), 1);
-                ctx.drawImage(this._circle, point[0] - this._r, point[1] - this._r);
+                const thickness = Array.isArray(point) ? point[2] : point.thickness;
+                const x = Array.isArray(point) ? point[0] : point.x;
+                const y = Array.isArray(point) ? point[1] : point.y;
+                ctx.globalAlpha = Math.min(Math.max(thickness / this._max, options.minOpacity === undefined ? 0.05 : options.minOpacity), 1);
+                ctx.drawImage(this._circle, x - this._r, y - this._r);
             });
             // Colorize the heatmap, using opacity value of each pixel to get the right color from our gradient.
             const colored = ctx.getImageData(0, 0, this._width, this._height);

@@ -44,6 +44,8 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     this._heatmapLogger.log("initialize");
     this._canvas = typeof options.canvas === 'string' ? document.getElementById(options.canvas) as HTMLCanvasElement : options.canvas;
     if ((this._canvas !== null) && (typeof this._canvas !== 'undefined')) {
+      this._heatmapLogger.log("parent width&height", {parent: this._canvas.parentNode, width: this._canvas.parentNode.parentElement.clientWidth,
+      height: this._canvas.parentNode.parentElement.clientHeight});
       this._ctx = this._canvas.getContext('2d');
       this._width = this._canvas.width;
       this._height = this._canvas.height;

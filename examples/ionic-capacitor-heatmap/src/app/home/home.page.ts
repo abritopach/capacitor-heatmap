@@ -127,8 +127,8 @@ export class HomePage implements OnInit {
   ngOnInit() {
     console.log('HomePage::ngOnInit() | method called');
     console.log(window.innerWidth, window.innerHeight);
-    this.initializeHeatmap();
-    // this.initializeHeatmap1();
+    // this.initializeHeatmap();
+    this.initializeHeatmapIframe();
   }
 
   async initializeHeatmap() {
@@ -179,9 +179,9 @@ export class HomePage implements OnInit {
     console.log('result resize', resultResize);
   }
 
-  async initializeHeatmap1() {
+  async initializeHeatmapIframe() {
 
-    const options = {canvas: 'testCanvas1', debug: true};
+    const options = {canvas: 'canvasOnTopIframe', debug: true};
     const result = await Heatmap.initialize(options);
     console.log('result', result);
 

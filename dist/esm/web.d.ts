@@ -1,12 +1,13 @@
 import { WebPlugin } from '@capacitor/core';
 import { HeatmapPlugin } from './definitions';
+import { HeatmapData } from './models/models';
 export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     _canvas: HTMLCanvasElement;
     _ctx: CanvasRenderingContext2D;
     _width: number;
     _height: number;
     _max: number;
-    _data: Array<Array<number>>;
+    _data: HeatmapData;
     _circle: HTMLCanvasElement;
     _heatmapLogger: any;
     _grad: any;
@@ -21,27 +22,27 @@ export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     }>;
     initialize(options: {
         canvas: string | HTMLCanvasElement;
-        data?: Array<Array<number>>;
+        data?: HeatmapData;
         debug?: boolean;
     }): Promise<{
         value: HTMLCanvasElement;
     }>;
     /*********/
     /*********/
-    setData(data: Array<Array<number>>): Promise<{
+    setData(data: HeatmapData): Promise<{
         value: any[];
     }>;
     clearData(): Promise<{
         value: any[];
     }>;
-    addPoint(point: any): Promise<{
-        value: any[];
+    addPoint(point: Array<number>): Promise<{
+        value: HeatmapData;
     }>;
     /*********/
     /*********/
     draw(options: {
         minOpacity?: number;
-        data?: Array<Array<number>>;
+        data?: HeatmapData;
     }): Promise<{
         value: boolean;
     }>;
