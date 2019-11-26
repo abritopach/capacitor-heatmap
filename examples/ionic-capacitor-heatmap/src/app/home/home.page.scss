@@ -8,13 +8,6 @@
     position: relative;
 }
 
-#canvasOnTopIframe {
-    width: 1000px;
-    position: relative;
-    z-index: 20;
-    pointer-events: none;
-}
-
 iframe {
     position: absolute;
     z-index: 1;

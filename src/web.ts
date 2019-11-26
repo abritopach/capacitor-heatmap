@@ -39,13 +39,16 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     return options;
   }
 
-  async initialize(options: {canvas: string | HTMLCanvasElement, data?: HeatmapData, debug?: boolean}): Promise<{value: HTMLCanvasElement}> {
+  async initialize(options: {canvas: string | HTMLCanvasElement, data?: HeatmapData,
+    debug?: boolean, overlap?: {width: number, height: number}}): Promise<{value: HTMLCanvasElement}> {
     this._heatmapLogger = new Log(options.debug);
     this._heatmapLogger.log("initialize");
     this._canvas = typeof options.canvas === 'string' ? document.getElementById(options.canvas) as HTMLCanvasElement : options.canvas;
     if ((this._canvas !== null) && (typeof this._canvas !== 'undefined')) {
-      this._heatmapLogger.log("parent width&height", {parent: this._canvas.parentNode, width: this._canvas.parentNode.parentElement.clientWidth,
-      height: this._canvas.parentNode.parentElement.clientHeight});
+      if (typeof options.overlap !== 'undefined') {
+        this.getParentDimensions(options.overlap);
+        this.setCanvasOverElement();
+      }
       this._ctx = this._canvas.getContext('2d');
       this._width = this._canvas.width;
       this._height = this._canvas.height;
@@ -109,7 +112,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
 
     // Draw a grayscale heatmap by putting a blurred circle at each data point.
     this._data.map((point: HeatmapPoint) => {
-      this._heatmapLogger.log("data", {point: point});
+      // this._heatmapLogger.log("data", {point: point});
       const thickness = Array.isArray(point) ? point[2] : point.thickness;
       const x = Array.isArray(point) ? point[0] : point.x;
       const y = Array.isArray(point) ? point[1] : point.y;
@@ -145,6 +148,24 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
   /*********/
   // Private methods.
   /*********/
+
+  private setCanvasOverElement() {
+    this._canvas.style.position = "relative";
+    this._canvas.style.zIndex = "99999";
+    this._canvas.style.pointerEvents = "none";
+  }
+
+  private getParentDimensions(overlap: {width: number, height: number}) {
+    this._heatmapLogger.log("getParentDimensions", {parent: this._canvas.parentNode, width: this._canvas.parentElement.clientWidth,
+      height: this._canvas.parentElement.clientHeight});
+    // this._canvas.width = this._canvas.parentNode.parentElement.clientWidth;
+    // this._canvas.height = this._canvas.parentNode.parentElement.clientHeight;
+    this._canvas.width = overlap.width;
+    this._canvas.height = overlap.height;
+    if ((this._canvas.width === 0) || (this._canvas.height === 0)) {
+      this._heatmapLogger.error("ERROR -> Canvas dimensions are zero.");
+    }
+  }
 
   private clearCanvas() {
     this._ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);

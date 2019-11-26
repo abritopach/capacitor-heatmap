@@ -170,18 +170,21 @@ export class HomePage implements OnInit {
   }
 
   async resizeHeatmap(width: number, height: number) {
-    const options = {width: width, height: height};
+
+    /*
+    const options = {width, height};
     const elements = document.getElementsByClassName('container');
     const element = elements.item(0) as HTMLElement;
     element.style.width = options.width + 'px';
     element.style.height = options.height + 'px';
     const resultResize = await Heatmap.resize(options);
     console.log('result resize', resultResize);
+    */
   }
 
   async initializeHeatmapIframe() {
 
-    const options = {canvas: 'canvasOnTopIframe', debug: true};
+    const options = {canvas: 'canvasOnTopIframe', debug: true, overlap: {width: 1000, height: 480}};
     const result = await Heatmap.initialize(options);
     console.log('result', result);
 
