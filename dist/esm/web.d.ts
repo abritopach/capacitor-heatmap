@@ -25,6 +25,7 @@ export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
         data?: HeatmapData;
         debug?: boolean;
         overlap?: {
+            parent: string;
             width: number;
             height: number;
         };

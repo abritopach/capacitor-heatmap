@@ -137,6 +137,12 @@ export class HeatmapWeb extends WebPlugin {
         this._canvas.style.pointerEvents = "none";
     }
     getParentDimensions(overlap) {
+        const compStyles = window.getComputedStyle(document.getElementById(overlap.parent));
+        console.log(compStyles.getPropertyValue('width'));
+        console.log(compStyles.getPropertyValue('height'));
+        const compStyles1 = window.getComputedStyle(this._canvas.parentNode.parentElement);
+        console.log(compStyles1.getPropertyValue('width'));
+        console.log(compStyles1.getPropertyValue('height'));
         this._heatmapLogger.log("getParentDimensions", { parent: this._canvas.parentNode, width: this._canvas.parentElement.clientWidth,
             height: this._canvas.parentElement.clientHeight });
         // this._canvas.width = this._canvas.parentNode.parentElement.clientWidth;

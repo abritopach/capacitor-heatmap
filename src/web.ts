@@ -40,7 +40,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
   }
 
   async initialize(options: {canvas: string | HTMLCanvasElement, data?: HeatmapData,
-    debug?: boolean, overlap?: {width: number, height: number}}): Promise<{value: HTMLCanvasElement}> {
+    debug?: boolean, overlap?: {parent: string, width: number, height: number}}): Promise<{value: HTMLCanvasElement}> {
     this._heatmapLogger = new Log(options.debug);
     this._heatmapLogger.log("initialize");
     this._canvas = typeof options.canvas === 'string' ? document.getElementById(options.canvas) as HTMLCanvasElement : options.canvas;
@@ -155,7 +155,13 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     this._canvas.style.pointerEvents = "none";
   }
 
-  private getParentDimensions(overlap: {width: number, height: number}) {
+  private getParentDimensions(overlap: {parent: string, width: number, height: number}) {
+    const compStyles = window.getComputedStyle(document.getElementById(overlap.parent));
+    console.log(compStyles.getPropertyValue('width'));
+    console.log(compStyles.getPropertyValue('height'));
+    const compStyles1 = window.getComputedStyle(this._canvas.parentNode.parentElement);
+    console.log(compStyles1.getPropertyValue('width'));
+    console.log(compStyles1.getPropertyValue('height'));
     this._heatmapLogger.log("getParentDimensions", {parent: this._canvas.parentNode, width: this._canvas.parentElement.clientWidth,
       height: this._canvas.parentElement.clientHeight});
     // this._canvas.width = this._canvas.parentNode.parentElement.clientWidth;

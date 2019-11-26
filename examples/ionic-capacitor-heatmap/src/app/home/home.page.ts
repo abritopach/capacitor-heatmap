@@ -184,7 +184,7 @@ export class HomePage implements OnInit {
 
   async initializeHeatmapIframe() {
 
-    const options = {canvas: 'canvasOnTopIframe', debug: true, overlap: {width: 1000, height: 480}};
+    const options = {canvas: 'canvasOnTopIframe', debug: true, overlap: {parent: 'containerIframeCanvas', width: 1000, height: 480}};
     const result = await Heatmap.initialize(options);
     console.log('result', result);
 
