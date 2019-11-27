@@ -36,8 +36,7 @@ export class HeatmapWeb extends WebPlugin {
             this._canvas = typeof options.canvas === 'string' ? document.getElementById(options.canvas) : options.canvas;
             if ((this._canvas !== null) && (typeof this._canvas !== 'undefined')) {
                 if (typeof options.overlap !== 'undefined') {
-                    this.getParentDimensions(options.overlap);
-                    this.setCanvasOverElement();
+                    this.setCanvasOverElement(options.overlap);
                 }
                 this._ctx = this._canvas.getContext('2d');
                 this._width = this._canvas.width;
@@ -131,27 +130,36 @@ export class HeatmapWeb extends WebPlugin {
     /*********/
     // Private methods.
     /*********/
-    setCanvasOverElement() {
+    setSiblingElementStyles(parent, dimensions) {
+        this._heatmapLogger.log("setSiblingElementStyles", dimensions);
+        console.log(document.getElementById(parent).firstChild);
+        console.log(document.getElementById(parent).firstElementChild);
+    }
+    setCanvasElementStyles(dimensions) {
+        this._heatmapLogger.log("setCanvasElementStyles", dimensions);
+        const { width, height } = dimensions;
+        this._canvas.width = width;
+        this._canvas.height = height;
         this._canvas.style.position = "relative";
         this._canvas.style.zIndex = "99999";
         this._canvas.style.pointerEvents = "none";
     }
-    getParentDimensions(overlap) {
-        const compStyles = window.getComputedStyle(document.getElementById(overlap.parent));
-        console.log(compStyles.getPropertyValue('width'));
-        console.log(compStyles.getPropertyValue('height'));
-        const compStyles1 = window.getComputedStyle(this._canvas.parentNode.parentElement);
-        console.log(compStyles1.getPropertyValue('width'));
-        console.log(compStyles1.getPropertyValue('height'));
-        this._heatmapLogger.log("getParentDimensions", { parent: this._canvas.parentNode, width: this._canvas.parentElement.clientWidth,
-            height: this._canvas.parentElement.clientHeight });
-        // this._canvas.width = this._canvas.parentNode.parentElement.clientWidth;
-        // this._canvas.height = this._canvas.parentNode.parentElement.clientHeight;
-        this._canvas.width = overlap.width;
-        this._canvas.height = overlap.height;
+    setCanvasOverElement(overlap) {
+        const { width, height } = this.getParentDimensions(overlap.parent);
+        this.setSiblingElementStyles(overlap.parent, { width, height });
+        this.setCanvasElementStyles({ width, height });
         if ((this._canvas.width === 0) || (this._canvas.height === 0)) {
             this._heatmapLogger.error("ERROR -> Canvas dimensions are zero.");
         }
+    }
+    getParentDimensions(parent) {
+        const compStyles = window.getComputedStyle(document.getElementById(parent));
+        const width = parseInt(compStyles.getPropertyValue('width'));
+        const height = parseInt(compStyles.getPropertyValue('height'));
+        console.log(width);
+        console.log(height);
+        this._heatmapLogger.log("getParentDimensions", { parent: this._canvas.parentNode, width: width, height: height });
+        return { width: width, height: height };
     }
     clearCanvas() {
         this._ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);

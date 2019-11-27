@@ -26,8 +26,6 @@ export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
         debug?: boolean;
         overlap?: {
             parent: string;
-            width: number;
-            height: number;
         };
     }): Promise<{
         value: HTMLCanvasElement;
@@ -64,6 +62,8 @@ export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     }>;
     /*********/
     /*********/
+    private setSiblingElementStyles;
+    private setCanvasElementStyles;
     private setCanvasOverElement;
     private getParentDimensions;
     private clearCanvas;
