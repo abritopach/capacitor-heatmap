@@ -150,9 +150,13 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
 
   private setSiblingElementStyles(parent: string, dimensions: {width: number, height: number}) {
     this._heatmapLogger.log("setSiblingElementStyles", dimensions);
-    console.log(document.getElementById(parent).firstChild)
-    console.log(document.getElementById(parent).firstElementChild);
-    // const element = document.getElementById(parent).firstElementChild as HTMLIFrameElement;
+    const {width, height} = dimensions;
+    const element = document.getElementById(parent).firstElementChild as HTMLElement;
+    element.style.width = width.toString() + "px";
+    element.style.height = height.toString() + "px";
+    element.style.position = "absolute";
+    element.style.zIndex = "1";
+
   }
 
   private setCanvasElementStyles(dimensions: {width: number, height: number}) {
@@ -183,8 +187,6 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     const compStyles = window.getComputedStyle(document.getElementById(parent));
     const width = parseInt(compStyles.getPropertyValue('width'));
     const height = parseInt(compStyles.getPropertyValue('height'));
-    console.log(width);
-    console.log(height);
     this._heatmapLogger.log("getParentDimensions", {parent: this._canvas.parentNode, width: width, height: height});
     return {width: width, height: height};
   }

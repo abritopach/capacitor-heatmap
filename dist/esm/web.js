@@ -132,8 +132,14 @@ export class HeatmapWeb extends WebPlugin {
     /*********/
     setSiblingElementStyles(parent, dimensions) {
         this._heatmapLogger.log("setSiblingElementStyles", dimensions);
+        const { width, height } = dimensions;
         console.log(document.getElementById(parent).firstChild);
         console.log(document.getElementById(parent).firstElementChild);
+        const element = document.getElementById(parent).firstElementChild;
+        element.style.width = width.toString() + "px";
+        element.style.height = height.toString() + "px";
+        element.style.position = "absolute";
+        element.style.zIndex = "1";
     }
     setCanvasElementStyles(dimensions) {
         this._heatmapLogger.log("setCanvasElementStyles", dimensions);
