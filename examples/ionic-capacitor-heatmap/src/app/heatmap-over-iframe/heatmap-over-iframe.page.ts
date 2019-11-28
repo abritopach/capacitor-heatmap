@@ -1,16 +1,15 @@
-import { Component, OnInit, HostListener } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
 import { Heatmap } from 'capacitor-heatmap';
 
-window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame;
-
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-heatmap-over-iframe',
+  templateUrl: './heatmap-over-iframe.page.html',
+  styleUrls: ['./heatmap-over-iframe.page.scss'],
 })
-export class HomePage implements OnInit {
+export class HeatmapOverIframePage implements OnInit {
 
+  urlIframe: string = 'https://www.marca.com';
+  frame: any;
   data = [[38,20,2],[38,690,3],[48,30,1],[48,40,1],[48,670,1],[58,640,1],[58,680,1],[67,630,1],[86,10,1],
     [86,660,1],[96,0,1],[96,80,1],[96,530,1],[96,540,2],[96,560,1],[96,620,1],[96,640,1],[105,530,1],[105,560,3],
     [105,590,1],[105,610,1],[115,300,1],[115,310,4],[125,260,1],[125,280,1],[125,300,1],[125,500,1],[125,530,1],
@@ -108,45 +107,18 @@ export class HomePage implements OnInit {
     [921,340,1],[921,720,1],[930,490,1],[930,500,1],[940,180,2],[940,430,1],[940,510,1],[940,580,1],[949,120,5],
     [949,150,1],[949,180,1],[949,370,1],[949,390,1],[949,570,2],[949,720,1],[949,770,2],[949,780,1],[949,860,1]];
 
-  data2 = [
-    {x: 38, y: 20, thickness: 2},
-    {x: 38, y: 690, thickness: 3},
-    {x: 48, y: 30, thickness: 1}
-  ];
 
-  @HostListener('window:resize', ['$event']) async onResize(event) {
-    this.resizeHeatmap(event.target.innerWidth, event.target.innerHeight);
-  }
-
-  constructor() {
-    console.log('data2', this.data2);
-  }
+  constructor() { }
 
   ngOnInit() {
-    console.log('HomePage::ngOnInit() | method called');
-    console.log(window.innerWidth, window.innerHeight);
-    this.initializeHeatmap();
+    this.initializeHeatmapOverIframe();
   }
 
-  async initializeHeatmap() {
+  async initializeHeatmapOverIframe() {
 
-    const options = {canvas: 'testCanvas', debug: true};
+    const options = {canvas: 'canvasOnTopIframe', debug: true, overlap: {parent: 'containerIframeCanvas'}};
     const result = await Heatmap.initialize(options);
     console.log('result', result);
-
-    if ((result.value.width > window.innerWidth) || (result.value.height > window.innerHeight)) {
-      this.resizeHeatmap(window.innerWidth, window.innerHeight);
-    }
-
-    result.value.onmousemove = (e) => {
-      console.log([e.clientX, e.clientY]);
-      const rect = result.value.getBoundingClientRect();
-      console.log([e.clientX - rect.left, e.clientY - rect.top]);
-      const resultAddPoint = Heatmap.addPoint([e.clientX - rect.left, e.clientY - rect.top, 18]);
-      console.log('resultAddPoint', resultAddPoint);
-      // this.frame = this.frame || window.requestAnimationFrame(this.drawHeatmap);
-      window.requestAnimationFrame(this.drawHeatmap);
-    };
 
     const d = await Heatmap.setData(this.data);
     console.log('d', d);
@@ -158,22 +130,6 @@ export class HomePage implements OnInit {
   async drawHeatmap() {
     const options = {};
     const result = await Heatmap.draw(options);
-    // this.frame = null;
-  }
-
-  onClickResize() {
-    console.log('HomePage::onClickResize() | method called');
-    this.resizeHeatmap(500, 300);
-  }
-
-  async resizeHeatmap(width: number, height: number) {
-    const options = {width, height};
-    const elements = document.getElementsByClassName('container');
-    const element = elements.item(0) as HTMLElement;
-    element.style.width = options.width + 'px';
-    element.style.height = options.height + 'px';
-    const resultResize = await Heatmap.resize(options);
-    console.log('result resize', resultResize);
   }
 
 }

@@ -9,7 +9,8 @@ declare module "@capacitor/core" {
 export interface HeatmapPlugin {
   echo(options: { value: string }): Promise<{value: string}>;
   initialize(options: {canvas: string | HTMLCanvasElement, data?: HeatmapData, debug?: boolean,
-  overlap?: {parent: string}}): Promise<{value: HTMLCanvasElement}>;
+                       overlap?: {parent: string}}): Promise<{value: HTMLCanvasElement}>;
+  destroy(): Promise<{value: HTMLCanvasElement}>;
   /*********/
   // Methods for handling heatmap data.
   /*********/

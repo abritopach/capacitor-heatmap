@@ -1,8 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>
-      Ionic Test Capacitor Heatmap Plugin
-    </ion-title>
+    <ion-title>Ionic Test Capacitor Heatmap Plugin</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,13 +10,13 @@
     <p>If you get lost, the <a target="_blank" rel="noopener" href="https://github.com/abritopach/capacitor-heatmap">Capacitor Heatmap Plugin docs</a> will be your guide.</p>
   </div>
   <ion-item lines="none">
-    <h2>Example Default Heatmap</h2>
+    <h2>Example Heatmap Over Iframe</h2>
   </ion-item>
   <br>
-  <div class="container">
-    <canvas id="testCanvas" width="1000" height="600"></canvas>
-  </div>
   <ion-item lines="none">
-    <ion-button color="primary" (click)="onClickResize()">Resize 500x300px</ion-button>
+      <div id="containerIframeCanvas">
+          <iframe [src]="urlIframe | safe"></iframe>
+          <canvas id="canvasOnTopIframe"></canvas>
+      </div>
   </ion-item>
 </ion-content>

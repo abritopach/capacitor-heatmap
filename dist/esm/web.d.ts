@@ -33,10 +33,10 @@ export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     /*********/
     /*********/
     setData(data: HeatmapData): Promise<{
-        value: any[];
+        value: HeatmapData;
     }>;
     clearData(): Promise<{
-        value: any[];
+        value: HeatmapData;
     }>;
     addPoint(point: Array<number>): Promise<{
         value: HeatmapData;

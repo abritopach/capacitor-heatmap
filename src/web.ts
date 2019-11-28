@@ -65,6 +65,19 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     return {value: this._canvas};
   }
 
+  async destroy(): Promise<{value: HTMLCanvasElement}> {
+    this.clearCanvas();
+    this._canvas = null;
+    this._width = 0;
+    this._height = 0;
+    this._max = 0;
+    this._data = [];
+    this._circle = null;
+    this._grad = {};
+    this._r = 0;
+    return {value: this._canvas};
+  }
+
   /*********/
 
   // Methods for handling heatmap data.

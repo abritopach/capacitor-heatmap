@@ -10,6 +10,25 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+
+  public appPages = [
+    {
+      title: 'Default Heatmap',
+      url: '/home',
+      icon: 'flame'
+    },
+    {
+      title: 'Heatmap over Iframe',
+      url: '/heatmap-over-iframe',
+      icon: 'flame'
+    },
+    {
+      title: 'Heatmap over Img',
+      url: '/heatmap-over-img',
+      icon: 'flame'
+    }
+  ];
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,

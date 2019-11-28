@@ -1,3 +1,4 @@
+import { HeatmapData } from "./models/models";
 declare module "@capacitor/core" {
     interface PluginRegistry {
         Heatmap: HeatmapPlugin;
@@ -11,27 +12,30 @@ export interface HeatmapPlugin {
     }>;
     initialize(options: {
         canvas: string | HTMLCanvasElement;
-        data?: any[];
+        data?: HeatmapData;
         debug?: boolean;
+        overlap?: {
+            parent: string;
+        };
     }): Promise<{
         value: HTMLCanvasElement;
     }>;
     /*********/
     /*********/
-    setData(data: any[]): Promise<{
-        value: any[];
+    setData(data: HeatmapData): Promise<{
+        value: HeatmapData;
     }>;
     clearData(): Promise<{
-        value: any[];
+        value: HeatmapData;
     }>;
-    addPoint(point: any): Promise<{
-        value: any[];
+    addPoint(point: Array<number>): Promise<{
+        value: HeatmapData;
     }>;
     /*********/
     /*********/
     draw(options: {
         minOpacity?: number;
-        data?: any[];
+        data?: HeatmapData;
     }): Promise<{
         value: boolean;
     }>;
