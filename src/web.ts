@@ -71,13 +71,13 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
 
   /*********/
 
-  async setData(data: HeatmapData): Promise<{value: any[]}> {
+  async setData(data: HeatmapData): Promise<{value: HeatmapData}> {
     this._heatmapLogger.log("setData");
     this._data = data;
     return {value: this._data};
   }
 
-  async clearData(): Promise<{value: any[]}> {
+  async clearData(): Promise<{value: HeatmapData}> {
     this._heatmapLogger.log("clearData");
     this._data = [];
     return {value: this._data};

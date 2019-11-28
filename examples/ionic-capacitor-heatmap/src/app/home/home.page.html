@@ -19,10 +19,18 @@
     <ion-button color="primary" (click)="onClickResize()">Resize 500x300px</ion-button>
   </ion-item>
   -->
+  <!--
   <ion-item lines="none">
       <div id="containerIframeCanvas">
-          <iframe [src]="url | safe"></iframe>
+          <iframe [src]="urlIframe | safe"></iframe>
           <canvas id="canvasOnTopIframe"></canvas>
       </div>
+  </ion-item>
+  -->
+  <ion-item lines="none">
+    <div id="containerImgCanvas">
+        <img [src]="urlImg | safe"/>
+        <canvas id="canvasOnTopImg"></canvas>
+    </div>
   </ion-item>
 </ion-content>

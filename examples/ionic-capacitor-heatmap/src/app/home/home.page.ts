@@ -11,8 +11,9 @@ window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequ
 })
 export class HomePage implements OnInit {
 
-  url: string = 'https://www.marca.com';
+  urlIframe: string = 'https://www.marca.com';
   frame: any;
+  urlImg: string = 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/full%20page/img(20).jpg';
   data = [[38,20,2],[38,690,3],[48,30,1],[48,40,1],[48,670,1],[58,640,1],[58,680,1],[67,630,1],[86,10,1],
     [86,660,1],[96,0,1],[96,80,1],[96,530,1],[96,540,2],[96,560,1],[96,620,1],[96,640,1],[105,530,1],[105,560,3],
     [105,590,1],[105,610,1],[115,300,1],[115,310,4],[125,260,1],[125,280,1],[125,300,1],[125,500,1],[125,530,1],
@@ -128,7 +129,8 @@ export class HomePage implements OnInit {
     console.log('HomePage::ngOnInit() | method called');
     console.log(window.innerWidth, window.innerHeight);
     // this.initializeHeatmap();
-    this.initializeHeatmapIframe();
+    // this.initializeHeatmapOverIframe();
+    this.initializeHeatmapOverImg();
   }
 
   async initializeHeatmap() {
@@ -182,9 +184,22 @@ export class HomePage implements OnInit {
     */
   }
 
-  async initializeHeatmapIframe() {
+  async initializeHeatmapOverIframe() {
 
     const options = {canvas: 'canvasOnTopIframe', debug: true, overlap: {parent: 'containerIframeCanvas'}};
+    const result = await Heatmap.initialize(options);
+    console.log('result', result);
+
+    const d = await Heatmap.setData(this.data);
+    console.log('d', d);
+    console.time('draw');
+    this.drawHeatmap();
+    console.timeEnd('draw');
+  }
+
+  async initializeHeatmapOverImg() {
+
+    const options = {canvas: 'canvasOnTopImg', debug: true, overlap: {parent: 'containerImgCanvas'}};
     const result = await Heatmap.initialize(options);
     console.log('result', result);
 

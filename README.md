@@ -17,3 +17,135 @@ Capacitor is a cross-platform API and code execution layer that makes it easy to
 Capacitor is being designed by the Ionic Framework team as an eventual alternative to Cordova, though backwards compatibility with Cordova plugins is a priority and is actively being worked on. Capacitor can be used without Ionic Framework, but soon it'll become a core part of the Ionic developer experience.
 
 Capacitor also comes with a Plugin API for building native plugins. On iOS, first-class Swift support is available, and much of the iOS Capacitor runtime is written in Swift. Plugins may also be written in Objective-C. On Android, support for writing plugins with Java and Kotlin is supported.
+
+## Capacitor Heatmap WEB models
+
+```bash
+
+INTERFACES & TYPES
+
+export interface IHeatmapLog {
+    log(primaryMessage: string, ...supportingData: any[]): void;
+    debug(primaryMessage: string, ...supportingData: any[]): void;
+    warn(primaryMessage: string, ...supportingData: any[]): void;
+    error(primaryMessage: string, ...supportingData: any[]): void;
+    info(primaryMessage: string, ...supportingData: any[]): void;
+}
+
+export interface IHeatmapPoint {
+    x: number;
+    y: number;
+    thickness: number;
+}
+
+export type HeatmapPoint = Array<number> | IHeatmapPoint;
+export type HeatmapData = Array<Array<number>>
+
+```
+
+## Capacitor Heatmap WEB public API methods.
+
+### `initialize(options: {canvas: string | HTMLCanvasElement, data?: HeatmapData, debug?: boolean, overlap?: {parent: string}}): Promise<{value: HTMLCanvasElement}>`
+
+```bash
+Initialize heatmap.
+
+async initializeHeatmap() {
+    const options = {canvas: 'your-canvas-id', debug: true}};
+    const result = await Heatmap.initialize(options);
+    console.log('result', result);
+}
+
+```
+
+#### Returns
+
+Type: `Promise<{value: HTMLCanvasElement}>`
+
+
+
+### `setData(data: HeatmapData): Promise<{value: HeatmapData}>`
+
+```bash
+Set heatmap data of [[x, y, thickness], ...] format.
+
+const d = await Heatmap.setData(this.data);
+
+```
+
+#### Returns
+
+Type: `Promise<{value: HeatmapData}>`
+
+
+
+### `clearData(): Promise<{value: HeatmapData}>`
+
+```bash
+Clear heatmap data.
+
+const d = await Heatmap.clearData();
+
+```
+
+#### Returns
+
+Type: `Promise<{value: HeatmapData}>`
+
+
+
+### `addPoint(point: Array<number>): Promise<{value: HeatmapData}>`
+
+```bash
+Add new point to heatmap data.
+
+canvas.onmousemove = (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const resultAddPoint = Heatmap.addPoint([e.clientX - rect.left, e.clientY - rect.top, 18]);
+    window.requestAnimationFrame(this.drawHeatmap);
+};
+
+```
+
+#### Returns
+
+Type: `Promise<{value: HeatmapData}>`
+
+
+
+### `draw(options: {minOpacity?: number, data?: HeatmapData}): Promise<{value: boolean}>`
+
+```bash
+Draw heatmap.
+
+async drawHeatmap(data) {
+    const options = {data};
+    const result = await Heatmap.draw(options);
+}
+
+```
+
+#### Returns
+
+Type: `Promise<{value: boolean}>`
+
+
+
+### `resize(options: {width: number, height: number}): Promise<{value: {newWidth: number, newHeight: number}}>`
+
+```bash
+Resize heatmap canvas.
+
+async resizeHeatmap(width: number, height: number) {
+    const options = {width, height};
+    const resultResize = await Heatmap.resize(options);
+    console.log('result resize', resultResize);
+}
+
+```
+
+#### Returns
+
+Type: `Promise<{value: {newWidth: number, newHeight: number}}>`
+
+
