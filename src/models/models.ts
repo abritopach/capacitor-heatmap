@@ -6,12 +6,20 @@ export interface IHeatmapLog {
     info(primaryMessage: string, ...supportingData: any[]): void;
 }
 
+export interface IHeatmapOptions {
+    canvas: string | HTMLCanvasElement;
+    data?: HeatmapData;
+    overlap?: {parent: string};
+    debug?: boolean;
+}
+
 export interface IHeatmapPoint {
     x: number;
     y: number;
     thickness: number;
 }
 
+export type HeatmapGradient = Record<number, string>;
 export type HeatmapPoint = Array<number> | IHeatmapPoint;
 export type HeatmapData = Array<Array<number>> /*| Array<IHeatmapPoint>*/;
 

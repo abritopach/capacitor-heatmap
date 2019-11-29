@@ -32,20 +32,28 @@ export interface IHeatmapLog {
     info(primaryMessage: string, ...supportingData: any[]): void;
 }
 
+export interface IHeatmapOptions {
+    canvas: string | HTMLCanvasElement;
+    data?: HeatmapData;
+    overlap?: {parent: string};
+    debug?: boolean;
+}
+
 export interface IHeatmapPoint {
     x: number;
     y: number;
     thickness: number;
 }
 
+export type HeatmapGradient = Record<number, string>;
 export type HeatmapPoint = Array<number> | IHeatmapPoint;
-export type HeatmapData = Array<Array<number>>
+export type HeatmapData = Array<Array<number>>;
 
 ```
 
 ## Capacitor Heatmap WEB public API methods.
 
-### `initialize(options: {canvas: string | HTMLCanvasElement, data?: HeatmapData, debug?: boolean, overlap?: {parent: string}}): Promise<{value: HTMLCanvasElement}>`
+### `initialize(options: IHeatmapOptions): Promise<{value: HTMLCanvasElement}>`
 
 ```bash
 Initialize heatmap.
@@ -63,6 +71,8 @@ async initializeHeatmap() {
 Type: `Promise<{value: HTMLCanvasElement}>`
 
 
+
+### Methods for handling heatmap data.
 
 ### `setData(data: HeatmapData): Promise<{value: HeatmapData}>`
 
@@ -113,6 +123,19 @@ Type: `Promise<{value: HeatmapData}>`
 
 
 
+### `setMax(max: number): Promise<{value: number}>`
+
+```bash
+Set max data value (1 by default).
+
+const newMax = Heatmap.setMax(18);
+
+```
+
+
+
+### Methods for rendering heatmap.
+
 ### `draw(options: {minOpacity?: number, data?: HeatmapData}): Promise<{value: boolean}>`
 
 ```bash
@@ -131,6 +154,8 @@ Type: `Promise<{value: boolean}>`
 
 
 
+### Methods for handling heatmap appearance.
+
 ### `resize(options: {width: number, height: number}): Promise<{value: {newWidth: number, newHeight: number}}>`
 
 ```bash
@@ -148,4 +173,19 @@ async resizeHeatmap(width: number, height: number) {
 
 Type: `Promise<{value: {newWidth: number, newHeight: number}}>`
 
+
+
+### `gradient(grad: HeatmapGradient): Promise<{value: Uint8ClampedArray}>;`
+
+```bash
+Set gradient colors as HeatmapGradient.
+
+const resultGradient = await Heatmap.gradient(grad);
+
+
+```
+
+#### Returns
+
+Type: `Promise<{value: Uint8ClampedArray}>`
 

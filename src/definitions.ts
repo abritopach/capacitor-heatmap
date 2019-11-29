@@ -1,4 +1,4 @@
-import { HeatmapData } from "./models/models";
+import { HeatmapData, IHeatmapOptions, HeatmapGradient } from "./models/models";
 
 declare module "@capacitor/core" {
   interface PluginRegistry {
@@ -8,8 +8,7 @@ declare module "@capacitor/core" {
 
 export interface HeatmapPlugin {
   echo(options: { value: string }): Promise<{value: string}>;
-  initialize(options: {canvas: string | HTMLCanvasElement, data?: HeatmapData, debug?: boolean,
-                       overlap?: {parent: string}}): Promise<{value: HTMLCanvasElement}>;
+  initialize(options: IHeatmapOptions): Promise<{value: HTMLCanvasElement}>;
   destroy(): Promise<{value: HTMLCanvasElement}>;
   /*********/
   // Methods for handling heatmap data.
@@ -17,6 +16,7 @@ export interface HeatmapPlugin {
   setData(data: HeatmapData): Promise<{value: HeatmapData}>;
   clearData(): Promise<{value: HeatmapData}>;
   addPoint(point: Array<number>): Promise<{value: HeatmapData}>;
+  setMax(max: number): Promise<{value: number}>
   /*********/
   // Methods for rendering heatmap.
   /*********/
@@ -25,4 +25,5 @@ export interface HeatmapPlugin {
   // Methods for handling heatmap appearance.
   /*********/
   resize(options: {width: number, height: number}): Promise<{value: {newWidth: number, newHeight: number}}>;
+  gradient(grad: HeatmapGradient): Promise<{value: Uint8ClampedArray}>;
 }

@@ -3,7 +3,7 @@ import { HeatmapPlugin } from './definitions';
 
 import { Log } from './log';
 
-import { HeatmapPoint, HeatmapData } from './models/models';
+import { HeatmapPoint, HeatmapData, HeatmapGradient, IHeatmapOptions } from './models/models';
 
 export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
 
@@ -15,10 +15,10 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
   _data: HeatmapData;
   _circle: HTMLCanvasElement;
   _heatmapLogger: any;
-  _grad: any;
+  _grad: Uint8ClampedArray;
   _r: number;
 
-  defaultGradient: any = {
+  static readonly DEFAULT_GRADIENT: HeatmapGradient = {
     0.4: 'blue',
     0.6: 'cyan',
     0.7: 'lime',
@@ -39,8 +39,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     return options;
   }
 
-  async initialize(options: {canvas: string | HTMLCanvasElement, data?: HeatmapData,
-    debug?: boolean, overlap?: {parent: string}}): Promise<{value: HTMLCanvasElement}> {
+  async initialize(options: IHeatmapOptions): Promise<{value: HTMLCanvasElement}> {
     this._heatmapLogger = new Log(options.debug);
     this._heatmapLogger.log("initialize");
     this._canvas = typeof options.canvas === 'string' ? document.getElementById(options.canvas) as HTMLCanvasElement : options.canvas;
@@ -51,8 +50,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
       this._ctx = this._canvas.getContext('2d');
       this._width = this._canvas.width;
       this._height = this._canvas.height;
-      // this._max = 1;
-      this._max = 18;
+      this._max = 1;
       this._data = typeof options.data !== 'undefined' ? options.data : [];
       (
         this._heatmapLogger.warn("Data is undefined or empty. Passes heatmap data into draw function or set heatmap data with setData function."),
@@ -73,7 +71,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     this._max = 0;
     this._data = [];
     this._circle = null;
-    this._grad = {};
+    this._grad = null;
     this._r = 0;
     return {value: this._canvas};
   }
@@ -102,6 +100,11 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     return {value: this._data};
   }
 
+  async setMax(max: number): Promise<{value: number}> {
+    this._max = max;
+    return {value: this._max};
+  }
+
   /*********/
 
   // Methods for rendering heatmap.
@@ -115,7 +118,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     this._heatmapLogger.log("draw", {length: this._data.length});
 
     if (!this._circle) this.radius(HeatmapWeb.DEFAULT_RADIUS);
-    if (!this._grad) this.gradient(this.defaultGradient);
+    if (!this._grad) this.gradient(HeatmapWeb.DEFAULT_GRADIENT);
 
     this._heatmapLogger.log("circle", {circle: this._circle});
     this._heatmapLogger.log("width&height", {width: this._width, height: this._height});
@@ -154,6 +157,28 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     const opt = {};
     await this.draw(opt);
     return {value: {newWidth: this._canvas.width, newHeight: this._canvas.height}};
+  }
+
+  async gradient(grad: HeatmapGradient): Promise<{value: Uint8ClampedArray}> {
+    this._heatmapLogger.log("gradient", {grad: grad});
+    // Create a 256x1 gradient that we'll use to turn a grayscale heatmap into a colored one.
+    const canvas = this._createCanvas(),
+        ctx = canvas.getContext('2d'),
+        gradient = ctx.createLinearGradient(0, 0, 0, 256);
+
+    canvas.width = 1;
+    canvas.height = 256;
+
+    for (var i in grad) {
+        gradient.addColorStop(+i, grad[i]);
+    }
+
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, 1, 256);
+
+    this._grad = ctx.getImageData(0, 0, 1, 256).data;
+    this._heatmapLogger.log("gradient", {canvas: canvas, ctx: ctx});
+    return {value: this._grad};
   }
 
 
@@ -226,27 +251,6 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     ctx.arc(-r2, -r2, r, 0, Math.PI * 2, true);
     ctx.closePath();
     ctx.fill();
-  }
-
-  private gradient (grad: any) {
-    this._heatmapLogger.log("gradient", {grad: grad});
-    // Create a 256x1 gradient that we'll use to turn a grayscale heatmap into a colored one.
-    const canvas = this._createCanvas(),
-        ctx = canvas.getContext('2d'),
-        gradient = ctx.createLinearGradient(0, 0, 0, 256);
-
-    canvas.width = 1;
-    canvas.height = 256;
-
-    for (var i in grad) {
-        gradient.addColorStop(+i, grad[i]);
-    }
-
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, 1, 256);
-
-    this._grad = ctx.getImageData(0, 0, 1, 256).data;
-    this._heatmapLogger.log("gradient", {canvas: canvas, ctx: ctx});
   }
 
   private _colorize (pixels: any, gradient: any) {
