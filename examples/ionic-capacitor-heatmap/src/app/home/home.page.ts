@@ -1,8 +1,9 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
 
-import { Heatmap } from 'capacitor-heatmap';
+import { Heatmap, HeatmapWeb } from 'capacitor-heatmap';
 
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
+import { IHeatmapOptions, IHeatmapPoint } from 'capacitor-heatmap/dist/esm/models/models';
 
 window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame;
 
@@ -35,19 +36,20 @@ export class HomePage implements OnInit {
 
   async initializeHeatmap() {
 
-    const options = {canvas: 'testCanvas', debug: true};
+    const options: IHeatmapOptions = {canvas: 'testCanvas', debug: true};
     const result = await Heatmap.initialize(options);
     console.log('result', result);
+
+    Heatmap.setMax(18);
 
     if ((result.value.width > window.innerWidth) || (result.value.height > window.innerHeight)) {
       this.resizeHeatmap(window.innerWidth, window.innerHeight);
     }
 
     result.value.onmousemove = (e) => {
-      console.log([e.clientX, e.clientY]);
       const rect = result.value.getBoundingClientRect();
-      console.log([e.clientX - rect.left, e.clientY - rect.top]);
-      const resultAddPoint = Heatmap.addPoint([e.clientX - rect.left, e.clientY - rect.top, 18]);
+      const newPoint: Array<number> = [e.clientX - rect.left, e.clientY - rect.top, 18];
+      const resultAddPoint = Heatmap.addPoint(newPoint);
       console.log('resultAddPoint', resultAddPoint);
       // this.frame = this.frame || window.requestAnimationFrame(this.drawHeatmap);
       window.requestAnimationFrame(this.drawHeatmap);

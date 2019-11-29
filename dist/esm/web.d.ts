@@ -1,6 +1,6 @@
 import { WebPlugin } from '@capacitor/core';
 import { HeatmapPlugin } from './definitions';
-import { HeatmapData } from './models/models';
+import { HeatmapData, HeatmapGradient, IHeatmapOptions } from './models/models';
 export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     _canvas: HTMLCanvasElement;
     _ctx: CanvasRenderingContext2D;
@@ -10,9 +10,9 @@ export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     _data: HeatmapData;
     _circle: HTMLCanvasElement;
     _heatmapLogger: any;
-    _grad: any;
+    _grad: Uint8ClampedArray;
     _r: number;
-    defaultGradient: any;
+    static readonly DEFAULT_GRADIENT: HeatmapGradient;
     static readonly DEFAULT_RADIUS = 25;
     constructor();
     echo(options: {
@@ -20,14 +20,10 @@ export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     }): Promise<{
         value: string;
     }>;
-    initialize(options: {
-        canvas: string | HTMLCanvasElement;
-        data?: HeatmapData;
-        debug?: boolean;
-        overlap?: {
-            parent: string;
-        };
-    }): Promise<{
+    initialize(options: IHeatmapOptions): Promise<{
+        value: HTMLCanvasElement;
+    }>;
+    destroy(): Promise<{
         value: HTMLCanvasElement;
     }>;
     /*********/
@@ -40,6 +36,9 @@ export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     }>;
     addPoint(point: Array<number>): Promise<{
         value: HeatmapData;
+    }>;
+    setMax(max: number): Promise<{
+        value: number;
     }>;
     /*********/
     /*********/
@@ -60,6 +59,9 @@ export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
             newHeight: number;
         };
     }>;
+    gradient(grad: HeatmapGradient): Promise<{
+        value: Uint8ClampedArray;
+    }>;
     /*********/
     /*********/
     private setSiblingElementStyles;
@@ -68,7 +70,6 @@ export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     private getParentDimensions;
     private clearCanvas;
     private radius;
-    private gradient;
     private _colorize;
     private _createCanvas;
 }

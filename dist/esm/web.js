@@ -15,13 +15,6 @@ export class HeatmapWeb extends WebPlugin {
             name: 'Heatmap',
             platforms: ['web']
         });
-        this.defaultGradient = {
-            0.4: 'blue',
-            0.6: 'cyan',
-            0.7: 'lime',
-            0.8: 'yellow',
-            1.0: 'red'
-        };
     }
     echo(options) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -41,8 +34,7 @@ export class HeatmapWeb extends WebPlugin {
                 this._ctx = this._canvas.getContext('2d');
                 this._width = this._canvas.width;
                 this._height = this._canvas.height;
-                // this._max = 1;
-                this._max = 18;
+                this._max = 1;
                 this._data = typeof options.data !== 'undefined' ? options.data : [];
                 (this._heatmapLogger.warn("Data is undefined or empty. Passes heatmap data into draw function or set heatmap data with setData function."),
                     []);
@@ -50,6 +42,20 @@ export class HeatmapWeb extends WebPlugin {
             else {
                 this._heatmapLogger.error("ERROR -> Undefined canvas id or html canvas.");
             }
+            return { value: this._canvas };
+        });
+    }
+    destroy() {
+        return __awaiter(this, void 0, void 0, function* () {
+            this.clearCanvas();
+            this._canvas = null;
+            this._width = 0;
+            this._height = 0;
+            this._max = 0;
+            this._data = [];
+            this._circle = null;
+            this._grad = null;
+            this._r = 0;
             return { value: this._canvas };
         });
     }
@@ -77,6 +83,12 @@ export class HeatmapWeb extends WebPlugin {
             return { value: this._data };
         });
     }
+    setMax(max) {
+        return __awaiter(this, void 0, void 0, function* () {
+            this._max = max;
+            return { value: this._max };
+        });
+    }
     /*********/
     // Methods for rendering heatmap.
     /*********/
@@ -89,7 +101,7 @@ export class HeatmapWeb extends WebPlugin {
             if (!this._circle)
                 this.radius(HeatmapWeb.DEFAULT_RADIUS);
             if (!this._grad)
-                this.gradient(this.defaultGradient);
+                this.gradient(HeatmapWeb.DEFAULT_GRADIENT);
             this._heatmapLogger.log("circle", { circle: this._circle });
             this._heatmapLogger.log("width&height", { width: this._width, height: this._height });
             const ctx = this._ctx;
@@ -125,6 +137,23 @@ export class HeatmapWeb extends WebPlugin {
             const opt = {};
             yield this.draw(opt);
             return { value: { newWidth: this._canvas.width, newHeight: this._canvas.height } };
+        });
+    }
+    gradient(grad) {
+        return __awaiter(this, void 0, void 0, function* () {
+            this._heatmapLogger.log("gradient", { grad: grad });
+            // Create a 256x1 gradient that we'll use to turn a grayscale heatmap into a colored one.
+            const canvas = this._createCanvas(), ctx = canvas.getContext('2d'), gradient = ctx.createLinearGradient(0, 0, 0, 256);
+            canvas.width = 1;
+            canvas.height = 256;
+            for (var i in grad) {
+                gradient.addColorStop(+i, grad[i]);
+            }
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 1, 256);
+            this._grad = ctx.getImageData(0, 0, 1, 256).data;
+            this._heatmapLogger.log("gradient", { canvas: canvas, ctx: ctx });
+            return { value: this._grad };
         });
     }
     /*********/
@@ -179,20 +208,6 @@ export class HeatmapWeb extends WebPlugin {
         ctx.closePath();
         ctx.fill();
     }
-    gradient(grad) {
-        this._heatmapLogger.log("gradient", { grad: grad });
-        // Create a 256x1 gradient that we'll use to turn a grayscale heatmap into a colored one.
-        const canvas = this._createCanvas(), ctx = canvas.getContext('2d'), gradient = ctx.createLinearGradient(0, 0, 0, 256);
-        canvas.width = 1;
-        canvas.height = 256;
-        for (var i in grad) {
-            gradient.addColorStop(+i, grad[i]);
-        }
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, 1, 256);
-        this._grad = ctx.getImageData(0, 0, 1, 256).data;
-        this._heatmapLogger.log("gradient", { canvas: canvas, ctx: ctx });
-    }
     _colorize(pixels, gradient) {
         this._heatmapLogger.log("_colorize", { pixels: pixels, gradient: gradient });
         for (var i = 0, len = pixels.length, j; i < len; i += 4) {
@@ -211,6 +226,13 @@ export class HeatmapWeb extends WebPlugin {
         }
     }
 }
+HeatmapWeb.DEFAULT_GRADIENT = {
+    0.4: 'blue',
+    0.6: 'cyan',
+    0.7: 'lime',
+    0.8: 'yellow',
+    1.0: 'red'
+};
 HeatmapWeb.DEFAULT_RADIUS = 25;
 const Heatmap = new HeatmapWeb();
 export { Heatmap };

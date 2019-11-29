@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Heatmap } from 'capacitor-heatmap';
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
+import { IHeatmapOptions } from 'capacitor-heatmap/dist/esm/models/models';
 
 @Component({
   selector: 'app-heatmap-over-img',
@@ -19,9 +20,11 @@ export class HeatmapOverImgPage implements OnInit {
 
   async initializeHeatmapOverImg() {
 
-    const options = {canvas: 'canvasOnTopImg', debug: true, overlap: {parent: 'containerImgCanvas'}};
+    const options: IHeatmapOptions = {canvas: 'canvasOnTopImg', debug: true, overlap: {parent: 'containerImgCanvas'}};
     const result = await Heatmap.initialize(options);
     console.log('result', result);
+
+    Heatmap.setMax(18);
 
     const d = await Heatmap.setData(this.fakeHeatmapDataService.getData());
     console.log('d', d);
