@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Heatmap } from 'capacitor-heatmap';
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
 import { IHeatmapOptions } from 'capacitor-heatmap/dist/esm/models/models';
+import { RouteEventsService } from '../services/route-events.service';
 
 @Component({
   selector: 'app-heatmap-over-img',
@@ -12,7 +13,9 @@ export class HeatmapOverImgPage implements OnInit {
 
   urlImg: string = 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/full%20page/img(20).jpg';
 
-  constructor(public fakeHeatmapDataService: FakeHeatmapDataService) { }
+  constructor(public fakeHeatmapDataService: FakeHeatmapDataService, private routeEventsService: RouteEventsService) {
+    console.log('previous url', this.routeEventsService.previousRoutePath.value);
+  }
 
   ngOnInit() {
     this.initializeHeatmapOverImg();

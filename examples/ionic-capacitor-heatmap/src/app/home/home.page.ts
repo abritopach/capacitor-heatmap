@@ -4,6 +4,7 @@ import { Heatmap, HeatmapWeb } from 'capacitor-heatmap';
 
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
 import { IHeatmapOptions, IHeatmapPoint } from 'capacitor-heatmap/dist/esm/models/models';
+import { RouteEventsService } from '../services/route-events.service';
 
 window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame;
 
@@ -24,8 +25,10 @@ export class HomePage implements OnInit {
     this.resizeHeatmap(event.target.innerWidth, event.target.innerHeight);
   }
 
-  constructor(public fakeHeatmapDataService: FakeHeatmapDataService) {
+  constructor(public fakeHeatmapDataService: FakeHeatmapDataService, private routeEventsService: RouteEventsService) {
+    console.log('HomePage::constructor() | method called');
     console.log('data2', this.data2);
+    console.log('previous url', this.routeEventsService.previousRoutePath.value);
   }
 
   ngOnInit() {
