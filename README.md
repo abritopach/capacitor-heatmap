@@ -189,3 +189,20 @@ const resultGradient = await Heatmap.gradient(grad);
 
 Type: `Promise<{value: Uint8ClampedArray}>`
 
+
+
+### Method to obtain the image of the canvas.
+
+### `getDataURL(type: string, imageQuality: number): Promise<{value: string}>;`
+
+```bash
+Returns dataURL string. The returned value is the base64 encoded dataURL of the heatmap instance.
+
+const resultDataUrl = await Heatmap.getDataURL('image/jpeg', 0.5);
+
+```
+
+#### Returns
+
+Type: `Promise<{value: string}>`
+

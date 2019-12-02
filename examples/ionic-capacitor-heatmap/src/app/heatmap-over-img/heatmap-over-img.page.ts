@@ -18,7 +18,20 @@ export class HeatmapOverImgPage implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ionViewWillEnter() {
+    console.log('HeatmapOverImgPage::ionViewWillEnter() | method called');
     this.initializeHeatmapOverImg();
+  }
+
+  async ionViewWillLeave(){
+    console.log('HeatmapOverImgPage::ionViewWillLeave() | method called');
+    const canvas = await Heatmap.getCanvas();
+    console.log(canvas);
+    if (typeof canvas.value !== 'undefined') {
+      Heatmap.destroy('canvasOnTopImg');
+    }
   }
 
   async initializeHeatmapOverImg() {

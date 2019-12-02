@@ -20,10 +20,13 @@ export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     }): Promise<{
         value: string;
     }>;
+    getCanvas(): Promise<{
+        value: HTMLCanvasElement;
+    }>;
     initialize(options: IHeatmapOptions): Promise<{
         value: HTMLCanvasElement;
     }>;
-    destroy(): Promise<{
+    destroy(canvasId: string): Promise<{
         value: HTMLCanvasElement;
     }>;
     /*********/
@@ -61,6 +64,11 @@ export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     }>;
     gradient(grad: HeatmapGradient): Promise<{
         value: Uint8ClampedArray;
+    }>;
+    /*********/
+    /*********/
+    getDataURL(type: string, imageQuality: number): Promise<{
+        value: string;
     }>;
     /*********/
     /*********/

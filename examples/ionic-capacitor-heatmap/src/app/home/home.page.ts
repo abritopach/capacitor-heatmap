@@ -33,8 +33,20 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     console.log('HomePage::ngOnInit() | method called');
-    console.log(window.innerWidth, window.innerHeight);
+  }
+
+  ionViewWillEnter() {
+    console.log('HomePage::ionViewWillEnter() | method called');
     this.initializeHeatmap();
+  }
+
+  async ionViewWillLeave(){
+    console.log('HomePage::ionViewWillLeave() | method called');
+    const canvas = await Heatmap.getCanvas();
+    console.log(canvas);
+    if (typeof canvas.value !== 'undefined') {
+      Heatmap.destroy('testCanvas');
+    }
   }
 
   async initializeHeatmap() {

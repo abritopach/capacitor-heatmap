@@ -22,6 +22,11 @@ export class HeatmapWeb extends WebPlugin {
             return options;
         });
     }
+    getCanvas() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return { value: this._canvas };
+        });
+    }
     initialize(options) {
         return __awaiter(this, void 0, void 0, function* () {
             this._heatmapLogger = new Log(options.debug);
@@ -45,9 +50,13 @@ export class HeatmapWeb extends WebPlugin {
             return { value: this._canvas };
         });
     }
-    destroy() {
+    destroy(canvasId) {
         return __awaiter(this, void 0, void 0, function* () {
-            this.clearCanvas();
+            // this.clearCanvas();
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext("2d");
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
             this._canvas = null;
             this._width = 0;
             this._height = 0;
@@ -56,6 +65,7 @@ export class HeatmapWeb extends WebPlugin {
             this._circle = null;
             this._grad = null;
             this._r = 0;
+            this._ctx = null;
             return { value: this._canvas };
         });
     }
@@ -154,6 +164,14 @@ export class HeatmapWeb extends WebPlugin {
             this._grad = ctx.getImageData(0, 0, 1, 256).data;
             this._heatmapLogger.log("gradient", { canvas: canvas, ctx: ctx });
             return { value: this._grad };
+        });
+    }
+    /*********/
+    // Method to obtain the image of the canvas.
+    /*********/
+    getDataURL(type, imageQuality) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return { value: this._canvas.toDataURL(type, imageQuality) };
         });
     }
     /*********/

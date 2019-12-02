@@ -7,6 +7,7 @@ export interface IHeatmapLog {
 }
 export interface IHeatmapOptions {
     canvas: string | HTMLCanvasElement;
+    type?: IHeatmapType;
     data?: HeatmapData;
     overlap?: {
         parent: string;
@@ -18,6 +19,12 @@ export interface IHeatmapPoint {
     y: number;
     thickness: number;
 }
+declare enum IHeatmapType {
+    Simple = "simple",
+    GoogleMaps = "googlemaps",
+    LeafletMaps = "leafletmaps"
+}
 export declare type HeatmapGradient = Record<number, string>;
 export declare type HeatmapPoint = Array<number> | IHeatmapPoint;
 export declare type HeatmapData = Array<Array<number>>;
+export {};

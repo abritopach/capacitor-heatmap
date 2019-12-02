@@ -13,7 +13,7 @@ export interface HeatmapPlugin {
     initialize(options: IHeatmapOptions): Promise<{
         value: HTMLCanvasElement;
     }>;
-    destroy(): Promise<{
+    destroy(canvasId: string): Promise<{
         value: HTMLCanvasElement;
     }>;
     /*********/
@@ -51,5 +51,10 @@ export interface HeatmapPlugin {
     }>;
     gradient(grad: HeatmapGradient): Promise<{
         value: Uint8ClampedArray;
+    }>;
+    /*********/
+    /*********/
+    getDataURL(type: string, imageQuality: number): Promise<{
+        value: string;
     }>;
 }

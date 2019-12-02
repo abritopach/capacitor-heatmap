@@ -39,6 +39,10 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     return options;
   }
 
+  async getCanvas(): Promise<{value: HTMLCanvasElement}> {
+    return {value: this._canvas};
+  }
+
   async initialize(options: IHeatmapOptions): Promise<{value: HTMLCanvasElement}> {
     this._heatmapLogger = new Log(options.debug);
     this._heatmapLogger.log("initialize");
@@ -63,8 +67,12 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     return {value: this._canvas};
   }
 
-  async destroy(): Promise<{value: HTMLCanvasElement}> {
-    this.clearCanvas();
+  async destroy(canvasId: string): Promise<{value: HTMLCanvasElement}> {
+    // this.clearCanvas();
+    const canvas = document.getElementById(canvasId) as HTMLCanvasElement;
+    const ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.beginPath();
     this._canvas = null;
     this._width = 0;
     this._height = 0;
@@ -73,6 +81,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     this._circle = null;
     this._grad = null;
     this._r = 0;
+    this._ctx = null;
     return {value: this._canvas};
   }
 
@@ -179,6 +188,13 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     this._grad = ctx.getImageData(0, 0, 1, 256).data;
     this._heatmapLogger.log("gradient", {canvas: canvas, ctx: ctx});
     return {value: this._grad};
+  }
+
+  /*********/
+  // Method to obtain the image of the canvas.
+  /*********/
+  async getDataURL(type: string, imageQuality: number): Promise<{value: string}> {
+    return {value: this._canvas.toDataURL(type, imageQuality)};
   }
 
 
