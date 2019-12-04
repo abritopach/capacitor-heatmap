@@ -1,4 +1,4 @@
-var IHeatmapType;
+export var IHeatmapType;
 (function (IHeatmapType) {
     IHeatmapType["Simple"] = "simple";
     IHeatmapType["GoogleMaps"] = "googlemaps";

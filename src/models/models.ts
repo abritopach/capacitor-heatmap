@@ -20,7 +20,7 @@ export interface IHeatmapPoint {
     thickness: number;
 }
 
-enum IHeatmapType {
+export enum IHeatmapType {
     Simple = 'simple',
     GoogleMaps = 'googlemaps',
     LeafletMaps = 'leafletmaps'

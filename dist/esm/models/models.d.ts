@@ -19,7 +19,7 @@ export interface IHeatmapPoint {
     y: number;
     thickness: number;
 }
-declare enum IHeatmapType {
+export declare enum IHeatmapType {
     Simple = "simple",
     GoogleMaps = "googlemaps",
     LeafletMaps = "leafletmaps"
@@ -27,4 +27,3 @@ declare enum IHeatmapType {
 export declare type HeatmapGradient = Record<number, string>;
 export declare type HeatmapPoint = Array<number> | IHeatmapPoint;
 export declare type HeatmapData = Array<Array<number>>;
-export {};

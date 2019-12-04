@@ -2,18 +2,7 @@ import { WebPlugin } from '@capacitor/core';
 import { HeatmapPlugin } from './definitions';
 import { HeatmapData, HeatmapGradient, IHeatmapOptions } from './models/models';
 export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
-    _canvas: HTMLCanvasElement;
-    _ctx: CanvasRenderingContext2D;
-    _width: number;
-    _height: number;
-    _max: number;
-    _data: HeatmapData;
-    _circle: HTMLCanvasElement;
-    _heatmapLogger: any;
-    _grad: Uint8ClampedArray;
-    _r: number;
-    static readonly DEFAULT_GRADIENT: HeatmapGradient;
-    static readonly DEFAULT_RADIUS = 25;
+    heatmap: any;
     constructor();
     echo(options: {
         value: string;
@@ -70,16 +59,6 @@ export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     getDataURL(type: string, imageQuality: number): Promise<{
         value: string;
     }>;
-    /*********/
-    /*********/
-    private setSiblingElementStyles;
-    private setCanvasElementStyles;
-    private setCanvasOverElement;
-    private getParentDimensions;
-    private clearCanvas;
-    private radius;
-    private _colorize;
-    private _createCanvas;
 }
 declare const Heatmap: HeatmapWeb;
 export { Heatmap };
