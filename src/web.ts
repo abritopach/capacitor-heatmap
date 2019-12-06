@@ -46,8 +46,8 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     return {value: this.heatmap.initialize(options)};
   }
 
-  async destroy(canvasId: string): Promise<{value: HTMLCanvasElement}> {
-    return {value: this.heatmap.destroy(canvasId)};
+  async destroy(): Promise<{value: HTMLCanvasElement}> {
+    return {value: this.heatmap.destroy()};
   }
 
   /*********/

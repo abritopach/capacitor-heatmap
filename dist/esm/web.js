@@ -50,9 +50,9 @@ export class HeatmapWeb extends WebPlugin {
             return { value: this.heatmap.initialize(options) };
         });
     }
-    destroy(canvasId) {
+    destroy() {
         return __awaiter(this, void 0, void 0, function* () {
-            return { value: this.heatmap.destroy(canvasId) };
+            return { value: this.heatmap.destroy() };
         });
     }
     /*********/

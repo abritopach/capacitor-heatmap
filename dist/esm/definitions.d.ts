@@ -13,7 +13,7 @@ export interface HeatmapPlugin {
     initialize(options: IHeatmapOptions): Promise<{
         value: HTMLCanvasElement;
     }>;
-    destroy(canvasId: string): Promise<{
+    destroy(): Promise<{
         value: HTMLCanvasElement;
     }>;
     /*********/

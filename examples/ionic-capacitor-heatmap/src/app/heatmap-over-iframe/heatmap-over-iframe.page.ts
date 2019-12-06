@@ -15,23 +15,15 @@ export class HeatmapOverIframePage implements OnInit {
   constructor(public fakeHeatmapDataService: FakeHeatmapDataService) { }
 
   ngOnInit() {
+    this.initializeHeatmapOverIframe();
   }
 
   async ionViewWillEnter() {
     console.log('HeatmapOverIframePage::ionViewWillEnter() | method called');
-    const canvas = await Heatmap.getCanvas();
-    if (typeof canvas.value !== 'undefined') {
-      this.initializeHeatmapOverIframe();
-    }
   }
 
   async ionViewWillLeave(){
     console.log('HeatmapOverIframePage::ionViewWillLeave() | method called');
-    const canvas = await Heatmap.getCanvas();
-    console.log(canvas);
-    if (typeof canvas.value !== 'undefined') {
-      Heatmap.destroy('canvasOnTopIframe');
-    }
   }
 
   async initializeHeatmapOverIframe() {

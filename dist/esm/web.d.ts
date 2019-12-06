@@ -15,7 +15,7 @@ export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     initialize(options: IHeatmapOptions): Promise<{
         value: HTMLCanvasElement;
     }>;
-    destroy(canvasId: string): Promise<{
+    destroy(): Promise<{
         value: HTMLCanvasElement;
     }>;
     /*********/

@@ -4,7 +4,6 @@ import { Heatmap, HeatmapWeb } from 'capacitor-heatmap';
 
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
 import { IHeatmapOptions, IHeatmapPoint } from 'capacitor-heatmap/dist/esm/models/models';
-import { RouteEventsService } from '../services/route-events.service';
 
 window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame;
 
@@ -25,28 +24,22 @@ export class HomePage implements OnInit {
     this.resizeHeatmap(event.target.innerWidth, event.target.innerHeight);
   }
 
-  constructor(public fakeHeatmapDataService: FakeHeatmapDataService, private routeEventsService: RouteEventsService) {
+  constructor(public fakeHeatmapDataService: FakeHeatmapDataService) {
     console.log('HomePage::constructor() | method called');
     console.log('data2', this.data2);
-    console.log('previous url', this.routeEventsService.previousRoutePath.value);
   }
 
   ngOnInit() {
     console.log('HomePage::ngOnInit() | method called');
+    this.initializeHeatmap();
   }
 
   ionViewWillEnter() {
     console.log('HomePage::ionViewWillEnter() | method called');
-    this.initializeHeatmap();
   }
 
-  async ionViewWillLeave(){
+  ionViewWillLeave(){
     console.log('HomePage::ionViewWillLeave() | method called');
-    const canvas = await Heatmap.getCanvas();
-    console.log(canvas);
-    if (typeof canvas.value !== 'undefined') {
-      Heatmap.destroy('testCanvas');
-    }
   }
 
   async initializeHeatmap() {
@@ -96,6 +89,11 @@ export class HomePage implements OnInit {
     element.style.height = options.height + 'px';
     const resultResize = await Heatmap.resize(options);
     console.log('result resize', resultResize);
+  }
+
+  onClickDestroy() {
+    console.log('HomePage::onClickDestroy() | method called');
+    Heatmap.destroy();
   }
 
 }

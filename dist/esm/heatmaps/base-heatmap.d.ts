@@ -15,7 +15,7 @@ export declare abstract class BaseHeatmap {
     _r: number;
     abstract getCanvas(): void;
     abstract initialize(options: IHeatmapOptions): void;
-    abstract destroy(canvasId: string): void;
+    abstract destroy(): void;
     /*********/
     /*********/
     abstract setData(data: HeatmapData): void;

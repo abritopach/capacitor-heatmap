@@ -11,27 +11,21 @@ import { RouteEventsService } from '../services/route-events.service';
 })
 export class HeatmapOverImgPage implements OnInit {
 
-  urlImg: string = 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/full%20page/img(20).jpg';
+  urlImg = 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/full%20page/img(20).jpg';
 
-  constructor(public fakeHeatmapDataService: FakeHeatmapDataService, private routeEventsService: RouteEventsService) {
-    console.log('previous url', this.routeEventsService.previousRoutePath.value);
+  constructor(public fakeHeatmapDataService: FakeHeatmapDataService) {
   }
 
   ngOnInit() {
+    this.initializeHeatmapOverImg();
   }
 
   ionViewWillEnter() {
     console.log('HeatmapOverImgPage::ionViewWillEnter() | method called');
-    this.initializeHeatmapOverImg();
   }
 
-  async ionViewWillLeave(){
+  ionViewWillLeave(){
     console.log('HeatmapOverImgPage::ionViewWillLeave() | method called');
-    const canvas = await Heatmap.getCanvas();
-    console.log(canvas);
-    if (typeof canvas.value !== 'undefined') {
-      Heatmap.destroy('canvasOnTopImg');
-    }
   }
 
   async initializeHeatmapOverImg() {

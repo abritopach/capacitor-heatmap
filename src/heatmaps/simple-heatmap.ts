@@ -32,20 +32,9 @@ export class SimpleHeatmap extends BaseHeatmap {
         return this._canvas;
     }
 
-    destroy(canvasId: string):  HTMLCanvasElement {
-        const canvas = document.getElementById(canvasId) as HTMLCanvasElement;
-        const ctx = canvas.getContext("2d");
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.beginPath();
+    destroy():  HTMLCanvasElement {
+        this.clearCanvas();
         this._canvas = null;
-        this._width = 0;
-        this._height = 0;
-        this._max = 0;
-        this._data = [];
-        this._circle = null;
-        this._grad = null;
-        this._r = 0;
-        this._ctx = null;
         return this._canvas;
       }
 

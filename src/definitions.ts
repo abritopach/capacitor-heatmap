@@ -9,7 +9,7 @@ declare module "@capacitor/core" {
 export interface HeatmapPlugin {
   echo(options: { value: string }): Promise<{value: string}>;
   initialize(options: IHeatmapOptions): Promise<{value: HTMLCanvasElement}>;
-  destroy(canvasId: string): Promise<{value: HTMLCanvasElement}>;
+  destroy(): Promise<{value: HTMLCanvasElement}>;
   /*********/
   // Methods for handling heatmap data.
   /*********/

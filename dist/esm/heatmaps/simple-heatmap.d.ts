@@ -3,7 +3,7 @@ import { IHeatmapOptions, HeatmapData, HeatmapGradient } from "../models/models"
 export declare class SimpleHeatmap extends BaseHeatmap {
     getCanvas(): HTMLCanvasElement;
     initialize(options: IHeatmapOptions): HTMLCanvasElement;
-    destroy(canvasId: string): HTMLCanvasElement;
+    destroy(): HTMLCanvasElement;
     /*********/
     /*********/
     setData(data: HeatmapData): HeatmapData;
