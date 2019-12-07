@@ -33,8 +33,10 @@ export class SimpleHeatmap extends BaseHeatmap {
     }
 
     destroy():  HTMLCanvasElement {
-        this.clearCanvas();
-        this._canvas = null;
+        if (this._canvas !== null) {
+            this.clearCanvas();
+            this._canvas = null;
+        }
         return this._canvas;
       }
 
@@ -44,7 +46,8 @@ export class SimpleHeatmap extends BaseHeatmap {
 
     setData(data: HeatmapData): HeatmapData {
         this._heatmapLogger.log("__SimpleHeatmap__ setData");
-        this._data = data;
+        this._data = [];
+        this._data = [...data];
         return this._data;
     }
 

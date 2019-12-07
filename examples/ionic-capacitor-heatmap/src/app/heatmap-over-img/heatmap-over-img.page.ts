@@ -39,7 +39,7 @@ export class HeatmapOverImgPage implements OnInit {
     const d = await Heatmap.setData(this.fakeHeatmapDataService.getData());
     console.log('d', d);
     console.time('draw');
-    this.drawHeatmap();
+    await this.drawHeatmap();
     console.timeEnd('draw');
   }
 
