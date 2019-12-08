@@ -26,6 +26,11 @@ export class AppComponent {
       title: 'Heatmap over Img',
       url: '/heatmap-over-img',
       icon: 'flame'
+    },
+    {
+      title: 'Google Maps Heatmap',
+      url: '/google-maps-heatmap',
+      icon: 'flame'
     }
   ];
 

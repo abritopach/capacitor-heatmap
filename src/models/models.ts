@@ -30,3 +30,15 @@ export type HeatmapGradient = Record<number, string>;
 export type HeatmapPoint = Array<number> | IHeatmapPoint;
 export type HeatmapData = Array<Array<number>> /*| Array<IHeatmapPoint>*/;
 
+export interface IGMHeatmapOptions {
+    map: google.maps.Map;
+    type?: IHeatmapType;
+    data?: IGMHeatmapData[];
+    debug?: boolean;
+}
+
+export interface IGMHeatmapData {
+    location: google.maps.LatLng,
+    weight: number
+}
+

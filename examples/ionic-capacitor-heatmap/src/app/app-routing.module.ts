@@ -12,6 +12,10 @@ const routes: Routes = [
     path: 'heatmap-over-img',
     loadChildren: () => import('./heatmap-over-img/heatmap-over-img.module').then( m => m.HeatmapOverImgPageModule)
   },
+  {
+    path: 'google-maps-heatmap',
+    loadChildren: () => import('./google-maps-heatmap/google-maps-heatmap.module').then( m => m.GoogleMapsHeatmapPageModule)
+  },
 ];
 
 @NgModule({
