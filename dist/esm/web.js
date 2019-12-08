@@ -63,6 +63,16 @@ export class HeatmapWeb extends WebPlugin {
             return { value: this.heatmap.setData(data) };
         });
     }
+    getData() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return { value: this.heatmap.getData() };
+        });
+    }
+    getValueAt(position) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return { value: this.heatmap.getValueAt(position) };
+        });
+    }
     clearData() {
         return __awaiter(this, void 0, void 0, function* () {
             return { value: this.heatmap.clearData() };

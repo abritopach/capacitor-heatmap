@@ -60,6 +60,14 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     return {value: this.heatmap.setData(data)};
   }
 
+  async getData(): Promise<{value: HeatmapData}> {
+    return {value: this.heatmap.getData()};
+  }
+
+  async getValueAt(position: Array<number>): Promise<{value: number}> {
+    return {value: this.heatmap.getValueAt(position)};
+  }
+
   async clearData(): Promise<{value: HeatmapData}> {
     return {value: this.heatmap.clearData()};
   }

@@ -59,6 +59,16 @@ export class SimpleHeatmap extends BaseHeatmap {
         return this._data;
     }
 
+    getValueAt(position: Array<number>): number {
+        this._heatmapLogger.log("__SimpleHeatmap__ getValueAt");
+        this._data.map(point => {
+            if ((point[0] === position[0]) && (point[1] === position[1])) {
+                return point[2];
+            }
+        });
+        return null;
+    }
+
     clearData(): HeatmapData {
         this._heatmapLogger.log("__SimpleHeatmap__ clearData");
         this._data = [];

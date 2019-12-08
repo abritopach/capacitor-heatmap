@@ -14,6 +14,8 @@ export interface HeatmapPlugin {
   // Methods for handling heatmap data.
   /*********/
   setData(data: HeatmapData): Promise<{value: HeatmapData}>;
+  getData(): Promise<{value: HeatmapData}>;
+  getValueAt(position: Array<number>): Promise<{value: number}>;
   clearData(): Promise<{value: HeatmapData}>;
   addPoint(point: Array<number>): Promise<{value: HeatmapData}>;
   setMax(max: number): Promise<{value: number}>

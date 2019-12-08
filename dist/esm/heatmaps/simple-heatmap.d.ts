@@ -7,6 +7,8 @@ export declare class SimpleHeatmap extends BaseHeatmap {
     /*********/
     /*********/
     setData(data: HeatmapData): HeatmapData;
+    getData(): HeatmapData;
+    getValueAt(position: Array<number>): number;
     clearData(): HeatmapData;
     addPoint(point: Array<number>): HeatmapData;
     setMax(max: number): number;

@@ -44,6 +44,19 @@ export class SimpleHeatmap extends BaseHeatmap {
         this._data = [...data];
         return this._data;
     }
+    getData() {
+        this._heatmapLogger.log("__SimpleHeatmap__ getData");
+        return this._data;
+    }
+    getValueAt(position) {
+        this._heatmapLogger.log("__SimpleHeatmap__ getValueAt");
+        this._data.map(point => {
+            if ((point[0] === position[0]) && (point[1] === position[1])) {
+                return point[2];
+            }
+        });
+        return null;
+    }
     clearData() {
         this._heatmapLogger.log("__SimpleHeatmap__ clearData");
         this._data = [];
@@ -103,8 +116,9 @@ export class SimpleHeatmap extends BaseHeatmap {
             this._height = this._canvas.height;
             const opt = {};
             this.draw(opt);
+            return { newWidth: this._canvas.width, newHeight: this._canvas.height };
         }
-        return { newWidth: this._canvas.width, newHeight: this._canvas.height };
+        return { newWidth: 0, newHeight: 0 };
     }
     gradient(grad) {
         this._heatmapLogger.log("__SimpleHeatmap__ gradient", { grad: grad });

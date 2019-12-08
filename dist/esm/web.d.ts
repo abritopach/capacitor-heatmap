@@ -23,6 +23,12 @@ export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     setData(data: HeatmapData): Promise<{
         value: HeatmapData;
     }>;
+    getData(): Promise<{
+        value: HeatmapData;
+    }>;
+    getValueAt(position: Array<number>): Promise<{
+        value: number;
+    }>;
     clearData(): Promise<{
         value: HeatmapData;
     }>;

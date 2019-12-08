@@ -89,6 +89,36 @@ Type: `Promise<{value: HeatmapData}>`
 
 
 
+### `getData(): Promise<{value: HeatmapData}>`
+
+```bash
+Get heatmap data of [[x, y, thickness], ...] format.
+
+const d = await Heatmap.getData();
+
+```
+
+#### Returns
+
+Type: `Promise<{value: HeatmapData}>`
+
+
+
+### `getValueAt(position: Array<number>): Promise<{value: number}>`
+
+```bash
+Returns value at datapoint position..
+
+const result = await Heatmap.getValueAt([10, 10]); // x = 10 & y = 10
+
+```
+
+#### Returns
+
+Type: `Promise<{value: number}>`
+
+
+
 ### `clearData(): Promise<{value: HeatmapData}>`
 
 ```bash
