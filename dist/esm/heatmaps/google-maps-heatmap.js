@@ -1,15 +1,10 @@
 import { BaseHeatmap } from './base-heatmap';
-import { HeatmapData, HeatmapGradient, IGMHeatmapOptions } from '../models/models';
 import { Log } from "../log";
-
 export class GoogleMapsHeatmap extends BaseHeatmap {
-
-    heatmap: google.maps.visualization.HeatmapLayer;
-
-    getCanvas(): void {
+    getCanvas() {
         // TODO
     }
-    initialize(options: IGMHeatmapOptions): void {
+    initialize(options) {
         // TODO
         this._heatmapLogger = new Log(options.debug);
         this._heatmapLogger.log("__GoogleMapsHeatmap__ initialize");
@@ -20,65 +15,58 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
             this.heatmap.setMap(options.map);
         }
     }
-    destroy(): void {
+    destroy() {
         // TODO
     }
-
-
     /*********/
     // Methods for handling heatmap data.
     /*********/
-    setData(data: HeatmapData): void {
+    setData(data) {
         // TODO
         console.log(data);
     }
-    getData(): void {
+    getData() {
         // TODO
     }
-    getValueAt(position: Array<number>): void {
+    getValueAt(position) {
         // TODO
         console.log(position);
     }
-    clearData(): void {
+    clearData() {
         // TODO
     }
-    addPoint(point: Array<number>): void {
+    addPoint(point) {
         // TODO
         console.log(point);
     }
-    setMax(max: number): void {
+    setMax(max) {
         // TODO
         console.log(max);
     }
-
-
     /*********/
     // Methods for rendering heatmap.
     /*********/
-    draw(options: {minOpacity?: number, data?: HeatmapData}): void {
+    draw(options) {
         // TODO
         console.log(options);
     }
-
-
     /*********/
     // Methods for handling heatmap appearance.
     /*********/
-    resize(options: {width: number, height: number}): void {
+    resize(options) {
         // TODO
         console.log(options);
     }
-    gradient(grad: HeatmapGradient): void {
+    gradient(grad) {
         // TODO
         console.log(grad);
     }
-
-
     /*********/
     // Method to obtain the image of the canvas.
     /*********/
-    getDataURL(type: string, imageQuality: number): void {
+    getDataURL(type, imageQuality) {
         // TODO
         console.log(type, imageQuality);
     }
 }
+//# sourceMappingURL=google-maps-heatmap.js.map

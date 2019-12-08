@@ -33,12 +33,16 @@ export type HeatmapData = Array<Array<number>> /*| Array<IHeatmapPoint>*/;
 export interface IGMHeatmapOptions {
     map: google.maps.Map;
     type?: IHeatmapType;
-    data?: IGMHeatmapData[];
+    data?: GMHeatmapData;
     debug?: boolean;
 }
 
+export type GMHeatmapData = Array<google.maps.LatLng>;
+
+/*
 export interface IGMHeatmapData {
     location: google.maps.LatLng,
     weight: number
 }
+*/
 

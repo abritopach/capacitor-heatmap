@@ -10,6 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 import { WebPlugin } from '@capacitor/core';
 import { IHeatmapType } from './models/models';
 import { SimpleHeatmap } from './heatmaps/simple-heatmap';
+import { GoogleMapsHeatmap } from './heatmaps/google-maps-heatmap';
 export class HeatmapWeb extends WebPlugin {
     constructor() {
         super({
@@ -37,6 +38,7 @@ export class HeatmapWeb extends WebPlugin {
                     break;
                 }
                 case IHeatmapType.GoogleMaps: {
+                    this.heatmap = new GoogleMapsHeatmap();
                     break;
                 }
                 case IHeatmapType.LeafletMaps: {

@@ -1,9 +1,10 @@
 import { WebPlugin } from '@capacitor/core';
 import { HeatmapPlugin } from './definitions';
 
-import { HeatmapData, HeatmapGradient, IHeatmapOptions, IHeatmapType } from './models/models';
+import { HeatmapData, HeatmapGradient, IHeatmapOptions, IHeatmapType, IGMHeatmapOptions } from './models/models';
 
 import { SimpleHeatmap } from './heatmaps/simple-heatmap';
+import { GoogleMapsHeatmap } from './heatmaps/google-maps-heatmap';
 
 export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
 
@@ -25,7 +26,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     return {value: this.heatmap.getCanvas()};
   }
 
-  async initialize(options: IHeatmapOptions): Promise<{value: HTMLCanvasElement}> {
+  async initialize(options: (IHeatmapOptions | IGMHeatmapOptions)): Promise<{value: HTMLCanvasElement}> {
     const type = typeof options.type !== "undefined" ? options.type : IHeatmapType.Simple;
     switch(type) {
       case IHeatmapType.Simple: {
@@ -33,6 +34,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
         break;
       }
       case IHeatmapType.GoogleMaps: {
+        this.heatmap = new GoogleMapsHeatmap();
         break;
       }
       case IHeatmapType.LeafletMaps: {

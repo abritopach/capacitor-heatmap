@@ -1,3 +1,4 @@
+/// <reference types="googlemaps" />
 export interface IHeatmapLog {
     log(primaryMessage: string, ...supportingData: any[]): void;
     debug(primaryMessage: string, ...supportingData: any[]): void;
@@ -27,3 +28,10 @@ export declare enum IHeatmapType {
 export declare type HeatmapGradient = Record<number, string>;
 export declare type HeatmapPoint = Array<number> | IHeatmapPoint;
 export declare type HeatmapData = Array<Array<number>>;
+export interface IGMHeatmapOptions {
+    map: google.maps.Map;
+    type?: IHeatmapType;
+    data?: GMHeatmapData;
+    debug?: boolean;
+}
+export declare type GMHeatmapData = Array<google.maps.LatLng>;

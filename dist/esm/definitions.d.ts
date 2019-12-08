@@ -1,4 +1,4 @@
-import { HeatmapData, IHeatmapOptions, HeatmapGradient } from "./models/models";
+import { HeatmapData, IHeatmapOptions, HeatmapGradient, IGMHeatmapOptions } from "./models/models";
 declare module "@capacitor/core" {
     interface PluginRegistry {
         Heatmap: HeatmapPlugin;
@@ -10,7 +10,7 @@ export interface HeatmapPlugin {
     }): Promise<{
         value: string;
     }>;
-    initialize(options: IHeatmapOptions): Promise<{
+    initialize(options: IHeatmapOptions | IGMHeatmapOptions): Promise<{
         value: HTMLCanvasElement;
     }>;
     destroy(): Promise<{

@@ -1,9 +1,9 @@
 import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
 
-import { Heatmap, HeatmapWeb } from 'capacitor-heatmap';
+import { Heatmap } from 'capacitor-heatmap';
 
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
-import { IHeatmapOptions, IHeatmapPoint } from 'capacitor-heatmap/dist/esm/models/models';
+import { IHeatmapOptions } from 'capacitor-heatmap/dist/esm/models/models';
 
 window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame;
 
