@@ -28,7 +28,10 @@ export class SimpleHeatmap extends BaseHeatmap {
     destroy() {
         if (this._canvas !== null) {
             this.clearCanvas();
+            this.clearData();
             this._canvas = null;
+            this._circle = null;
+            this._grad = null;
         }
         return this._canvas;
     }
@@ -92,13 +95,15 @@ export class SimpleHeatmap extends BaseHeatmap {
     /*********/
     resize(options) {
         this._heatmapLogger.log("__SimpleHeatmap__ resize", { options: options });
-        this.clearCanvas();
-        this._canvas.width = options.width;
-        this._canvas.height = options.height;
-        this._width = this._canvas.width;
-        this._height = this._canvas.height;
-        const opt = {};
-        this.draw(opt);
+        if ((this._canvas !== null) && (typeof this._canvas !== "undefined")) {
+            this.clearCanvas();
+            this._canvas.width = options.width;
+            this._canvas.height = options.height;
+            this._width = this._canvas.width;
+            this._height = this._canvas.height;
+            const opt = {};
+            this.draw(opt);
+        }
         return { newWidth: this._canvas.width, newHeight: this._canvas.height };
     }
     gradient(grad) {

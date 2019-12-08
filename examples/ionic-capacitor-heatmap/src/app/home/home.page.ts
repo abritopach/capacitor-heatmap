@@ -93,6 +93,7 @@ export class HomePage implements OnInit {
 
   onClickDestroy() {
     console.log('HomePage::onClickDestroy() | method called');
+    document.getElementById('testCanvas').onmousemove = null;
     Heatmap.destroy();
   }
 

@@ -30,6 +30,7 @@ export abstract class BaseHeatmap {
     // Methods for handling heatmap data.
     /*********/
     abstract setData(data: HeatmapData): void;
+    abstract getData(): void;
     abstract clearData(): void;
     abstract addPoint(point: Array<number>): void;
     abstract setMax(max: number): void;
