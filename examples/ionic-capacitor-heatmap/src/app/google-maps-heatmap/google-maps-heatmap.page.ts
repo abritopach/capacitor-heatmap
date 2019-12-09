@@ -36,8 +36,15 @@ export class GoogleMapsHeatmapPage implements OnInit {
     const options: IGMHeatmapOptions = {type: IHeatmapType.GoogleMaps, map: this.map,
       data: this.fakeHeatmapDataService.getGoogleMapsData(), debug: true};
     const result = await Heatmap.initialize(options);
-    console.log('result', result);
+    console.log('result initialize', result);
+    this.drawHeatmap();
 
+  }
+
+  async drawHeatmap() {
+    const options = {data: this.fakeHeatmapDataService.getGoogleMapsData()};
+    const result = await Heatmap.draw(options);
+    console.log('result draw', result);
   }
 
 }

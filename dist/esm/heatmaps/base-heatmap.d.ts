@@ -1,4 +1,4 @@
-import { HeatmapData, IHeatmapOptions, HeatmapGradient, IHeatmapType, IGMHeatmapOptions } from '../models/models';
+import { HeatmapData, IHeatmapOptions, HeatmapGradient, IHeatmapType, IGMHeatmapOptions, GMHeatmapData } from '../models/models';
 export declare abstract class BaseHeatmap {
     static readonly DEFAULT_GRADIENT: HeatmapGradient;
     static readonly DEFAULT_RADIUS = 25;
@@ -13,12 +13,11 @@ export declare abstract class BaseHeatmap {
     _heatmapLogger: any;
     _grad: Uint8ClampedArray;
     _r: number;
-    abstract getCanvas(): void;
     abstract initialize(options: IHeatmapOptions | IGMHeatmapOptions): void;
     abstract destroy(): void;
     /*********/
     /*********/
-    abstract setData(data: HeatmapData): void;
+    abstract setData(data: HeatmapData | GMHeatmapData): void;
     abstract getData(): void;
     abstract getValueAt(position: Array<number>): void;
     abstract clearData(): void;
@@ -29,6 +28,9 @@ export declare abstract class BaseHeatmap {
     abstract draw(options: {
         minOpacity?: number;
         data?: HeatmapData;
+    } | {
+        minOpacity?: number;
+        data?: GMHeatmapData;
     }): void;
     /*********/
     /*********/

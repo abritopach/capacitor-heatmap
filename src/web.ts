@@ -1,7 +1,7 @@
 import { WebPlugin } from '@capacitor/core';
 import { HeatmapPlugin } from './definitions';
 
-import { HeatmapData, HeatmapGradient, IHeatmapOptions, IHeatmapType, IGMHeatmapOptions } from './models/models';
+import { HeatmapData, HeatmapGradient, IHeatmapOptions, IHeatmapType, IGMHeatmapOptions, GMHeatmapData } from './models/models';
 
 import { SimpleHeatmap } from './heatmaps/simple-heatmap';
 import { GoogleMapsHeatmap } from './heatmaps/google-maps-heatmap';
@@ -88,7 +88,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
 
   /*********/
 
-  async draw(options: {minOpacity?: number, data?: HeatmapData}): Promise<{value: boolean}> {
+  async draw(options: {minOpacity?: number, data?: HeatmapData} | {minOpacity?: number, data?: GMHeatmapData}): Promise<{value: boolean}> {
     return {value: this.heatmap.draw(options)};
   }
 

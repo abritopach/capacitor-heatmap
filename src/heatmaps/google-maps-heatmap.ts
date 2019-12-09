@@ -1,25 +1,26 @@
 import { BaseHeatmap } from './base-heatmap';
-import { HeatmapData, HeatmapGradient, IGMHeatmapOptions } from '../models/models';
+import { HeatmapGradient, IGMHeatmapOptions, GMHeatmapData } from '../models/models';
 import { Log } from "../log";
 
 export class GoogleMapsHeatmap extends BaseHeatmap {
 
+    map: google.maps.Map;
     heatmap: google.maps.visualization.HeatmapLayer;
+    data: GMHeatmapData;
 
-    getCanvas(): void {
-        // TODO
-    }
-    initialize(options: IGMHeatmapOptions): void {
-        // TODO
+    initialize(options: IGMHeatmapOptions): google.maps.visualization.HeatmapLayer {
         this._heatmapLogger = new Log(options.debug);
         this._heatmapLogger.log("__GoogleMapsHeatmap__ initialize");
         if ((typeof options.data !== "undefined") && (options.data !== null)) {
+            this.data = options.data;
+            this.map = options.map;
             this.heatmap = new google.maps.visualization.HeatmapLayer({
                 data: options.data,
             });
-            this.heatmap.setMap(options.map);
+            return this.heatmap;
         }
     }
+
     destroy(): void {
         // TODO
     }
@@ -28,24 +29,32 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
     /*********/
     // Methods for handling heatmap data.
     /*********/
-    setData(data: HeatmapData): void {
-        // TODO
-        console.log(data);
+    setData(data: GMHeatmapData): GMHeatmapData {
+        this._heatmapLogger.log("__GoogleMapsHeatmap__ setData", data);
+        this.heatmap.setData(data);
+        return data;
     }
-    getData(): void {
-        // TODO
+
+    getData(): GMHeatmapData {
+        this._heatmapLogger.log("__GoogleMapsHeatmap__ getData");
+        return this.heatmap.getData();
     }
+
     getValueAt(position: Array<number>): void {
         // TODO
         console.log(position);
     }
-    clearData(): void {
-        // TODO
+
+    clearData(): GMHeatmapData {
+        this.heatmap.setData([]);
+        return [];
     }
+
     addPoint(point: Array<number>): void {
         // TODO
         console.log(point);
     }
+
     setMax(max: number): void {
         // TODO
         console.log(max);
@@ -55,9 +64,14 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
     /*********/
     // Methods for rendering heatmap.
     /*********/
-    draw(options: {minOpacity?: number, data?: HeatmapData}): void {
-        // TODO
-        console.log(options);
+    draw(options: {minOpacity?: number, data?: GMHeatmapData}): boolean {
+        this._heatmapLogger.log("__GoogleMapsHeatmap__ draw");
+        if (!this.map) { return false; }
+        if ( typeof options.data !== 'undefined') this.data = options.data;
+        this._heatmapLogger.log("__GoogleMapsHeatmap__ draw", {data: this.data});
+        this.heatmap.setData(options.data);
+        this.heatmap.setMap(this.map);
+        return true;
     }
 
 
@@ -68,9 +82,10 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
         // TODO
         console.log(options);
     }
-    gradient(grad: HeatmapGradient): void {
-        // TODO
-        console.log(grad);
+
+    gradient(grad: HeatmapGradient): HeatmapGradient {
+        this.heatmap.set('gradient', grad);
+        return this.heatmap.get('gradient') ? null : grad;
     }
 
 

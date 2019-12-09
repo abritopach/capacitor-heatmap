@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Heatmap } from 'capacitor-heatmap';
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
-import { IHeatmapOptions } from 'capacitor-heatmap/dist/esm/models/models';
+import { IHeatmapOptions, IHeatmapType } from 'capacitor-heatmap/dist/esm/models/models';
 
 @Component({
   selector: 'app-heatmap-over-iframe',
@@ -28,7 +28,8 @@ export class HeatmapOverIframePage implements OnInit {
 
   async initializeHeatmapOverIframe() {
 
-    const options: IHeatmapOptions = {canvas: 'canvasOnTopIframe', debug: true, overlap: {parent: 'containerIframeCanvas'}};
+    const options: IHeatmapOptions = {canvas: 'canvasOnTopIframe', type: IHeatmapType.Simple,
+     debug: true, overlap: {parent: 'containerIframeCanvas'}};
     const result = await Heatmap.initialize(options);
     console.log('result', result);
 

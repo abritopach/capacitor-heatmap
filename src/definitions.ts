@@ -1,4 +1,4 @@
-import { HeatmapData, IHeatmapOptions, HeatmapGradient, IGMHeatmapOptions } from "./models/models";
+import { HeatmapData, IHeatmapOptions, HeatmapGradient, IGMHeatmapOptions, GMHeatmapData } from "./models/models";
 
 declare module "@capacitor/core" {
   interface PluginRegistry {
@@ -22,7 +22,7 @@ export interface HeatmapPlugin {
   /*********/
   // Methods for rendering heatmap.
   /*********/
-  draw(options: {minOpacity?: number, data?: HeatmapData}): Promise<{value: boolean}>;
+  draw(options: {minOpacity?: number, data?: HeatmapData} | {minOpacity?: number, data?: GMHeatmapData}): Promise<{value: boolean}>;
   /*********/
   // Methods for handling heatmap appearance.
   /*********/

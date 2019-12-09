@@ -1,4 +1,4 @@
-import { HeatmapData, IHeatmapOptions, HeatmapGradient, IHeatmapType, IGMHeatmapOptions } from '../models/models';
+import { HeatmapData, IHeatmapOptions, HeatmapGradient, IHeatmapType, IGMHeatmapOptions, GMHeatmapData } from '../models/models';
 
 export abstract class BaseHeatmap {
 
@@ -23,13 +23,12 @@ export abstract class BaseHeatmap {
     _grad: Uint8ClampedArray;
     _r: number;
 
-    abstract getCanvas(): void;
     abstract initialize(options: IHeatmapOptions | IGMHeatmapOptions): void;
     abstract destroy(): void;
     /*********/
     // Methods for handling heatmap data.
     /*********/
-    abstract setData(data: HeatmapData): void;
+    abstract setData(data: HeatmapData | GMHeatmapData): void;
     abstract getData(): void;
     abstract getValueAt(position: Array<number>): void;
     abstract clearData(): void;
@@ -38,7 +37,7 @@ export abstract class BaseHeatmap {
     /*********/
     // Methods for rendering heatmap.
     /*********/
-    abstract draw(options: {minOpacity?: number, data?: HeatmapData}): void;
+    abstract draw(options: {minOpacity?: number, data?: HeatmapData} | {minOpacity?: number, data?: GMHeatmapData}): void;
     /*********/
     // Methods for handling heatmap appearance.
     /*********/

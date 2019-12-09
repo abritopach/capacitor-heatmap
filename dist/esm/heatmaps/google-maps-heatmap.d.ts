@@ -1,32 +1,33 @@
 /// <reference types="googlemaps" />
 import { BaseHeatmap } from './base-heatmap';
-import { HeatmapData, HeatmapGradient, IGMHeatmapOptions } from '../models/models';
+import { HeatmapGradient, IGMHeatmapOptions, GMHeatmapData } from '../models/models';
 export declare class GoogleMapsHeatmap extends BaseHeatmap {
+    map: google.maps.Map;
     heatmap: google.maps.visualization.HeatmapLayer;
-    getCanvas(): void;
-    initialize(options: IGMHeatmapOptions): void;
+    data: GMHeatmapData;
+    initialize(options: IGMHeatmapOptions): google.maps.visualization.HeatmapLayer;
     destroy(): void;
     /*********/
     /*********/
-    setData(data: HeatmapData): void;
-    getData(): void;
+    setData(data: GMHeatmapData): GMHeatmapData;
+    getData(): GMHeatmapData;
     getValueAt(position: Array<number>): void;
-    clearData(): void;
+    clearData(): GMHeatmapData;
     addPoint(point: Array<number>): void;
     setMax(max: number): void;
     /*********/
     /*********/
     draw(options: {
         minOpacity?: number;
-        data?: HeatmapData;
-    }): void;
+        data?: GMHeatmapData;
+    }): boolean;
     /*********/
     /*********/
     resize(options: {
         width: number;
         height: number;
     }): void;
-    gradient(grad: HeatmapGradient): void;
+    gradient(grad: HeatmapGradient): HeatmapGradient;
     /*********/
     /*********/
     getDataURL(type: string, imageQuality: number): void;

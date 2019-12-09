@@ -8,7 +8,7 @@ export interface IHeatmapLog {
 
 export interface IHeatmapOptions {
     canvas: string | HTMLCanvasElement;
-    type?: IHeatmapType;
+    type: IHeatmapType;
     data?: HeatmapData;
     overlap?: {parent: string};
     debug?: boolean;
@@ -32,12 +32,13 @@ export type HeatmapData = Array<Array<number>> /*| Array<IHeatmapPoint>*/;
 
 export interface IGMHeatmapOptions {
     map: google.maps.Map;
-    type?: IHeatmapType;
+    type: IHeatmapType;
     data?: GMHeatmapData;
     debug?: boolean;
 }
 
-export type GMHeatmapData = Array<google.maps.LatLng>;
+export type GMHeatmapData = google.maps.MVCArray<google.maps.LatLng | google.maps.visualization.WeightedLocation> |
+google.maps.LatLng[] | google.maps.visualization.WeightedLocation[];
 
 /*
 export interface IGMHeatmapData {

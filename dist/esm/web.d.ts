@@ -1,6 +1,6 @@
 import { WebPlugin } from '@capacitor/core';
 import { HeatmapPlugin } from './definitions';
-import { HeatmapData, HeatmapGradient, IHeatmapOptions, IGMHeatmapOptions } from './models/models';
+import { HeatmapData, HeatmapGradient, IHeatmapOptions, IGMHeatmapOptions, GMHeatmapData } from './models/models';
 export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     heatmap: any;
     constructor();
@@ -43,6 +43,9 @@ export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     draw(options: {
         minOpacity?: number;
         data?: HeatmapData;
+    } | {
+        minOpacity?: number;
+        data?: GMHeatmapData;
     }): Promise<{
         value: boolean;
     }>;

@@ -3,7 +3,7 @@ import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
 import { Heatmap } from 'capacitor-heatmap';
 
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
-import { IHeatmapOptions } from 'capacitor-heatmap/dist/esm/models/models';
+import { IHeatmapOptions, IHeatmapType } from 'capacitor-heatmap/dist/esm/models/models';
 
 window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame;
 
@@ -44,7 +44,7 @@ export class HomePage implements OnInit {
 
   async initializeHeatmap() {
 
-    const options: IHeatmapOptions = {canvas: 'testCanvas', debug: true};
+    const options: IHeatmapOptions = {canvas: 'testCanvas', type: IHeatmapType.Simple, debug: true};
     const result = await Heatmap.initialize(options);
     console.log('result', result);
 
