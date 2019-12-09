@@ -236,3 +236,8 @@ const resultDataUrl = await Heatmap.getDataURL('image/jpeg', 0.5);
 
 Type: `Promise<{value: string}>`
 
+# TODO
+
+* Google Map Heatmap -> under development.
+* Leaflet Map Heaptmap
+
