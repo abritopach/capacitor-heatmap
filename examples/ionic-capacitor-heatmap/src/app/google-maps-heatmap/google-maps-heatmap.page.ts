@@ -15,10 +15,18 @@ export class GoogleMapsHeatmapPage implements OnInit {
   constructor(public fakeHeatmapDataService: FakeHeatmapDataService) { }
 
   ngOnInit() {
+    /*
     google.maps.event.addDomListener(window, 'load', () => {
       this.initMap();
       this.initializeGMHeatmap();
     });
+    */
+  }
+
+  ionViewWillEnter() {
+    console.log('GoogleMapsHeatmapPage::ionViewWillEnter() | method called');
+    this.initMap();
+    this.initializeGMHeatmap();
   }
 
   initMap() {

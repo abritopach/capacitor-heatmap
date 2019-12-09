@@ -67,7 +67,7 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
     draw(options: {minOpacity?: number, data?: GMHeatmapData}): boolean {
         this._heatmapLogger.log("__GoogleMapsHeatmap__ draw");
         if (!this.map) { return false; }
-        if ( typeof options.data !== 'undefined') this.data = options.data;
+        if (typeof options.data !== 'undefined') this.data = options.data;
         this._heatmapLogger.log("__GoogleMapsHeatmap__ draw", {data: this.data});
         this.heatmap.setData(options.data);
         this.heatmap.setMap(this.map);
