@@ -56,6 +56,7 @@ export class GoogleMapsHeatmapPage implements OnInit {
     //const point = new google.maps.LatLng(37.782551, -122.445368);
     // Heatmap.addPoint(point);
     // Heatmap.setData(this.fakeHeatmapDataService.getGoogleMapsData2());
+    Heatmap.setData(this.fakeHeatmapDataService.getGoogleMapsData3());
   }
 
   onClickChangeGradient() {
