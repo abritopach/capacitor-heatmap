@@ -18,7 +18,7 @@ Capacitor is being designed by the Ionic Framework team as an eventual alternati
 
 Capacitor also comes with a Plugin API for building native plugins. On iOS, first-class Swift support is available, and much of the iOS Capacitor runtime is written in Swift. Plugins may also be written in Objective-C. On Android, support for writing plugins with Java and Kotlin is supported.
 
-## Capacitor Heatmap WEB models
+## Capacitor Heatmap WEB Interfaces & Types
 
 ```bash
 
@@ -34,6 +34,7 @@ export interface IHeatmapLog {
 
 export interface IHeatmapOptions {
     canvas: string | HTMLCanvasElement;
+    type: IHeatmapType;
     data?: HeatmapData;
     overlap?: {parent: string};
     debug?: boolean;
@@ -45,9 +46,27 @@ export interface IHeatmapPoint {
     thickness: number;
 }
 
+export enum IHeatmapType {
+    Simple = 'simple',
+    GoogleMaps = 'googlemaps',
+    LeafletMaps = 'leafletmaps'
+}
+
 export type HeatmapGradient = Record<number, string>;
 export type HeatmapPoint = Array<number> | IHeatmapPoint;
-export type HeatmapData = Array<Array<number>>;
+export type HeatmapData = Array<Array<number> | IHeatmapPoint>;
+
+export interface IGMHeatmapOptions {
+    map: google.maps.Map;
+    type: IHeatmapType;
+    data?: GMHeatmapData;
+    debug?: boolean;
+}
+
+export type GMHeatmapData = google.maps.MVCArray<google.maps.LatLng | google.maps.visualization.WeightedLocation> |
+google.maps.LatLng[] | google.maps.visualization.WeightedLocation[];
+
+
 
 ```
 
@@ -134,7 +153,7 @@ Type: `Promise<{value: HeatmapData}>`
 
 
 
-### `addPoint(point: Array<number>): Promise<{value: HeatmapData}>`
+### `addPoint(point: HeatmapPoint): Promise<{value: HeatmapData}>`
 
 ```bash
 Add new point to heatmap data.

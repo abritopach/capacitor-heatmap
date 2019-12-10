@@ -4,10 +4,4 @@ export var IHeatmapType;
     IHeatmapType["GoogleMaps"] = "googlemaps";
     IHeatmapType["LeafletMaps"] = "leafletmaps";
 })(IHeatmapType || (IHeatmapType = {}));
-/*
-export interface IGMHeatmapData {
-    location: google.maps.LatLng,
-    weight: number
-}
-*/
 //# sourceMappingURL=models.js.map

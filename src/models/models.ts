@@ -28,7 +28,7 @@ export enum IHeatmapType {
 
 export type HeatmapGradient = Record<number, string>;
 export type HeatmapPoint = Array<number> | IHeatmapPoint;
-export type HeatmapData = Array<Array<number>> /*| Array<IHeatmapPoint>*/;
+export type HeatmapData = Array<Array<number> | IHeatmapPoint>;
 
 export interface IGMHeatmapOptions {
     map: google.maps.Map;
@@ -39,11 +39,4 @@ export interface IGMHeatmapOptions {
 
 export type GMHeatmapData = google.maps.MVCArray<google.maps.LatLng | google.maps.visualization.WeightedLocation> |
 google.maps.LatLng[] | google.maps.visualization.WeightedLocation[];
-
-/*
-export interface IGMHeatmapData {
-    location: google.maps.LatLng,
-    weight: number
-}
-*/
 

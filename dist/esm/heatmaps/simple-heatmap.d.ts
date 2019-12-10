@@ -1,5 +1,5 @@
 import { BaseHeatmap } from "./base-heatmap";
-import { IHeatmapOptions, HeatmapData, HeatmapGradient } from "../models/models";
+import { IHeatmapOptions, HeatmapData, HeatmapPoint, HeatmapGradient } from "../models/models";
 export declare class SimpleHeatmap extends BaseHeatmap {
     getCanvas(): HTMLCanvasElement;
     initialize(options: IHeatmapOptions): HTMLCanvasElement;
@@ -10,7 +10,7 @@ export declare class SimpleHeatmap extends BaseHeatmap {
     getData(): HeatmapData;
     getValueAt(position: Array<number>): number;
     clearData(): HeatmapData;
-    addPoint(point: Array<number>): HeatmapData;
+    addPoint(point: HeatmapPoint): HeatmapData;
     setMax(max: number): number;
     /*********/
     /*********/

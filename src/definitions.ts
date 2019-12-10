@@ -1,4 +1,4 @@
-import { HeatmapData, IHeatmapOptions, HeatmapGradient, IGMHeatmapOptions, GMHeatmapData } from "./models/models";
+import { HeatmapData, IHeatmapOptions, HeatmapGradient, IGMHeatmapOptions, GMHeatmapData, HeatmapPoint } from "./models/models";
 
 declare module "@capacitor/core" {
   interface PluginRegistry {
@@ -17,7 +17,7 @@ export interface HeatmapPlugin {
   getData(): Promise<{value: HeatmapData}>;
   getValueAt(position: Array<number>): Promise<{value: number}>;
   clearData(): Promise<{value: HeatmapData}>;
-  addPoint(point: Array<number>): Promise<{value: HeatmapData}>;
+  addPoint(point: HeatmapPoint): Promise<{value: HeatmapData}>;
   setMax(max: number): Promise<{value: number}>
   /*********/
   // Methods for rendering heatmap.

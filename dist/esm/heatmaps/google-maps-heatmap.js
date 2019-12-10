@@ -54,7 +54,7 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
         }
         if (typeof options.data !== 'undefined')
             this.data = options.data;
-        this._heatmapLogger.log("__SimpleHeatmap__ draw", { data: this.data });
+        this._heatmapLogger.log("__GoogleMapsHeatmap__ draw", { data: this.data });
         this.heatmap.setData(options.data);
         this.heatmap.setMap(this.map);
         return true;

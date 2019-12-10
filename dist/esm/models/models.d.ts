@@ -27,7 +27,7 @@ export declare enum IHeatmapType {
 }
 export declare type HeatmapGradient = Record<number, string>;
 export declare type HeatmapPoint = Array<number> | IHeatmapPoint;
-export declare type HeatmapData = Array<Array<number>>;
+export declare type HeatmapData = Array<Array<number> | IHeatmapPoint>;
 export interface IGMHeatmapOptions {
     map: google.maps.Map;
     type: IHeatmapType;
