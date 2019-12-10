@@ -1,23 +1,23 @@
 import { BaseHeatmap } from './base-heatmap';
-import { HeatmapGradient, IGMHeatmapOptions, GMHeatmapData } from '../models/models';
+import { HeatmapGradient, IGMHeatmapOptions, GMHeatmapData, GMHeatmapPoint } from '../models/models';
 import { Log } from "../log";
 
 export class GoogleMapsHeatmap extends BaseHeatmap {
 
-    map: google.maps.Map;
-    heatmap: google.maps.visualization.HeatmapLayer;
-    data: GMHeatmapData;
+    _map: google.maps.Map;
+    _heatmap: google.maps.visualization.HeatmapLayer;
+    _data: GMHeatmapData;
 
     initialize(options: IGMHeatmapOptions): google.maps.visualization.HeatmapLayer {
         this._heatmapLogger = new Log(options.debug);
         this._heatmapLogger.log("__GoogleMapsHeatmap__ initialize");
         if ((typeof options.data !== "undefined") && (options.data !== null)) {
-            this.data = options.data;
-            this.map = options.map;
-            this.heatmap = new google.maps.visualization.HeatmapLayer({
+            this._data = options.data;
+            this._map = options.map;
+            this._heatmap = new google.maps.visualization.HeatmapLayer({
                 data: options.data,
             });
-            return this.heatmap;
+            return this._heatmap;
         }
     }
 
@@ -31,13 +31,15 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
     /*********/
     setData(data: GMHeatmapData): GMHeatmapData {
         this._heatmapLogger.log("__GoogleMapsHeatmap__ setData", data);
-        this.heatmap.setData(data);
-        return data;
+        this._data = [];
+        this._data = data;
+        this._heatmap.setData(this._data);
+        return this._heatmap.getData();
     }
 
     getData(): GMHeatmapData {
         this._heatmapLogger.log("__GoogleMapsHeatmap__ getData");
-        return this.heatmap.getData();
+        return this._heatmap.getData();
     }
 
     getValueAt(position: Array<number>): void {
@@ -46,13 +48,15 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
     }
 
     clearData(): GMHeatmapData {
-        this.heatmap.setData([]);
-        return [];
+        this._data = [];
+        this._heatmap.setData(this._data);
+        return this._data;
     }
 
-    addPoint(point: Array<number>): void {
-        // TODO
-        console.log(point);
+    addPoint(point: GMHeatmapPoint): GMHeatmapData {
+        this._data.push(point);
+        this._heatmap.setData(this._data);
+        return this._heatmap.getData();
     }
 
     setMax(max: number): void {
@@ -66,11 +70,11 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
     /*********/
     draw(options: {minOpacity?: number, data?: GMHeatmapData}): boolean {
         this._heatmapLogger.log("__GoogleMapsHeatmap__ draw");
-        if (!this.map) { return false; }
-        if (typeof options.data !== 'undefined') this.data = options.data;
-        this._heatmapLogger.log("__GoogleMapsHeatmap__ draw", {data: this.data});
-        this.heatmap.setData(options.data);
-        this.heatmap.setMap(this.map);
+        if (!this._map) { return false; }
+        if (typeof options.data !== 'undefined') this._data = options.data;
+        this._heatmapLogger.log("__GoogleMapsHeatmap__ draw", {data: this._data});
+        this._heatmap.setData(options.data);
+        this._heatmap.setMap(this._map);
         return true;
     }
 
@@ -84,8 +88,8 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
     }
 
     gradient(grad: HeatmapGradient): HeatmapGradient {
-        this.heatmap.set('gradient', grad);
-        return this.heatmap.get('gradient') ? null : grad;
+        this._heatmap.set('gradient', grad);
+        return this._heatmap.get('gradient') ? null : grad;
     }
 
 

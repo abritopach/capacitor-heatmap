@@ -606,6 +606,19 @@ export class FakeHeatmapDataService {
     new google.maps.LatLng(37.751266, -122.403355)
   ];
 
+  /* Data points defined as a mixture of WeightedLocation and LatLng objects */
+  data2GM: google.maps.visualization.WeightedLocation[] = [
+    {location: new google.maps.LatLng(37.782, -122.447), weight: 0.5},
+    {location: new google.maps.LatLng(37.782, -122.443), weight: 2},
+    {location: new google.maps.LatLng(37.782, -122.441), weight: 3},
+    {location: new google.maps.LatLng(37.782, -122.439), weight: 2},
+    {location: new google.maps.LatLng(37.782, -122.435), weight: 0.5},
+    {location: new google.maps.LatLng(37.785, -122.447), weight: 3},
+    {location: new google.maps.LatLng(37.785, -122.445), weight: 2},
+    {location: new google.maps.LatLng(37.785, -122.441), weight: 0.5},
+    {location: new google.maps.LatLng(37.785, -122.437), weight: 2},
+    {location: new google.maps.LatLng(37.785, -122.435), weight: 3}
+  ];
 
   constructor() { }
 
@@ -615,5 +628,9 @@ export class FakeHeatmapDataService {
 
   public getGoogleMapsData() {
     return this.dataGM;
+  }
+
+  public getGoogleMapsData2() {
+    return this.data2GM;
   }
 }

@@ -1,6 +1,15 @@
 import { BaseHeatmap } from "./base-heatmap";
 import { IHeatmapOptions, HeatmapData, HeatmapPoint, HeatmapGradient } from "../models/models";
 export declare class SimpleHeatmap extends BaseHeatmap {
+    _canvas: HTMLCanvasElement;
+    _ctx: CanvasRenderingContext2D;
+    _width: number;
+    _height: number;
+    _max: number;
+    _data: HeatmapData;
+    _circle: HTMLCanvasElement;
+    _grad: Uint8ClampedArray;
+    _r: number;
     getCanvas(): HTMLCanvasElement;
     initialize(options: IHeatmapOptions): HTMLCanvasElement;
     destroy(): HTMLCanvasElement;

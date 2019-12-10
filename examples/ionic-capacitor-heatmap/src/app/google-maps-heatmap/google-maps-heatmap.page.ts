@@ -17,7 +17,6 @@ export class GoogleMapsHeatmapPage implements OnInit {
   ngOnInit() {
     /*
     google.maps.event.addDomListener(window, 'load', () => {
-      this.initMap();
       this.initializeGMHeatmap();
     });
     */
@@ -25,11 +24,11 @@ export class GoogleMapsHeatmapPage implements OnInit {
 
   ionViewWillEnter() {
     console.log('GoogleMapsHeatmapPage::ionViewWillEnter() | method called');
-    this.initMap();
     this.initializeGMHeatmap();
   }
 
-  initMap() {
+  async initializeGMHeatmap() {
+
     const sanFrancisco = new google.maps.LatLng(37.774546, -122.433523);
 
     this.map = new google.maps.Map(document.getElementById('map'), {
@@ -37,9 +36,6 @@ export class GoogleMapsHeatmapPage implements OnInit {
       zoom: 13,
       mapTypeId: 'satellite'
     });
-  }
-
-  async initializeGMHeatmap() {
 
     const options: IGMHeatmapOptions = {type: IHeatmapType.GoogleMaps, map: this.map,
       data: this.fakeHeatmapDataService.getGoogleMapsData(), debug: true};
@@ -57,6 +53,9 @@ export class GoogleMapsHeatmapPage implements OnInit {
 
   onClickClearData() {
     Heatmap.clearData();
+    //const point = new google.maps.LatLng(37.782551, -122.445368);
+    // Heatmap.addPoint(point);
+    // Heatmap.setData(this.fakeHeatmapDataService.getGoogleMapsData2());
   }
 
   onClickChangeGradient() {

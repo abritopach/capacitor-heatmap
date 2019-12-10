@@ -1,6 +1,6 @@
 import { WebPlugin } from '@capacitor/core';
 import { HeatmapPlugin } from './definitions';
-import { HeatmapData, HeatmapGradient, IHeatmapOptions, IGMHeatmapOptions, GMHeatmapData } from './models/models';
+import { HeatmapData, HeatmapGradient, IHeatmapOptions, IGMHeatmapOptions, GMHeatmapData, HeatmapPoint, GMHeatmapPoint } from './models/models';
 export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     heatmap: any;
     constructor();
@@ -20,7 +20,7 @@ export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     }>;
     /*********/
     /*********/
-    setData(data: HeatmapData): Promise<{
+    setData(data: HeatmapData | GMHeatmapData): Promise<{
         value: HeatmapData;
     }>;
     getData(): Promise<{
@@ -32,7 +32,7 @@ export declare class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     clearData(): Promise<{
         value: HeatmapData;
     }>;
-    addPoint(point: Array<number>): Promise<{
+    addPoint(point: HeatmapPoint | GMHeatmapPoint): Promise<{
         value: HeatmapData;
     }>;
     setMax(max: number): Promise<{

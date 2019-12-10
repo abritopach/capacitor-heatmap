@@ -34,4 +34,5 @@ export interface IGMHeatmapOptions {
     data?: GMHeatmapData;
     debug?: boolean;
 }
+export declare type GMHeatmapPoint = (google.maps.LatLng & google.maps.visualization.WeightedLocation) | (google.maps.visualization.WeightedLocation & google.maps.LatLng);
 export declare type GMHeatmapData = google.maps.MVCArray<google.maps.LatLng | google.maps.visualization.WeightedLocation> | google.maps.LatLng[] | google.maps.visualization.WeightedLocation[];

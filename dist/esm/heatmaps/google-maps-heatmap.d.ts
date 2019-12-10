@@ -1,10 +1,10 @@
 /// <reference types="googlemaps" />
 import { BaseHeatmap } from './base-heatmap';
-import { HeatmapGradient, IGMHeatmapOptions, GMHeatmapData } from '../models/models';
+import { HeatmapGradient, IGMHeatmapOptions, GMHeatmapData, GMHeatmapPoint } from '../models/models';
 export declare class GoogleMapsHeatmap extends BaseHeatmap {
-    map: google.maps.Map;
-    heatmap: google.maps.visualization.HeatmapLayer;
-    data: GMHeatmapData;
+    _map: google.maps.Map;
+    _heatmap: google.maps.visualization.HeatmapLayer;
+    _data: GMHeatmapData;
     initialize(options: IGMHeatmapOptions): google.maps.visualization.HeatmapLayer;
     destroy(): void;
     /*********/
@@ -13,7 +13,7 @@ export declare class GoogleMapsHeatmap extends BaseHeatmap {
     getData(): GMHeatmapData;
     getValueAt(position: Array<number>): void;
     clearData(): GMHeatmapData;
-    addPoint(point: Array<number>): void;
+    addPoint(point: GMHeatmapPoint): GMHeatmapData;
     setMax(max: number): void;
     /*********/
     /*********/

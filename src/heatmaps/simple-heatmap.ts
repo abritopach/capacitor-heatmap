@@ -4,6 +4,16 @@ import { Log } from "../log";
 
 export class SimpleHeatmap extends BaseHeatmap {
 
+    _canvas: HTMLCanvasElement;
+    _ctx: CanvasRenderingContext2D;
+    _width: number;
+    _height: number;
+    _max: number;
+    _data: HeatmapData;
+    _circle: HTMLCanvasElement;
+    _grad: Uint8ClampedArray;
+    _r: number;
+
     getCanvas(): HTMLCanvasElement {
         return this._canvas;
     }
