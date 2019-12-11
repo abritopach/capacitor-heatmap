@@ -88,7 +88,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
 
   /*********/
 
-  async draw(options: {minOpacity?: number, data?: HeatmapData} | {minOpacity?: number, data?: GMHeatmapData}): Promise<{value: boolean}> {
+  async draw(options: {minOpacity?: number, data?: HeatmapData} | {opacity?: number, radius?: number, data?: GMHeatmapData}): Promise<{value: boolean}> {
     return {value: this.heatmap.draw(options)};
   }
 

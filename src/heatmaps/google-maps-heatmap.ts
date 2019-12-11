@@ -68,12 +68,14 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
     /*********/
     // Methods for rendering heatmap.
     /*********/
-    draw(options: {minOpacity?: number, data?: GMHeatmapData}): boolean {
+    draw(options: {opacity?: number, radius?: number, data?: GMHeatmapData}): boolean {
         this._heatmapLogger.log("__GoogleMapsHeatmap__ draw");
         if (!this._map) { return false; }
         if (typeof options.data !== 'undefined') this._data = options.data;
         this._heatmapLogger.log("__GoogleMapsHeatmap__ draw", {data: this._data});
         this._heatmap.setData(options.data);
+        this._heatmap.set('opacity', typeof options.opacity !== "undefined" ? options.opacity : 1);
+        this._heatmap.set('radius', typeof options.radius !== "undefined" ? options.radius : 10);
         this._heatmap.setMap(this._map);
         return true;
     }

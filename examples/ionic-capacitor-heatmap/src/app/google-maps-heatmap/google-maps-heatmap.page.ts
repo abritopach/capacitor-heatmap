@@ -46,7 +46,7 @@ export class GoogleMapsHeatmapPage implements OnInit {
   }
 
   async drawHeatmap() {
-    const options = {data: this.fakeHeatmapDataService.getGoogleMapsData()};
+    const options = {data: this.fakeHeatmapDataService.getGoogleMapsData(), opacity: 0.5, radius: 10};
     const result = await Heatmap.draw(options);
     console.log('result draw', result);
   }

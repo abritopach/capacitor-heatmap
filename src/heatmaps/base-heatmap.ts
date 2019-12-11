@@ -28,7 +28,7 @@ export abstract class BaseHeatmap {
     /*********/
     // Methods for rendering heatmap.
     /*********/
-    abstract draw(options: {minOpacity?: number, data?: HeatmapData} | {minOpacity?: number, data?: GMHeatmapData}): void;
+    abstract draw(options: {minOpacity?: number, data?: HeatmapData} | {opacity?: number, radius?: number, data?: GMHeatmapData}): void;
     /*********/
     // Methods for handling heatmap appearance.
     /*********/
