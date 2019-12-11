@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
 import { Heatmap } from 'capacitor-heatmap';
-import { IGMHeatmapOptions, IHeatmapType } from 'capacitor-heatmap/dist/esm/models/models';
+import { IGMHeatmapOptions, IHeatmapType, GMHeatmapPoint } from 'capacitor-heatmap/dist/esm/models/models';
 
 @Component({
   selector: 'app-google-maps-heatmap',
@@ -53,10 +53,16 @@ export class GoogleMapsHeatmapPage implements OnInit {
 
   onClickClearData() {
     Heatmap.clearData();
-    //const point = new google.maps.LatLng(37.782551, -122.445368);
-    // Heatmap.addPoint(point);
+  }
+
+  onClickAddData() {
     // Heatmap.setData(this.fakeHeatmapDataService.getGoogleMapsData2());
     Heatmap.setData(this.fakeHeatmapDataService.getGoogleMapsData3());
+  }
+
+  onClickAddPoint() {
+    const point = new google.maps.LatLng(37.782551, -122.445368);
+    Heatmap.addPoint(point);
   }
 
   onClickChangeGradient() {

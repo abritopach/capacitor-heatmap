@@ -15,10 +15,22 @@
   <ion-item lines="none">
     <div id="map"></div>
   </ion-item>
-  <ion-item lines="none">
-    <ion-button color="primary" (click)="onClickClearData()">Clear data</ion-button>
-  </ion-item>
-  <ion-item lines="none">
-    <ion-button color="primary" (click)="onClickChangeGradient()">Change gradient</ion-button>
-  </ion-item>
+  <ion-segment>
+    <ion-segment-button checked layout="icon-start" (click)="onClickClearData()">
+      <ion-label>Clear data</ion-label>
+      <ion-icon name="trash"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button layout="icon-start" (click)="onClickAddData()">
+      <ion-label>Add new data</ion-label>
+      <ion-icon name="map"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button layout="icon-start" (click)="onClickAddPoint()">
+      <ion-label>Add new point</ion-label>
+      <ion-icon name="pin"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button layout="icon-start" (click)="onClickChangeGradient()">
+      <ion-label>Change gradient</ion-label>
+      <ion-icon name="brush"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
 </ion-content>

@@ -103,7 +103,8 @@ export class FakeHeatmapDataService {
     [921,340,1],[921,720,1],[930,490,1],[930,500,1],[940,180,2],[940,430,1],[940,510,1],[940,580,1],[949,120,5],
     [949,150,1],[949,180,1],[949,370,1],[949,390,1],[949,570,2],[949,720,1],[949,770,2],[949,780,1],[949,860,1]];
 
-  dataGM: google.maps.LatLng[] = [
+  dataGM = new google.maps.MVCArray<google.maps.LatLng>(
+    [
     new google.maps.LatLng(37.782551, -122.445368),
     new google.maps.LatLng(37.782745, -122.444586),
     new google.maps.LatLng(37.782842, -122.443688),
@@ -604,10 +605,10 @@ export class FakeHeatmapDataService {
     new google.maps.LatLng(37.753837, -122.403172),
     new google.maps.LatLng(37.752986, -122.403112),
     new google.maps.LatLng(37.751266, -122.403355)
-  ];
+  ]
+  );
 
-  /* Data points defined as a mixture of WeightedLocation and LatLng objects */
-  data2GM: google.maps.visualization.WeightedLocation[] = [
+  data2GM = new google.maps.MVCArray<google.maps.visualization.WeightedLocation>( [
     {location: new google.maps.LatLng(37.782, -122.447), weight: 0.5},
     {location: new google.maps.LatLng(37.782, -122.443), weight: 2},
     {location: new google.maps.LatLng(37.782, -122.441), weight: 3},
@@ -618,8 +619,10 @@ export class FakeHeatmapDataService {
     {location: new google.maps.LatLng(37.785, -122.441), weight: 0.5},
     {location: new google.maps.LatLng(37.785, -122.437), weight: 2},
     {location: new google.maps.LatLng(37.785, -122.435), weight: 3}
-  ];
+  ]
+  );
 
+  /* Data points defined as a mixture of WeightedLocation and LatLng objects */
   data3GM = new google.maps.MVCArray<google.maps.LatLng | google.maps.visualization.WeightedLocation>(
     [
       {location: new google.maps.LatLng(37.782, -122.447), weight: 0.5},

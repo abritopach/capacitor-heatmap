@@ -31,7 +31,7 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
     /*********/
     setData(data: GMHeatmapData): GMHeatmapData {
         this._heatmapLogger.log("__GoogleMapsHeatmap__ setData", data);
-        this._data = [];
+        this._data.clear();
         this._data = data;
         this._heatmap.setData(this._data);
         return this._heatmap.getData();
@@ -48,7 +48,7 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
     }
 
     clearData(): GMHeatmapData {
-        this._data = [];
+        this._data.clear();
         this._heatmap.setData(this._data);
         return this._data;
     }
