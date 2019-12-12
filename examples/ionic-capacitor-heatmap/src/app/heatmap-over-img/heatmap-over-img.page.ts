@@ -45,7 +45,7 @@ export class HeatmapOverImgPage implements OnInit {
   }
 
   async drawHeatmap() {
-    const options = {};
+    const options = {opacity: 0.05};
     const result = await Heatmap.draw(options);
   }
 

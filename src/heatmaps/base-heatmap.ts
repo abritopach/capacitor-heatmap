@@ -10,6 +10,7 @@ export abstract class BaseHeatmap {
         1.0: 'red'
     };
     static readonly DEFAULT_RADIUS = 25;
+    static readonly DEFAULT_OPACITY = 0.5;
     static readonly DEFAULT_TYPE = IHeatmapType.Simple;
 
     _heatmapLogger: any;
@@ -28,7 +29,7 @@ export abstract class BaseHeatmap {
     /*********/
     // Methods for rendering heatmap.
     /*********/
-    abstract draw(options: {minOpacity?: number, data?: HeatmapData} | {opacity?: number, radius?: number, data?: GMHeatmapData}): void;
+    abstract draw(options: {opacity?: number, radius?: number, data?: HeatmapData | GMHeatmapData}): void;
     /*********/
     // Methods for handling heatmap appearance.
     /*********/

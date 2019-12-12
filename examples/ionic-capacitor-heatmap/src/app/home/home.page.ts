@@ -71,7 +71,7 @@ export class HomePage implements OnInit {
   }
 
   async drawHeatmap() {
-    const options = {};
+    const options = {opacity: 0.05, radius: 20};
     const result = await Heatmap.draw(options);
     // this.frame = null;
   }

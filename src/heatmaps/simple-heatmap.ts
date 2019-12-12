@@ -13,6 +13,7 @@ export class SimpleHeatmap extends BaseHeatmap {
     _circle: HTMLCanvasElement;
     _grad: Uint8ClampedArray;
     _r: number;
+    _opacity: number;
 
     getCanvas(): HTMLCanvasElement {
         return this._canvas;
@@ -103,13 +104,15 @@ export class SimpleHeatmap extends BaseHeatmap {
     // Methods for rendering heatmap.
     /*********/
 
-    draw(options: {minOpacity?: number, data?: HeatmapData}): boolean {
+    draw(options: {opacity?: number, radius?: number, data?: HeatmapData}): boolean {
         this._heatmapLogger.log("__SimpleHeatmap__ draw");
 
-        if ( typeof options.data !== 'undefined') this._data = options.data;
+        this._opacity = typeof options.opacity !== "undefined" ? options.opacity : BaseHeatmap.DEFAULT_OPACITY;
+        typeof options.radius !== "undefined" ? this.radius(options.radius) : this.radius(BaseHeatmap.DEFAULT_RADIUS);
+        this._data = typeof options.data !== 'undefined' ? options.data : this._data;
         this._heatmapLogger.log("__SimpleHeatmap__ draw", {length: this._data.length});
 
-        if (!this._circle) this.radius(BaseHeatmap.DEFAULT_RADIUS);
+        // if (!this._circle) this.radius(BaseHeatmap.DEFAULT_RADIUS);
         if (!this._grad) this.gradient(BaseHeatmap.DEFAULT_GRADIENT);
 
         this._heatmapLogger.log("circle", {circle: this._circle});
@@ -123,7 +126,7 @@ export class SimpleHeatmap extends BaseHeatmap {
         const thickness = Array.isArray(point) ? point[2] : point.thickness;
         const x = Array.isArray(point) ? point[0] : point.x;
         const y = Array.isArray(point) ? point[1] : point.y;
-        ctx.globalAlpha = Math.min(Math.max(thickness / this._max, options.minOpacity === undefined ? 0.05 : options.minOpacity), 1);
+        ctx.globalAlpha = Math.min(Math.max(thickness / this._max, this._opacity), 1);
         ctx.drawImage(this._circle, x - this._r, y - this._r);
         });
 
