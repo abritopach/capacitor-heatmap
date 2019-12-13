@@ -19,6 +19,7 @@ export class HomePage implements OnInit {
     {x: 38, y: 690, thickness: 3},
     {x: 48, y: 30, thickness: 1}
   ];
+  changedOpacity = false;
 
   @HostListener('window:resize', ['$event']) async onResize(event) {
     this.resizeHeatmap(event.target.innerWidth, event.target.innerHeight);
@@ -95,6 +96,11 @@ export class HomePage implements OnInit {
     console.log('HomePage::onClickDestroy() | method called');
     document.getElementById('testCanvas').onmousemove = null;
     Heatmap.destroy();
+  }
+
+  async onClickChangeOpacity() {
+    this.changedOpacity = !this.changedOpacity;
+    Heatmap.opacity(this.changedOpacity ? 0.1 : 0.05);
   }
 
 }

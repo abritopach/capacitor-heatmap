@@ -2,15 +2,6 @@ import { HeatmapData, IHeatmapOptions, HeatmapGradient, IHeatmapType, IGMHeatmap
 
 export abstract class BaseHeatmap {
 
-    static readonly DEFAULT_GRADIENT: HeatmapGradient = {
-        0.4: 'blue',
-        0.6: 'cyan',
-        0.7: 'lime',
-        0.8: 'yellow',
-        1.0: 'red'
-    };
-    static readonly DEFAULT_RADIUS = 25;
-    static readonly DEFAULT_OPACITY = 0.5;
     static readonly DEFAULT_TYPE = IHeatmapType.Simple;
 
     _heatmapLogger: any;
@@ -35,6 +26,7 @@ export abstract class BaseHeatmap {
     /*********/
     abstract resize(options: {width: number, height: number}): void;
     abstract gradient(grad: HeatmapGradient): void;
+    abstract opacity(opa: number): void;
     /*********/
     // Method to obtain the image of the canvas.
     /*********/

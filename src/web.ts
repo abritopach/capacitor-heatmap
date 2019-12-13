@@ -106,6 +106,10 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     return {value: this.heatmap.gradient(grad)};
   }
 
+  async opacity(opa: number): Promise<{value: number}> {
+    return {value: this.heatmap.opacity(opa)};
+  }
+
   /*********/
 
   // Method to obtain the image of the canvas.

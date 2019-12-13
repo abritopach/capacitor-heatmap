@@ -4,6 +4,16 @@ import { Log } from "../log";
 
 export class SimpleHeatmap extends BaseHeatmap {
 
+    static readonly DEFAULT_GRADIENT: HeatmapGradient = {
+        0.4: 'blue',
+        0.6: 'cyan',
+        0.7: 'lime',
+        0.8: 'yellow',
+        1.0: 'red'
+    };
+    static readonly DEFAULT_RADIUS = 20;
+    static readonly DEFAULT_OPACITY = 0.05;
+
     _canvas: HTMLCanvasElement;
     _ctx: CanvasRenderingContext2D;
     _width: number;
@@ -107,13 +117,13 @@ export class SimpleHeatmap extends BaseHeatmap {
     draw(options: {opacity?: number, radius?: number, data?: HeatmapData}): boolean {
         this._heatmapLogger.log("__SimpleHeatmap__ draw");
 
-        this._opacity = typeof options.opacity !== "undefined" ? options.opacity : BaseHeatmap.DEFAULT_OPACITY;
-        typeof options.radius !== "undefined" ? this.radius(options.radius) : this.radius(BaseHeatmap.DEFAULT_RADIUS);
+        this._opacity = typeof options.opacity !== "undefined" ? options.opacity : SimpleHeatmap.DEFAULT_OPACITY;
+        typeof options.radius !== "undefined" ? this.radius(options.radius) : this.radius(SimpleHeatmap.DEFAULT_RADIUS);
         this._data = typeof options.data !== 'undefined' ? options.data : this._data;
         this._heatmapLogger.log("__SimpleHeatmap__ draw", {length: this._data.length});
 
-        // if (!this._circle) this.radius(BaseHeatmap.DEFAULT_RADIUS);
-        if (!this._grad) this.gradient(BaseHeatmap.DEFAULT_GRADIENT);
+        // if (!this._circle) this.radius(SimpleHeatmap.DEFAULT_RADIUS);
+        if (!this._grad) this.gradient(SimpleHeatmap.DEFAULT_GRADIENT);
 
         this._heatmapLogger.log("circle", {circle: this._circle});
         this._heatmapLogger.log("width&height", {width: this._width, height: this._height});
@@ -175,6 +185,13 @@ export class SimpleHeatmap extends BaseHeatmap {
         this._grad = ctx.getImageData(0, 0, 1, 256).data;
         this._heatmapLogger.log("gradient", {canvas: canvas, ctx: ctx});
         return this._grad;
+    }
+
+    opacity(opa: number): number {
+        this._opacity = opa;
+        const opt = {opacity: opa};
+        this.draw(opt);
+        return this._opacity;
     }
 
     /*********/

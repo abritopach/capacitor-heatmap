@@ -4,6 +4,9 @@ import { Log } from "../log";
 
 export class GoogleMapsHeatmap extends BaseHeatmap {
 
+    static readonly DEFAULT_RADIUS = 10;
+    static readonly DEFAULT_OPACITY = 0.5;
+
     _map: google.maps.Map;
     _heatmap: google.maps.visualization.HeatmapLayer;
     _data: GMHeatmapData;
@@ -74,8 +77,8 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
         this._data = typeof options.data !== 'undefined' ? options.data : this._data;
         this._heatmapLogger.log("__GoogleMapsHeatmap__ draw", {data: this._data});
         this._heatmap.setData(options.data);
-        this._heatmap.set('opacity', typeof options.opacity !== "undefined" ? options.opacity : 1);
-        this._heatmap.set('radius', typeof options.radius !== "undefined" ? options.radius : 10);
+        this._heatmap.set('opacity', typeof options.opacity !== "undefined" ? options.opacity : GoogleMapsHeatmap.DEFAULT_OPACITY);
+        this._heatmap.set('radius', typeof options.radius !== "undefined" ? options.radius : GoogleMapsHeatmap.DEFAULT_RADIUS);
         this._heatmap.setMap(this._map);
         return true;
     }
@@ -92,6 +95,11 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
     gradient(grad: HeatmapGradient): HeatmapGradient {
         this._heatmap.set('gradient', grad);
         return this._heatmap.get('gradient') ? null : grad;
+    }
+
+    opacity(opa: number): number {
+        this._heatmap.set('opacity', opa);
+        return opa;
     }
 
 
