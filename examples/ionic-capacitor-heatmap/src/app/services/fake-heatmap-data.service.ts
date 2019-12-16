@@ -103,6 +103,17 @@ export class FakeHeatmapDataService {
     [921,340,1],[921,720,1],[930,490,1],[930,500,1],[940,180,2],[940,430,1],[940,510,1],[940,580,1],[949,120,5],
     [949,150,1],[949,180,1],[949,370,1],[949,390,1],[949,570,2],[949,720,1],[949,770,2],[949,780,1],[949,860,1]];
 
+  data1: HeatmapData = [
+    {x: 38, y: 20, thickness: 2},
+    {x: 38, y: 690, thickness: 3},
+    {x: 48, y: 30, thickness: 1},
+    {x: 48, y: 40, thickness: 1},
+    {x: 48, y: 670, thickness: 1},
+    {x: 58, y: 640, thickness: 1},
+    {x: 58, y: 680, thickness: 1},
+    {x: 67, y: 630, thickness: 1}
+  ];
+
   dataGM = new google.maps.MVCArray<google.maps.LatLng>(
     [
     new google.maps.LatLng(37.782551, -122.445368),
@@ -646,6 +657,10 @@ export class FakeHeatmapDataService {
 
   public getData() {
     return this.data;
+  }
+
+  public getData1() {
+    return this.data1;
   }
 
   public getGoogleMapsData() {

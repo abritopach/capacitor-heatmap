@@ -19,6 +19,28 @@
     <canvas id="testCanvas" width="1000" height="600"></canvas>
   </div>
   <ion-segment>
+    <ion-segment-button checked layout="icon-start" (click)="onClickClearData()">
+      <ion-label>Clear data</ion-label>
+      <ion-icon name="trash"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button layout="icon-start" (click)="onClickAddData()">
+      <ion-label>Add new data</ion-label>
+      <ion-icon name="map"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button layout="icon-start" (click)="onClickAddPoint()">
+      <ion-label>Add new point</ion-label>
+      <ion-icon name="pin"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button layout="icon-start" (click)="onClickChangeGradient()">
+      <ion-label>Change gradient</ion-label>
+      <ion-icon name="brush"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+  <ion-segment>
+    <ion-segment-button layout="icon-start" (click)="onClickChangeOpacity()">
+      <ion-label>Change opacity</ion-label>
+      <ion-icon name="contrast"></ion-icon>
+    </ion-segment-button>
     <ion-segment-button checked layout="icon-start" (click)="onClickResize()">
       <ion-label>Resize 500x300px</ion-label>
       <ion-icon name="resize"></ion-icon>
@@ -26,10 +48,6 @@
     <ion-segment-button layout="icon-start" (click)="onClickDestroy()">
       <ion-label>Destroy</ion-label>
       <ion-icon name="trash"></ion-icon>
-    </ion-segment-button>
-    <ion-segment-button layout="icon-start" (click)="onClickChangeOpacity()">
-      <ion-label>Change opacity</ion-label>
-      <ion-icon name="contrast"></ion-icon>
     </ion-segment-button>
   </ion-segment>
 </ion-content>

@@ -224,7 +224,7 @@ Type: `Promise<{value: {newWidth: number, newHeight: number}}>`
 
 
 
-### `gradient(grad: HeatmapGradient): Promise<{value: Uint8ClampedArray}>;`
+### `gradient(grad: HeatmapGradient): Promise<{value: Uint8ClampedArray}>`
 
 ```bash
 Set gradient colors as HeatmapGradient.
@@ -240,9 +240,24 @@ Type: `Promise<{value: Uint8ClampedArray}>`
 
 
 
+### `opacity(opa: number): Promise<{value: number}>`
+
+```bash
+Set the opacity of the heatmap, expressed as a number between 0 and 1..
+
+const resultOpacity = await Heatmap.opacity(opa);
+
+
+```
+
+#### Returns
+
+Type: `Promise<{value: number}>`
+
+
 ### Method to obtain the image of the canvas.
 
-### `getDataURL(type: string, imageQuality: number): Promise<{value: string}>;`
+### `getDataURL(type: string, imageQuality: number): Promise<{value: string}>`
 
 ```bash
 Returns dataURL string. The returned value is the base64 encoded dataURL of the heatmap instance.

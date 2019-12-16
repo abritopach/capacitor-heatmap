@@ -46,6 +46,8 @@ export class SimpleHeatmap extends BaseHeatmap {
                 this._heatmapLogger.warn("__SimpleHeatmap__ Data is undefined or empty. Passes heatmap data into draw function or set heatmap data with setData function."),
                 []
             );
+            this._opacity = SimpleHeatmap.DEFAULT_OPACITY;
+            this.radius(SimpleHeatmap.DEFAULT_RADIUS);
         }
         else {
             this._heatmapLogger.error("__SimpleHeatmap__  ERROR -> Undefined canvas id or html canvas.");
@@ -72,6 +74,8 @@ export class SimpleHeatmap extends BaseHeatmap {
         this._heatmapLogger.log("__SimpleHeatmap__ setData");
         this._data = [];
         this._data = [...data];
+        const opt = {};
+        this.draw(opt);
         return this._data;
     }
 
@@ -96,12 +100,16 @@ export class SimpleHeatmap extends BaseHeatmap {
     clearData(): HeatmapData {
         this._heatmapLogger.log("__SimpleHeatmap__ clearData");
         this._data = [];
+        const opt = {};
+        this.draw(opt);
         return this._data;
     }
 
     addPoint(point: HeatmapPoint): HeatmapData {
         this._heatmapLogger.log("__SimpleHeatmap__ addPoint", {newPoint: point});
         this._data.push(point);
+        const opt = {};
+        this.draw(opt);
         return this._data;
     }
 
@@ -117,12 +125,11 @@ export class SimpleHeatmap extends BaseHeatmap {
     draw(options: {opacity?: number, radius?: number, data?: HeatmapData}): boolean {
         this._heatmapLogger.log("__SimpleHeatmap__ draw");
 
-        this._opacity = typeof options.opacity !== "undefined" ? options.opacity : SimpleHeatmap.DEFAULT_OPACITY;
+        this._opacity = typeof options.opacity !== "undefined" ? options.opacity : this._opacity;
         typeof options.radius !== "undefined" ? this.radius(options.radius) : this.radius(SimpleHeatmap.DEFAULT_RADIUS);
         this._data = typeof options.data !== 'undefined' ? options.data : this._data;
         this._heatmapLogger.log("__SimpleHeatmap__ draw", {length: this._data.length});
 
-        // if (!this._circle) this.radius(SimpleHeatmap.DEFAULT_RADIUS);
         if (!this._grad) this.gradient(SimpleHeatmap.DEFAULT_GRADIENT);
 
         this._heatmapLogger.log("circle", {circle: this._circle});

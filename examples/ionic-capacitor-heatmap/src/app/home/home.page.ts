@@ -99,8 +99,39 @@ export class HomePage implements OnInit {
   }
 
   async onClickChangeOpacity() {
+    this.changeOpacity();
+  }
+
+  async changeOpacity() {
     this.changedOpacity = !this.changedOpacity;
-    Heatmap.opacity(this.changedOpacity ? 0.1 : 0.05);
+    await Heatmap.opacity(this.changedOpacity ? 0.1 : 0.05);
+  }
+
+  onClickClearData() {
+    this.clearData();
+  }
+
+  async clearData() {
+    await Heatmap.clearData();
+  }
+
+  onClickAddData() {
+    this.addData();
+  }
+
+  async addData() {
+    await Heatmap.setData(this.fakeHeatmapDataService.getData1());
+  }
+
+  onClickAddPoint() {
+    this.addPoint();
+  }
+
+  async addPoint() {
+    await Heatmap.addPoint([38, 20, 20]);
+  }
+
+  onClickChangeGradient() {
   }
 
 }
