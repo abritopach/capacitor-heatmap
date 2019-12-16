@@ -222,7 +222,7 @@ Type: `Promise<{value: {newWidth: number, newHeight: number}}>`
 
 
 
-### `gradient(grad: HeatmapGradient): Promise<{value: Uint8ClampedArray}>`
+### `gradient(grad: HeatmapGradient | GMHeatmapGradient): Promise<{value: Uint8ClampedArray | GMHeatmapGradient}>`
 
 ```bash
 Set gradient colors as HeatmapGradient.
@@ -234,7 +234,7 @@ const resultGradient = await Heatmap.gradient(grad);
 
 #### Returns
 
-Type: `Promise<{value: Uint8ClampedArray}>`
+Type: `Promise<{value: Uint8ClampedArray | GMHeatmapGradient}>`
 
 
 

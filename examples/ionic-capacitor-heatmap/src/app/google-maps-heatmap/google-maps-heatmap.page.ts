@@ -11,7 +11,22 @@ import { IGMHeatmapOptions, IHeatmapType, GMHeatmapPoint } from 'capacitor-heatm
 export class GoogleMapsHeatmapPage implements OnInit {
 
   map: google.maps.Map;
+  changedGradient = false;
   changedOpacity = false;
+
+  DEFAULT_GRADIENT = [
+    "rgba(102, 255, 0, 0)",
+    "rgba(102, 255, 0, 1)",
+    "rgba(147, 255, 0, 1)",
+    "rgba(193, 255, 0, 1)",
+    "rgba(238, 255, 0, 1)",
+    "rgba(244, 227, 0, 1)",
+    "rgba(249, 198, 0, 1)",
+    "rgba(255, 170, 0, 1)",
+    "rgba(255, 113, 0, 1)",
+    "rgba(255, 57, 0, 1)",
+    "rgba(255, 0, 0, 1)"
+  ];
 
   constructor(public fakeHeatmapDataService: FakeHeatmapDataService) { }
 
@@ -62,7 +77,7 @@ export class GoogleMapsHeatmapPage implements OnInit {
   }
 
   onClickAddPoint() {
-    const point = new google.maps.LatLng(37.782551, -122.445368);
+    const point: google.maps.LatLng = new google.maps.LatLng(37.782551, -122.445368);
     Heatmap.addPoint(point);
   }
 
@@ -83,7 +98,8 @@ export class GoogleMapsHeatmapPage implements OnInit {
       'rgba(191, 0, 31, 1)',
       'rgba(255, 0, 0, 1)'
     ];
-    Heatmap.gradient(gradient);
+    this.changedGradient = !this.changedGradient;
+    Heatmap.gradient(this.changedGradient ? gradient : this.DEFAULT_GRADIENT);
   }
 
   onClickChangeOpacity() {

@@ -1,9 +1,22 @@
 import { BaseHeatmap } from './base-heatmap';
-import { HeatmapGradient, IGMHeatmapOptions, GMHeatmapData, GMHeatmapPoint } from '../models/models';
+import { IGMHeatmapOptions, GMHeatmapData, GMHeatmapPoint, GMHeatmapGradient } from '../models/models';
 import { Log } from "../log";
 
 export class GoogleMapsHeatmap extends BaseHeatmap {
 
+    static readonly DEFAULT_GRADIENT = [
+        "rgba(102, 255, 0, 0)",
+        "rgba(102, 255, 0, 1)",
+        "rgba(147, 255, 0, 1)",
+        "rgba(193, 255, 0, 1)",
+        "rgba(238, 255, 0, 1)",
+        "rgba(244, 227, 0, 1)",
+        "rgba(249, 198, 0, 1)",
+        "rgba(255, 170, 0, 1)",
+        "rgba(255, 113, 0, 1)",
+        "rgba(255, 57, 0, 1)",
+        "rgba(255, 0, 0, 1)"
+    ];
     static readonly DEFAULT_RADIUS = 10;
     static readonly DEFAULT_OPACITY = 0.5;
 
@@ -20,6 +33,9 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
             this._heatmap = new google.maps.visualization.HeatmapLayer({
                 data: options.data,
             });
+            this._heatmap.set('opacity', GoogleMapsHeatmap.DEFAULT_OPACITY);
+            this._heatmap.set('radius', GoogleMapsHeatmap.DEFAULT_RADIUS);
+            this._heatmap.set('gradient', GoogleMapsHeatmap.DEFAULT_GRADIENT);
             return this._heatmap;
         }
     }
@@ -71,14 +87,15 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
     /*********/
     // Methods for rendering heatmap.
     /*********/
-    draw(options: {opacity?: number, radius?: number, data?: GMHeatmapData}): boolean {
+    draw(options: {opacity?: number, radius?: number, gradient?: string[], data?: GMHeatmapData}): boolean {
         this._heatmapLogger.log("__GoogleMapsHeatmap__ draw");
         if (!this._map) { return false; }
         this._data = typeof options.data !== 'undefined' ? options.data : this._data;
         this._heatmapLogger.log("__GoogleMapsHeatmap__ draw", {data: this._data});
         this._heatmap.setData(options.data);
-        this._heatmap.set('opacity', typeof options.opacity !== "undefined" ? options.opacity : GoogleMapsHeatmap.DEFAULT_OPACITY);
-        this._heatmap.set('radius', typeof options.radius !== "undefined" ? options.radius : GoogleMapsHeatmap.DEFAULT_RADIUS);
+        this._heatmap.set('opacity', typeof options.opacity !== "undefined" ? options.opacity : this._heatmap.get('opacity'));
+        this._heatmap.set('radius', typeof options.radius !== "undefined" ? options.radius : this._heatmap.get('radius'));
+        this._heatmap.set('gradient', typeof options.gradient !== "undefined" ? options.gradient : this._heatmap.get('gradient'));
         this._heatmap.setMap(this._map);
         return true;
     }
@@ -92,7 +109,7 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
         console.log(options);
     }
 
-    gradient(grad: HeatmapGradient): HeatmapGradient {
+    gradient(grad: GMHeatmapGradient): GMHeatmapGradient {
         this._heatmap.set('gradient', grad);
         return this._heatmap.get('gradient') ? null : grad;
     }

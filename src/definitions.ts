@@ -1,4 +1,4 @@
-import { HeatmapData, IHeatmapOptions, HeatmapGradient, IGMHeatmapOptions, GMHeatmapData, HeatmapPoint, GMHeatmapPoint } from "./models/models";
+import { HeatmapData, IHeatmapOptions, HeatmapGradient, IGMHeatmapOptions, GMHeatmapData, HeatmapPoint, GMHeatmapPoint, IHeatmapDrawOptions, GMHeatmapGradient } from "./models/models";
 
 declare module "@capacitor/core" {
   interface PluginRegistry {
@@ -22,12 +22,12 @@ export interface HeatmapPlugin {
   /*********/
   // Methods for rendering heatmap.
   /*********/
-  draw(options: {opacity?: number, radius?: number, data?:  HeatmapData | GMHeatmapData}): Promise<{value: boolean}>;
+  draw(options: IHeatmapDrawOptions): Promise<{value: boolean}>;
   /*********/
   // Methods for handling heatmap appearance.
   /*********/
   resize(options: {width: number, height: number}): Promise<{value: {newWidth: number, newHeight: number}}>;
-  gradient(grad: HeatmapGradient): Promise<{value: Uint8ClampedArray}>;
+  gradient(grad: HeatmapGradient | GMHeatmapGradient): Promise<{value: Uint8ClampedArray | GMHeatmapGradient}>;
   opacity(opa: number): Promise<{value: number}>;
   /*********/
   // Method to obtain the image of the canvas.

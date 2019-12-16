@@ -1,7 +1,7 @@
 import { WebPlugin } from '@capacitor/core';
 import { HeatmapPlugin } from './definitions';
 
-import { HeatmapData, HeatmapGradient, IHeatmapOptions, IHeatmapType, IGMHeatmapOptions, GMHeatmapData, HeatmapPoint, GMHeatmapPoint } from './models/models';
+import { HeatmapData, HeatmapGradient, IHeatmapOptions, IHeatmapType, IGMHeatmapOptions, GMHeatmapData, HeatmapPoint, GMHeatmapPoint, IHeatmapDrawOptions, GMHeatmapGradient } from './models/models';
 
 import { SimpleHeatmap } from './heatmaps/simple-heatmap';
 import { GoogleMapsHeatmap } from './heatmaps/google-maps-heatmap';
@@ -88,7 +88,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
 
   /*********/
 
-  async draw(options: {opacity?: number, radius?: number, data?: HeatmapData | GMHeatmapData}): Promise<{value: boolean}> {
+  async draw(options: IHeatmapDrawOptions): Promise<{value: boolean}> {
     return {value: this.heatmap.draw(options)};
   }
 
@@ -102,7 +102,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     return {value: this.heatmap.resize(options)};
   }
 
-  async gradient(grad: HeatmapGradient): Promise<{value: Uint8ClampedArray}> {
+  async gradient(grad: HeatmapGradient | GMHeatmapGradient): Promise<{value: Uint8ClampedArray | GMHeatmapGradient}> {
     return {value: this.heatmap.gradient(grad)};
   }
 

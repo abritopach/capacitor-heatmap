@@ -122,7 +122,7 @@ export class SimpleHeatmap extends BaseHeatmap {
     // Methods for rendering heatmap.
     /*********/
 
-    draw(options: {opacity?: number, radius?: number, data?: HeatmapData}): boolean {
+    draw(options: {opacity?: number, radius?: number, gradient?: HeatmapGradient, data?: HeatmapData}): boolean {
         this._heatmapLogger.log("__SimpleHeatmap__ draw");
 
         this._opacity = typeof options.opacity !== "undefined" ? options.opacity : this._opacity;
@@ -191,6 +191,8 @@ export class SimpleHeatmap extends BaseHeatmap {
         ctx.fillRect(0, 0, 1, 256);
         this._grad = ctx.getImageData(0, 0, 1, 256).data;
         this._heatmapLogger.log("gradient", {canvas: canvas, ctx: ctx});
+        const opt = {};
+        this.draw(opt);
         return this._grad;
     }
 

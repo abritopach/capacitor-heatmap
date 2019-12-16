@@ -3,7 +3,7 @@ import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
 import { Heatmap } from 'capacitor-heatmap';
 
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
-import { IHeatmapOptions, IHeatmapType } from 'capacitor-heatmap/dist/esm/models/models';
+import { IHeatmapOptions, IHeatmapType, HeatmapGradient } from 'capacitor-heatmap/dist/esm/models/models';
 
 window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame;
 
@@ -14,12 +14,16 @@ window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequ
 })
 export class HomePage implements OnInit {
 
-  data2 = [
-    {x: 38, y: 20, thickness: 2},
-    {x: 38, y: 690, thickness: 3},
-    {x: 48, y: 30, thickness: 1}
-  ];
+  changedGradient = false;
   changedOpacity = false;
+
+  DEFAULT_GRADIENT: HeatmapGradient = {
+    0.4: 'blue',
+    0.6: 'cyan',
+    0.7: 'lime',
+    0.8: 'yellow',
+    1.0: 'red'
+  };
 
   @HostListener('window:resize', ['$event']) async onResize(event) {
     this.resizeHeatmap(event.target.innerWidth, event.target.innerHeight);
@@ -27,19 +31,18 @@ export class HomePage implements OnInit {
 
   constructor(public fakeHeatmapDataService: FakeHeatmapDataService) {
     console.log('HomePage::constructor() | method called');
-    console.log('data2', this.data2);
   }
 
   ngOnInit() {
     console.log('HomePage::ngOnInit() | method called');
-    this.initializeHeatmap();
   }
 
   ionViewWillEnter() {
     console.log('HomePage::ionViewWillEnter() | method called');
+    this.initializeHeatmap();
   }
 
-  ionViewWillLeave(){
+  ionViewWillLeave() {
     console.log('HomePage::ionViewWillLeave() | method called');
   }
 
@@ -49,14 +52,16 @@ export class HomePage implements OnInit {
     const result = await Heatmap.initialize(options);
     console.log('result', result);
 
+    const canvas: HTMLCanvasElement = result.value as HTMLCanvasElement;
+
     Heatmap.setMax(18);
 
-    if ((result.value.width > window.innerWidth) || (result.value.height > window.innerHeight)) {
+    if ((canvas.width > window.innerWidth) || (canvas.height > window.innerHeight)) {
       this.resizeHeatmap(window.innerWidth, window.innerHeight);
     }
 
-    result.value.onmousemove = (e) => {
-      const rect = result.value.getBoundingClientRect();
+    canvas.onmousemove = (e) => {
+      const rect = canvas.getBoundingClientRect();
       const newPoint: Array<number> = [e.clientX - rect.left, e.clientY - rect.top, 18];
       const resultAddPoint = Heatmap.addPoint(newPoint);
       console.log('resultAddPoint', resultAddPoint);
@@ -98,12 +103,14 @@ export class HomePage implements OnInit {
     Heatmap.destroy();
   }
 
-  async onClickChangeOpacity() {
+  onClickChangeOpacity() {
+    console.log('onClickChangeOpacity');
     this.changeOpacity();
   }
 
   async changeOpacity() {
     this.changedOpacity = !this.changedOpacity;
+    console.log('this.changedOpacity', this.changedOpacity);
     await Heatmap.opacity(this.changedOpacity ? 0.1 : 0.05);
   }
 
@@ -132,6 +139,21 @@ export class HomePage implements OnInit {
   }
 
   onClickChangeGradient() {
+    this.changeGradient();
+  }
+
+  async changeGradient() {
+    const gradient: HeatmapGradient = {
+      1.0: 'blue',
+      0.8: 'cyan',
+      0.7: 'lime',
+      0.6: 'yellow',
+      0.4: 'red'
+    };
+    this.changedGradient = !this.changedGradient;
+    await Heatmap.gradient(this.changedGradient ? gradient : this.DEFAULT_GRADIENT);
+    const options = {};
+    const result = await Heatmap.draw(options);
   }
 
 }

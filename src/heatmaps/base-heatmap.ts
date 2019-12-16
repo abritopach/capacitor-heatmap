@@ -1,4 +1,4 @@
-import { HeatmapData, IHeatmapOptions, HeatmapGradient, IHeatmapType, IGMHeatmapOptions, GMHeatmapData, HeatmapPoint, GMHeatmapPoint } from '../models/models';
+import { HeatmapData, IHeatmapOptions, HeatmapGradient, IHeatmapType, IGMHeatmapOptions, GMHeatmapData, HeatmapPoint, GMHeatmapPoint, IHeatmapDrawOptions, GMHeatmapGradient } from '../models/models';
 
 export abstract class BaseHeatmap {
 
@@ -20,16 +20,15 @@ export abstract class BaseHeatmap {
     /*********/
     // Methods for rendering heatmap.
     /*********/
-    abstract draw(options: {opacity?: number, radius?: number, data?: HeatmapData | GMHeatmapData}): void;
+    abstract draw(options: IHeatmapDrawOptions): void;
     /*********/
     // Methods for handling heatmap appearance.
     /*********/
     abstract resize(options: {width: number, height: number}): void;
-    abstract gradient(grad: HeatmapGradient): void;
+    abstract gradient(grad: HeatmapGradient | GMHeatmapGradient): void;
     abstract opacity(opa: number): void;
     /*********/
     // Method to obtain the image of the canvas.
     /*********/
     abstract getDataURL(type: string, imageQuality: number): void;
-
 }
