@@ -8,16 +8,16 @@ declare module "@capacitor/core" {
 
 export interface HeatmapPlugin {
   echo(options: { value: string }): Promise<{value: string}>;
-  initialize(options: IHeatmapOptions | IGMHeatmapOptions): Promise<{value: HTMLCanvasElement}>;
+  initialize(options: IHeatmapOptions | IGMHeatmapOptions): Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer}>;
   destroy(): Promise<{value: HTMLCanvasElement}>;
   /*********/
   // Methods for handling heatmap data.
   /*********/
-  setData(data: HeatmapData | GMHeatmapData): Promise<{value: HeatmapData}>;
-  getData(): Promise<{value: HeatmapData}>;
+  setData(data: HeatmapData | GMHeatmapData): Promise<{value: HeatmapData | GMHeatmapData}>;
+  getData(): Promise<{value: HeatmapData | GMHeatmapData}>;
   getValueAt(position: Array<number>): Promise<{value: number}>;
-  clearData(): Promise<{value: HeatmapData}>;
-  addPoint(point: HeatmapPoint | GMHeatmapPoint): Promise<{value: HeatmapData}>;
+  clearData(): Promise<{value: HeatmapData | GMHeatmapData}>;
+  addPoint(point: HeatmapPoint | GMHeatmapPoint): Promise<{value: HeatmapData | GMHeatmapData}>;
   setMax(max: number): Promise<{value: number}>
   /*********/
   // Methods for rendering heatmap.

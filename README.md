@@ -63,16 +63,14 @@ export interface IGMHeatmapOptions {
     debug?: boolean;
 }
 
-export type GMHeatmapData = google.maps.MVCArray<google.maps.LatLng | google.maps.visualization.WeightedLocation> |
-google.maps.LatLng[] | google.maps.visualization.WeightedLocation[];
-
-
+export type GMHeatmapPoint = google.maps.LatLng | google.maps.visualization.WeightedLocation;
+export type GMHeatmapData = google.maps.MVCArray<google.maps.LatLng | google.maps.visualization.WeightedLocation>;
 
 ```
 
 ## Capacitor Heatmap WEB public API methods.
 
-### `initialize(options: IHeatmapOptions): Promise<{value: HTMLCanvasElement}>`
+### `initialize(options: IHeatmapOptions | IGMHeatmapOptions): Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer}>`
 
 ```bash
 Initialize heatmap.
@@ -87,13 +85,13 @@ async initializeHeatmap() {
 
 #### Returns
 
-Type: `Promise<{value: HTMLCanvasElement}>`
+Type: `Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer}>`
 
 
 
 ### Methods for handling heatmap data.
 
-### `setData(data: HeatmapData): Promise<{value: HeatmapData}>`
+### `setData(data: HeatmapData | GMHeatmapData): Promise<{value: HeatmapDat | GMHeatmapDataa}>`
 
 ```bash
 Set heatmap data of [[x, y, thickness], ...] format.
@@ -104,11 +102,11 @@ const d = await Heatmap.setData(this.data);
 
 #### Returns
 
-Type: `Promise<{value: HeatmapData}>`
+Type: `Promise<{value: HeatmapData | GMHeatmapData}>`
 
 
 
-### `getData(): Promise<{value: HeatmapData}>`
+### `getData(): Promise<{value: HeatmapData | GMHeatmapData}>`
 
 ```bash
 Get heatmap data of [[x, y, thickness], ...] format.
@@ -119,7 +117,7 @@ const d = await Heatmap.getData();
 
 #### Returns
 
-Type: `Promise<{value: HeatmapData}>`
+Type: `Promise<{value: HeatmapData | GMHeatmapData}>`
 
 
 
@@ -138,7 +136,7 @@ Type: `Promise<{value: number}>`
 
 
 
-### `clearData(): Promise<{value: HeatmapData}>`
+### `clearData(): Promise<{value: HeatmapData | GMHeatmapData}>`
 
 ```bash
 Clear heatmap data.
@@ -149,11 +147,11 @@ const d = await Heatmap.clearData();
 
 #### Returns
 
-Type: `Promise<{value: HeatmapData}>`
+Type: `Promise<{value: HeatmapData | GMHeatmapData}>`
 
 
 
-### `addPoint(point: HeatmapPoint): Promise<{value: HeatmapData}>`
+### `addPoint(point: HeatmapPoint): Promise<{value: HeatmapData | GMHeatmapData}>`
 
 ```bash
 Add new point to heatmap data.
@@ -168,7 +166,7 @@ canvas.onmousemove = (e) => {
 
 #### Returns
 
-Type: `Promise<{value: HeatmapData}>`
+Type: `Promise<{value: HeatmapData | GMHeatmapData}>`
 
 
 
@@ -185,7 +183,7 @@ const newMax = Heatmap.setMax(18);
 
 ### Methods for rendering heatmap.
 
-### `draw(options: {minOpacity?: number, data?: HeatmapData}): Promise<{value: boolean}>`
+### `draw(options: {minOpacity?: number, data?: HeatmapData | GMHeatmapData}): Promise<{value: boolean}>`
 
 ```bash
 Draw heatmap.

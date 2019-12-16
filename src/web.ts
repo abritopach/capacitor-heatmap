@@ -26,7 +26,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     return {value: this.heatmap.getCanvas()};
   }
 
-  async initialize(options: (IHeatmapOptions | IGMHeatmapOptions)): Promise<{value: HTMLCanvasElement}> {
+  async initialize(options: (IHeatmapOptions | IGMHeatmapOptions)): Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer}> {
     const type = typeof options.type !== "undefined" ? options.type : IHeatmapType.Simple;
     switch(type) {
       case IHeatmapType.Simple: {
@@ -58,11 +58,11 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
 
   /*********/
 
-  async setData(data: HeatmapData | GMHeatmapData): Promise<{value: HeatmapData}> {
+  async setData(data: HeatmapData | GMHeatmapData): Promise<{value: HeatmapData | GMHeatmapData}> {
     return {value: this.heatmap.setData(data)};
   }
 
-  async getData(): Promise<{value: HeatmapData}> {
+  async getData(): Promise<{value: HeatmapData | GMHeatmapData}> {
     return {value: this.heatmap.getData()};
   }
 
@@ -70,11 +70,11 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     return {value: this.heatmap.getValueAt(position)};
   }
 
-  async clearData(): Promise<{value: HeatmapData}> {
+  async clearData(): Promise<{value: HeatmapData | GMHeatmapData}> {
     return {value: this.heatmap.clearData()};
   }
 
-  async addPoint(point: HeatmapPoint | GMHeatmapPoint): Promise<{value: HeatmapData}> {
+  async addPoint(point: HeatmapPoint | GMHeatmapPoint): Promise<{value: HeatmapData | GMHeatmapData}> {
     return {value: this.heatmap.addPoint(point)};
   }
 
