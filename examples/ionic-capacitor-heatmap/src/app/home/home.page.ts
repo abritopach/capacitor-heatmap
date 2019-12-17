@@ -16,6 +16,7 @@ export class HomePage implements OnInit {
 
   changedGradient = false;
   changedOpacity = false;
+  changedRadius = false;
 
   DEFAULT_GRADIENT: HeatmapGradient = {
     0.4: 'blue',
@@ -152,8 +153,15 @@ export class HomePage implements OnInit {
     };
     this.changedGradient = !this.changedGradient;
     await Heatmap.gradient(this.changedGradient ? gradient : this.DEFAULT_GRADIENT);
-    const options = {};
-    const result = await Heatmap.draw(options);
+  }
+
+  onClickChangeRadius() {
+    this.changeRadius();
+  }
+
+  async changeRadius() {
+    this.changedRadius = !this.changedRadius;
+    await Heatmap.radius(this.changedRadius ? 30 : 20);
   }
 
 }

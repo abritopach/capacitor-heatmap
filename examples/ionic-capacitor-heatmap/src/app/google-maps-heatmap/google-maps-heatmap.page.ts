@@ -13,6 +13,7 @@ export class GoogleMapsHeatmapPage implements OnInit {
   map: google.maps.Map;
   changedGradient = false;
   changedOpacity = false;
+  changedRadius = false;
 
   DEFAULT_GRADIENT = [
     "rgba(102, 255, 0, 0)",
@@ -105,6 +106,11 @@ export class GoogleMapsHeatmapPage implements OnInit {
   onClickChangeOpacity() {
     this.changedOpacity = !this.changedOpacity;
     Heatmap.opacity(this.changedOpacity ? 1 : 0.5);
+  }
+
+  onClickChangeRadius() {
+    this.changedRadius = !this.changedRadius;
+    Heatmap.radius(this.changedRadius ? 30 : 10);
   }
 
 }

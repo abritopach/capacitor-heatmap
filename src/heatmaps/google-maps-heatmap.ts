@@ -119,6 +119,11 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
         return opa;
     }
 
+    radius(rad: number): number {
+        this._heatmap.set('radius', rad);
+        return rad;
+    }
+
 
     /*********/
     // Method to obtain the image of the canvas.

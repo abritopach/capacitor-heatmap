@@ -110,6 +110,10 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     return {value: this.heatmap.opacity(opa)};
   }
 
+  async radius(rad: number): Promise<{value: number}> {
+    return {value: this.heatmap.radius(rad)};
+  }
+
   /*********/
 
   // Method to obtain the image of the canvas.

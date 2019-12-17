@@ -27,6 +27,7 @@ export abstract class BaseHeatmap {
     abstract resize(options: {width: number, height: number}): void;
     abstract gradient(grad: HeatmapGradient | GMHeatmapGradient): void;
     abstract opacity(opa: number): void;
+    abstract radius(rad: number): void;
     /*********/
     // Method to obtain the image of the canvas.
     /*********/

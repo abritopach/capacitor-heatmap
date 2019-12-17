@@ -29,6 +29,7 @@ export interface HeatmapPlugin {
   resize(options: {width: number, height: number}): Promise<{value: {newWidth: number, newHeight: number}}>;
   gradient(grad: HeatmapGradient | GMHeatmapGradient): Promise<{value: Uint8ClampedArray | GMHeatmapGradient}>;
   opacity(opa: number): Promise<{value: number}>;
+  radius(rad: number): Promise<{value: number}>;
   /*********/
   // Method to obtain the image of the canvas.
   /*********/

@@ -24,6 +24,8 @@ export class SimpleHeatmap extends BaseHeatmap {
     _grad: Uint8ClampedArray;
     _r: number;
     _opacity: number;
+    _gradient: HeatmapGradient;
+    _radius: number;
 
     getCanvas(): HTMLCanvasElement {
         return this._canvas;
@@ -47,7 +49,10 @@ export class SimpleHeatmap extends BaseHeatmap {
                 []
             );
             this._opacity = SimpleHeatmap.DEFAULT_OPACITY;
-            this.radius(SimpleHeatmap.DEFAULT_RADIUS);
+            this._radius = SimpleHeatmap.DEFAULT_RADIUS;
+            this.createCircle(SimpleHeatmap.DEFAULT_RADIUS);
+            this._gradient = SimpleHeatmap.DEFAULT_GRADIENT;
+            this.gradientArray(SimpleHeatmap.DEFAULT_GRADIENT);
         }
         else {
             this._heatmapLogger.error("__SimpleHeatmap__  ERROR -> Undefined canvas id or html canvas.");
@@ -126,11 +131,10 @@ export class SimpleHeatmap extends BaseHeatmap {
         this._heatmapLogger.log("__SimpleHeatmap__ draw");
 
         this._opacity = typeof options.opacity !== "undefined" ? options.opacity : this._opacity;
-        typeof options.radius !== "undefined" ? this.radius(options.radius) : this.radius(SimpleHeatmap.DEFAULT_RADIUS);
+        typeof options.radius !== "undefined" ? this.createCircle(options.radius) : this.createCircle(this._radius);
+        typeof options.gradient !== "undefined" ? this.gradientArray(options.gradient) : this.gradientArray(this._gradient);
         this._data = typeof options.data !== 'undefined' ? options.data : this._data;
         this._heatmapLogger.log("__SimpleHeatmap__ draw", {length: this._data.length});
-
-        if (!this._grad) this.gradient(SimpleHeatmap.DEFAULT_GRADIENT);
 
         this._heatmapLogger.log("circle", {circle: this._circle});
         this._heatmapLogger.log("width&height", {width: this._width, height: this._height});
@@ -176,31 +180,28 @@ export class SimpleHeatmap extends BaseHeatmap {
         return {newWidth: 0, newHeight: 0};
     }
 
-    gradient(grad: HeatmapGradient): Uint8ClampedArray {
-        this._heatmapLogger.log("__SimpleHeatmap__ gradient", {grad: grad});
-        // Create a 256x1 gradient that we'll use to turn a grayscale heatmap into a colored one.
-        const canvas = this._createCanvas(),
-            ctx = canvas.getContext('2d'),
-            gradient = ctx.createLinearGradient(0, 0, 0, 256);
-        canvas.width = 1;
-        canvas.height = 256;
-        for (var i in grad) {
-            gradient.addColorStop(+i, grad[i]);
-        }
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, 1, 256);
-        this._grad = ctx.getImageData(0, 0, 1, 256).data;
-        this._heatmapLogger.log("gradient", {canvas: canvas, ctx: ctx});
-        const opt = {};
+    gradient(g: HeatmapGradient): HeatmapGradient {
+        this._heatmapLogger.log("__SimpleHeatmap__ gradient", g);
+        this._gradient = g;
+        const opt = {gradient: g};
         this.draw(opt);
-        return this._grad;
+        return this._gradient;
     }
 
     opacity(opa: number): number {
+        this._heatmapLogger.log("__SimpleHeatmap__ opacity", opa);
         this._opacity = opa;
         const opt = {opacity: opa};
         this.draw(opt);
         return this._opacity;
+    }
+
+    radius(r: number) {
+        this._heatmapLogger.log("__SimpleHeatmap__ radius", r);
+        this._radius = r;
+        const opt = {radius: r};
+        this.draw(opt);
+        return this._r;
     }
 
     /*********/
@@ -251,11 +252,24 @@ export class SimpleHeatmap extends BaseHeatmap {
         return {width: width, height: height};
     }
 
-    private clearCanvas() {
-        this._ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
+    private gradientArray(grad: HeatmapGradient) {
+        this._heatmapLogger.log("__SimpleHeatmap__ gradientArray", {grad: grad});
+        // Create a 256x1 gradient that we'll use to turn a grayscale heatmap into a colored one.
+        const canvas = this._createCanvas(),
+            ctx = canvas.getContext('2d'),
+            gradient = ctx.createLinearGradient(0, 0, 0, 256);
+        canvas.width = 1;
+        canvas.height = 256;
+        for (var i in grad) {
+            gradient.addColorStop(+i, grad[i]);
+        }
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, 1, 256);
+        this._grad = ctx.getImageData(0, 0, 1, 256).data;
+        this._heatmapLogger.log("gradientArray", {canvas: canvas, ctx: ctx});
     }
 
-    private radius(r: number, blur?: number) {
+    private createCircle(r: number, blur?: number) {
         blur = blur === undefined ? 15 : blur;
         // Create a grayscale blurred circle image that we'll use for drawing points.
         const circle = this._circle = this._createCanvas(),
@@ -270,6 +284,10 @@ export class SimpleHeatmap extends BaseHeatmap {
         ctx.arc(-r2, -r2, r, 0, Math.PI * 2, true);
         ctx.closePath();
         ctx.fill();
+    }
+
+    private clearCanvas() {
+        this._ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
     }
 
     private _colorize (pixels: any, gradient: any) {
