@@ -1,3 +1,11 @@
+/**
+ * Description [Interface to define heatmap logs.]
+ *
+ * @author abrito
+ * @version 0.0.1
+ *
+ * @interface
+*/
 export interface IHeatmapLog {
     log(primaryMessage: string, ...supportingData: any[]): void;
     debug(primaryMessage: string, ...supportingData: any[]): void;
@@ -6,6 +14,14 @@ export interface IHeatmapLog {
     info(primaryMessage: string, ...supportingData: any[]): void;
 }
 
+/**
+ * Description [Interface to define simple heatmap initialize options.]
+ *
+ * @author abrito
+ * @version 0.0.1
+ *
+ * @interface
+*/
 export interface IHeatmapOptions {
     canvas: string | HTMLCanvasElement;
     type: IHeatmapType;
@@ -14,6 +30,14 @@ export interface IHeatmapOptions {
     debug?: boolean;
 }
 
+/**
+ * Description [Interface to define simple heatmap point.]
+ *
+ * @author abrito
+ * @version 0.0.1
+ *
+ * @interface
+*/
 export interface IHeatmapPoint {
     x: number;
     y: number;
@@ -26,6 +50,14 @@ export enum IHeatmapType {
     LeafletMaps = 'leafletmaps'
 }
 
+/**
+ * Description [Interface to define heatmap draw options.]
+ *
+ * @author abrito
+ * @version 0.0.1
+ *
+ * @interface
+*/
 export interface IHeatmapDrawOptions {
     opacity?: number,
     radius?: number,
@@ -37,6 +69,14 @@ export type HeatmapGradient = Record<number, string>;
 export type HeatmapPoint = Array<number> | IHeatmapPoint;
 export type HeatmapData = Array<Array<number> | IHeatmapPoint>;
 
+/**
+ * Description [Interface to define google maps heatmap initialize options.]
+ *
+ * @author abrito
+ * @version 0.0.1
+ *
+ * @interface
+*/
 export interface IGMHeatmapOptions {
     map: google.maps.Map;
     type: IHeatmapType;

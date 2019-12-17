@@ -94,7 +94,7 @@ Type: `Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLaye
 ### `setData(data: HeatmapData | GMHeatmapData): Promise<{value: HeatmapDat | GMHeatmapDataa}>`
 
 ```bash
-Set heatmap data of [[x, y, thickness], ...] format.
+Set heatmap data of [[x, y, thickness], ...] or [{x: value, y: value, thickness: value},...] format.
 
 const d = await Heatmap.setData(this.data);
 
@@ -229,7 +229,6 @@ Set gradient colors as HeatmapGradient.
 
 const resultGradient = await Heatmap.gradient(grad);
 
-
 ```
 
 #### Returns
@@ -241,10 +240,24 @@ Type: `Promise<{value: Uint8ClampedArray | GMHeatmapGradient}>`
 ### `opacity(opa: number): Promise<{value: number}>`
 
 ```bash
-Set the opacity of the heatmap, expressed as a number between 0 and 1..
+Set the opacity of the heatmap, expressed as a number between 0 and 1.
 
 const resultOpacity = await Heatmap.opacity(opa);
 
+```
+
+#### Returns
+
+Type: `Promise<{value: number}>`
+
+
+
+### `radius(rad: number): Promise<{value: number}>`
+
+```bash
+Set the radius of the heatmap.
+
+const resultRadius = await Heatmap.radius(rad);
 
 ```
 
