@@ -3,7 +3,7 @@ import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
 import { Heatmap } from 'capacitor-heatmap';
 
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
-import { IHeatmapOptions, IHeatmapType, HeatmapGradient } from 'capacitor-heatmap/dist/esm/models/models';
+import { IHeatmapOptions, IHeatmapType, HeatmapGradient, IHeatmapDrawOptions } from 'capacitor-heatmap/dist/esm/models/models';
 
 window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame;
 
@@ -17,6 +17,8 @@ export class HomePage implements OnInit {
   changedGradient = false;
   changedOpacity = false;
   changedRadius = false;
+  radius = 20;
+  opacity = 0.05;
 
   DEFAULT_GRADIENT: HeatmapGradient = {
     0.4: 'blue',
@@ -25,6 +27,7 @@ export class HomePage implements OnInit {
     0.8: 'yellow',
     1.0: 'red'
   };
+  gradient = this.DEFAULT_GRADIENT;
 
   @HostListener('window:resize', ['$event']) async onResize(event) {
     this.resizeHeatmap(event.target.innerWidth, event.target.innerHeight);
@@ -67,7 +70,7 @@ export class HomePage implements OnInit {
       const resultAddPoint = Heatmap.addPoint(newPoint);
       console.log('resultAddPoint', resultAddPoint);
       // this.frame = this.frame || window.requestAnimationFrame(this.drawHeatmap);
-      window.requestAnimationFrame(this.drawHeatmap);
+      window.requestAnimationFrame(() => { this.drawHeatmap() });
     };
 
     const d = await Heatmap.setData(this.fakeHeatmapDataService.getData());
@@ -78,7 +81,7 @@ export class HomePage implements OnInit {
   }
 
   async drawHeatmap() {
-    const options = {opacity: 0.05, radius: 20};
+    const options: IHeatmapDrawOptions = {opacity: this.opacity, radius: this.radius, gradient: this.gradient};
     const result = await Heatmap.draw(options);
     // this.frame = null;
   }
@@ -112,7 +115,8 @@ export class HomePage implements OnInit {
   async changeOpacity() {
     this.changedOpacity = !this.changedOpacity;
     console.log('this.changedOpacity', this.changedOpacity);
-    await Heatmap.opacity(this.changedOpacity ? 0.1 : 0.05);
+    this.opacity = this.changedOpacity ? 0.1 : 0.05;
+    await Heatmap.opacity(this.opacity);
   }
 
   onClickClearData() {
@@ -152,7 +156,8 @@ export class HomePage implements OnInit {
       0.4: 'red'
     };
     this.changedGradient = !this.changedGradient;
-    await Heatmap.gradient(this.changedGradient ? gradient : this.DEFAULT_GRADIENT);
+    this.gradient = this.changedGradient ? gradient : this.DEFAULT_GRADIENT;
+    await Heatmap.gradient(this.gradient);
   }
 
   onClickChangeRadius() {
@@ -161,7 +166,9 @@ export class HomePage implements OnInit {
 
   async changeRadius() {
     this.changedRadius = !this.changedRadius;
-    await Heatmap.radius(this.changedRadius ? 30 : 20);
+    this.radius = this.changedRadius ? 30 : 20;
+    const resultRadius = await Heatmap.radius(this.radius);
+    console.log('resultRadius', resultRadius);
   }
 
 }

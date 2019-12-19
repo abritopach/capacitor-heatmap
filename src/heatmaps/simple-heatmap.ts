@@ -201,7 +201,7 @@ export class SimpleHeatmap extends BaseHeatmap {
         this._radius = r;
         const opt = {radius: r};
         this.draw(opt);
-        return this._r;
+        return this._radius;
     }
 
     /*********/
@@ -270,6 +270,7 @@ export class SimpleHeatmap extends BaseHeatmap {
     }
 
     private createCircle(r: number, blur?: number) {
+        this._heatmapLogger.log("__SimpleHeatmap__ createCircle", {r: r});
         blur = blur === undefined ? 15 : blur;
         // Create a grayscale blurred circle image that we'll use for drawing points.
         const circle = this._circle = this._createCanvas(),
