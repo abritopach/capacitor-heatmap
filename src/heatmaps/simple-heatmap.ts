@@ -1,5 +1,5 @@
 import { BaseHeatmap } from "./base-heatmap";
-import { IHeatmapOptions, HeatmapData, HeatmapPoint, HeatmapGradient } from "../models/models";
+import { IHeatmapOptions, HeatmapData, HeatmapPoint, HeatmapGradient, HeatmapPosition } from "../models/models";
 import { Log } from "../log";
 
 export class SimpleHeatmap extends BaseHeatmap {
@@ -89,17 +89,20 @@ export class SimpleHeatmap extends BaseHeatmap {
         return this._data;
     }
 
-    getValueAt(position: Array<number>): number {
-        this._heatmapLogger.log("__SimpleHeatmap__ getValueAt");
+    getValueAt(position: HeatmapPosition): number {
+        let value = null;
+        this._heatmapLogger.log("__SimpleHeatmap__ getValueAt", position);
+        const xSearched = Array.isArray(position) ? position[0] : position.x;
+        const ySearched = Array.isArray(position) ? position[1] : position.y;
         this._data.map((point: HeatmapPoint) => {
             const x = Array.isArray(point) ? point[0] : point.x;
             const y = Array.isArray(point) ? point[1] : point.y;
             const thickness = Array.isArray(point) ? point[2] : point.thickness;
-            if ((x === position[0]) && (y === position[1])) {
-                return thickness;
+            if ((x === xSearched) && (y === ySearched)) {
+                value = thickness;
             }
         });
-        return null;
+        return value;
     }
 
     clearData(): HeatmapData {

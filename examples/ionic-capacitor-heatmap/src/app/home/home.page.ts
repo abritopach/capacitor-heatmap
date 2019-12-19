@@ -3,7 +3,7 @@ import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
 import { Heatmap } from 'capacitor-heatmap';
 
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
-import { IHeatmapOptions, IHeatmapType, HeatmapGradient, IHeatmapDrawOptions } from 'capacitor-heatmap/dist/esm/models/models';
+import { IHeatmapOptions, IHeatmapType, HeatmapGradient, IHeatmapDrawOptions, HeatmapPosition } from 'capacitor-heatmap/dist/esm/models/models';
 
 window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame;
 
@@ -169,6 +169,17 @@ export class HomePage implements OnInit {
     this.radius = this.changedRadius ? 30 : 20;
     const resultRadius = await Heatmap.radius(this.radius);
     console.log('resultRadius', resultRadius);
+  }
+
+  onClickGetValueAt() {
+    this.getValueAt();
+  }
+
+  async getValueAt() {
+    // const position: HeatmapPosition = [460, 340];
+    const position: HeatmapPosition = {x: 949, y: 120};
+    const result = await Heatmap.getValueAt(position);
+    console.log('result', result);
   }
 
 }

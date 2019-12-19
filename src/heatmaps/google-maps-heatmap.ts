@@ -1,5 +1,5 @@
 import { BaseHeatmap } from './base-heatmap';
-import { IGMHeatmapOptions, GMHeatmapData, GMHeatmapPoint, GMHeatmapGradient } from '../models/models';
+import { IGMHeatmapOptions, GMHeatmapData, GMHeatmapPoint, GMHeatmapGradient, GMHeatmapLocation } from '../models/models';
 import { Log } from "../log";
 
 export class GoogleMapsHeatmap extends BaseHeatmap {
@@ -61,8 +61,8 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
         return this._heatmap.getData();
     }
 
-    getValueAt(position: Array<number>): void {
-        // TODO
+    getValueAt(position: GMHeatmapLocation): void {
+        this._heatmapLogger.log("__GoogleMapsHeatmap__ getValueAt");
         console.log(position);
     }
 

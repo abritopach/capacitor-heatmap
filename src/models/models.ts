@@ -38,6 +38,19 @@ export interface IHeatmapOptions {
  *
  * @interface
 */
+export interface IHeatmapPosition {
+    x: number;
+    y: number;
+}
+
+/**
+ * Description [Interface to define simple heatmap point.]
+ *
+ * @author abrito
+ * @version 0.0.1
+ *
+ * @interface
+*/
 export interface IHeatmapPoint {
     x: number;
     y: number;
@@ -67,6 +80,7 @@ export interface IHeatmapDrawOptions {
 
 export type HeatmapGradient = Record<number, string>;
 export type HeatmapPoint = Array<number> | IHeatmapPoint;
+export type HeatmapPosition = Array<number> | IHeatmapPosition;
 export type HeatmapData = Array<Array<number> | IHeatmapPoint>;
 
 /**
@@ -86,6 +100,7 @@ export interface IGMHeatmapOptions {
 
 export type GMHeatmapGradient = string[];
 export type GMHeatmapPoint = google.maps.LatLng | google.maps.visualization.WeightedLocation;
+export type GMHeatmapLocation = google.maps.visualization.WeightedLocation;
 export type GMHeatmapData = google.maps.MVCArray<google.maps.LatLng | google.maps.visualization.WeightedLocation>;
 
 
