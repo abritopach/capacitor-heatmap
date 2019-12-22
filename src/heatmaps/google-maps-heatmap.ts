@@ -1,5 +1,5 @@
 import { BaseHeatmap } from './base-heatmap';
-import { IGMHeatmapOptions, GMHeatmapData, GMHeatmapPoint, GMHeatmapGradient, GMHeatmapLocation } from '../models/models';
+import { IGMHeatmapOptions, GMHeatmapData, GMHeatmapPoint, GMHeatmapGradient, GMHeatmapCoordinate } from '../models/models';
 import { Log } from "../log";
 
 export class GoogleMapsHeatmap extends BaseHeatmap {
@@ -61,9 +61,22 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
         return this._heatmap.getData();
     }
 
-    getValueAt(position: GMHeatmapLocation): void {
-        this._heatmapLogger.log("__GoogleMapsHeatmap__ getValueAt");
-        console.log(position);
+    getValueAt(coordinate: GMHeatmapCoordinate): void {
+        this._heatmapLogger.log("__GoogleMapsHeatmap__ getValueAt", coordinate);
+        let value = null;
+        this._data.forEach((point: GMHeatmapPoint) => {
+            if (point.hasOwnProperty('location')) {
+                if ((point as  google.maps.visualization.WeightedLocation).location.equals(coordinate)) {
+                    value = (point as  google.maps.visualization.WeightedLocation).weight;
+                }
+            }
+            else {
+                if ((point as  google.maps.LatLng).equals(coordinate)) {
+                    value = 1;
+                }
+            }
+        });
+        return value;
     }
 
     clearData(): GMHeatmapData {

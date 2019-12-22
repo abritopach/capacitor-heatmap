@@ -100,7 +100,7 @@ export interface IGMHeatmapOptions {
 
 export type GMHeatmapGradient = string[];
 export type GMHeatmapPoint = google.maps.LatLng | google.maps.visualization.WeightedLocation;
-export type GMHeatmapLocation = google.maps.visualization.WeightedLocation;
+export type GMHeatmapCoordinate = google.maps.LatLng;
 export type GMHeatmapData = google.maps.MVCArray<google.maps.LatLng | google.maps.visualization.WeightedLocation>;
 
 

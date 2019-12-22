@@ -121,10 +121,10 @@ Type: `Promise<{value: HeatmapData | GMHeatmapData}>`
 
 
 
-### `getValueAt(position: Array<number>): Promise<{value: number}>`
+### `getValueAt(position: HeatmapPosition | GMHeatmapCoordinate): Promise<{value: number}>`
 
 ```bash
-Returns value at datapoint position..
+Returns value at datapoint position.
 
 const result = await Heatmap.getValueAt([10, 10]); // x = 10 & y = 10
 

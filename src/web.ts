@@ -1,7 +1,8 @@
 import { WebPlugin } from '@capacitor/core';
 import { HeatmapPlugin } from './definitions';
 
-import { HeatmapData, HeatmapGradient, IHeatmapOptions, IHeatmapType, IGMHeatmapOptions, GMHeatmapData, HeatmapPoint, GMHeatmapPoint, IHeatmapDrawOptions, GMHeatmapGradient, HeatmapPosition, GMHeatmapLocation } from './models/models';
+import { HeatmapData, HeatmapGradient, IHeatmapOptions, IHeatmapType, IGMHeatmapOptions, GMHeatmapData, HeatmapPoint,
+   GMHeatmapPoint, IHeatmapDrawOptions, GMHeatmapGradient, HeatmapPosition, GMHeatmapCoordinate } from './models/models';
 
 import { SimpleHeatmap } from './heatmaps/simple-heatmap';
 import { GoogleMapsHeatmap } from './heatmaps/google-maps-heatmap';
@@ -66,7 +67,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     return {value: this.heatmap.getData()};
   }
 
-  async getValueAt(position: HeatmapPosition | GMHeatmapLocation): Promise<{value: number}> {
+  async getValueAt(position: HeatmapPosition | GMHeatmapCoordinate): Promise<{value: number}> {
     return {value: this.heatmap.getValueAt(position)};
   }
 

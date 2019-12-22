@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
 import { Heatmap } from 'capacitor-heatmap';
-import { IGMHeatmapOptions, IHeatmapType, GMHeatmapPoint } from 'capacitor-heatmap/dist/esm/models/models';
+import { IGMHeatmapOptions, IHeatmapType, GMHeatmapPoint, HeatmapPosition, GMHeatmapCoordinate } from 'capacitor-heatmap/dist/esm/models/models';
 
 @Component({
   selector: 'app-google-maps-heatmap',
@@ -111,6 +111,17 @@ export class GoogleMapsHeatmapPage implements OnInit {
   onClickChangeRadius() {
     this.changedRadius = !this.changedRadius;
     Heatmap.radius(this.changedRadius ? 30 : 10);
+  }
+
+  onClickGetValueAt() {
+    this.getValueAt();
+  }
+
+  async getValueAt() {
+    const coordinate: GMHeatmapCoordinate = new google.maps.LatLng(37.782551, -122.445368);
+    // const coordinate: GMHeatmapCoordinate = new google.maps.LatLng(37.782, -122.443);
+    const result = await Heatmap.getValueAt(coordinate);
+    console.log('result', result);
   }
 
 }
