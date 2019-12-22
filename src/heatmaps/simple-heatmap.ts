@@ -211,6 +211,7 @@ export class SimpleHeatmap extends BaseHeatmap {
     // Method to obtain the image of the canvas.
     /*********/
     getDataURL(type: string, imageQuality: number): string {
+        this._heatmapLogger.log("__SimpleHeatmap__ getDataURL", type, imageQuality);
         return this._canvas.toDataURL(type, imageQuality);
     }
 

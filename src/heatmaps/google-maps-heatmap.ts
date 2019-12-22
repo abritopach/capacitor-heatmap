@@ -2,6 +2,8 @@ import { BaseHeatmap } from './base-heatmap';
 import { IGMHeatmapOptions, GMHeatmapData, GMHeatmapPoint, GMHeatmapGradient, GMHeatmapCoordinate } from '../models/models';
 import { Log } from "../log";
 
+import html2canvas from 'html2canvas';
+
 export class GoogleMapsHeatmap extends BaseHeatmap {
 
     static readonly DEFAULT_GRADIENT = [
@@ -81,12 +83,14 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
     }
 
     clearData(): GMHeatmapData {
+        this._heatmapLogger.log("__GoogleMapsHeatmap__ clearData");
         this._data.clear();
         this._heatmap.setData(this._data);
         return this._data;
     }
 
     addPoint(point: GMHeatmapPoint): GMHeatmapData {
+        this._heatmapLogger.log("__GoogleMapsHeatmap__ addPoint", {newPoint: point});
         this._data.push(point);
         this._heatmap.setData(this._data);
         return this._heatmap.getData();
@@ -124,16 +128,19 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
     }
 
     gradient(grad: GMHeatmapGradient): GMHeatmapGradient {
+        this._heatmapLogger.log("__GoogleMapsHeatmap__ gradient", grad);
         this._heatmap.set('gradient', grad);
         return this._heatmap.get('gradient') ? null : grad;
     }
 
     opacity(opa: number): number {
+        this._heatmapLogger.log("__GoogleMapsHeatmap__ opacity", opa);
         this._heatmap.set('opacity', opa);
         return opa;
     }
 
     radius(rad: number): number {
+        this._heatmapLogger.log("__GoogleMapsHeatmap__ radius", rad);
         this._heatmap.set('radius', rad);
         return rad;
     }
@@ -143,7 +150,12 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
     // Method to obtain the image of the canvas.
     /*********/
     getDataURL(type: string, imageQuality: number): void {
-        // TODO
-        console.log(type, imageQuality);
+        this._heatmapLogger.log("__GoogleMapsHeatmap__ getDataURL", type, imageQuality);
+
+        html2canvas(document.getElementById('map'), {
+            useCORS: true
+        }).then((canvas: HTMLCanvasElement) => {
+            console.log(canvas.toDataURL('image/png'));
+        });
     }
 }

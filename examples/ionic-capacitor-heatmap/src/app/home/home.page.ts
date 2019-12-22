@@ -86,6 +86,8 @@ export class HomePage implements OnInit {
     const options: IHeatmapDrawOptions = {opacity: this.opacity, radius: this.radius, gradient: this.gradient};
     const result = await Heatmap.draw(options);
     // this.frame = null;
+    const resultDataURL = await Heatmap.getDataURL('png', 95);
+    console.log('resultDataURL', resultDataURL.value);
   }
 
   onClickResize() {

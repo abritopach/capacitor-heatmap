@@ -3,6 +3,8 @@ import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
 import { Heatmap } from 'capacitor-heatmap';
 import { IGMHeatmapOptions, IHeatmapType, GMHeatmapPoint, HeatmapPosition, GMHeatmapCoordinate } from 'capacitor-heatmap/dist/esm/models/models';
 
+import html2canvas from 'html2canvas';
+
 @Component({
   selector: 'app-google-maps-heatmap',
   templateUrl: './google-maps-heatmap.page.html',
@@ -68,6 +70,8 @@ export class GoogleMapsHeatmapPage implements OnInit {
     const options = {data: this.fakeHeatmapDataService.getGoogleMapsData(), opacity: 0.5, radius: 10};
     const result = await Heatmap.draw(options);
     console.log('result draw', result);
+    // const resultDataURL = await Heatmap.getDataURL('png', 95);
+    // console.log('resultDataURL', resultDataURL.value);
   }
 
   onClickClearData() {

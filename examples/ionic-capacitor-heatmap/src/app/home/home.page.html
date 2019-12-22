@@ -15,9 +15,11 @@
     <h2>Example Default Heatmap</h2>
   </ion-item>
   <br>
-  <div class="container">
-    <canvas id="testCanvas" width="1000" height="600"></canvas>
-  </div>
+  <!--<ion-item>-->
+    <div class="container">
+      <canvas id="testCanvas" width="1000" height="600"></canvas>
+    </div>
+  <!--</ion-item>-->
   <ion-segment *ngIf="!destroy">
     <ion-segment-button checked layout="icon-start" (click)="onClickClearData()">
       <ion-label>Clear data</ion-label>
