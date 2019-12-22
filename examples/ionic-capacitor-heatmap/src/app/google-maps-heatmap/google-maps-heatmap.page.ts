@@ -14,6 +14,7 @@ export class GoogleMapsHeatmapPage implements OnInit {
   changedGradient = false;
   changedOpacity = false;
   changedRadius = false;
+  destroy = false;
 
   DEFAULT_GRADIENT = [
     "rgba(102, 255, 0, 0)",
@@ -41,6 +42,7 @@ export class GoogleMapsHeatmapPage implements OnInit {
 
   ionViewWillEnter() {
     console.log('GoogleMapsHeatmapPage::ionViewWillEnter() | method called');
+    this.destroy = false;
     this.initializeGMHeatmap();
   }
 
@@ -122,6 +124,11 @@ export class GoogleMapsHeatmapPage implements OnInit {
     // const coordinate: GMHeatmapCoordinate = new google.maps.LatLng(37.782, -122.443);
     const result = await Heatmap.getValueAt(coordinate);
     console.log('result', result);
+  }
+
+  onClickDestroy() {
+    this.destroy = !this.destroy;
+    Heatmap.destroy();
   }
 
 }

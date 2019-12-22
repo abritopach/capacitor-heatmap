@@ -41,7 +41,8 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
     }
 
     destroy(): void {
-        // TODO
+        this._heatmap.setMap(null);
+        this._heatmap = null;
     }
 
 

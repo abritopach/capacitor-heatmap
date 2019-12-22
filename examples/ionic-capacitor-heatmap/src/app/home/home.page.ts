@@ -28,6 +28,7 @@ export class HomePage implements OnInit {
     1.0: 'red'
   };
   gradient = this.DEFAULT_GRADIENT;
+  destroy = false;
 
   @HostListener('window:resize', ['$event']) async onResize(event) {
     this.resizeHeatmap(event.target.innerWidth, event.target.innerHeight);
@@ -43,6 +44,7 @@ export class HomePage implements OnInit {
 
   ionViewWillEnter() {
     console.log('HomePage::ionViewWillEnter() | method called');
+    this.destroy = false;
     this.initializeHeatmap();
   }
 
@@ -103,6 +105,7 @@ export class HomePage implements OnInit {
 
   onClickDestroy() {
     console.log('HomePage::onClickDestroy() | method called');
+    this.destroy = !this.destroy;
     document.getElementById('testCanvas').onmousemove = null;
     Heatmap.destroy();
   }

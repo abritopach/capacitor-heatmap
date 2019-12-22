@@ -15,7 +15,7 @@
   <ion-item lines="none">
     <div id="map"></div>
   </ion-item>
-  <ion-segment>
+  <ion-segment *ngIf="!destroy">
     <ion-segment-button checked layout="icon-start" (click)="onClickClearData()">
       <ion-label>Clear data</ion-label>
       <ion-icon name="trash"></ion-icon>
@@ -33,7 +33,7 @@
       <ion-icon name="brush"></ion-icon>
     </ion-segment-button>
   </ion-segment>
-  <ion-segment>
+  <ion-segment *ngIf="!destroy">
     <ion-segment-button layout="icon-start" (click)="onClickChangeOpacity()">
       <ion-label>Change opacity</ion-label>
       <ion-icon name="contrast"></ion-icon>
@@ -43,8 +43,14 @@
       <ion-icon name="radio-button-off"></ion-icon>
     </ion-segment-button>
     <ion-segment-button layout="icon-start" (click)="onClickGetValueAt()">
-      <ion-label>Value at 949,120</ion-label>
+      <ion-label>Value at 37.782 / -122.445</ion-label>
       <ion-icon name="search"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+  <ion-segment *ngIf="!destroy">
+    <ion-segment-button layout="icon-start" (click)="onClickDestroy()">
+      <ion-label>Destroy</ion-label>
+      <ion-icon name="trash"></ion-icon>
     </ion-segment-button>
   </ion-segment>
 </ion-content>
