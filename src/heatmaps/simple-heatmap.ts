@@ -26,6 +26,7 @@ export class SimpleHeatmap extends BaseHeatmap {
     _opacity: number;
     _gradient: HeatmapGradient;
     _radius: number;
+    _canvasColorScale: HTMLCanvasElement = null;
 
     getCanvas(): HTMLCanvasElement {
         return this._canvas;
@@ -219,8 +220,26 @@ export class SimpleHeatmap extends BaseHeatmap {
     // Private methods.
     /*********/
 
+    private createColorScale() {
+        this._heatmapLogger.log("__SimpleHeatmap__ createColorScale");
+        this._canvasColorScale = this._createCanvas();
+        this._canvasColorScale.width = 250;
+        this._canvasColorScale.height = 20;
+        this._canvasColorScale.style.position = "relative";
+        this._canvasColorScale.style.zIndex = "999999";
+        const ctx = this._canvasColorScale.getContext('2d');
+        for (var t = -30; t < 30; t += 0.03) {
+            const x0 = (t + 30) * 4;
+            const x1 = x0;
+            const hue = 240 * (30 - t) / 60;
+            ctx.fillStyle = 'hsl(' + [hue, '70%', '60%'] + ')';
+            ctx.fillRect(x1, 0, x0, 20);
+        }
+        this._heatmapLogger.log("__SimpleHeatmap__ createColorScale", this._canvasColorScale);
+    }
+
     private setSiblingElementStyles(parent: string, dimensions: {width: number, height: number}) {
-        this._heatmapLogger.log("__SimpleHeatmap__  setSiblingElementStyles", dimensions);
+        this._heatmapLogger.log("__SimpleHeatmap__ setSiblingElementStyles", dimensions);
         const {width, height} = dimensions;
         const element = document.getElementById(parent).firstElementChild as HTMLElement;
         element.style.width = width.toString() + "px";
@@ -230,7 +249,7 @@ export class SimpleHeatmap extends BaseHeatmap {
     }
 
     private setCanvasElementStyles(dimensions: {width: number, height: number}) {
-        this._heatmapLogger.log("__SimpleHeatmap__  setCanvasElementStyles", dimensions);
+        this._heatmapLogger.log("__SimpleHeatmap__ setCanvasElementStyles", dimensions);
         const {width, height} = dimensions;
         this._canvas.width = width;
         this._canvas.height = height;
@@ -244,7 +263,7 @@ export class SimpleHeatmap extends BaseHeatmap {
         this.setSiblingElementStyles(overlap.parent, {width, height});
         this.setCanvasElementStyles({width, height});
         if ((this._canvas.width === 0) || (this._canvas.height === 0)) {
-            this._heatmapLogger.error("__SimpleHeatmap__  ERROR -> Canvas dimensions are zero.");
+            this._heatmapLogger.error("__SimpleHeatmap__ ERROR -> Canvas dimensions are zero.");
         }
     }
 
@@ -252,7 +271,7 @@ export class SimpleHeatmap extends BaseHeatmap {
         const compStyles = window.getComputedStyle(document.getElementById(parent));
         const width = parseInt(compStyles.getPropertyValue('width'));
         const height = parseInt(compStyles.getPropertyValue('height'));
-        this._heatmapLogger.log("__SimpleHeatmap__  getParentDimensions", {parent: this._canvas.parentNode, width: width, height: height});
+        this._heatmapLogger.log("__SimpleHeatmap__ getParentDimensions", {parent: this._canvas.parentNode, width: width, height: height});
         return {width: width, height: height};
     }
 

@@ -28,6 +28,7 @@ export interface IHeatmapOptions {
     data?: HeatmapData;
     overlap?: {parent: string};
     debug?: boolean;
+    showColorScale?: boolean;
 }
 
 /**

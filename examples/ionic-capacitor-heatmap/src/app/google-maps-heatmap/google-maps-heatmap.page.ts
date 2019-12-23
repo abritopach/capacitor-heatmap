@@ -3,8 +3,6 @@ import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
 import { Heatmap } from 'capacitor-heatmap';
 import { IGMHeatmapOptions, IHeatmapType, GMHeatmapPoint, HeatmapPosition, GMHeatmapCoordinate } from 'capacitor-heatmap/dist/esm/models/models';
 
-import html2canvas from 'html2canvas';
-
 @Component({
   selector: 'app-google-maps-heatmap',
   templateUrl: './google-maps-heatmap.page.html',
