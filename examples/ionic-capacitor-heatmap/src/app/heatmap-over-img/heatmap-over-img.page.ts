@@ -30,8 +30,7 @@ export class HeatmapOverImgPage implements OnInit {
 
   async initializeHeatmapOverImg() {
 
-    const options: IHeatmapOptions = {canvas: 'canvasOnTopImg', type: IHeatmapType.Simple,
-     debug: true, overlap: {parent: 'containerImgCanvas'}};
+    const options: IHeatmapOptions = {element: 'testHeatmapImg', type: IHeatmapType.Simple, debug: true};
     const result = await Heatmap.initialize(options);
     console.log('result', result);
 

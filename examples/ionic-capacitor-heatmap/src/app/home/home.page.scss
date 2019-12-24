@@ -1,1 +1,11 @@
-.container { width: 1000px; height: 600px; margin: 0 auto; position: relative; border: 1px solid #ccc; }
+.heatmapContainer {
+    width: 1000px;
+    height: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#testHeatmap {
+    width: 1000px;
+    height: 600px;
+}

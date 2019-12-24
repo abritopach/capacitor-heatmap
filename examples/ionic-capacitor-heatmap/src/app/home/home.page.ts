@@ -29,6 +29,7 @@ export class HomePage implements OnInit {
   };
   gradient = this.DEFAULT_GRADIENT;
   destroy = false;
+  heatmapCanvas: HTMLCanvasElement;
 
   @HostListener('window:resize', ['$event']) async onResize(event) {
     this.resizeHeatmap(event.target.innerWidth, event.target.innerHeight);
@@ -54,20 +55,20 @@ export class HomePage implements OnInit {
 
   async initializeHeatmap() {
 
-    const options: IHeatmapOptions = {canvas: 'testCanvas', type: IHeatmapType.Simple, debug: true};
+    const options: IHeatmapOptions = {element: 'testHeatmap', type: IHeatmapType.Simple, debug: true};
     const result = await Heatmap.initialize(options);
     console.log('result', result);
 
-    const canvas: HTMLCanvasElement = result.value as HTMLCanvasElement;
+    this.heatmapCanvas = result.value as HTMLCanvasElement;
 
     Heatmap.setMax(18);
 
-    if ((canvas.width > window.innerWidth) || (canvas.height > window.innerHeight)) {
+    if ((this.heatmapCanvas.width > window.innerWidth) || (this.heatmapCanvas.height > window.innerHeight)) {
       this.resizeHeatmap(window.innerWidth, window.innerHeight);
     }
 
-    canvas.onmousemove = (e) => {
-      const rect = canvas.getBoundingClientRect();
+    this.heatmapCanvas.onmousemove = (e) => {
+      const rect = this.heatmapCanvas.getBoundingClientRect();
       const newPoint: Array<number> = [e.clientX - rect.left, e.clientY - rect.top, 18];
       const resultAddPoint = Heatmap.addPoint(newPoint);
       console.log('resultAddPoint', resultAddPoint);
@@ -97,10 +98,6 @@ export class HomePage implements OnInit {
 
   async resizeHeatmap(width: number, height: number) {
     const options = {width, height};
-    const elements = document.getElementsByClassName('container');
-    const element = elements.item(0) as HTMLElement;
-    element.style.width = options.width + 'px';
-    element.style.height = options.height + 'px';
     const resultResize = await Heatmap.resize(options);
     console.log('result resize', resultResize);
   }
@@ -108,7 +105,7 @@ export class HomePage implements OnInit {
   onClickDestroy() {
     console.log('HomePage::onClickDestroy() | method called');
     this.destroy = !this.destroy;
-    document.getElementById('testCanvas').onmousemove = null;
+    this.heatmapCanvas.onmousemove = null;
     Heatmap.destroy();
   }
 

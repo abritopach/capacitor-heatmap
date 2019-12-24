@@ -28,10 +28,12 @@ export class HeatmapOverIframePage implements OnInit {
 
   async initializeHeatmapOverIframe() {
 
-    const options: IHeatmapOptions = {canvas: 'canvasOnTopIframe', type: IHeatmapType.Simple,
-     debug: true, overlap: {parent: 'containerIframeCanvas'}};
+    const options: IHeatmapOptions = {element: 'testHeatmapIframe', type: IHeatmapType.Simple, debug: true};
     const result = await Heatmap.initialize(options);
     console.log('result', result);
+
+    const canvas: HTMLCanvasElement = result.value as HTMLCanvasElement;
+    canvas.style.pointerEvents = 'none';
 
     Heatmap.setMax(18);
 

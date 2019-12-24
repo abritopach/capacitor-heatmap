@@ -35,29 +35,23 @@ export class SimpleHeatmap extends BaseHeatmap {
     initialize(options: IHeatmapOptions): HTMLCanvasElement {
         this._heatmapLogger = new Log(options.debug);
         this._heatmapLogger.log("__SimpleHeatmap__ initialize");
-        this._canvas = typeof options.canvas === 'string' ? document.getElementById(options.canvas) as HTMLCanvasElement : options.canvas;
-        if ((this._canvas !== null) && (typeof this._canvas !== 'undefined')) {
-            if (typeof options.overlap !== 'undefined') {
-                this.setCanvasOverElement(options.overlap);
-            }
-            this._ctx = this._canvas.getContext('2d');
-            this._width = this._canvas.width;
-            this._height = this._canvas.height;
-            this._max = 1;
-            this._data = typeof options.data !== 'undefined' ? options.data : [];
-            (
-                this._heatmapLogger.warn("__SimpleHeatmap__ Data is undefined or empty. Passes heatmap data into draw function or set heatmap data with setData function."),
-                []
-            );
-            this._opacity = SimpleHeatmap.DEFAULT_OPACITY;
-            this._radius = SimpleHeatmap.DEFAULT_RADIUS;
-            this.createCircle(SimpleHeatmap.DEFAULT_RADIUS);
-            this._gradient = SimpleHeatmap.DEFAULT_GRADIENT;
-            this.gradientArray(SimpleHeatmap.DEFAULT_GRADIENT);
-        }
-        else {
-            this._heatmapLogger.error("__SimpleHeatmap__  ERROR -> Undefined canvas id or html canvas.");
-        }
+
+        this.addHeatmapLayer2Element(options.element);
+        this._ctx = this._canvas.getContext('2d');
+        this._width = this._canvas.width;
+        this._height = this._canvas.height;
+        this._max = 1;
+        this._data = typeof options.data !== 'undefined' ? options.data : [];
+        (
+            this._heatmapLogger.warn("__SimpleHeatmap__ Data is undefined or empty. Passes heatmap data into draw function or set heatmap data with setData function."),
+            []
+        );
+        this._opacity = SimpleHeatmap.DEFAULT_OPACITY;
+        this._radius = SimpleHeatmap.DEFAULT_RADIUS;
+        this.createCircle(SimpleHeatmap.DEFAULT_RADIUS);
+        this._gradient = SimpleHeatmap.DEFAULT_GRADIENT;
+        this.gradientArray(SimpleHeatmap.DEFAULT_GRADIENT);
+
         return this._canvas;
     }
 
@@ -220,6 +214,7 @@ export class SimpleHeatmap extends BaseHeatmap {
     // Private methods.
     /*********/
 
+    /*
     private createColorScale() {
         this._heatmapLogger.log("__SimpleHeatmap__ createColorScale");
         this._canvasColorScale = this._createCanvas();
@@ -237,7 +232,9 @@ export class SimpleHeatmap extends BaseHeatmap {
         }
         this._heatmapLogger.log("__SimpleHeatmap__ createColorScale", this._canvasColorScale);
     }
+    */
 
+    /*
     private setSiblingElementStyles(parent: string, dimensions: {width: number, height: number}) {
         this._heatmapLogger.log("__SimpleHeatmap__ setSiblingElementStyles", dimensions);
         const {width, height} = dimensions;
@@ -273,6 +270,36 @@ export class SimpleHeatmap extends BaseHeatmap {
         const height = parseInt(compStyles.getPropertyValue('height'));
         this._heatmapLogger.log("__SimpleHeatmap__ getParentDimensions", {parent: this._canvas.parentNode, width: width, height: height});
         return {width: width, height: height};
+    }
+    */
+
+    private addHeatmapLayer2Element(element: string) {
+        const el: HTMLElement = document.getElementById(element);
+        if (el !== null) {
+            const compStyles = window.getComputedStyle(el);
+            // Update element styles.
+            el.style.position = "absolute";
+            el.style.zIndex = "1";
+
+            // Set canvas styles.
+            this._canvas = document.createElement('canvas');
+            this._canvas.id = "heatmapLayer";
+            this._canvas.width = parseInt(compStyles.getPropertyValue('width'));
+            this._canvas.height = parseInt(compStyles.getPropertyValue('height'));
+            this._canvas.style.position = "relative";
+            this._canvas.style.zIndex = "99999";
+            // this._canvas.style.pointerEvents = "none";
+
+            if (el.parentElement !== null) {
+                el.parentElement.appendChild(this._canvas);
+            }
+            else {
+                this._heatmapLogger.error("__SimpleHeatmap__  ERROR -> Element has no parent.");
+            }
+        }
+        else {
+            this._heatmapLogger.error("__SimpleHeatmap__  ERROR -> Element doesn't exist.");
+        }
     }
 
     private gradientArray(grad: HeatmapGradient) {

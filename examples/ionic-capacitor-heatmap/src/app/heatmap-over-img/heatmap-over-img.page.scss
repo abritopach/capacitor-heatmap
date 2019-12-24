@@ -1,7 +1,11 @@
-#containerImgCanvas {
-    display: inline-block;
+.heatmapContainerImg {
     width: 600px;
     height: 480px;
     margin: 0 auto;
     position: relative;
+}
+
+#testHeatmapImg {
+    width: 600px;
+    height: 480px;
 }

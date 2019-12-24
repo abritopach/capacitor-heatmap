@@ -15,11 +15,11 @@
     <h2>Example Default Heatmap</h2>
   </ion-item>
   <br>
-  <!--<ion-item>-->
-    <div class="container">
-      <canvas id="testCanvas" width="1000" height="600"></canvas>
+  <ion-item lines="none">
+    <div class="heatmapContainer">
+      <div id="testHeatmap"></div>
     </div>
-  <!--</ion-item>-->
+  </ion-item>
   <ion-segment *ngIf="!destroy">
     <ion-segment-button checked layout="icon-start" (click)="onClickClearData()">
       <ion-label>Clear data</ion-label>
@@ -33,12 +33,12 @@
       <ion-label>Add new point</ion-label>
       <ion-icon name="pin"></ion-icon>
     </ion-segment-button>
+  </ion-segment>
+  <ion-segment *ngIf="!destroy">
     <ion-segment-button layout="icon-start" (click)="onClickChangeGradient()">
       <ion-label>Change gradient</ion-label>
       <ion-icon name="brush"></ion-icon>
     </ion-segment-button>
-  </ion-segment>
-  <ion-segment *ngIf="!destroy">
     <ion-segment-button layout="icon-start" (click)="onClickChangeOpacity()">
       <ion-label>Change opacity</ion-label>
       <ion-icon name="contrast"></ion-icon>
@@ -47,6 +47,8 @@
       <ion-label>Change radius</ion-label>
       <ion-icon name="radio-button-off"></ion-icon>
     </ion-segment-button>
+  </ion-segment>
+  <ion-segment *ngIf="!destroy">
     <ion-segment-button layout="icon-start" (click)="onClickGetValueAt()">
       <ion-label>Value at 949,120</ion-label>
       <ion-icon name="search"></ion-icon>
@@ -55,8 +57,6 @@
       <ion-label>Resize 500x300px</ion-label>
       <ion-icon name="resize"></ion-icon>
     </ion-segment-button>
-  </ion-segment>
-  <ion-segment *ngIf="!destroy">
     <ion-segment-button layout="icon-start" (click)="onClickDestroy()">
       <ion-label>Destroy</ion-label>
       <ion-icon name="trash"></ion-icon>

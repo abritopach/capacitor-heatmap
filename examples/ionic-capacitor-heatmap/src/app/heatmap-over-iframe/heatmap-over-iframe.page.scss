@@ -1,7 +1,11 @@
-#containerIframeCanvas {
-    display: inline-block;
+.heatmapContainerIframe {
     width: 1000px;
     height: 480px;
     margin: 0 auto;
     position: relative;
+}
+
+#testHeatmapIframe {
+    width: 1000px;
+    height: 480px;
 }

@@ -76,7 +76,7 @@ export type GMHeatmapData = google.maps.MVCArray<google.maps.LatLng | google.map
 Initialize heatmap.
 
 async initializeHeatmap() {
-    const options = {canvas: 'your-canvas-id', debug: true}};
+    const options = {element: 'your-element-id', debug: true}};
     const result = await Heatmap.initialize(options);
     console.log('result', result);
 }

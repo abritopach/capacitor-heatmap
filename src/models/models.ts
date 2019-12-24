@@ -23,10 +23,9 @@ export interface IHeatmapLog {
  * @interface
 */
 export interface IHeatmapOptions {
-    canvas: string | HTMLCanvasElement;
+    element: string;
     type: IHeatmapType;
     data?: HeatmapData;
-    overlap?: {parent: string};
     debug?: boolean;
     showColorScale?: boolean;
 }

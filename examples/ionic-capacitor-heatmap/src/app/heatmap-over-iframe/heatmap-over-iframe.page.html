@@ -14,9 +14,8 @@
   </ion-item>
   <br>
   <ion-item lines="none">
-      <div id="containerIframeCanvas">
-          <iframe [src]="urlIframe | safe"></iframe>
-          <canvas id="canvasOnTopIframe"></canvas>
+      <div class="heatmapContainerIframe">
+        <iframe id="testHeatmapIframe" [src]="urlIframe | safe"></iframe>
       </div>
   </ion-item>
 </ion-content>

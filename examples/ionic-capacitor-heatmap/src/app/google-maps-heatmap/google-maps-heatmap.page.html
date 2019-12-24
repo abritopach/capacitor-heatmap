@@ -28,12 +28,12 @@
       <ion-label>Add new point</ion-label>
       <ion-icon name="pin"></ion-icon>
     </ion-segment-button>
+  </ion-segment>
+  <ion-segment *ngIf="!destroy">
     <ion-segment-button layout="icon-start" (click)="onClickChangeGradient()">
       <ion-label>Change gradient</ion-label>
       <ion-icon name="brush"></ion-icon>
     </ion-segment-button>
-  </ion-segment>
-  <ion-segment *ngIf="!destroy">
     <ion-segment-button layout="icon-start" (click)="onClickChangeOpacity()">
       <ion-label>Change opacity</ion-label>
       <ion-icon name="contrast"></ion-icon>
@@ -42,12 +42,12 @@
       <ion-label>Change radius</ion-label>
       <ion-icon name="radio-button-off"></ion-icon>
     </ion-segment-button>
+  </ion-segment>
+  <ion-segment *ngIf="!destroy">
     <ion-segment-button layout="icon-start" (click)="onClickGetValueAt()">
       <ion-label>Value at 37.782 / -122.445</ion-label>
       <ion-icon name="search"></ion-icon>
     </ion-segment-button>
-  </ion-segment>
-  <ion-segment *ngIf="!destroy">
     <ion-segment-button layout="icon-start" (click)="onClickDestroy()">
       <ion-label>Destroy</ion-label>
       <ion-icon name="trash"></ion-icon>
