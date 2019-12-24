@@ -14,7 +14,7 @@ export class SimpleHeatmap extends BaseHeatmap {
     static readonly DEFAULT_RADIUS = 20;
     static readonly DEFAULT_OPACITY = 0.05;
 
-    _canvas: HTMLCanvasElement;
+    _canvas: HTMLCanvasElement = null;
     _ctx: CanvasRenderingContext2D;
     _width: number;
     _height: number;
@@ -280,6 +280,12 @@ export class SimpleHeatmap extends BaseHeatmap {
             // Update element styles.
             el.style.position = "absolute";
             el.style.zIndex = "1";
+
+            if (document.getElementById('heatmapLayer') !== null) {
+                const heatmapLayer = document.getElementById('heatmapLayer');
+                heatmapLayer.parentElement.removeChild(heatmapLayer);
+                this._canvas = null;
+            }
 
             // Set canvas styles.
             this._canvas = document.createElement('canvas');

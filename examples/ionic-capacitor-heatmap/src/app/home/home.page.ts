@@ -29,7 +29,7 @@ export class HomePage implements OnInit {
   };
   gradient = this.DEFAULT_GRADIENT;
   destroy = false;
-  heatmapCanvas: HTMLCanvasElement;
+  heatmapCanvas: HTMLCanvasElement = null;
 
   @HostListener('window:resize', ['$event']) async onResize(event) {
     this.resizeHeatmap(event.target.innerWidth, event.target.innerHeight);
@@ -43,9 +43,20 @@ export class HomePage implements OnInit {
     console.log('HomePage::ngOnInit() | method called');
   }
 
+  initialize() {
+    this.changedGradient = false;
+    this.changedOpacity = false;
+    this.changedRadius = false;
+    this.destroy = false;
+    this.heatmapCanvas = null;
+    this.radius = 20;
+    this.opacity = 0.05;
+    this.gradient = this.DEFAULT_GRADIENT;
+  }
+
   ionViewWillEnter() {
     console.log('HomePage::ionViewWillEnter() | method called');
-    this.destroy = false;
+    this.initialize();
     this.initializeHeatmap();
   }
 

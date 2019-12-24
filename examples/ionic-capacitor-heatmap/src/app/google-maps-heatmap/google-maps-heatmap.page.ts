@@ -33,17 +33,18 @@ export class GoogleMapsHeatmapPage implements OnInit {
   constructor(public fakeHeatmapDataService: FakeHeatmapDataService) { }
 
   ngOnInit() {
+    console.log('GoogleMapsHeatmapPage::ngOnInit() | method called');
     /*
     google.maps.event.addDomListener(window, 'load', () => {
       this.initializeGMHeatmap();
     });
     */
+    this.initializeGMHeatmap();
   }
 
   ionViewWillEnter() {
     console.log('GoogleMapsHeatmapPage::ionViewWillEnter() | method called');
     this.destroy = false;
-    this.initializeGMHeatmap();
   }
 
   async initializeGMHeatmap() {
