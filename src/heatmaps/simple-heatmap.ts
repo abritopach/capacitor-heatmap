@@ -263,20 +263,24 @@ export class SimpleHeatmap extends BaseHeatmap {
             this._heatmapLogger.error("__SimpleHeatmap__ ERROR -> Canvas dimensions are zero.");
         }
     }
+    */
 
-    private getParentDimensions(parent: string) {
-        const compStyles = window.getComputedStyle(document.getElementById(parent));
-        const width = parseInt(compStyles.getPropertyValue('width'));
-        const height = parseInt(compStyles.getPropertyValue('height'));
-        this._heatmapLogger.log("__SimpleHeatmap__ getParentDimensions", {parent: this._canvas.parentNode, width: width, height: height});
+    private getElementDimensions(element: string) {
+        const el: HTMLElement = document.getElementById(element);
+        const compStyles = window.getComputedStyle(el);
+        const width = (typeof el.style.width !== 'undefined' && el.style.width !== null && el.style.width !== '')
+        ? parseInt(el.style.width) : parseInt(compStyles.getPropertyValue('width'));
+        const height = (typeof el.style.height !== 'undefined' && el.style.height !== null && el.style.height !== '')
+        ? parseInt(el.style.height) : parseInt(compStyles.getPropertyValue('height'));
         return {width: width, height: height};
     }
-    */
 
     private addHeatmapLayer2Element(element: string) {
         const el: HTMLElement = document.getElementById(element);
         if (el !== null) {
-            const compStyles = window.getComputedStyle(el);
+
+            const {width, height} = this.getElementDimensions(element);
+
             // Update element styles.
             el.style.position = "absolute";
             el.style.zIndex = "1";
@@ -290,8 +294,8 @@ export class SimpleHeatmap extends BaseHeatmap {
             // Set canvas styles.
             this._canvas = document.createElement('canvas');
             this._canvas.id = "heatmapLayer";
-            this._canvas.width = parseInt(compStyles.getPropertyValue('width'));
-            this._canvas.height = parseInt(compStyles.getPropertyValue('height'));
+            this._canvas.width = width;
+            this._canvas.height = height;
             this._canvas.style.position = "relative";
             this._canvas.style.zIndex = "99999";
             // this._canvas.style.pointerEvents = "none";
