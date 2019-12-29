@@ -36,6 +36,10 @@ export class SimpleHeatmap extends BaseHeatmap {
         this._heatmapLogger = new Log(options.debug);
         this._heatmapLogger.log("__SimpleHeatmap__ initialize");
 
+        if (options.showColorScale) {
+            this.createColorScale(options.element);
+        }
+
         this.addHeatmapLayer2Element(options.element);
         this._ctx = this._canvas.getContext('2d');
         this._width = this._canvas.width;
@@ -214,12 +218,21 @@ export class SimpleHeatmap extends BaseHeatmap {
     // Private methods.
     /*********/
 
-    /*
-    private createColorScale() {
+    private createColorScale(element: string) {
         this._heatmapLogger.log("__SimpleHeatmap__ createColorScale");
+        const el: HTMLElement = document.getElementById(element);
+
+        if (document.getElementById('colorScale') !== null) {
+            const colorScale = document.getElementById('colorScale');
+            colorScale.parentElement.removeChild(colorScale);
+            this._canvasColorScale = null;
+        }
+
         this._canvasColorScale = this._createCanvas();
+        this._canvasColorScale.id = "colorScale";
         this._canvasColorScale.width = 250;
         this._canvasColorScale.height = 20;
+        this._canvasColorScale.style.borderRadius = "5px";
         this._canvasColorScale.style.position = "relative";
         this._canvasColorScale.style.zIndex = "999999";
         const ctx = this._canvasColorScale.getContext('2d');
@@ -230,9 +243,8 @@ export class SimpleHeatmap extends BaseHeatmap {
             ctx.fillStyle = 'hsl(' + [hue, '70%', '60%'] + ')';
             ctx.fillRect(x1, 0, x0, 20);
         }
-        this._heatmapLogger.log("__SimpleHeatmap__ createColorScale", this._canvasColorScale);
+        el.parentElement.appendChild(this._canvasColorScale);
     }
-    */
 
     /*
     private setSiblingElementStyles(parent: string, dimensions: {width: number, height: number}) {
