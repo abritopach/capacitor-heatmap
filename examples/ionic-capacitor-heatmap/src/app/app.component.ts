@@ -31,6 +31,11 @@ export class AppComponent {
       title: 'Google Maps Heatmap',
       url: '/google-maps-heatmap',
       icon: 'flame'
+    },
+    {
+      title: 'Leaflet Maps Heatmap',
+      url: '/leaflet-maps-heatmap',
+      icon: 'flame'
     }
   ];
 

@@ -16,6 +16,10 @@ const routes: Routes = [
     path: 'google-maps-heatmap',
     loadChildren: () => import('./google-maps-heatmap/google-maps-heatmap.module').then( m => m.GoogleMapsHeatmapPageModule)
   },
+  {
+    path: 'leaflet-maps-heatmap',
+    loadChildren: () => import('./leaflet-maps-heatmap/leaflet-maps-heatmap.module').then( m => m.LeafletMapsHeatmapPageModule)
+  },
 ];
 
 @NgModule({

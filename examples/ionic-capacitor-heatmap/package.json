@@ -25,6 +25,7 @@
     "@ionic/angular": "^4.11.5",
     "capacitor-heatmap": "file:/Users/abrito/Documents/capacitor/capacitor-heatmap",
     "core-js": "^2.5.4",
+    "leaflet": "^1.6.0",
     "rxjs": "~6.5.3",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
