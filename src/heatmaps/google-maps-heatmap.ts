@@ -122,9 +122,12 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
     /*********/
     // Methods for handling heatmap appearance.
     /*********/
-    resize(options: {width: number, height: number}): void {
-        // TODO
-        console.log(options);
+    resize(options: {width: number, height: number}): {newWidth: number, newHeight: number} {
+        this._heatmapLogger.log("__GoogleMapsHeatmap__ resize", options);
+        const mapDiv: HTMLElement = document.getElementById(this._map.getDiv().id);
+        mapDiv.style.width = options.width + 'px';
+        mapDiv.style.height = options.height + 'px';
+        return {newWidth: this._map.getDiv().clientWidth, newHeight: this._map.getDiv().clientHeight};
     }
 
     gradient(grad: GMHeatmapGradient): GMHeatmapGradient {

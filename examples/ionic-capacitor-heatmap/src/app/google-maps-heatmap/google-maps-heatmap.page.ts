@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
 import { Heatmap } from 'capacitor-heatmap';
 import { IGMHeatmapOptions, IHeatmapType, GMHeatmapPoint, HeatmapPosition, GMHeatmapCoordinate } from 'capacitor-heatmap/dist/esm/models/models';
@@ -29,6 +29,10 @@ export class GoogleMapsHeatmapPage implements OnInit {
     "rgba(255, 57, 0, 1)",
     "rgba(255, 0, 0, 1)"
   ];
+
+  @HostListener('window:resize', ['$event']) async onResize(event) {
+    this.resizeHeatmap(event.target.innerWidth, event.target.innerHeight);
+  }
 
   constructor(public fakeHeatmapDataService: FakeHeatmapDataService) { }
 
@@ -132,6 +136,16 @@ export class GoogleMapsHeatmapPage implements OnInit {
   onClickDestroy() {
     this.destroy = !this.destroy;
     Heatmap.destroy();
+  }
+
+  onClickResize() {
+    this.resizeHeatmap(500, 300);
+  }
+
+  async resizeHeatmap(width: number, height: number) {
+    const options = {width, height};
+    const resultResize = await Heatmap.resize(options);
+    console.log('result resize', resultResize);
   }
 
 }

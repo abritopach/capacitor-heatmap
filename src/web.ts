@@ -23,10 +23,6 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     return options;
   }
 
-  async getCanvas(): Promise<{value: HTMLCanvasElement}> {
-    return {value: this.heatmap.getCanvas()};
-  }
-
   async initialize(options: (IHeatmapOptions | IGMHeatmapOptions)): Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer}> {
     const type = typeof options.type !== "undefined" ? options.type : IHeatmapType.Simple;
     switch(type) {

@@ -28,19 +28,15 @@ export class SimpleHeatmap extends BaseHeatmap {
     _radius: number;
     _canvasColorScale: HTMLCanvasElement = null;
 
-    getCanvas(): HTMLCanvasElement {
-        return this._canvas;
-    }
-
     initialize(options: IHeatmapOptions): HTMLCanvasElement {
         this._heatmapLogger = new Log(options.debug);
         this._heatmapLogger.log("__SimpleHeatmap__ initialize");
 
         if (options.showColorScale) {
-            this.createColorScale(options.element);
+            this._createColorScale(options.element);
         }
 
-        this.addHeatmapLayer2Element(options.element);
+        this._addHeatmapLayer2Element(options.element);
         this._ctx = this._canvas.getContext('2d');
         this._width = this._canvas.width;
         this._height = this._canvas.height;
@@ -52,16 +48,16 @@ export class SimpleHeatmap extends BaseHeatmap {
         );
         this._opacity = SimpleHeatmap.DEFAULT_OPACITY;
         this._radius = SimpleHeatmap.DEFAULT_RADIUS;
-        this.createCircle(SimpleHeatmap.DEFAULT_RADIUS);
+        this._createCircle(SimpleHeatmap.DEFAULT_RADIUS);
         this._gradient = SimpleHeatmap.DEFAULT_GRADIENT;
-        this.gradientArray(SimpleHeatmap.DEFAULT_GRADIENT);
+        this._gradientArray(SimpleHeatmap.DEFAULT_GRADIENT);
 
         return this._canvas;
     }
 
     destroy():  HTMLCanvasElement {
         if (this._canvas !== null) {
-            this.clearCanvas();
+            this._clearCanvas();
             this.clearData();
             this._canvas = null;
             this._circle = null;
@@ -133,8 +129,8 @@ export class SimpleHeatmap extends BaseHeatmap {
         this._heatmapLogger.log("__SimpleHeatmap__ draw");
 
         this._opacity = typeof options.opacity !== "undefined" ? options.opacity : this._opacity;
-        typeof options.radius !== "undefined" ? this.createCircle(options.radius) : this.createCircle(this._radius);
-        typeof options.gradient !== "undefined" ? this.gradientArray(options.gradient) : this.gradientArray(this._gradient);
+        typeof options.radius !== "undefined" ? this._createCircle(options.radius) : this._createCircle(this._radius);
+        typeof options.gradient !== "undefined" ? this._gradientArray(options.gradient) : this._gradientArray(this._gradient);
         this._data = typeof options.data !== 'undefined' ? options.data : this._data;
         this._heatmapLogger.log("__SimpleHeatmap__ draw", {length: this._data.length});
 
@@ -170,7 +166,7 @@ export class SimpleHeatmap extends BaseHeatmap {
     resize(options: {width: number, height: number}): {newWidth: number, newHeight: number} {
         this._heatmapLogger.log("__SimpleHeatmap__ resize", {options: options});
         if ((this._canvas !== null) && (typeof this._canvas !== "undefined")) {
-            this.clearCanvas();
+            this._clearCanvas();
             this._canvas.width = options.width;
             this._canvas.height = options.height;
             this._width = this._canvas.width;
@@ -218,7 +214,7 @@ export class SimpleHeatmap extends BaseHeatmap {
     // Private methods.
     /*********/
 
-    private createColorScale(element: string) {
+    private _createColorScale(element: string) {
         this._heatmapLogger.log("__SimpleHeatmap__ createColorScale");
         const el: HTMLElement = document.getElementById(element);
 
@@ -277,7 +273,7 @@ export class SimpleHeatmap extends BaseHeatmap {
     }
     */
 
-    private getElementDimensions(element: string) {
+    private _getElementDimensions(element: string) {
         const el: HTMLElement = document.getElementById(element);
         const compStyles = window.getComputedStyle(el);
         const width = (typeof el.style.width !== 'undefined' && el.style.width !== null && el.style.width !== '')
@@ -287,11 +283,11 @@ export class SimpleHeatmap extends BaseHeatmap {
         return {width: width, height: height};
     }
 
-    private addHeatmapLayer2Element(element: string) {
+    private _addHeatmapLayer2Element(element: string) {
         const el: HTMLElement = document.getElementById(element);
         if (el !== null) {
 
-            const {width, height} = this.getElementDimensions(element);
+            const {width, height} = this._getElementDimensions(element);
 
             // Update element styles.
             el.style.position = "absolute";
@@ -324,7 +320,7 @@ export class SimpleHeatmap extends BaseHeatmap {
         }
     }
 
-    private gradientArray(grad: HeatmapGradient) {
+    private _gradientArray(grad: HeatmapGradient) {
         this._heatmapLogger.log("__SimpleHeatmap__ gradientArray", {grad: grad});
         // Create a 256x1 gradient that we'll use to turn a grayscale heatmap into a colored one.
         const canvas = this._createCanvas(),
@@ -341,7 +337,7 @@ export class SimpleHeatmap extends BaseHeatmap {
         this._heatmapLogger.log("gradientArray", {canvas: canvas, ctx: ctx});
     }
 
-    private createCircle(r: number, blur?: number) {
+    private _createCircle(r: number, blur?: number) {
         this._heatmapLogger.log("__SimpleHeatmap__ createCircle", {r: r});
         blur = blur === undefined ? 15 : blur;
         // Create a grayscale blurred circle image that we'll use for drawing points.
@@ -359,7 +355,7 @@ export class SimpleHeatmap extends BaseHeatmap {
         ctx.fill();
     }
 
-    private clearCanvas() {
+    private _clearCanvas() {
         this._ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
     }
 
