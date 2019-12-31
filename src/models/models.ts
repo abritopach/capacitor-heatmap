@@ -1,3 +1,5 @@
+import { Map } from 'leaflet';
+
 /**
  * Description [Interface to define heatmap logs.]
  *
@@ -104,3 +106,17 @@ export type GMHeatmapCoordinate = google.maps.LatLng;
 export type GMHeatmapData = google.maps.MVCArray<google.maps.LatLng | google.maps.visualization.WeightedLocation>;
 
 
+/**
+ * Description [Interface to define leaflet maps heatmap initialize options.]
+ *
+ * @author abrito
+ * @version 0.0.1
+ *
+ * @interface
+*/
+export interface ILMHeatmapOptions {
+    map: Map;
+    type: IHeatmapType;
+    data?: GMHeatmapData;
+    debug?: boolean;
+}

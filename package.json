@@ -16,7 +16,9 @@
     "@capacitor/core": "latest",
     "@types/googlemaps": "^3.38.1",
     "@types/html2canvas": "0.0.35",
-    "html2canvas": "^1.0.0-rc.5"
+    "@types/leaflet": "^1.5.7",
+    "html2canvas": "^1.0.0-rc.5",
+    "leaflet": "^1.6.0"
   },
   "devDependencies": {
     "typescript": "^3.2.4",

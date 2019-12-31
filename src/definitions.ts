@@ -1,5 +1,5 @@
 import { HeatmapData, IHeatmapOptions, HeatmapGradient, IGMHeatmapOptions, GMHeatmapData, HeatmapPoint,
-GMHeatmapPoint, IHeatmapDrawOptions, GMHeatmapGradient, HeatmapPosition, GMHeatmapCoordinate } from "./models/models";
+GMHeatmapPoint, IHeatmapDrawOptions, GMHeatmapGradient, HeatmapPosition, GMHeatmapCoordinate, ILMHeatmapOptions } from "./models/models";
 
 declare module "@capacitor/core" {
   interface PluginRegistry {
@@ -21,7 +21,7 @@ export interface HeatmapPlugin {
    * @param {IHeatmapOptions | IGMHeatmapOptions} options - Json options object to initialize heatmap.
    * @returns {Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer}>} Canvas Element or Google Maps Heatmap Layer.
   */
-  initialize(options: IHeatmapOptions | IGMHeatmapOptions): Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer}>;
+  initialize(options: IHeatmapOptions | IGMHeatmapOptions | ILMHeatmapOptions): Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer}>;
 
    /**
    * Description [This method destroy heatmap.]

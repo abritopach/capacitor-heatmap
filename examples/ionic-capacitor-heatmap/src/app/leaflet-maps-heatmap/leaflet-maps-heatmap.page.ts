@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Map, tileLayer } from 'leaflet';
+import { Heatmap } from 'capacitor-heatmap';
+import { ILMHeatmapOptions, IHeatmapType } from 'capacitor-heatmap/dist/esm/models/models';
 
 @Component({
   selector: 'app-leaflet-maps-heatmap',
@@ -25,9 +27,13 @@ export class LeafletMapsHeatmapPage implements OnInit {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(this.mapLeaflet);
 
-    setTimeout(() => {
+    setTimeout(async () => {
       this.mapLeaflet.invalidateSize();
-  }, 1000);
+      const options: ILMHeatmapOptions = {type: IHeatmapType.LeafletMaps, map: this.mapLeaflet, debug: true};
+      const result = await Heatmap.initialize(options);
+      console.log('result initialize', result);
+    }, 1000);
+
   }
 
 }
