@@ -24,25 +24,30 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
 
     _map: google.maps.Map;
     _heatmap: google.maps.visualization.HeatmapLayer;
-    _data: GMHeatmapData;
+    _data: GMHeatmapData = new google.maps.MVCArray([]);
 
     initialize(options: IGMHeatmapOptions): google.maps.visualization.HeatmapLayer {
         this._heatmapLogger = new Log(options.debug);
         this._heatmapLogger.log("__GoogleMapsHeatmap__ initialize");
-        if ((typeof options.data !== "undefined") && (options.data !== null)) {
-            this._data = options.data;
-            this._map = options.map;
-            this._heatmap = new google.maps.visualization.HeatmapLayer({
-                data: options.data,
-            });
-            this._heatmap.set('opacity', GoogleMapsHeatmap.DEFAULT_OPACITY);
-            this._heatmap.set('radius', GoogleMapsHeatmap.DEFAULT_RADIUS);
-            this._heatmap.set('gradient', GoogleMapsHeatmap.DEFAULT_GRADIENT);
-            return this._heatmap;
-        }
+
+        this._data = typeof options.data !== 'undefined' ? options.data : this._data;
+        (
+            this._heatmapLogger.warn("__GoogleMapsHeatmap__ Data is undefined or empty. Passes heatmap data into draw function or set heatmap data with setData function."),
+            []
+        );
+        this._map = options.map;
+        this._heatmap = new google.maps.visualization.HeatmapLayer({
+            data: this._data,
+        });
+        this._heatmap.setMap(this._map);
+        this._heatmap.set('opacity', GoogleMapsHeatmap.DEFAULT_OPACITY);
+        this._heatmap.set('radius', GoogleMapsHeatmap.DEFAULT_RADIUS);
+        this._heatmap.set('gradient', GoogleMapsHeatmap.DEFAULT_GRADIENT);
+        return this._heatmap;
     }
 
     destroy(): void {
+        this._heatmapLogger.log("__GoogleMapsHeatmap__ destroy");
         this._heatmap.setMap(null);
         this._heatmap = null;
     }
@@ -54,7 +59,9 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
     setData(data: GMHeatmapData): GMHeatmapData {
         this._heatmapLogger.log("__GoogleMapsHeatmap__ setData", data);
         this._data.clear();
-        this._data = data;
+        data.forEach((point: GMHeatmapPoint) => {
+            this._data.push(point);
+        });
         this._heatmap.setData(this._data);
         return this._heatmap.getData();
     }
@@ -83,10 +90,10 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
     }
 
     clearData(): GMHeatmapData {
-        this._heatmapLogger.log("__GoogleMapsHeatmap__ clearData");
+        this._heatmapLogger.log("__GoogleMapsHeatmap__ clearData", this._heatmap.getData());
         this._data.clear();
         this._heatmap.setData(this._data);
-        return this._data;
+        return this._heatmap.getData();
     }
 
     addPoint(point: GMHeatmapPoint): GMHeatmapData {
@@ -106,7 +113,7 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
     // Methods for rendering heatmap.
     /*********/
     draw(options: {opacity?: number, radius?: number, gradient?: string[], data?: GMHeatmapData}): boolean {
-        this._heatmapLogger.log("__GoogleMapsHeatmap__ draw");
+        this._heatmapLogger.log("__GoogleMapsHeatmap__ draw", options);
         if (!this._map) { return false; }
         this._data = typeof options.data !== 'undefined' ? options.data : this._data;
         this._heatmapLogger.log("__GoogleMapsHeatmap__ draw", {data: this._data});
@@ -114,7 +121,6 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
         this._heatmap.set('opacity', typeof options.opacity !== "undefined" ? options.opacity : this._heatmap.get('opacity'));
         this._heatmap.set('radius', typeof options.radius !== "undefined" ? options.radius : this._heatmap.get('radius'));
         this._heatmap.set('gradient', typeof options.gradient !== "undefined" ? options.gradient : this._heatmap.get('gradient'));
-        this._heatmap.setMap(this._map);
         return true;
     }
 

@@ -62,11 +62,10 @@ export class GoogleMapsHeatmapPage implements OnInit {
     });
 
     const options: IGMHeatmapOptions = {type: IHeatmapType.GoogleMaps, map: this.map,
-      data: this.fakeHeatmapDataService.getGoogleMapsData(), debug: true};
+      /*data: this.fakeHeatmapDataService.getGoogleMapsData(),*/ debug: true};
     const result = await Heatmap.initialize(options);
     console.log('result initialize', result);
     this.drawHeatmap();
-
   }
 
   async drawHeatmap() {
@@ -77,13 +76,15 @@ export class GoogleMapsHeatmapPage implements OnInit {
     // console.log('resultDataURL', resultDataURL.value);
   }
 
-  onClickClearData() {
-    Heatmap.clearData();
+  async onClickClearData() {
+    const resultClearData = await Heatmap.clearData();
+    console.log('result clear data', resultClearData);
   }
 
-  onClickAddData() {
+  async onClickAddData() {
     // Heatmap.setData(this.fakeHeatmapDataService.getGoogleMapsData2());
-    Heatmap.setData(this.fakeHeatmapDataService.getGoogleMapsData3());
+    const resultSetData = await Heatmap.setData(this.fakeHeatmapDataService.getGoogleMapsData3());
+    console.log('result set data', resultSetData);
   }
 
   onClickAddPoint() {
