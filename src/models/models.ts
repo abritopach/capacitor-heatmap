@@ -1,4 +1,4 @@
-import { Map } from 'leaflet';
+import { Map, LatLngExpression } from 'leaflet';
 
 /**
  * Description [Interface to define heatmap logs.]
@@ -77,7 +77,7 @@ export interface IHeatmapDrawOptions {
     opacity?: number,
     radius?: number,
     gradient?: HeatmapGradient | GMHeatmapGradient
-    data?:  HeatmapData | GMHeatmapData
+    data?:  HeatmapData | GMHeatmapData | LMHeatmapData
 }
 
 export type HeatmapGradient = Record<number, string>;
@@ -117,6 +117,8 @@ export type GMHeatmapData = google.maps.MVCArray<google.maps.LatLng | google.map
 export interface ILMHeatmapOptions {
     map: Map;
     type: IHeatmapType;
-    data?: GMHeatmapData;
+    data?: LMHeatmapData;
     debug?: boolean;
 }
+
+export type LMHeatmapData = Array<LatLngExpression>;

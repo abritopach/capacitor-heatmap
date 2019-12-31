@@ -1,5 +1,5 @@
 import { HeatmapData, IHeatmapOptions, HeatmapGradient, IGMHeatmapOptions, GMHeatmapData, HeatmapPoint,
-GMHeatmapPoint, IHeatmapDrawOptions, GMHeatmapGradient, HeatmapPosition, GMHeatmapCoordinate, ILMHeatmapOptions } from "./models/models";
+GMHeatmapPoint, IHeatmapDrawOptions, GMHeatmapGradient, HeatmapPosition, GMHeatmapCoordinate, ILMHeatmapOptions, LMHeatmapData } from "./models/models";
 
 declare module "@capacitor/core" {
   interface PluginRegistry {
@@ -51,7 +51,7 @@ export interface HeatmapPlugin {
    * @param {HeatmapData | GMHeatmapData} data - Data to set.
    * @returns {Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer}>} Canvas Element or Google Maps Heatmap Layer.
   */
-  setData(data: HeatmapData | GMHeatmapData): Promise<{value: HeatmapData | GMHeatmapData}>;
+  setData(data: HeatmapData | GMHeatmapData | LMHeatmapData): Promise<{value: HeatmapData | GMHeatmapData}>;
 
   /**
    * Description [This method get heatmap data of [[x, y, thickness], ...] or [{x: value, y: value, thickness: value},...] format.]

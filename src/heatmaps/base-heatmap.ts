@@ -1,5 +1,5 @@
 import { HeatmapData, IHeatmapOptions, HeatmapGradient, IHeatmapType, IGMHeatmapOptions, GMHeatmapData, HeatmapPoint,
-     GMHeatmapPoint, IHeatmapDrawOptions, GMHeatmapGradient, HeatmapPosition, GMHeatmapCoordinate, ILMHeatmapOptions } from '../models/models';
+     GMHeatmapPoint, IHeatmapDrawOptions, GMHeatmapGradient, HeatmapPosition, GMHeatmapCoordinate, ILMHeatmapOptions, LMHeatmapData } from '../models/models';
 
 export abstract class BaseHeatmap {
 
@@ -12,7 +12,7 @@ export abstract class BaseHeatmap {
     /*********/
     // Methods for handling heatmap data.
     /*********/
-    abstract setData(data: HeatmapData | GMHeatmapData): void;
+    abstract setData(data: HeatmapData | GMHeatmapData | LMHeatmapData): void;
     abstract getData(): void;
     abstract getValueAt(position: HeatmapPosition | GMHeatmapCoordinate): void;
     abstract clearData(): void;

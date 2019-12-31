@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { Map, tileLayer } from 'leaflet';
 import { Heatmap } from 'capacitor-heatmap';
-import { ILMHeatmapOptions, IHeatmapType } from 'capacitor-heatmap/dist/esm/models/models';
+import { ILMHeatmapOptions, IHeatmapType, IHeatmapDrawOptions } from 'capacitor-heatmap/dist/esm/models/models';
+
+import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
 
 @Component({
   selector: 'app-leaflet-maps-heatmap',
@@ -13,7 +15,7 @@ export class LeafletMapsHeatmapPage implements OnInit {
 
   mapLeaflet: Map;
 
-  constructor() { }
+  constructor(public fakeHeatmapDataService: FakeHeatmapDataService) { }
 
   ngOnInit() {
     this.initializeLMHeatmap();
@@ -29,9 +31,20 @@ export class LeafletMapsHeatmapPage implements OnInit {
 
     setTimeout(async () => {
       this.mapLeaflet.invalidateSize();
+
+      // Initialize.
       const options: ILMHeatmapOptions = {type: IHeatmapType.LeafletMaps, map: this.mapLeaflet, debug: true};
       const result = await Heatmap.initialize(options);
       console.log('result initialize', result);
+
+      // Set data.
+      const resultSetData = await Heatmap.setData(this.fakeHeatmapDataService.getLeafletMapsData());
+      console.log('result set data', resultSetData);
+
+      // Draw
+      const drawOptions: IHeatmapDrawOptions = {};
+      const resultDraw = await Heatmap.draw(options);
+      console.log('result draw', resultDraw);
     }, 1000);
 
   }
