@@ -361,7 +361,7 @@ export class SimpleHeatmap extends BaseHeatmap {
 
     private _colorize (pixels: any, gradient: any) {
         this._heatmapLogger.log("__SimpleHeatmap__ _colorize", {pixels: pixels, gradient: gradient});
-        for (var i = 0, len = pixels.length, j; i < len; i += 4) {
+        for (let i = 0, len = pixels.length, j; i < len; i += 4) {
             j = pixels[i + 3] * 4; // get gradient color from opacity value
             if (j) {
                 pixels[i] = gradient[j];
