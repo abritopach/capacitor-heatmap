@@ -15,4 +15,14 @@
   <ion-item lines="none">
     <div id="mapLeaflet"></div>
   </ion-item>
+  <ion-segment>
+    <ion-segment-button checked layout="icon-start" (click)="onClickClearData()">
+      <ion-label>Clear data</ion-label>
+      <ion-icon name="trash"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button layout="icon-start" (click)="onClickAddData()">
+      <ion-label>Add new data</ion-label>
+      <ion-icon name="map"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
 </ion-content>

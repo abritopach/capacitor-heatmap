@@ -74,6 +74,8 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         this._heatmapLogger.log("__LeafletMapsHeatmap__ setData", data);
         this._data = [];
         this._data = [...data];
+        const opt = {};
+        this.draw(opt);
         return this._data;
     }
 
@@ -87,9 +89,12 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         // TODO
     }
 
-    clearData(): void {
+    clearData(): LMHeatmapData {
         this._heatmapLogger.log("__LeafletMapsHeatmap__ clearData");
-        // TODO
+        this._data = [];
+        const opt = {};
+        this.draw(opt);
+        return this._data;
     }
 
     addPoint(point: GMHeatmapPoint): void {
