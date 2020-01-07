@@ -202,9 +202,12 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         // TODO
     }
 
-    gradient(grad: GMHeatmapGradient): void {
+    gradient(grad: GMHeatmapGradient): HeatmapGradient {
         this._heatmapLogger.log("__LeafletMapsHeatmap__ gradient", grad);
-        // TODO
+        this._gradient = grad;
+        const opt = {gradient: grad};
+        this.draw(opt);
+        return this._gradient;
     }
 
     opacity(opa: number): void {

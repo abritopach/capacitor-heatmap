@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Map, tileLayer } from 'leaflet';
 import { Heatmap } from 'capacitor-heatmap';
-import { ILMHeatmapOptions, IHeatmapType, IHeatmapDrawOptions } from 'capacitor-heatmap/dist/esm/models/models';
+import { ILMHeatmapOptions, IHeatmapType, IHeatmapDrawOptions, HeatmapGradient } from 'capacitor-heatmap/dist/esm/models/models';
 
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
 
@@ -14,6 +14,17 @@ import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
 export class LeafletMapsHeatmapPage implements OnInit {
 
   mapLeaflet: Map;
+
+  changedGradient = false;
+
+  DEFAULT_GRADIENT: HeatmapGradient = {
+    0.4: 'blue',
+    0.6: 'cyan',
+    0.7: 'lime',
+    0.8: 'yellow',
+    1.0: 'red'
+  };
+  gradient = this.DEFAULT_GRADIENT;
 
   constructor(public fakeHeatmapDataService: FakeHeatmapDataService) { }
 
@@ -82,6 +93,23 @@ export class LeafletMapsHeatmapPage implements OnInit {
     const point = [-37.8839, 175.3745188667];
     const resultAddPoint = Heatmap.addPoint(point);
     console.log('result add point', resultAddPoint);
+  }
+
+  onClickChangeGradient() {
+    this.changeGradient();
+  }
+
+  async changeGradient() {
+    const gradient: HeatmapGradient = {
+      1.0: 'blue',
+      0.8: 'cyan',
+      0.7: 'lime',
+      0.6: 'yellow',
+      0.4: 'red'
+    };
+    this.changedGradient = !this.changedGradient;
+    this.gradient = this.changedGradient ? gradient : this.DEFAULT_GRADIENT;
+    await Heatmap.gradient(this.gradient);
   }
 
 }
