@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Map, tileLayer, map } from 'leaflet';
+import { Map, tileLayer } from 'leaflet';
 import { Heatmap } from 'capacitor-heatmap';
 import { ILMHeatmapOptions, IHeatmapType, IHeatmapDrawOptions } from 'capacitor-heatmap/dist/esm/models/models';
 
@@ -72,6 +72,16 @@ export class LeafletMapsHeatmapPage implements OnInit {
 
     const resultAddData = await Heatmap.setData(data);
     console.log('result add data', resultAddData);
+  }
+
+  onClickAddPoint() {
+    this.addPoint();
+  }
+
+  async addPoint() {
+    const point = [-37.8839, 175.3745188667];
+    const resultAddPoint = Heatmap.addPoint(point);
+    console.log('result add point', resultAddPoint);
   }
 
 }

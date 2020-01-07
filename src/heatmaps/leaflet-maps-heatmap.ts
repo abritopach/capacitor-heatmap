@@ -1,7 +1,7 @@
 import { BaseHeatmap } from './base-heatmap';
 import { Log } from "../log";
-import { GMHeatmapCoordinate, GMHeatmapPoint, GMHeatmapGradient, ILMHeatmapOptions,
-         LMHeatmapData, HeatmapPoint, HeatmapGradient} from '../models/models';
+import { GMHeatmapCoordinate, GMHeatmapGradient, ILMHeatmapOptions,
+         LMHeatmapData, HeatmapPoint, HeatmapGradient, LMHeatmapPoint} from '../models/models';
 
 import { Map, DomUtil, Browser, LatLngTuple, Point } from 'leaflet';
 
@@ -97,9 +97,12 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         return this._data;
     }
 
-    addPoint(point: GMHeatmapPoint): void {
+    addPoint(point: LMHeatmapPoint): LMHeatmapData {
         this._heatmapLogger.log("__LeafletMapsHeatmap__ addPoint", {newPoint: point});
-        // TODO
+        this._data.push(point);
+        const opt = {};
+        this.draw(opt);
+        return this._data;
     }
 
     setMax(max: number): void {

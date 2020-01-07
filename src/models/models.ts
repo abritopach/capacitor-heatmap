@@ -122,3 +122,4 @@ export interface ILMHeatmapOptions {
 }
 
 export type LMHeatmapData = Array<LatLngExpression>;
+export type LMHeatmapPoint = LatLngExpression;
