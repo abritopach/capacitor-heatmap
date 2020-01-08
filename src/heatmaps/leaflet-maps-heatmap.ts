@@ -5,6 +5,8 @@ import { GMHeatmapCoordinate, GMHeatmapGradient, ILMHeatmapOptions,
 
 import { Map, DomUtil, Browser, LatLngTuple, Point } from 'leaflet';
 
+import { Utils }  from "../utils/utils";
+
 export class LeafletMapsHeatmap extends BaseHeatmap {
 
     _map: Map;
@@ -22,7 +24,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
     static readonly DEFAULT_OPACITY = 0.05;
 
     _circle: HTMLCanvasElement;
-    _grad: Uint8ClampedArray;
+    _gradArray: Uint8ClampedArray;
     _r: number;
     _opacity: number;
     _gradient: HeatmapGradient;
@@ -53,9 +55,11 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         this._max = 18;
         this._opacity = LeafletMapsHeatmap.DEFAULT_OPACITY;
         this._radius = LeafletMapsHeatmap.DEFAULT_RADIUS;
-        this._createCircle(LeafletMapsHeatmap.DEFAULT_RADIUS);
+        const result = Utils.createCircle(this._radius);
+        this._circle = result.circle;
+        this._r = result.radius;
         this._gradient = LeafletMapsHeatmap.DEFAULT_GRADIENT;
-        this._gradientArray(LeafletMapsHeatmap.DEFAULT_GRADIENT);
+        this._gradArray = Utils.gradientArray(this._gradient);
 
         return this._canvas;
 
@@ -169,8 +173,11 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         }
 
         this._opacity = typeof options.opacity !== "undefined" ? options.opacity : this._opacity;
-        typeof options.radius !== "undefined" ? this._createCircle(options.radius) : this._createCircle(this._radius);
-        typeof options.gradient !== "undefined" ? this._gradientArray(options.gradient) : this._gradientArray(this._gradient);
+        const result = Utils.createCircle(typeof options.radius !== "undefined" ? options.radius : this._radius);
+        this._circle = result.circle;
+        this._r = result.radius;
+
+        this._gradArray = typeof options.gradient !== "undefined" ? Utils.gradientArray(options.gradient) : Utils.gradientArray(this._gradient);
 
         const ctx = this._ctx;
         ctx.clearRect(0, 0, this._width, this._height);
@@ -187,7 +194,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         // Colorize the heatmap, using opacity value of each pixel to get the right color from our gradient.
         const colored = ctx.getImageData(0, 0, this._width, this._height);
         this._heatmapLogger.log("colored", {colored: colored});
-        this._colorize(colored.data, this._grad);
+        Utils.colorize(colored.data, this._gradArray);
         ctx.putImageData(colored, 0, 0);
 
         return true;
@@ -259,57 +266,4 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         // map.getPane('labels').style.pointerEvents = 'none';
     }
 
-    private _gradientArray(grad: HeatmapGradient) {
-        this._heatmapLogger.log("__LeafletMapsHeatmap__ gradientArray", {grad: grad});
-        // Create a 256x1 gradient that we'll use to turn a grayscale heatmap into a colored one.
-        const canvas = this._createCanvas(),
-            ctx = canvas.getContext('2d'),
-            gradient = ctx.createLinearGradient(0, 0, 0, 256);
-        canvas.width = 1;
-        canvas.height = 256;
-        for (var i in grad) {
-            gradient.addColorStop(+i, grad[i]);
-        }
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, 1, 256);
-        this._grad = ctx.getImageData(0, 0, 1, 256).data;
-        this._heatmapLogger.log("gradientArray", {canvas: canvas, ctx: ctx});
-    }
-
-    private _createCircle(r: number, blur?: number) {
-        this._heatmapLogger.log("__LeafletMapsHeatmap__ createCircle", {r: r});
-        blur = blur === undefined ? 15 : blur;
-        // Create a grayscale blurred circle image that we'll use for drawing points.
-        const circle = this._circle = this._createCanvas(),
-            ctx = circle.getContext('2d'),
-            r2 = this._r = r + blur;
-
-        circle.width = circle.height = r2 * 2;
-        ctx.shadowOffsetX = ctx.shadowOffsetY = r2 * 2;
-        ctx.shadowBlur = blur;
-        ctx.shadowColor = 'black';
-        ctx.beginPath();
-        ctx.arc(-r2, -r2, r, 0, Math.PI * 2, true);
-        ctx.closePath();
-        ctx.fill();
-    }
-
-    private _colorize (pixels: any, gradient: any) {
-        this._heatmapLogger.log("__LeafletMapsHeatmap__ _colorize", {pixels: pixels, gradient: gradient});
-        for (let i = 0, len = pixels.length, j; i < len; i += 4) {
-            j = pixels[i + 3] * 4; // get gradient color from opacity value
-            if (j) {
-                pixels[i] = gradient[j];
-                pixels[i + 1] = gradient[j + 1];
-                pixels[i + 2] = gradient[j + 2];
-            }
-        }
-    }
-
-    private _createCanvas() {
-        this._heatmapLogger.log("__LeafletMapsHeatmap__ _createCanvas");
-        if (typeof document !== 'undefined') {
-            return document.createElement('canvas');
-        }
-    }
 }
