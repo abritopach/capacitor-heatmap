@@ -217,9 +217,12 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         return this._gradient;
     }
 
-    opacity(opa: number): void {
+    opacity(opa: number): number {
         this._heatmapLogger.log("__LeafletMapsHeatmap__ opacity", opa);
-        // TODO
+        this._opacity = opa;
+        const opt = {opacity: opa};
+        this.draw(opt);
+        return this._opacity;
     }
 
     radius(rad: number): void {

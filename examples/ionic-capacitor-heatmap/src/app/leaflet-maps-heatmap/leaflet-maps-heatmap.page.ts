@@ -16,6 +16,7 @@ export class LeafletMapsHeatmapPage implements OnInit {
   mapLeaflet: Map;
 
   changedGradient = false;
+  changedOpacity = false;
 
   DEFAULT_GRADIENT: HeatmapGradient = {
     0.4: 'blue',
@@ -25,6 +26,7 @@ export class LeafletMapsHeatmapPage implements OnInit {
     1.0: 'red'
   };
   gradient = this.DEFAULT_GRADIENT;
+  opacity = 0.05;
 
   constructor(public fakeHeatmapDataService: FakeHeatmapDataService) { }
 
@@ -110,6 +112,16 @@ export class LeafletMapsHeatmapPage implements OnInit {
     this.changedGradient = !this.changedGradient;
     this.gradient = this.changedGradient ? gradient : this.DEFAULT_GRADIENT;
     await Heatmap.gradient(this.gradient);
+  }
+
+  onClickChangeOpacity() {
+    this.changeOpacity();
+  }
+
+  async changeOpacity() {
+    this.changedOpacity = !this.changedOpacity;
+    this.opacity = this.changedOpacity ? 0.1 : 0.05;
+    await Heatmap.opacity(this.opacity);
   }
 
 }
