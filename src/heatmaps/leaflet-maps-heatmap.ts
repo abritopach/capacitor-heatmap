@@ -83,9 +83,9 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         return this._data;
     }
 
-    getData(): void {
+    getData(): LMHeatmapData {
         this._heatmapLogger.log("__LeafletMapsHeatmap__ getData");
-        // TODO
+        return this._data;
     }
 
     getValueAt(coordinate: GMHeatmapCoordinate): void {

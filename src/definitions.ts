@@ -51,7 +51,7 @@ export interface HeatmapPlugin {
    * @param {HeatmapData | GMHeatmapData} data - Data to set.
    * @returns {Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer}>} Canvas Element or Google Maps Heatmap Layer.
   */
-  setData(data: HeatmapData | GMHeatmapData | LMHeatmapData): Promise<{value: HeatmapData | GMHeatmapData}>;
+  setData(data: HeatmapData | GMHeatmapData | LMHeatmapData): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData}>;
 
   /**
    * Description [This method get heatmap data of [[x, y, thickness], ...] or [{x: value, y: value, thickness: value},...] format.]
@@ -63,7 +63,7 @@ export interface HeatmapPlugin {
    * @name getData
    * @returns {Promise<{value: HeatmapData | GMHeatmapData}>} Heatmap data.
   */
-  getData(): Promise<{value: HeatmapData | GMHeatmapData}>;
+  getData(): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData}>;
   getValueAt(position: HeatmapPosition | GMHeatmapCoordinate): Promise<{value: number}>;
 
   /**
@@ -76,7 +76,7 @@ export interface HeatmapPlugin {
    * @name clearData
    * @returns {Promise<{value: HeatmapData | GMHeatmapData}>} Heatmap data.
   */
-  clearData(): Promise<{value: HeatmapData | GMHeatmapData}>;
+  clearData(): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData}>;
 
   /**
    * Description [This method add new point to heatmap data.]
@@ -88,7 +88,7 @@ export interface HeatmapPlugin {
    * @name addPoint
    * @returns {Promise<{value: HeatmapData | GMHeatmapData}>} Heatmap data.
   */
-  addPoint(point: HeatmapPoint | GMHeatmapPoint | LMHeatmapPoint): Promise<{value: HeatmapData | GMHeatmapData}>;
+  addPoint(point: HeatmapPoint | GMHeatmapPoint | LMHeatmapPoint): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData}>;
 
   /**
    * Description [This method set max data value (1 by default).]

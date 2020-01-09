@@ -57,11 +57,11 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
 
   /*********/
 
-  async setData(data: HeatmapData | GMHeatmapData | LMHeatmapData): Promise<{value: HeatmapData | GMHeatmapData}> {
+  async setData(data: HeatmapData | GMHeatmapData | LMHeatmapData): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData}> {
     return {value: this.heatmap.setData(data)};
   }
 
-  async getData(): Promise<{value: HeatmapData | GMHeatmapData}> {
+  async getData(): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData}> {
     return {value: this.heatmap.getData()};
   }
 
@@ -69,11 +69,11 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     return {value: this.heatmap.getValueAt(position)};
   }
 
-  async clearData(): Promise<{value: HeatmapData | GMHeatmapData}> {
+  async clearData(): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData}> {
     return {value: this.heatmap.clearData()};
   }
 
-  async addPoint(point: HeatmapPoint | GMHeatmapPoint | LMHeatmapPoint): Promise<{value: HeatmapData | GMHeatmapData}> {
+  async addPoint(point: HeatmapPoint | GMHeatmapPoint | LMHeatmapPoint): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData}> {
     return {value: this.heatmap.addPoint(point)};
   }
 
