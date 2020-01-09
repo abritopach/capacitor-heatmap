@@ -202,7 +202,7 @@ export class SimpleHeatmap extends BaseHeatmap {
         return this._opacity;
     }
 
-    radius(r: number) {
+    radius(r: number): number {
         this._heatmapLogger.log("__SimpleHeatmap__ radius", r);
         this._radius = r;
         const opt = {radius: r};

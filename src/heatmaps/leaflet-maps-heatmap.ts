@@ -225,9 +225,12 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         return this._opacity;
     }
 
-    radius(rad: number): void {
+    radius(rad: number): number {
         this._heatmapLogger.log("__LeafletMapsHeatmap__ radius", rad);
-        // TODO
+        this._radius = rad;
+        const opt = {radius: rad};
+        this.draw(opt);
+        return this._radius;
     }
 
 

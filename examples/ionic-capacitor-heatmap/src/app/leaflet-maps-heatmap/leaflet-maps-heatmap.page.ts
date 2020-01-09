@@ -17,6 +17,7 @@ export class LeafletMapsHeatmapPage implements OnInit {
 
   changedGradient = false;
   changedOpacity = false;
+  changedRadius = false;
 
   DEFAULT_GRADIENT: HeatmapGradient = {
     0.4: 'blue',
@@ -27,6 +28,7 @@ export class LeafletMapsHeatmapPage implements OnInit {
   };
   gradient = this.DEFAULT_GRADIENT;
   opacity = 0.05;
+  radius = 20;
 
   constructor(public fakeHeatmapDataService: FakeHeatmapDataService) { }
 
@@ -111,7 +113,8 @@ export class LeafletMapsHeatmapPage implements OnInit {
     };
     this.changedGradient = !this.changedGradient;
     this.gradient = this.changedGradient ? gradient : this.DEFAULT_GRADIENT;
-    await Heatmap.gradient(this.gradient);
+    const resultChangeGradient = await Heatmap.gradient(this.gradient);
+    console.log('resultChangeGradient', resultChangeGradient);
   }
 
   onClickChangeOpacity() {
@@ -121,7 +124,19 @@ export class LeafletMapsHeatmapPage implements OnInit {
   async changeOpacity() {
     this.changedOpacity = !this.changedOpacity;
     this.opacity = this.changedOpacity ? 0.1 : 0.05;
-    await Heatmap.opacity(this.opacity);
+    const resultChangeOpacity = await Heatmap.opacity(this.opacity);
+    console.log('resultChangeOpacity', resultChangeOpacity);
+  }
+
+  onClickChangeRadius() {
+    this.changeRadius();
+  }
+
+  async changeRadius() {
+    this.changedRadius = !this.changedRadius;
+    this.radius = this.changedRadius ? 30 : 20;
+    const resultChangeRadius = await Heatmap.radius(this.radius);
+    console.log('resultChangeRadius', resultChangeRadius);
   }
 
 }
