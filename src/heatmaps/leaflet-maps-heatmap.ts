@@ -37,7 +37,6 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
     initialize(options: ILMHeatmapOptions): HTMLCanvasElement {
         this._heatmapLogger = new Log(options.debug);
         this._heatmapLogger.log("__LeafletMapsHeatmap__ initialize");
-        // TODO
         this._map = options.map;
         console.log('map', this._map);
 
@@ -108,9 +107,10 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         return this._data;
     }
 
-    setMax(max: number): void {
+    setMax(max: number): number {
         this._heatmapLogger.log("__LeafletMapsHeatmap__ max", max);
-        // TODO
+        this._max = max;
+        return this._max;
     }
 
 
