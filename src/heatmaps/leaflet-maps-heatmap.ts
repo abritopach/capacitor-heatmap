@@ -1,7 +1,7 @@
 import { BaseHeatmap } from './base-heatmap';
 import { Log } from "../log";
-import { GMHeatmapCoordinate, GMHeatmapGradient, ILMHeatmapOptions,
-         LMHeatmapData, HeatmapPoint, HeatmapGradient, LMHeatmapPoint} from '../models/models';
+import { GMHeatmapGradient, ILMHeatmapOptions, LMHeatmapData, HeatmapPoint,
+         HeatmapGradient, LMHeatmapPoint, LMHeatmapCoordinate} from '../models/models';
 
 import { Map, DomUtil, Browser, LatLngTuple, Point } from 'leaflet';
 
@@ -88,9 +88,8 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         return this._data;
     }
 
-    getValueAt(coordinate: GMHeatmapCoordinate): void {
+    getValueAt(coordinate: LMHeatmapCoordinate): void {
         this._heatmapLogger.log("__LeafletMapsHeatmap__ getValueAt", coordinate);
-        // TODO
     }
 
     clearData(): LMHeatmapData {
@@ -204,9 +203,23 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
     /*********/
     // Methods for handling heatmap appearance.
     /*********/
-    resize(options: {width: number, height: number}): void {
+    resize(options: {width: number, height: number}): {newWidth: number, newHeight: number} {
         this._heatmapLogger.log("__LeafletMapsHeatmap__ resize", options);
-        // TODO
+        if ((this._canvas !== null) && (typeof this._canvas !== "undefined")) {
+            this._clearCanvas();
+            this._canvas.width = options.width;
+            this._canvas.height = options.height;
+            this._width = this._canvas.width;
+            this._height = this._canvas.height;
+            const opt = {};
+            this.draw(opt);
+            const mapDiv: HTMLElement = document.getElementById(this._map.getContainer().id);
+            mapDiv.style.width = options.width + 'px';
+            mapDiv.style.height = options.height + 'px';
+
+            return {newWidth: this._canvas.width, newHeight: this._canvas.height};
+        }
+        return {newWidth: 0, newHeight: 0};
     }
 
     gradient(grad: GMHeatmapGradient): HeatmapGradient {
@@ -270,6 +283,10 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
 
         this._map.getPanes().overlayPane.appendChild(this._canvas);
         // map.getPane('labels').style.pointerEvents = 'none';
+    }
+
+    private _clearCanvas() {
+        this._ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
     }
 
 }

@@ -1,4 +1,4 @@
-import { Map, LatLngExpression } from 'leaflet';
+import { Map, LatLngExpression, LatLngTuple } from 'leaflet';
 
 /**
  * Description [Interface to define heatmap logs.]
@@ -123,3 +123,4 @@ export interface ILMHeatmapOptions {
 
 export type LMHeatmapData = Array<LatLngExpression>;
 export type LMHeatmapPoint = LatLngExpression;
+export type LMHeatmapCoordinate = LatLngTuple;

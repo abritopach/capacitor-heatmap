@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 import { Map, tileLayer } from 'leaflet';
 import { Heatmap } from 'capacitor-heatmap';
-import { ILMHeatmapOptions, IHeatmapType, IHeatmapDrawOptions, HeatmapGradient } from 'capacitor-heatmap/dist/esm/models/models';
+import { ILMHeatmapOptions, IHeatmapType, IHeatmapDrawOptions, HeatmapGradient, HeatmapPosition } from 'capacitor-heatmap/dist/esm/models/models';
 
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
 
@@ -29,6 +29,10 @@ export class LeafletMapsHeatmapPage implements OnInit {
   gradient = this.DEFAULT_GRADIENT;
   opacity = 0.05;
   radius = 20;
+
+  @HostListener('window:resize', ['$event']) async onResize(event) {
+    this.resizeHeatmap(event.target.innerWidth, event.target.innerHeight);
+  }
 
   constructor(public fakeHeatmapDataService: FakeHeatmapDataService) { }
 
@@ -61,7 +65,7 @@ export class LeafletMapsHeatmapPage implements OnInit {
 
       // Draw
       const drawOptions: IHeatmapDrawOptions = {};
-      const resultDraw = await Heatmap.draw(options);
+      const resultDraw = await Heatmap.draw(drawOptions);
       console.log('result draw', resultDraw);
     }, 1000);
 
@@ -137,6 +141,27 @@ export class LeafletMapsHeatmapPage implements OnInit {
     this.radius = this.changedRadius ? 30 : 20;
     const resultChangeRadius = await Heatmap.radius(this.radius);
     console.log('resultChangeRadius', resultChangeRadius);
+  }
+
+  onClickGetValueAt() {
+    this.getValueAt();
+  }
+
+  async getValueAt() {
+    const position: HeatmapPosition = {x: 949, y: 120};
+    const resultValueAt = await Heatmap.getValueAt(position);
+    console.log('resultValueAt', resultValueAt);
+  }
+
+  onClickResize() {
+    console.log('HomePage::onClickResize() | method called');
+    this.resizeHeatmap(500, 300);
+  }
+
+  async resizeHeatmap(width: number, height: number) {
+    const options = {width, height};
+    const resultResize = await Heatmap.resize(options);
+    console.log('resultResize', resultResize);
   }
 
 }
