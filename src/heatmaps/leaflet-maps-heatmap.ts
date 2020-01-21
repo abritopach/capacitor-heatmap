@@ -60,6 +60,8 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         this._gradient = LeafletMapsHeatmap.DEFAULT_GRADIENT;
         this._gradArray = Utils.gradientArray(this._gradient);
 
+        this._map.on('zoomanim', this._animateZoom);
+
         return this._canvas;
 
     }
@@ -259,7 +261,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
     // Private methods.
     /*********/
 
-    _addHeatmapLayer2Map() {
+    private _addHeatmapLayer2Map() {
         // const originProp = DomUtil.testProp(['transformOrigin', 'WebkitTransformOrigin', 'msTransformOrigin']);
         // canvas.style['transformOrigin'] = '50% 50%';
 
@@ -287,6 +289,28 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
 
     private _clearCanvas() {
         this._ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
+    }
+
+    private _animateZoom(e: any) {
+        console.log('_animateZoom');
+        console.log(e.zoom);
+        console.log(e.center);
+
+        const currentZoom = this._map.options.zoom;
+        console.log('currentZoom', currentZoom);
+
+        // const scale = this._map.getZoomScale(e.zoom);
+
+        /*
+        var scale = this._map.getZoomScale(e.zoom),
+            offset = this._map._getCenterOffset(e.center)._multiplyBy(-scale).subtract(this._map._getMapPanePos());
+
+        if (DomUtil.setTransform) {
+            DomUtil.setTransform(this._canvas, offset, scale);
+        } else {
+            this._canvas.style[DomUtil.TRANSFORM] = DomUtil.getTranslateString(offset) + ' scale(' + scale + ')';
+        }
+        */
     }
 
 }
