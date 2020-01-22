@@ -60,7 +60,9 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         this._gradient = LeafletMapsHeatmap.DEFAULT_GRADIENT;
         this._gradArray = Utils.gradientArray(this._gradient);
 
-        this._map.on('zoomanim', this._animateZoom);
+        this._map.on('zoomanim', (e: any) => {
+            this._animateZoom(e);
+        });
 
         return this._canvas;
 
@@ -296,10 +298,23 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         console.log(e.zoom);
         console.log(e.center);
 
-        const currentZoom = this._map.options.zoom;
+        const newZoom = e.zoom;
+
+        const currentZoom = this._map.getZoom();
         console.log('currentZoom', currentZoom);
 
-        // const scale = this._map.getZoomScale(e.zoom);
+        const zoomScale = this._map.getZoomScale(newZoom, currentZoom);
+        console.log('zoomScale', zoomScale);
+
+        const offset = this._map.latLngToLayerPoint(this._map.getCenter()).multiplyBy(-zoomScale);
+        // .subtract(this._map.getPane().);
+
+        // const offset = this._map.latLngToLayerPoint(this._map.getBounds().getNorthWest());
+
+        if (DomUtil.setTransform) {
+            DomUtil.setTransform(this._canvas, offset, zoomScale);
+        } else {
+        }
 
         /*
         var scale = this._map.getZoomScale(e.zoom),
