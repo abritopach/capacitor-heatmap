@@ -7,7 +7,7 @@
 <ion-content>
   <div class="ion-padding">
     Ionic example project to test Capacitor Heatmap Plugin.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://github.com/abritopach/capacitor-heatmap">Capacitor Heatmap Plugin docs</a> will be your guide.</p>
+    <p>If you get lost, the <a target="_blank" rel="noopener noreferrer" href="https://github.com/abritopach/capacitor-heatmap">Capacitor Heatmap Plugin docs</a> will be your guide.</p>
   </div>
   <ion-item lines="none">
     <h2>Example Heatmap Leaflet Maps</h2>
@@ -15,7 +15,7 @@
   <ion-item lines="none">
     <div id="mapLeaflet"></div>
   </ion-item>
-  <ion-segment>
+  <ion-segment *ngIf="!destroy">
     <ion-segment-button checked layout="icon-start" (click)="onClickClearData()">
       <ion-label>Clear data</ion-label>
       <ion-icon name="trash"></ion-icon>
@@ -29,7 +29,7 @@
       <ion-icon name="pin"></ion-icon>
     </ion-segment-button>
   </ion-segment>
-  <ion-segment>
+  <ion-segment *ngIf="!destroy">
     <ion-segment-button layout="icon-start" (click)="onClickChangeGradient()">
       <ion-label>Change gradient</ion-label>
       <ion-icon name="brush"></ion-icon>
@@ -43,7 +43,7 @@
       <ion-icon name="radio-button-off"></ion-icon>
     </ion-segment-button>
   </ion-segment>
-  <ion-segment>
+  <ion-segment *ngIf="!destroy">
     <ion-segment-button layout="icon-start" (click)="onClickGetValueAt()">
       <ion-label>Value at 949,120</ion-label>
       <ion-icon name="search"></ion-icon>
@@ -51,6 +51,10 @@
     <ion-segment-button checked layout="icon-start" (click)="onClickResize()">
       <ion-label>Resize 500x300px</ion-label>
       <ion-icon name="resize"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button layout="icon-start" (click)="onClickDestroy()">
+      <ion-label>Destroy</ion-label>
+      <ion-icon name="trash"></ion-icon>
     </ion-segment-button>
   </ion-segment>
 </ion-content>

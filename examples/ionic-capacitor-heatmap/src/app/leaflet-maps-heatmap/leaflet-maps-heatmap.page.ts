@@ -15,6 +15,7 @@ export class LeafletMapsHeatmapPage implements OnInit {
 
   mapLeaflet: Map;
 
+  destroy = false;
   changedGradient = false;
   changedOpacity = false;
   changedRadius = false;
@@ -162,6 +163,11 @@ export class LeafletMapsHeatmapPage implements OnInit {
     const options = {width, height};
     const resultResize = await Heatmap.resize(options);
     console.log('resultResize', resultResize);
+  }
+
+  onClickDestroy() {
+    this.destroy = !this.destroy;
+    Heatmap.destroy();
   }
 
 }

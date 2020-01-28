@@ -3,7 +3,7 @@ import { Log } from "../log";
 import { GMHeatmapGradient, ILMHeatmapOptions, LMHeatmapData, HeatmapPoint,
          HeatmapGradient, LMHeatmapPoint, LMHeatmapCoordinate} from '../models/models';
 
-import { Map, DomUtil, Browser, LatLngTuple, Point } from 'leaflet';
+import { Map, DomUtil, Browser, LatLngTuple, Point, Layer, bounds } from 'leaflet';
 
 import { Utils }  from "../utils/utils";
 
@@ -70,7 +70,13 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
 
     destroy(): void {
         this._heatmapLogger.log("__LeafletMapsHeatmap__ destroy");
-        // TODO
+        this._map.getPanes().overlayPane.removeChild(this._canvas);
+        if (this._map.options.zoomAnimation) {
+            console.log('zoomAnimation', this._map.options.zoomAnimation);
+            this._map.off('zoomanim', (e: any) => {
+                this._animateZoom(e);
+            });
+        }
     }
 
 
@@ -287,6 +293,10 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
 
         this._map.getPanes().overlayPane.appendChild(this._canvas);
         // map.getPane('labels').style.pointerEvents = 'none';
+
+        this._map.eachLayer((layer: Layer) => {
+            console.log('layerrrrrr', layer);
+        });
     }
 
     private _clearCanvas() {
@@ -306,10 +316,17 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         const zoomScale = this._map.getZoomScale(newZoom, currentZoom);
         console.log('zoomScale', zoomScale);
 
-        const offset = this._map.latLngToLayerPoint(this._map.getCenter()).multiplyBy(-zoomScale);
+        // const offset = this._map.latLngToLayerPoint(this._map.getCenter()).multiplyBy(-zoomScale);
         // .subtract(this._map.getPane().);
 
+        // const topLeft = this._map.getPixelOrigin();
+        // const offset = this._map.project(this._map.getCenter(), this._map.getZoom()).subtract(topLeft);
+
         // const offset = this._map.latLngToLayerPoint(this._map.getBounds().getNorthWest());
+
+        const offset = this._getCenterOffset(e.center).multiplyBy(-zoomScale).subtract(this._getMapPanePos());
+
+        // const offset = this._latLngBoundsToNewLayerBounds(this._map.getBounds(), e.zoom, e.center).min;
 
         if (DomUtil.setTransform) {
             DomUtil.setTransform(this._canvas, offset, zoomScale);
@@ -326,6 +343,34 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
             this._canvas.style[DomUtil.TRANSFORM] = DomUtil.getTranslateString(offset) + ' scale(' + scale + ')';
         }
         */
+
     }
+
+    _getCenterOffset(latlng: any) {
+		return this._map.latLngToLayerPoint(latlng).subtract(this._getCenterLayerPoint());
+    }
+
+    _getCenterLayerPoint() {
+		return this._map.containerPointToLayerPoint(this._map.getSize().divideBy(2));
+    }
+
+    _getMapPanePos() {
+		return DomUtil.getPosition(this._map.getPanes().overlayPane) || new Point(0, 0);
+    };
+
+    _getNewPixelOrigin(center: any, zoom: any) {
+		var viewHalf = this._map.getSize().divideBy(2);
+		return this._map.project(center, zoom).subtract(viewHalf).add(this._getMapPanePos()).round();
+	};
+
+    _latLngBoundsToNewLayerBounds(latLngBounds: any, zoom: any, center: any) {
+		const topLeft = this._getNewPixelOrigin(center, zoom);
+		return bounds([
+			this._map.project(latLngBounds.getSouthWest(), zoom).subtract(topLeft),
+			this._map.project(latLngBounds.getNorthWest(), zoom).subtract(topLeft),
+			this._map.project(latLngBounds.getSouthEast(), zoom).subtract(topLeft),
+			this._map.project(latLngBounds.getNorthEast(), zoom).subtract(topLeft)
+		]);
+	};
 
 }
