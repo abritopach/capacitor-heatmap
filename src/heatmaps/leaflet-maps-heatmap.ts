@@ -60,6 +60,10 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         this._gradient = LeafletMapsHeatmap.DEFAULT_GRADIENT;
         this._gradArray = Utils.gradientArray(this._gradient);
 
+        this._map.on('moveend', () => {
+            this._reset();
+        });
+
         this._map.on('zoomanim', (e: any) => {
             this._animateZoom(e);
         });
@@ -71,6 +75,9 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
     destroy(): void {
         this._heatmapLogger.log("__LeafletMapsHeatmap__ destroy");
         this._map.getPanes().overlayPane.removeChild(this._canvas);
+        this._map.off('moveend', () => {
+            this._reset();
+        });
         if (this._map.options.zoomAnimation) {
             console.log('zoomAnimation', this._map.options.zoomAnimation);
             this._map.off('zoomanim', (e: any) => {
@@ -133,53 +140,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
 
         this._data = typeof options.data !== 'undefined' ? options.data : this._data;
 
-        // const size: Point = this._map.getSize();
-        // const bounds: Bounds = new Bounds(point([-radius, -radius]), size.add([radius, radius]));
-        const cellSize = this._radius / 2;
-        const panePos = this._map.getPanes().overlayPane.getBoundingClientRect();
-        const offsetX = panePos.x % cellSize;
-        const offsetY = panePos.y % cellSize;
-        const maxZoom = this._map.getMaxZoom();
-        const v = 1 / Math.pow(2, Math.max(0, Math.min(maxZoom - this._map.getZoom(), 12)));
-        let grid: any[] = [];
-        let cell: any;
-        let data: Array<Array<number>> = [];
-
-        this._data.map((coordinate: LatLngTuple) => {
-            const point: Point = this._map.latLngToContainerPoint(coordinate);
-
-            // if (bounds.contains(point)) {
-            if (this._map.getBounds().contains(coordinate)) {
-                const x = Math.floor((point.x - offsetX) / cellSize) + 2;
-                const y = Math.floor((point.y - offsetY) / cellSize) + 2;
-                const k = this._radius * v;
-                grid[y] = grid[y] || [];
-                cell = grid[y][x];
-                if (!cell) {
-                    grid[y][x] = [point.x, point.y, k];
-                } else {
-                    cell[0] = (cell[0] * cell[2] + point.x * k) / (cell[2] + k); // x
-                    cell[1] = (cell[1] * cell[2] + point.y * k) / (cell[2] + k); // y
-                    cell[2] += k; // Accumulated intensity value
-                }
-            }
-
-        })
-
-        for (let i = 0, len = grid.length; i < len; i++) {
-            if (grid[i]) {
-                for (let j = 0, len2 = grid[i].length; j < len2; j++) {
-                    cell = grid[i][j];
-                    if (cell) {
-                        data.push([
-                            Math.round(cell[0]),
-                            Math.round(cell[1]),
-                            Math.min(cell[2], 18)
-                        ]);
-                    }
-                }
-            }
-        }
+        const data  = this._redraw();
 
         this._opacity = typeof options.opacity !== "undefined" ? options.opacity : this._opacity;
         const result = Utils.createCircle(typeof options.radius !== "undefined" ? options.radius : this._radius);
@@ -371,6 +332,78 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
 			this._map.project(latLngBounds.getSouthEast(), zoom).subtract(topLeft),
 			this._map.project(latLngBounds.getNorthEast(), zoom).subtract(topLeft)
 		]);
-	};
+    };
+
+    _reset() {
+        console.log("RESETTTTTTTTTTT");
+
+        const topLeft = this._map.containerPointToLayerPoint([0, 0]);
+        DomUtil.setPosition(this._canvas, topLeft);
+
+        var size = this._map.getSize();
+        console.log('size', size);
+
+        if (this._canvas.width !== size.x) {
+            this._canvas.width = size.x;
+        }
+        if (this._canvas.height !== size.y) {
+            this._canvas.height = size.y;
+        }
+
+        this._redraw();
+
+    }
+
+    _redraw() {
+        // const size: Point = this._map.getSize();
+        // const bounds: Bounds = new Bounds(point([-radius, -radius]), size.add([radius, radius]));
+        const cellSize = this._radius / 2;
+        const panePos = this._map.getPanes().overlayPane.getBoundingClientRect();
+        const offsetX = panePos.x % cellSize;
+        const offsetY = panePos.y % cellSize;
+        const maxZoom = this._map.getMaxZoom();
+        const v = 1 / Math.pow(2, Math.max(0, Math.min(maxZoom - this._map.getZoom(), 12)));
+        let grid: any[] = [];
+        let cell: any;
+        let data: Array<Array<number>> = [];
+
+        this._data.map((coordinate: LatLngTuple) => {
+            const point: Point = this._map.latLngToContainerPoint(coordinate);
+
+            // if (bounds.contains(point)) {
+            if (this._map.getBounds().contains(coordinate)) {
+                const x = Math.floor((point.x - offsetX) / cellSize) + 2;
+                const y = Math.floor((point.y - offsetY) / cellSize) + 2;
+                const k = this._radius * v;
+                grid[y] = grid[y] || [];
+                cell = grid[y][x];
+                if (!cell) {
+                    grid[y][x] = [point.x, point.y, k];
+                } else {
+                    cell[0] = (cell[0] * cell[2] + point.x * k) / (cell[2] + k); // x
+                    cell[1] = (cell[1] * cell[2] + point.y * k) / (cell[2] + k); // y
+                    cell[2] += k; // Accumulated intensity value
+                }
+            }
+
+        })
+
+        for (let i = 0, len = grid.length; i < len; i++) {
+            if (grid[i]) {
+                for (let j = 0, len2 = grid[i].length; j < len2; j++) {
+                    cell = grid[i][j];
+                    if (cell) {
+                        data.push([
+                            Math.round(cell[0]),
+                            Math.round(cell[1]),
+                            Math.min(cell[2], 18)
+                        ]);
+                    }
+                }
+            }
+        }
+
+        return data;
+    }
 
 }
