@@ -64,9 +64,13 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
             this._reset();
         });
 
-        this._map.on('zoomanim', (e: any) => {
-            this._animateZoom(e);
-        });
+        if (this._map.options.zoomAnimation && Browser.any3d) {
+            this._map.on('zoomanim', (e: any) => {
+                this._animateZoom(e);
+            });
+        }
+
+        this._reset();
 
         return this._canvas;
 
@@ -153,7 +157,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         ctx.clearRect(0, 0, this._width, this._height);
 
         // Draw a grayscale heatmap by putting a blurred circle at each data point.
-        data.map((point: HeatmapPoint) => {
+        data.forEach((point: HeatmapPoint) => {
             const thickness = Array.isArray(point) ? point[2] : point.thickness;
             const x = Array.isArray(point) ? point[0] : point.x;
             const y = Array.isArray(point) ? point[1] : point.y;
@@ -231,21 +235,25 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
     /*********/
 
     private _addHeatmapLayer2Map() {
-        // const originProp = DomUtil.testProp(['transformOrigin', 'WebkitTransformOrigin', 'msTransformOrigin']);
-        // canvas.style['transformOrigin'] = '50% 50%';
 
-        const canvas: HTMLCanvasElement = this._canvas = DomUtil.create('canvas', 'leaflet-heatmap-layer leaflet-layer') as HTMLCanvasElement;
+        this._canvas = DomUtil.create('canvas', 'leaflet-heatmap-layer leaflet-layer') as HTMLCanvasElement;
+
+        // const originProp = DomUtil.testProp(['transformOrigin', 'WebkitTransformOrigin', 'msTransformOrigin']);
+        this._canvas.style.transformOrigin = '50% 50%';
+
         const size = this._map.getSize();
         console.log('size', size);
-        canvas.width  = size.x;
-        canvas.height = size.y;
+        this._canvas.width  = size.x;
+        this._canvas.height = size.y;
 
-        const ctx = canvas.getContext("2d");
+        /*
+        const ctx = this._canvas.getContext("2d");
         ctx.fillStyle = "blue";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillRect(0, 0, this._canvas.width, this._canvas.height);
+        */
 
         const animated = this._map.options.zoomAnimation && Browser.any3d;
-        DomUtil.addClass(canvas, 'leaflet-zoom-' + (animated ? 'animated' : 'hide'));
+        DomUtil.addClass(this._canvas, 'leaflet-zoom-' + (animated ? 'animated' : 'hide'));
 
         console.log('panes', this._map.getPanes());
 
@@ -286,10 +294,12 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         // const offset = this._map.latLngToLayerPoint(this._map.getBounds().getNorthWest());
 
         const offset = this._getCenterOffset(e.center).multiplyBy(-zoomScale).subtract(this._getMapPanePos());
+        console.log('offset', offset);
 
         // const offset = this._latLngBoundsToNewLayerBounds(this._map.getBounds(), e.zoom, e.center).min;
 
         if (DomUtil.setTransform) {
+            console.log('DomUtil.setTransform', DomUtil.setTransform);
             DomUtil.setTransform(this._canvas, offset, zoomScale);
         } else {
         }
@@ -341,7 +351,9 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         DomUtil.setPosition(this._canvas, topLeft);
 
         var size = this._map.getSize();
-        console.log('size', size);
+        console.log('map size', size);
+
+        console.log('canvas size', this._canvas.width, this._canvas.height);
 
         if (this._canvas.width !== size.x) {
             this._canvas.width = size.x;
@@ -355,19 +367,21 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
     }
 
     _redraw() {
+
+        let data: Array<Array<number>> = [];
         // const size: Point = this._map.getSize();
-        // const bounds: Bounds = new Bounds(point([-radius, -radius]), size.add([radius, radius]));
-        const cellSize = this._radius / 2;
-        const panePos = this._map.getPanes().overlayPane.getBoundingClientRect();
+        // const bounds: Bounds = new Bounds(point([-this._r, -this._r]), size.add([this._r, this._r]));
+        const max = this._max === undefined ? 1 : this._max;
+        const cellSize = this._r / 2;
+        const panePos = this._getMapPanePos(); // this._map.getPanes().overlayPane.getBoundingClientRect();
         const offsetX = panePos.x % cellSize;
         const offsetY = panePos.y % cellSize;
         const maxZoom = this._map.getMaxZoom();
         const v = 1 / Math.pow(2, Math.max(0, Math.min(maxZoom - this._map.getZoom(), 12)));
         let grid: any[] = [];
         let cell: any;
-        let data: Array<Array<number>> = [];
 
-        this._data.map((coordinate: LatLngTuple) => {
+        this._data.forEach((coordinate: LatLngTuple) => {
             const point: Point = this._map.latLngToContainerPoint(coordinate);
 
             // if (bounds.contains(point)) {
@@ -396,7 +410,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
                         data.push([
                             Math.round(cell[0]),
                             Math.round(cell[1]),
-                            Math.min(cell[2], 18)
+                            Math.min(cell[2], max)
                         ]);
                     }
                 }
