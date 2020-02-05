@@ -3,7 +3,7 @@ import { Log } from "../log";
 import { GMHeatmapGradient, ILMHeatmapOptions, LMHeatmapData, HeatmapPoint,
          HeatmapGradient, LMHeatmapPoint, LMHeatmapCoordinate} from '../models/models';
 
-import { Map, DomUtil, Browser, LatLngTuple, Point, bounds } from 'leaflet';
+import { Map, DomUtil, Browser, LatLngTuple, Point } from 'leaflet';
 
 import { Utils }  from "../utils/utils";
 
@@ -144,7 +144,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
 
         this._data = typeof options.data !== 'undefined' ? options.data : this._data;
 
-        const data  = this._redraw();
+        const data  = this._processData();
 
         this._opacity = typeof options.opacity !== "undefined" ? options.opacity : this._opacity;
         const result = Utils.createCircle(typeof options.radius !== "undefined" ? options.radius : this._radius);
@@ -272,41 +272,20 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
     }
 
     private _animateZoom(e: any) {
+        console.log(e);
 
+        /*
         const newZoom = e.zoom;
-
         const currentZoom = this._map.getZoom();
-
         const zoomScale = this._map.getZoomScale(newZoom, currentZoom);
-
-        // const offset = this._map.latLngToLayerPoint(this._map.getCenter()).multiplyBy(-zoomScale);
-        // .subtract(this._map.getPane().);
-
-        // const topLeft = this._map.getPixelOrigin();
-        // const offset = this._map.project(this._map.getCenter(), this._map.getZoom()).subtract(topLeft);
-
-        // const offset = this._map.latLngToLayerPoint(this._map.getBounds().getNorthWest());
-
         const offset = this._getCenterOffset(e.center).multiplyBy(-zoomScale).subtract(this._getMapPanePos());
-
-        // const offset = this._latLngBoundsToNewLayerBounds(this._map.getBounds(), e.zoom, e.center).min;
 
         if (DomUtil.setTransform) {
             DomUtil.setTransform(this._canvas, offset, zoomScale);
         } else {
-        }
-
-        /*
-        var scale = this._map.getZoomScale(e.zoom),
-            offset = this._map._getCenterOffset(e.center)._multiplyBy(-scale).subtract(this._map._getMapPanePos());
-
-        if (DomUtil.setTransform) {
-            DomUtil.setTransform(this._canvas, offset, scale);
-        } else {
             this._canvas.style[DomUtil.TRANSFORM] = DomUtil.getTranslateString(offset) + ' scale(' + scale + ')';
         }
         */
-
     }
 
     _getCenterOffset(latlng: any) {
@@ -319,21 +298,6 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
 
     _getMapPanePos() {
 		return DomUtil.getPosition(this._map.getPanes().overlayPane) || new Point(0, 0);
-    };
-
-    _getNewPixelOrigin(center: any, zoom: any) {
-		var viewHalf = this._map.getSize().divideBy(2);
-		return this._map.project(center, zoom).subtract(viewHalf).add(this._getMapPanePos()).round();
-	};
-
-    _latLngBoundsToNewLayerBounds(latLngBounds: any, zoom: any, center: any) {
-		const topLeft = this._getNewPixelOrigin(center, zoom);
-		return bounds([
-			this._map.project(latLngBounds.getSouthWest(), zoom).subtract(topLeft),
-			this._map.project(latLngBounds.getNorthWest(), zoom).subtract(topLeft),
-			this._map.project(latLngBounds.getSouthEast(), zoom).subtract(topLeft),
-			this._map.project(latLngBounds.getNorthEast(), zoom).subtract(topLeft)
-		]);
     };
 
     _reset() {
@@ -357,7 +321,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
 
     }
 
-    _redraw() {
+    _processData() {
 
         let data: Array<Array<number>> = [];
         // const size: Point = this._map.getSize();
@@ -387,7 +351,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
                 } else {
                     cell[0] = (cell[0] * cell[2] + point.x * k) / (cell[2] + k); // x
                     cell[1] = (cell[1] * cell[2] + point.y * k) / (cell[2] + k); // y
-                    cell[2] += k; // Accumulated intensity value
+                    cell[2] += k; // Accumulated intensity value.
                 }
             }
 

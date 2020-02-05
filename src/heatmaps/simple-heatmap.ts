@@ -93,7 +93,7 @@ export class SimpleHeatmap extends BaseHeatmap {
         this._heatmapLogger.log("__SimpleHeatmap__ getValueAt", position);
         const xSearched = Array.isArray(position) ? position[0] : position.x;
         const ySearched = Array.isArray(position) ? position[1] : position.y;
-        this._data.map((point: HeatmapPoint) => {
+        this._data.forEach((point: HeatmapPoint) => {
             const x = Array.isArray(point) ? point[0] : point.x;
             const y = Array.isArray(point) ? point[1] : point.y;
             const thickness = Array.isArray(point) ? point[2] : point.thickness;
@@ -148,13 +148,13 @@ export class SimpleHeatmap extends BaseHeatmap {
         ctx.clearRect(0, 0, this._width, this._height);
 
         // Draw a grayscale heatmap by putting a blurred circle at each data point.
-        this._data.map((point: HeatmapPoint) => {
-        // this._heatmapLogger.log("data", {point: point});
-        const thickness = Array.isArray(point) ? point[2] : point.thickness;
-        const x = Array.isArray(point) ? point[0] : point.x;
-        const y = Array.isArray(point) ? point[1] : point.y;
-        ctx.globalAlpha = Math.min(Math.max(thickness / this._max, this._opacity), 1);
-        ctx.drawImage(this._circle, x - this._r, y - this._r);
+        this._data.forEach((point: HeatmapPoint) => {
+            // this._heatmapLogger.log("data", {point: point});
+            const thickness = Array.isArray(point) ? point[2] : point.thickness;
+            const x = Array.isArray(point) ? point[0] : point.x;
+            const y = Array.isArray(point) ? point[1] : point.y;
+            ctx.globalAlpha = Math.min(Math.max(thickness / this._max, this._opacity), 1);
+            ctx.drawImage(this._circle, x - this._r, y - this._r);
         });
 
         // Colorize the heatmap, using opacity value of each pixel to get the right color from our gradient.
