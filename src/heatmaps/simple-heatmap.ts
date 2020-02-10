@@ -43,7 +43,7 @@ export class SimpleHeatmap extends BaseHeatmap {
         this._width = this._canvas.width;
         this._height = this._canvas.height;
         this._max = 1;
-        this._data = typeof options.data !== 'undefined' ? options.data : [];
+        this._data = typeof options.data !== 'undefined' ? options.data :
         (
             this._heatmapLogger.warn("__SimpleHeatmap__ Data is undefined or empty. Passes heatmap data into draw function or set heatmap data with setData function."),
             []

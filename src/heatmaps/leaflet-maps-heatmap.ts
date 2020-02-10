@@ -40,13 +40,15 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         this._map = options.map;
         console.log('map', this._map);
 
-        this._data = typeof options.data !== 'undefined' ? options.data : [];
+        this._data = typeof options.data !== 'undefined' ? options.data :
         (
             this._heatmapLogger.warn("__LeafletMapsHeatmap__ Data is undefined or empty. Passes heatmap data into draw function or set heatmap data with setData function."),
             []
         );
 
-        this._addHeatmapLayer2Map();
+        if (!this._canvas) {
+            this._addHeatmapLayer2Map();
+        }
 
         this._ctx = this._canvas.getContext('2d');
         this._width = this._canvas.width;
@@ -110,6 +112,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
 
     getValueAt(coordinate: LMHeatmapCoordinate): void {
         this._heatmapLogger.log("__LeafletMapsHeatmap__ getValueAt", coordinate);
+        // TODO
     }
 
     clearData(): LMHeatmapData {
@@ -225,9 +228,9 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
     /*********/
     // Method to obtain the image of the canvas.
     /*********/
-    getDataURL(type: string, imageQuality: number): void {
+    getDataURL(type: string, imageQuality: number): string {
         this._heatmapLogger.log("__LeafletMapsHeatmap__ getDataURL", type, imageQuality);
-        // TODO
+        return this._canvas.toDataURL(type, imageQuality);
     }
 
     /*********/
@@ -238,18 +241,13 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
 
         this._canvas = DomUtil.create('canvas', 'leaflet-heatmap-layer leaflet-layer') as HTMLCanvasElement;
 
-        // const originProp = DomUtil.testProp(['transformOrigin', 'WebkitTransformOrigin', 'msTransformOrigin']);
-        this._canvas.style.transformOrigin = '50% 50%';
+        const originProp = DomUtil.testProp(['transformOrigin', 'WebkitTransformOrigin', 'msTransformOrigin']);
+        this._canvas.setAttribute("style", `${originProp}:red`);
+
 
         const size = this._map.getSize();
         this._canvas.width  = size.x;
         this._canvas.height = size.y;
-
-        /*
-        const ctx = this._canvas.getContext("2d");
-        ctx.fillStyle = "blue";
-        ctx.fillRect(0, 0, this._canvas.width, this._canvas.height);
-        */
 
         const animated = this._map.options.zoomAnimation && Browser.any3d;
         DomUtil.addClass(this._canvas, 'leaflet-zoom-' + (animated ? 'animated' : 'hide'));
@@ -260,11 +258,6 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         this._map.getPanes().overlayPane.appendChild(this._canvas);
         // map.getPane('labels').style.pointerEvents = 'none';
 
-        /*
-        this._map.eachLayer((layer: Layer) => {
-            console.log('layerrrrrr', layer);
-        });
-        */
     }
 
     private _clearCanvas() {
@@ -338,8 +331,6 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
 
         this._data.forEach((coordinate: LatLngTuple) => {
             const point: Point = this._map.latLngToContainerPoint(coordinate);
-
-            // if (bounds.contains(point)) {
             if (this._map.getBounds().contains(coordinate)) {
                 const x = Math.floor((point.x - offsetX) / cellSize) + 2;
                 const y = Math.floor((point.y - offsetY) / cellSize) + 2;
