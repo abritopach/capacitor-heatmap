@@ -30,10 +30,10 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
         this._heatmapLogger = new Log(options.debug);
         this._heatmapLogger.log("__GoogleMapsHeatmap__ initialize");
 
-        this._data = typeof options.data !== 'undefined' ? options.data :
+        this._data = typeof options.data !== 'undefined' ? options.data : this._data;
         (
-            this._data,
-            this._heatmapLogger.warn("__GoogleMapsHeatmap__ Data is undefined or empty. Passes heatmap data into draw function or set heatmap data with setData function.")
+            this._heatmapLogger.warn("__GoogleMapsHeatmap__ Data is undefined or empty. Passes heatmap data into draw function or set heatmap data with setData function."),
+            []
         );
         this._map = options.map;
         this._heatmap = new google.maps.visualization.HeatmapLayer({
