@@ -1,5 +1,5 @@
 import { HeatmapData, IHeatmapOptions, HeatmapGradient, IGMHeatmapOptions, GMHeatmapData, HeatmapPoint,
-GMHeatmapPoint, IHeatmapDrawOptions, GMHeatmapGradient, HeatmapPosition, GMHeatmapCoordinate, ILMHeatmapOptions, LMHeatmapData, LMHeatmapPoint } from "./models/models";
+GMHeatmapPoint, IHeatmapDrawOptions, GMHeatmapGradient, HeatmapPosition, GMHeatmapCoordinate, ILMHeatmapOptions, LMHeatmapData, LMHeatmapPoint, LMHeatmapCoordinate } from "./models/models";
 
 declare module "@capacitor/core" {
   interface PluginRegistry {
@@ -64,7 +64,7 @@ export interface HeatmapPlugin {
    * @returns {Promise<{value: HeatmapData | GMHeatmapData}>} Heatmap data.
   */
   getData(): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData}>;
-  getValueAt(position: HeatmapPosition | GMHeatmapCoordinate): Promise<{value: number}>;
+  getValueAt(position: HeatmapPosition | GMHeatmapCoordinate | LMHeatmapCoordinate): Promise<{value: number}>;
 
   /**
    * Description [This method clear heatmap data.]

@@ -2,7 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 
 import { Map, tileLayer } from 'leaflet';
 import { Heatmap } from 'capacitor-heatmap';
-import { ILMHeatmapOptions, IHeatmapType, IHeatmapDrawOptions, HeatmapGradient, HeatmapPosition } from 'capacitor-heatmap/dist/esm/models/models';
+import { ILMHeatmapOptions, IHeatmapType, IHeatmapDrawOptions, HeatmapGradient, HeatmapPosition, LMHeatmapCoordinate } from 'capacitor-heatmap/dist/esm/models/models';
 
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
 
@@ -149,8 +149,8 @@ export class LeafletMapsHeatmapPage implements OnInit {
   }
 
   async getValueAt() {
-    const position: HeatmapPosition = {x: 949, y: 120};
-    const resultValueAt = await Heatmap.getValueAt(position);
+    const coordinate : LMHeatmapCoordinate = [-37.8869090667, 175.3657417333];
+    const resultValueAt = await Heatmap.getValueAt(coordinate);
     console.log('resultValueAt', resultValueAt);
   }
 

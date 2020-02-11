@@ -3,7 +3,7 @@ import { Log } from "../log";
 import { GMHeatmapGradient, ILMHeatmapOptions, LMHeatmapData, HeatmapPoint,
          HeatmapGradient, LMHeatmapPoint, LMHeatmapCoordinate} from '../models/models';
 
-import { Map, DomUtil, Browser, LatLngTuple, Point } from 'leaflet';
+import { Map, DomUtil, Browser, Point } from 'leaflet';
 
 import { Utils }  from "../utils/utils";
 
@@ -110,9 +110,43 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         return this._data;
     }
 
-    getValueAt(coordinate: LMHeatmapCoordinate): void {
+    getValueAt(coordinate: LMHeatmapCoordinate): number {
         this._heatmapLogger.log("__LeafletMapsHeatmap__ getValueAt", coordinate);
-        // TODO
+        let value = null;
+
+        const max = this._max === undefined ? 1 : this._max;
+        const point: Point = this._map.latLngToContainerPoint(coordinate);
+        const cellSize = this._r / 2;
+        const panePos = this._getMapPanePos();
+        const offsetX = panePos.x % cellSize;
+        const offsetY = panePos.y % cellSize;
+        const maxZoom = this._map.getMaxZoom();
+        const v = 1 / Math.pow(2, Math.max(0, Math.min(maxZoom - this._map.getZoom(), 12)));
+        let grid: any[] = [];
+        let cell: any;
+        if (this._map.getBounds().contains(coordinate)) {
+            const x = Math.floor((point.x - offsetX) / cellSize) + 2;
+            const y = Math.floor((point.y - offsetY) / cellSize) + 2;
+            const k = this._radius * v;
+            grid[y] = grid[y] || [];
+            cell = grid[y][x];
+            if (!cell) {
+                grid[y][x] = [point.x, point.y, k];
+            }
+        }
+
+        for (let i = 0, len = grid.length; i < len; i++) {
+            if (grid[i]) {
+                for (let j = 0, len2 = grid[i].length; j < len2; j++) {
+                    cell = grid[i][j];
+                    if (cell) {
+                        return Math.min(cell[2], max);
+                    }
+                }
+            }
+        }
+
+        return value;
     }
 
     clearData(): LMHeatmapData {
@@ -329,7 +363,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         let grid: any[] = [];
         let cell: any;
 
-        this._data.forEach((coordinate: LatLngTuple) => {
+        this._data.forEach((coordinate: LMHeatmapCoordinate) => {
             const point: Point = this._map.latLngToContainerPoint(coordinate);
             if (this._map.getBounds().contains(coordinate)) {
                 const x = Math.floor((point.x - offsetX) / cellSize) + 2;
