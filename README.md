@@ -8,6 +8,24 @@
 
 Capacitor Heatmap is a custom Native Capacitor plugin to show Heatmap on Web, IOS and  Android platforms.
 
+Currently you can choose from three types of heatmaps with only one plugin :) (only WEB at this moment):
+
+    * Simple Heatmap.
+    * Google Maps Heatmap.
+    * Leaflet Maps Heatmap.
+
+## Simple Heatmap
+
+![SimpleHeatmap](readme_resources/simple_heatmap.gif "SimpleHeatmap")
+
+## Google Maps Heatmap
+
+![GoogleMapsHeatmap](readme_resources/google_maps_heatmap.gif "GoogleMapsHeatmap")
+
+## Leaflet Maps Heatmap
+
+![LeafletMapsHeatmap](readme_resources/leaflet_maps_heatmap.gif "LeafletMapsHeatmap")
+
 <a href="https://www.buymeacoffee.com/h6WVj4HcD" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" alt="Buy Me A Coffee"></a>
 
 # Capacitor
@@ -24,6 +42,14 @@ Capacitor also comes with a Plugin API for building native plugins. On iOS, firs
 
 INTERFACES & TYPES
 
+/**
+ * Description [Interface to define heatmap logs.]
+ *
+ * @author abrito
+ * @version 0.0.1
+ *
+ * @interface
+*/
 export interface IHeatmapLog {
     log(primaryMessage: string, ...supportingData: any[]): void;
     debug(primaryMessage: string, ...supportingData: any[]): void;
@@ -32,14 +58,43 @@ export interface IHeatmapLog {
     info(primaryMessage: string, ...supportingData: any[]): void;
 }
 
+/**
+ * Description [Interface to define simple heatmap initialize options.]
+ *
+ * @author abrito
+ * @version 0.0.1
+ *
+ * @interface
+*/
 export interface IHeatmapOptions {
-    canvas: string | HTMLCanvasElement;
+    element: string;
     type: IHeatmapType;
     data?: HeatmapData;
-    overlap?: {parent: string};
     debug?: boolean;
+    showColorScale?: boolean;
 }
 
+/**
+ * Description [Interface to define simple heatmap point.]
+ *
+ * @author abrito
+ * @version 0.0.1
+ *
+ * @interface
+*/
+export interface IHeatmapPosition {
+    x: number;
+    y: number;
+}
+
+/**
+ * Description [Interface to define simple heatmap point.]
+ *
+ * @author abrito
+ * @version 0.0.1
+ *
+ * @interface
+*/
 export interface IHeatmapPoint {
     x: number;
     y: number;
@@ -52,10 +107,34 @@ export enum IHeatmapType {
     LeafletMaps = 'leafletmaps'
 }
 
+/**
+ * Description [Interface to define heatmap draw options.]
+ *
+ * @author abrito
+ * @version 0.0.1
+ *
+ * @interface
+*/
+export interface IHeatmapDrawOptions {
+    opacity?: number,
+    radius?: number,
+    gradient?: HeatmapGradient | GMHeatmapGradient
+    data?:  HeatmapData | GMHeatmapData | LMHeatmapData
+}
+
 export type HeatmapGradient = Record<number, string>;
 export type HeatmapPoint = Array<number> | IHeatmapPoint;
+export type HeatmapPosition = Array<number> | IHeatmapPosition;
 export type HeatmapData = Array<Array<number> | IHeatmapPoint>;
 
+/**
+ * Description [Interface to define google maps heatmap initialize options.]
+ *
+ * @author abrito
+ * @version 0.0.1
+ *
+ * @interface
+*/
 export interface IGMHeatmapOptions {
     map: google.maps.Map;
     type: IHeatmapType;
@@ -63,14 +142,36 @@ export interface IGMHeatmapOptions {
     debug?: boolean;
 }
 
+export type GMHeatmapGradient = string[];
 export type GMHeatmapPoint = google.maps.LatLng | google.maps.visualization.WeightedLocation;
+export type GMHeatmapCoordinate = google.maps.LatLng;
 export type GMHeatmapData = google.maps.MVCArray<google.maps.LatLng | google.maps.visualization.WeightedLocation>;
+
+
+/**
+ * Description [Interface to define leaflet maps heatmap initialize options.]
+ *
+ * @author abrito
+ * @version 0.0.1
+ *
+ * @interface
+*/
+export interface ILMHeatmapOptions {
+    map: Map;
+    type: IHeatmapType;
+    data?: LMHeatmapData;
+    debug?: boolean;
+}
+
+export type LMHeatmapData = Array<LatLngExpression>;
+export type LMHeatmapPoint = LatLngExpression;
+export type LMHeatmapCoordinate = LatLngTuple;
 
 ```
 
 ## Capacitor Heatmap WEB public API methods.
 
-### `initialize(options: IHeatmapOptions | IGMHeatmapOptions): Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer}>`
+### `initialize(options: IHeatmapOptions | IGMHeatmapOptions | ILMHeatmapOptions): Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer}>`
 
 ```bash
 Initialize heatmap.
@@ -89,9 +190,22 @@ Type: `Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLaye
 
 
 
+### `destroy(): Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer}>`
+
+```bash
+Destroy heatmap.
+
+async destroyHeatmap() {
+    const result = await Heatmap.destroy();
+    console.log('result', result);
+}
+
+```
+
+
 ### Methods for handling heatmap data.
 
-### `setData(data: HeatmapData | GMHeatmapData): Promise<{value: HeatmapDat | GMHeatmapDataa}>`
+### `setData(data: HeatmapData | GMHeatmapData | LMHeatmapData): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData}>`
 
 ```bash
 Set heatmap data of [[x, y, thickness], ...] or [{x: value, y: value, thickness: value},...] format.
@@ -106,7 +220,7 @@ Type: `Promise<{value: HeatmapData | GMHeatmapData}>`
 
 
 
-### `getData(): Promise<{value: HeatmapData | GMHeatmapData}>`
+### `getData(): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData}>`
 
 ```bash
 Get heatmap data of [[x, y, thickness], ...] format.
@@ -121,7 +235,7 @@ Type: `Promise<{value: HeatmapData | GMHeatmapData}>`
 
 
 
-### `getValueAt(position: HeatmapPosition | GMHeatmapCoordinate): Promise<{value: number}>`
+### ` getValueAt(position: HeatmapPosition | GMHeatmapCoordinate | LMHeatmapCoordinate): Promise<{value: number}>`
 
 ```bash
 Returns value at datapoint position.
@@ -136,7 +250,7 @@ Type: `Promise<{value: number}>`
 
 
 
-### `clearData(): Promise<{value: HeatmapData | GMHeatmapData}>`
+### `clearData(): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData}>`
 
 ```bash
 Clear heatmap data.
@@ -151,7 +265,7 @@ Type: `Promise<{value: HeatmapData | GMHeatmapData}>`
 
 
 
-### `addPoint(point: HeatmapPoint): Promise<{value: HeatmapData | GMHeatmapData}>`
+### `addPoint(point: HeatmapPoint | GMHeatmapPoint | LMHeatmapPoint): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData}>`
 
 ```bash
 Add new point to heatmap data.
@@ -183,7 +297,7 @@ const newMax = Heatmap.setMax(18);
 
 ### Methods for rendering heatmap.
 
-### `draw(options: {minOpacity?: number, data?: HeatmapData | GMHeatmapData}): Promise<{value: boolean}>`
+### `draw(options: IHeatmapDrawOptions): Promise<{value: boolean}>`
 
 ```bash
 Draw heatmap.
@@ -283,8 +397,6 @@ Type: `Promise<{value: string}>`
 
 # TODO
 
-* Google Maps Heatmap -> under development.
-* Leaflet Maps Heaptmap
 * Simple Heatmap, Google Maps Heatmap & Leaflet Maps Heaptmap for ANDROID.
 * Simple Heatmap, Google Maps Heatmap & Leaflet Maps Heaptmap for IOS.
 
