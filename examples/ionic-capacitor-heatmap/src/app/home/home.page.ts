@@ -97,40 +97,11 @@ export class HomePage implements OnInit {
 
   async drawHeatmap() {
     const options: IHeatmapDrawOptions = {opacity: this.opacity, radius: this.radius, gradient: this.gradient};
-    const result = await Heatmap.draw(options);
+    const resultDraw = await Heatmap.draw(options);
+    console.log('result draw', resultDraw);
     // this.frame = null;
     // const resultDataURL = await Heatmap.getDataURL('png', 95);
     // console.log('resultDataURL', resultDataURL.value);
-  }
-
-  onClickResize() {
-    console.log('HomePage::onClickResize() | method called');
-    this.resizeHeatmap(500, 300);
-  }
-
-  async resizeHeatmap(width: number, height: number) {
-    const options = {width, height};
-    const resultResize = await Heatmap.resize(options);
-    console.log('result resize', resultResize);
-  }
-
-  onClickDestroy() {
-    console.log('HomePage::onClickDestroy() | method called');
-    this.destroy = !this.destroy;
-    this.heatmapCanvas.onmousemove = null;
-    Heatmap.destroy();
-  }
-
-  onClickChangeOpacity() {
-    console.log('onClickChangeOpacity');
-    this.changeOpacity();
-  }
-
-  async changeOpacity() {
-    this.changedOpacity = !this.changedOpacity;
-    console.log('this.changedOpacity', this.changedOpacity);
-    this.opacity = this.changedOpacity ? 0.1 : 0.05;
-    await Heatmap.opacity(this.opacity);
   }
 
   onClickClearData() {
@@ -138,7 +109,8 @@ export class HomePage implements OnInit {
   }
 
   async clearData() {
-    await Heatmap.clearData();
+    const resultClearData = await Heatmap.clearData();
+    console.log('result clear data', resultClearData);
   }
 
   onClickAddData() {
@@ -146,7 +118,8 @@ export class HomePage implements OnInit {
   }
 
   async addData() {
-    await Heatmap.setData(this.fakeHeatmapDataService.getData1());
+    const resultAddData = await Heatmap.setData(this.fakeHeatmapDataService.getData1());
+    console.log('result add data', resultAddData);
   }
 
   onClickAddPoint() {
@@ -154,7 +127,8 @@ export class HomePage implements OnInit {
   }
 
   async addPoint() {
-    await Heatmap.addPoint([38, 20, 20]);
+    const resultAddPoint = await Heatmap.addPoint([38, 20, 20]);
+    console.log('result add point', resultAddPoint);
   }
 
   onClickChangeGradient() {
@@ -171,7 +145,19 @@ export class HomePage implements OnInit {
     };
     this.changedGradient = !this.changedGradient;
     this.gradient = this.changedGradient ? gradient : this.DEFAULT_GRADIENT;
-    await Heatmap.gradient(this.gradient);
+    const resultGradient = await Heatmap.gradient(this.gradient);
+    console.log('resultGradient', resultGradient);
+  }
+
+  onClickChangeOpacity() {
+    this.changeOpacity();
+  }
+
+  async changeOpacity() {
+    this.changedOpacity = !this.changedOpacity;
+    this.opacity = this.changedOpacity ? 0.1 : 0.05;
+    const resultChangeOpacity = await Heatmap.opacity(this.opacity);
+    console.log('resultChangeOpacity', resultChangeOpacity);
   }
 
   onClickChangeRadius() {
@@ -192,8 +178,29 @@ export class HomePage implements OnInit {
   async getValueAt() {
     // const position: HeatmapPosition = [460, 340];
     const position: HeatmapPosition = {x: 949, y: 120};
-    const result = await Heatmap.getValueAt(position);
-    console.log('result', result);
+    const resultValueAt = await Heatmap.getValueAt(position);
+    console.log('resultValueAt', resultValueAt);
+  }
+
+  onClickResize() {
+    this.resizeHeatmap(500, 300);
+  }
+
+  async resizeHeatmap(width: number, height: number) {
+    const options = {width, height};
+    const resultResize = await Heatmap.resize(options);
+    console.log('result resize', resultResize);
+  }
+
+  onClickDestroy() {
+    this.destroy = !this.destroy;
+    this.heatmapCanvas.onmousemove = null;
+    this.destroyHeatmap();
+  }
+
+  async destroyHeatmap() {
+    const resultDestroy = await Heatmap.destroy();
+    console.log('resultDestroy', resultDestroy);
   }
 
 }

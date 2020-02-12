@@ -10,7 +10,7 @@ import { IHeatmapOptions, IHeatmapType } from 'capacitor-heatmap/dist/esm/models
 })
 export class HeatmapOverIframePage implements OnInit {
 
-  urlIframe: string = 'https://www.marca.com';
+  urlIframe = 'https://www.marca.com';
 
   constructor(public fakeHeatmapDataService: FakeHeatmapDataService) { }
 

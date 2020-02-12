@@ -17,17 +17,17 @@ export class GoogleMapsHeatmapPage implements OnInit {
   destroy = false;
 
   DEFAULT_GRADIENT = [
-    "rgba(102, 255, 0, 0)",
-    "rgba(102, 255, 0, 1)",
-    "rgba(147, 255, 0, 1)",
-    "rgba(193, 255, 0, 1)",
-    "rgba(238, 255, 0, 1)",
-    "rgba(244, 227, 0, 1)",
-    "rgba(249, 198, 0, 1)",
-    "rgba(255, 170, 0, 1)",
-    "rgba(255, 113, 0, 1)",
-    "rgba(255, 57, 0, 1)",
-    "rgba(255, 0, 0, 1)"
+    'rgba(102, 255, 0, 0)',
+    'rgba(102, 255, 0, 1)',
+    'rgba(147, 255, 0, 1)',
+    'rgba(193, 255, 0, 1)',
+    'rgba(238, 255, 0, 1)',
+    'rgba(244, 227, 0, 1)',
+    'rgba(249, 198, 0, 1)',
+    'rgba(255, 170, 0, 1)',
+    'rgba(255, 113, 0, 1)',
+    'rgba(255, 57, 0, 1)',
+    'rgba(255, 0, 0, 1)'
   ];
 
   @HostListener('window:resize', ['$event']) async onResize(event) {
@@ -76,23 +76,40 @@ export class GoogleMapsHeatmapPage implements OnInit {
     // console.log('resultDataURL', resultDataURL.value);
   }
 
-  async onClickClearData() {
+  onClickClearData() {
+    this.clearData();
+  }
+
+  async clearData() {
     const resultClearData = await Heatmap.clearData();
     console.log('result clear data', resultClearData);
   }
 
-  async onClickAddData() {
+  onClickAddData() {
+    this.addData();
+  }
+
+  async addData() {
     // Heatmap.setData(this.fakeHeatmapDataService.getGoogleMapsData2());
-    const resultSetData = await Heatmap.setData(this.fakeHeatmapDataService.getGoogleMapsData3());
-    console.log('result set data', resultSetData);
+    const resultAddData = await Heatmap.setData(this.fakeHeatmapDataService.getGoogleMapsData3());
+    console.log('result add data', resultAddData);
   }
 
   onClickAddPoint() {
+    this.addPoint();
+  }
+
+  async addPoint() {
     const point: google.maps.LatLng = new google.maps.LatLng(37.782551, -122.445368);
-    Heatmap.addPoint(point);
+    const resultAddPoint = Heatmap.addPoint(point);
+    console.log('result add point', resultAddPoint);
   }
 
   onClickChangeGradient() {
+    this.changeGradient();
+  }
+
+  async changeGradient() {
     const gradient = [
       'rgba(0, 255, 255, 0)',
       'rgba(0, 255, 255, 1)',
@@ -110,17 +127,28 @@ export class GoogleMapsHeatmapPage implements OnInit {
       'rgba(255, 0, 0, 1)'
     ];
     this.changedGradient = !this.changedGradient;
-    Heatmap.gradient(this.changedGradient ? gradient : this.DEFAULT_GRADIENT);
+    const resultChangeGradient = await Heatmap.gradient(this.changedGradient ? gradient : this.DEFAULT_GRADIENT);
+    console.log('resultChangeGradient', resultChangeGradient);
   }
 
   onClickChangeOpacity() {
+    this.changeOpacity();
+  }
+
+  async changeOpacity() {
     this.changedOpacity = !this.changedOpacity;
-    Heatmap.opacity(this.changedOpacity ? 1 : 0.5);
+    const resultChangeOpacity = await Heatmap.opacity(this.changedOpacity ? 1 : 0.5);
+    console.log('resultChangeOpacity', resultChangeOpacity);
   }
 
   onClickChangeRadius() {
+    this.changeRadius();
+  }
+
+  async changeRadius() {
     this.changedRadius = !this.changedRadius;
-    Heatmap.radius(this.changedRadius ? 30 : 10);
+    const resultChangeRadius = await Heatmap.radius(this.changedRadius ? 30 : 10);
+    console.log('resultChangeRadius', resultChangeRadius);
   }
 
   onClickGetValueAt() {
@@ -130,13 +158,8 @@ export class GoogleMapsHeatmapPage implements OnInit {
   async getValueAt() {
     const coordinate: GMHeatmapCoordinate = new google.maps.LatLng(37.782551, -122.445368);
     // const coordinate: GMHeatmapCoordinate = new google.maps.LatLng(37.782, -122.443);
-    const result = await Heatmap.getValueAt(coordinate);
-    console.log('result', result);
-  }
-
-  onClickDestroy() {
-    this.destroy = !this.destroy;
-    Heatmap.destroy();
+    const resultValueAt = await Heatmap.getValueAt(coordinate);
+    console.log('resultValueAt ', resultValueAt);
   }
 
   onClickResize() {
@@ -147,6 +170,16 @@ export class GoogleMapsHeatmapPage implements OnInit {
     const options = {width, height};
     const resultResize = await Heatmap.resize(options);
     console.log('result resize', resultResize);
+  }
+
+  onClickDestroy() {
+    this.destroy = !this.destroy;
+    this.destroyHeatmap();
+  }
+
+  async destroyHeatmap() {
+    const resultDestroy = await Heatmap.destroy();
+    console.log('resultDestroy', resultDestroy);
   }
 
 }

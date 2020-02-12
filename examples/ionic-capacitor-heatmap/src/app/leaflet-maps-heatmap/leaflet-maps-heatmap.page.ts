@@ -155,7 +155,6 @@ export class LeafletMapsHeatmapPage implements OnInit {
   }
 
   onClickResize() {
-    console.log('HomePage::onClickResize() | method called');
     this.resizeHeatmap(500, 300);
   }
 
@@ -167,7 +166,12 @@ export class LeafletMapsHeatmapPage implements OnInit {
 
   onClickDestroy() {
     this.destroy = !this.destroy;
-    Heatmap.destroy();
+    this.destroyHeatmap();
+  }
+
+  async destroyHeatmap() {
+    const resultDestroy = await Heatmap.destroy();
+    console.log('resultDestroy', resultDestroy);
   }
 
 }
