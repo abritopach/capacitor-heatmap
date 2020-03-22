@@ -13,17 +13,17 @@
   "author": "Adrián Brito Pacheco",
   "license": "MIT",
   "dependencies": {
-    "@capacitor/core": "latest",
-    "@types/googlemaps": "^3.38.1",
+    "@capacitor/core": "next",
+    "@types/googlemaps": "^3.39.3",
     "@types/html2canvas": "0.0.35",
-    "@types/leaflet": "^1.5.7",
+    "@types/leaflet": "^1.5.12",
     "html2canvas": "^1.0.0-rc.5",
     "leaflet": "^1.6.0"
   },
   "devDependencies": {
     "typescript": "^3.2.4",
-    "@capacitor/ios": "latest",
-    "@capacitor/android": "latest"
+    "@capacitor/ios": "next",
+    "@capacitor/android": "next"
   },
   "files": [
     "dist/",
