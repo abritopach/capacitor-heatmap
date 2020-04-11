@@ -30,8 +30,6 @@ Currently you can choose from three types of heatmaps with only one plugin :) (o
 
 ![LeafletMapsHeatmap](readme_resources/leaflet_maps_heatmap.gif "LeafletMapsHeatmap")
 
-<a href="https://www.buymeacoffee.com/h6WVj4HcD" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" alt="Buy Me A Coffee"></a>
-
 # Capacitor
 
 Capacitor is a cross-platform API and code execution layer that makes it easy to call Native SDKs from web code and to write custom Native plugins that your app might need. Additionally, Capacitor provides first-class Progressive Web App support so you can write one app and deploy it to the app stores, and the mobile web.
