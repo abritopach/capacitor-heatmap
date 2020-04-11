@@ -6,6 +6,10 @@
 [![Ask me anything](https://img.shields.io/badge/ask%20me-anything-1abc9c.svg)](https://github.com/abritopach) [![Version](https://img.shields.io/npm/v/capacitor-heatmap.svg)](https://www.npmjs.com/package/capacitor-heatmap)
 [![Downloads](https://img.shields.io/npm/dt/capacitor-heatmap.svg)](https://www.npmjs.com/package/capacitor-heatmap) [![License](https://img.shields.io/github/license/abritopach/capacitor-heatmap.svg)](https://github.com/abritopach/capacitor-heatmap/blob/master/LICENSE)
 
+**If this project has been useful to you and you want to help me to keep contributing to the open source with projects, examples, plugins,... collaborate and buy me a coffee.**
+
+<a href="https://www.buymeacoffee.com/h6WVj4HcD" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" alt="Buy Me A Coffee"></a>
+
 Capacitor Heatmap is a custom Native Capacitor plugin to show Heatmap on Web, IOS and  Android platforms.
 
 Currently you can choose from three types of heatmaps with only one plugin :) (only WEB at this moment):

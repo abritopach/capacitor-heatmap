@@ -13,7 +13,7 @@
   "author": "Adrián Brito Pacheco",
   "license": "MIT",
   "dependencies": {
-    "@capacitor/core": "next",
+    "@capacitor/core": "^2.0.1",
     "@types/googlemaps": "^3.39.3",
     "@types/html2canvas": "0.0.35",
     "@types/leaflet": "^1.5.12",
@@ -21,9 +21,9 @@
     "leaflet": "^1.6.0"
   },
   "devDependencies": {
-    "typescript": "^3.2.4",
-    "@capacitor/ios": "next",
-    "@capacitor/android": "next"
+    "typescript": "^3.8.3",
+    "@capacitor/ios": "^2.0.1",
+    "@capacitor/android": "^2.0.1"
   },
   "files": [
     "dist/",
