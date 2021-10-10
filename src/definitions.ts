@@ -1,12 +1,6 @@
 import { HeatmapData, IHeatmapOptions, HeatmapGradient, IGMHeatmapOptions, GMHeatmapData, HeatmapPoint,
 GMHeatmapPoint, IHeatmapDrawOptions, GMHeatmapGradient, HeatmapPosition, GMHeatmapCoordinate, ILMHeatmapOptions, LMHeatmapData, LMHeatmapPoint, LMHeatmapCoordinate } from "./models/models";
 
-declare module "@capacitor/core" {
-  interface PluginRegistry {
-    Heatmap: HeatmapPlugin;
-  }
-}
-
 export interface HeatmapPlugin {
   echo(options: { value: string }): Promise<{value: string}>;
 
@@ -23,7 +17,7 @@ export interface HeatmapPlugin {
   */
   initialize(options: IHeatmapOptions | IGMHeatmapOptions | ILMHeatmapOptions): Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer}>;
 
-   /**
+  /**
    * Description [This method destroy heatmap.]
    *
    * @author abrito
@@ -40,7 +34,7 @@ export interface HeatmapPlugin {
   // Methods for handling heatmap data.
   /*********/
 
-   /**
+  /**
    * Description [This method set heatmap data of [[x, y, thickness], ...] or [{x: value, y: value, thickness: value},...] format.]
    *
    * @author abrito

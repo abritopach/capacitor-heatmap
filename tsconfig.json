@@ -15,7 +15,7 @@
     "noUnusedParameters": true,
     "outDir": "dist/esm",
     "sourceMap": true,
-    "strict": true,
+    //"strict": true,
     "target": "es2017",
     "types": [
       "googlemaps"
