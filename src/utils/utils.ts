@@ -21,8 +21,8 @@ export const Utils = {
 
     gradientArray(grad: HeatmapGradient) {
         // Create a 256x1 gradient that we'll use to turn a grayscale heatmap into a colored one.
-        const canvas = Utils.createCanvas(),
-            ctx = canvas.getContext('2d'),
+        const canvas: HTMLCanvasElement = Utils.createCanvas() as HTMLCanvasElement,
+            ctx: CanvasRenderingContext2D = canvas.getContext('2d') as CanvasRenderingContext2D,
             gradient = ctx.createLinearGradient(0, 0, 0, 256);
         canvas.width = 1;
         canvas.height = 256;
@@ -37,8 +37,8 @@ export const Utils = {
     createCircle(r: number, blur?: number) {
         blur = blur === undefined ? 15 : blur;
         // Create a grayscale blurred circle image that we'll use for drawing points.
-        const circle = Utils.createCanvas(),
-            ctx = circle.getContext('2d'),
+        const circle: HTMLCanvasElement  = Utils.createCanvas() as HTMLCanvasElement ,
+            ctx: CanvasRenderingContext2D = circle.getContext('2d') as CanvasRenderingContext2D,
             r2 = r + blur;
 
         circle.width = circle.height = r2 * 2;

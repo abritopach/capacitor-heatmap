@@ -36,6 +36,8 @@
     "@types/googlemaps": "^3.43.3",
     "@types/html2canvas": "^1.0.0",
     "@types/leaflet": "^1.7.5",
+    "eslint": "^8.0.0",
+    "prettier": "^2.4.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.58.0",
     "typescript": "^3.8.3"

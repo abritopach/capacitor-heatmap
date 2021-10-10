@@ -16,19 +16,19 @@ export class SimpleHeatmap extends BaseHeatmap {
     static readonly DEFAULT_RADIUS = 20;
     static readonly DEFAULT_OPACITY = 0.05;
 
-    _canvas: HTMLCanvasElement = null;
-    _ctx: CanvasRenderingContext2D;
-    _width: number;
-    _height: number;
-    _max: number;
-    _data: HeatmapData;
-    _circle: HTMLCanvasElement;
-    _gradArray: Uint8ClampedArray;
-    _r: number;
-    _opacity: number;
-    _gradient: HeatmapGradient;
-    _radius: number;
-    _canvasColorScale: HTMLCanvasElement = null;
+    _canvas!: HTMLCanvasElement;
+    _ctx!: CanvasRenderingContext2D;
+    _width!: number;
+    _height!: number;
+    _max!: number;
+    _data!: HeatmapData;
+    _circle!: HTMLCanvasElement;
+    _gradArray!: Uint8ClampedArray;
+    _r!: number;
+    _opacity!: number;
+    _gradient!: HeatmapGradient;
+    _radius!: number;
+    _canvasColorScale!: HTMLCanvasElement;
 
     initialize(options: IHeatmapOptions): HTMLCanvasElement {
         this._heatmapLogger = new Log(options.debug);
@@ -39,7 +39,7 @@ export class SimpleHeatmap extends BaseHeatmap {
         }
 
         this._addHeatmapLayer2Element(options.element);
-        this._ctx = this._canvas.getContext('2d');
+        this._ctx = this._canvas.getContext('2d') as CanvasRenderingContext2D;
         this._width = this._canvas.width;
         this._height = this._canvas.height;
         this._max = 1;
@@ -51,7 +51,7 @@ export class SimpleHeatmap extends BaseHeatmap {
         this._opacity = SimpleHeatmap.DEFAULT_OPACITY;
         this._radius = SimpleHeatmap.DEFAULT_RADIUS;
         const result = Utils.createCircle(this._radius);
-        this._circle = result.circle;
+        this._circle = result.circle as HTMLCanvasElement;
         this._r = result.radius;
         this._gradient = SimpleHeatmap.DEFAULT_GRADIENT;
         this._gradArray = Utils.gradientArray(this._gradient);
@@ -63,12 +63,12 @@ export class SimpleHeatmap extends BaseHeatmap {
         if (this._canvas !== null) {
             this._clearCanvas();
             this.clearData();
-            this._canvas = null;
-            this._circle = null;
-            this._gradArray = null;
+            //this._canvas = null;
+            //this._circle = null;
+            //this._gradArray = null;
         }
         return this._canvas;
-      }
+    }
 
     /*********/
     // Methods for handling heatmap data.
@@ -88,7 +88,7 @@ export class SimpleHeatmap extends BaseHeatmap {
         return this._data;
     }
 
-    getValueAt(position: HeatmapPosition): number {
+    getValueAt(position: HeatmapPosition): number | null {
         let value = null;
         this._heatmapLogger.log("__SimpleHeatmap__ getValueAt", position);
         const xSearched = Array.isArray(position) ? position[0] : position.x;
@@ -135,7 +135,7 @@ export class SimpleHeatmap extends BaseHeatmap {
         this._opacity = typeof options.opacity !== "undefined" ? options.opacity : this._opacity;
 
         const result = Utils.createCircle(typeof options.radius !== "undefined" ? options.radius : this._radius);
-        this._circle = result.circle;
+        this._circle = result.circle as HTMLCanvasElement;
         this._r = result.radius;
 
         this._gradArray = typeof options.gradient !== "undefined" ? Utils.gradientArray(options.gradient) : Utils.gradientArray(this._gradient);
@@ -224,15 +224,15 @@ export class SimpleHeatmap extends BaseHeatmap {
 
     private _createColorScale(element: string) {
         this._heatmapLogger.log("__SimpleHeatmap__ createColorScale");
-        const el: HTMLElement = document.getElementById(element);
+        const el: HTMLElement = document.getElementById(element) as HTMLElement;
 
         if (document.getElementById('colorScale') !== null) {
-            const colorScale = document.getElementById('colorScale');
-            colorScale.parentElement.removeChild(colorScale);
-            this._canvasColorScale = null;
+            const colorScale: HTMLElement = document.getElementById('colorScale') as HTMLElement;
+            colorScale.parentElement!.removeChild(colorScale);
+            // this._canvasColorScale = null;
         }
 
-        this._canvasColorScale = Utils.createCanvas();
+        this._canvasColorScale = Utils.createCanvas() as HTMLCanvasElement;
         this._canvasColorScale.id = "colorScale";
         this._canvasColorScale.width = 250;
         this._canvasColorScale.height = 20;
@@ -244,10 +244,10 @@ export class SimpleHeatmap extends BaseHeatmap {
             const x0 = (t + 30) * 4;
             const x1 = x0;
             const hue = 240 * (30 - t) / 60;
-            ctx.fillStyle = 'hsl(' + [hue, '70%', '60%'] + ')';
-            ctx.fillRect(x1, 0, x0, 20);
+            (ctx as CanvasRenderingContext2D).fillStyle = 'hsl(' + [hue, '70%', '60%'] + ')';
+            (ctx as CanvasRenderingContext2D).fillRect(x1, 0, x0, 20);
         }
-        el.parentElement.appendChild(this._canvasColorScale);
+        el.parentElement!.appendChild(this._canvasColorScale);
     }
 
     /*
@@ -282,7 +282,7 @@ export class SimpleHeatmap extends BaseHeatmap {
     */
 
     private _getElementDimensions(element: string) {
-        const el: HTMLElement = document.getElementById(element);
+        const el: HTMLElement = document.getElementById(element) as HTMLElement;
         const compStyles = window.getComputedStyle(el);
         const width = (typeof el.style.width !== 'undefined' && el.style.width !== null && el.style.width !== '')
         ? parseInt(el.style.width) : parseInt(compStyles.getPropertyValue('width'));
@@ -292,7 +292,7 @@ export class SimpleHeatmap extends BaseHeatmap {
     }
 
     private _addHeatmapLayer2Element(element: string) {
-        const el: HTMLElement = document.getElementById(element);
+        const el: HTMLElement = document.getElementById(element) as HTMLElement;
         if (el !== null) {
 
             const {width, height} = this._getElementDimensions(element);
@@ -302,9 +302,9 @@ export class SimpleHeatmap extends BaseHeatmap {
             el.style.zIndex = "1";
 
             if (document.getElementById('heatmapLayer') !== null) {
-                const heatmapLayer = document.getElementById('heatmapLayer');
-                heatmapLayer.parentElement.removeChild(heatmapLayer);
-                this._canvas = null;
+                const heatmapLayer: HTMLElement = document.getElementById('heatmapLayer') as HTMLElement;
+                heatmapLayer.parentElement!.removeChild(heatmapLayer);
+                // this._canvas = null;
             }
 
             // Set canvas styles.

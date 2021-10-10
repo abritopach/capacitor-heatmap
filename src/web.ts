@@ -2,7 +2,7 @@ import { WebPlugin } from '@capacitor/core';
 import { HeatmapPlugin } from './definitions';
 
 import { HeatmapData, HeatmapGradient, IHeatmapOptions, IHeatmapType, IGMHeatmapOptions, GMHeatmapData, HeatmapPoint,
-   GMHeatmapPoint, IHeatmapDrawOptions, GMHeatmapGradient, HeatmapPosition, GMHeatmapCoordinate, ILMHeatmapOptions, LMHeatmapData, LMHeatmapPoint, LMHeatmapCoordinate } from './models/models';
+        GMHeatmapPoint, IHeatmapDrawOptions, GMHeatmapGradient, HeatmapPosition, GMHeatmapCoordinate, ILMHeatmapOptions, LMHeatmapData, LMHeatmapPoint, LMHeatmapCoordinate } from './models/models';
 
 import { SimpleHeatmap } from './heatmaps/simple-heatmap';
 import { GoogleMapsHeatmap } from './heatmaps/google-maps-heatmap';

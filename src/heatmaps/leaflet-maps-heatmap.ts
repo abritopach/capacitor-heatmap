@@ -1,17 +1,17 @@
 import { BaseHeatmap } from './base-heatmap';
 import { Log } from "../log";
 import { GMHeatmapGradient, ILMHeatmapOptions, LMHeatmapData, HeatmapPoint,
-         HeatmapGradient, LMHeatmapPoint, LMHeatmapCoordinate} from '../models/models';
+            HeatmapGradient, LMHeatmapPoint, LMHeatmapCoordinate} from '../models/models';
 
-import { Map, DomUtil, Browser, Point } from 'leaflet';
+import { Map, DomUtil, Browser, Point, LatLngExpression } from 'leaflet';
 
 import { Utils }  from "../utils/utils";
 
 export class LeafletMapsHeatmap extends BaseHeatmap {
 
-    _map: Map;
-    _canvas: HTMLCanvasElement;
-    _data: LMHeatmapData;
+    _map!: Map;
+    _canvas!: HTMLCanvasElement;
+    _data: LMHeatmapData = [];
 
     static readonly DEFAULT_GRADIENT: HeatmapGradient = {
         0.4: 'blue',
@@ -23,16 +23,16 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
     static readonly DEFAULT_RADIUS = 20;
     static readonly DEFAULT_OPACITY = 0.05;
 
-    _circle: HTMLCanvasElement;
-    _gradArray: Uint8ClampedArray;
-    _r: number;
-    _opacity: number;
-    _gradient: HeatmapGradient;
-    _radius: number;
-    _max: number;
-    _ctx: CanvasRenderingContext2D;
-    _width: number;
-    _height: number;
+    _circle!: HTMLCanvasElement;
+    _gradArray!: Uint8ClampedArray;
+    _r!: number;
+    _opacity!: number;
+    _gradient!: HeatmapGradient;
+    _radius!: number;
+    _max!: number;
+    _ctx!: CanvasRenderingContext2D;
+    _width!: number;
+    _height!: number;
 
     initialize(options: ILMHeatmapOptions): HTMLCanvasElement {
         this._heatmapLogger = new Log(options.debug);
@@ -50,14 +50,14 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
             this._addHeatmapLayer2Map();
         }
 
-        this._ctx = this._canvas.getContext('2d');
+        this._ctx = this._canvas.getContext('2d') as CanvasRenderingContext2D;
         this._width = this._canvas.width;
         this._height = this._canvas.height;
         this._max = 18;
         this._opacity = LeafletMapsHeatmap.DEFAULT_OPACITY;
         this._radius = LeafletMapsHeatmap.DEFAULT_RADIUS;
         const result = Utils.createCircle(this._radius);
-        this._circle = result.circle;
+        this._circle = result.circle as HTMLCanvasElement;
         this._r = result.radius;
         this._gradient = LeafletMapsHeatmap.DEFAULT_GRADIENT;
         this._gradArray = Utils.gradientArray(this._gradient);
@@ -110,7 +110,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         return this._data;
     }
 
-    getValueAt(coordinate: LMHeatmapCoordinate): number {
+    getValueAt(coordinate: LMHeatmapCoordinate): number | null {
         this._heatmapLogger.log("__LeafletMapsHeatmap__ getValueAt", coordinate);
         let value = null;
 
@@ -185,7 +185,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
 
         this._opacity = typeof options.opacity !== "undefined" ? options.opacity : this._opacity;
         const result = Utils.createCircle(typeof options.radius !== "undefined" ? options.radius : this._radius);
-        this._circle = result.circle;
+        this._circle = result.circle as HTMLCanvasElement;
         this._r = result.radius;
 
         this._gradArray = typeof options.gradient !== "undefined" ? Utils.gradientArray(options.gradient) : Utils.gradientArray(this._gradient);
@@ -225,7 +225,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
             this._height = this._canvas.height;
             const opt = {};
             this.draw(opt);
-            const mapDiv: HTMLElement = document.getElementById(this._map.getContainer().id);
+            const mapDiv: HTMLElement = document.getElementById(this._map.getContainer().id) as HTMLElement;
             mapDiv.style.width = options.width + 'px';
             mapDiv.style.height = options.height + 'px';
 
@@ -363,7 +363,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         let grid: any[] = [];
         let cell: any;
 
-        this._data.forEach((coordinate: LMHeatmapCoordinate) => {
+        this._data.forEach((coordinate: LatLngExpression/*LMHeatmapCoordinate*/) => {
             const point: Point = this._map.latLngToContainerPoint(coordinate);
             if (this._map.getBounds().contains(coordinate)) {
                 const x = Math.floor((point.x - offsetX) / cellSize) + 2;

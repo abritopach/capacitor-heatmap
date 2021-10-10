@@ -22,8 +22,8 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
     static readonly DEFAULT_RADIUS = 10;
     static readonly DEFAULT_OPACITY = 0.5;
 
-    _map: google.maps.Map;
-    _heatmap: google.maps.visualization.HeatmapLayer;
+    _map!: google.maps.Map;
+    _heatmap!: google.maps.visualization.HeatmapLayer;
     _data: GMHeatmapData = new google.maps.MVCArray([]);
 
     initialize(options: IGMHeatmapOptions): google.maps.visualization.HeatmapLayer {
@@ -49,7 +49,6 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
     destroy(): void {
         this._heatmapLogger.log("__GoogleMapsHeatmap__ destroy");
         this._heatmap.setMap(null);
-        this._heatmap = null;
     }
 
 
@@ -71,7 +70,7 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
         return this._heatmap.getData();
     }
 
-    getValueAt(coordinate: GMHeatmapCoordinate): void {
+    getValueAt(coordinate: GMHeatmapCoordinate): number | null {
         this._heatmapLogger.log("__GoogleMapsHeatmap__ getValueAt", coordinate);
         let value = null;
         this._data.forEach((point: GMHeatmapPoint) => {
@@ -117,7 +116,7 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
         if (!this._map) { return false; }
         this._data = typeof options.data !== 'undefined' ? options.data : this._data;
         this._heatmapLogger.log("__GoogleMapsHeatmap__ draw", {data: this._data});
-        this._heatmap.setData(options.data);
+        this._heatmap.setData(options.data as GMHeatmapData);
         this._heatmap.set('opacity', typeof options.opacity !== "undefined" ? options.opacity : this._heatmap.get('opacity'));
         this._heatmap.set('radius', typeof options.radius !== "undefined" ? options.radius : this._heatmap.get('radius'));
         this._heatmap.set('gradient', typeof options.gradient !== "undefined" ? options.gradient : this._heatmap.get('gradient'));
@@ -130,13 +129,13 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
     /*********/
     resize(options: {width: number, height: number}): {newWidth: number, newHeight: number} {
         this._heatmapLogger.log("__GoogleMapsHeatmap__ resize", options);
-        const mapDiv: HTMLElement = document.getElementById(this._map.getDiv().id);
+        const mapDiv: HTMLElement = document.getElementById(this._map.getDiv().id) as HTMLElement;
         mapDiv.style.width = options.width + 'px';
         mapDiv.style.height = options.height + 'px';
         return {newWidth: this._map.getDiv().clientWidth, newHeight: this._map.getDiv().clientHeight};
     }
 
-    gradient(grad: GMHeatmapGradient): GMHeatmapGradient {
+    gradient(grad: GMHeatmapGradient): GMHeatmapGradient | null {
         this._heatmapLogger.log("__GoogleMapsHeatmap__ gradient", grad);
         this._heatmap.set('gradient', grad);
         return this._heatmap.get('gradient') ? null : grad;
@@ -161,7 +160,7 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
     getDataURL(type: string, imageQuality: number): void {
         this._heatmapLogger.log("__GoogleMapsHeatmap__ getDataURL", type, imageQuality);
 
-        html2canvas(document.getElementById('map'), {
+        html2canvas(document.getElementById('map') as HTMLElement, {
             useCORS: true
         }).then((canvas: HTMLCanvasElement) => {
             console.log(canvas.toDataURL('image/png'));
