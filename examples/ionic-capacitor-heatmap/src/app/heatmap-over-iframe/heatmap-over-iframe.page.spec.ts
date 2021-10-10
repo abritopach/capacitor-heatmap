@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { HeatmapOverIframePage } from './heatmap-over-iframe.page';
@@ -7,7 +7,7 @@ describe('HeatmapOverIframePage', () => {
   let component: HeatmapOverIframePage;
   let fixture: ComponentFixture<HeatmapOverIframePage>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ HeatmapOverIframePage ],
       imports: [IonicModule.forRoot()]

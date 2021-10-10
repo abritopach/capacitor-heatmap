@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { LeafletMapsHeatmapPage } from './leaflet-maps-heatmap.page';
@@ -7,7 +7,7 @@ describe('LeafletMapsHeatmapPage', () => {
   let component: LeafletMapsHeatmapPage;
   let fixture: ComponentFixture<LeafletMapsHeatmapPage>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ LeafletMapsHeatmapPage ],
       imports: [IonicModule.forRoot()]
