@@ -1,7 +1,7 @@
 {
   "name": "capacitor-heatmap",
   "version": "0.0.1-alpha.89",
-  "description": "Heatmap",
+  "description": "Capacitor Heatmap Plugin",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
@@ -33,6 +33,9 @@
     "@capacitor/core": "^3.2.4",
     "@capacitor/docgen": "^0.0.17",
     "@capacitor/ios": "^3.2.4",
+    "@ionic/eslint-config": "^0.3.0",
+    "@ionic/prettier-config": "^2.0.0",
+    "@ionic/swiftlint-config": "^1.1.2",
     "@types/googlemaps": "^3.43.3",
     "@types/html2canvas": "^1.0.0",
     "@types/leaflet": "^1.7.5",
@@ -40,7 +43,11 @@
     "prettier": "^2.4.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.58.0",
+    "swiftlint": "^1.0.1",
     "typescript": "^3.8.3"
+  },
+  "peerDependencies": {
+    "@capacitor/core": "^3.0.0"
   },
   "files": [
     "dist/",
@@ -54,6 +61,11 @@
     "plugin",
     "native"
   ],
+  "prettier": "@ionic/prettier-config",
+  "swiftlint": "@ionic/swiftlint-config",
+  "eslintConfig": {
+    "extends": "@ionic/eslint-config/recommended"
+  },
   "capacitor": {
     "ios": {
       "src": "ios"
