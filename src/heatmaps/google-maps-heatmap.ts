@@ -1,8 +1,9 @@
-import { BaseHeatmap } from './base-heatmap';
-import { IGMHeatmapOptions, GMHeatmapData, GMHeatmapPoint, GMHeatmapGradient, GMHeatmapCoordinate } from '../models/models';
-import { Log } from "../log";
-
 import html2canvas from 'html2canvas';
+
+import { Log } from "../log";
+import type { IGMHeatmapOptions, GMHeatmapData, GMHeatmapPoint, GMHeatmapGradient, GMHeatmapCoordinate } from '../models/models';
+
+import { BaseHeatmap } from './base-heatmap';
 
 export class GoogleMapsHeatmap extends BaseHeatmap {
 
