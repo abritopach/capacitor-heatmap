@@ -1,4 +1,4 @@
-import { IHeatmapLog } from './models/models';
+import type { IHeatmapLog } from './models/models';
 
 /**
  * Description [Class to handle logs.]
@@ -8,9 +8,9 @@ import { IHeatmapLog } from './models/models';
 */
 export class Log implements IHeatmapLog {
 
-    logEnabled: boolean = false;
+    logEnabled = false;
 
-    constructor(logEnabled: boolean = false) {
+    constructor(logEnabled = false) {
         this.logEnabled = logEnabled;
     }
 

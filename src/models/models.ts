@@ -1,4 +1,4 @@
-import { Map, LatLngExpression, LatLngTuple } from 'leaflet';
+import type { Map, LatLngExpression, LatLngTuple } from 'leaflet';
 
 /**
  * Description [Interface to define heatmap logs.]
@@ -81,9 +81,9 @@ export interface IHeatmapDrawOptions {
 }
 
 export type HeatmapGradient = Record<number, string>;
-export type HeatmapPoint = Array<number> | IHeatmapPoint;
-export type HeatmapPosition = Array<number> | IHeatmapPosition;
-export type HeatmapData = Array<Array<number> | IHeatmapPoint>;
+export type HeatmapPoint = number[] | IHeatmapPoint;
+export type HeatmapPosition = number[] | IHeatmapPosition;
+export type HeatmapData = (number[] | IHeatmapPoint)[];
 
 /**
  * Description [Interface to define google maps heatmap initialize options.]
@@ -121,6 +121,6 @@ export interface ILMHeatmapOptions {
     debug?: boolean;
 }
 
-export type LMHeatmapData = Array<LatLngExpression>;
+export type LMHeatmapData = LatLngExpression[];
 export type LMHeatmapPoint = LatLngExpression;
 export type LMHeatmapCoordinate = LatLngTuple;

@@ -75,7 +75,8 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
         this._heatmapLogger.log("__GoogleMapsHeatmap__ getValueAt", coordinate);
         let value = null;
         this._data.forEach((point: GMHeatmapPoint) => {
-            if (point.hasOwnProperty('location')) {
+
+            if(Object.prototype.hasOwnProperty.call(point, 'location')) {
                 if ((point as  google.maps.visualization.WeightedLocation).location.equals(coordinate)) {
                     value = (point as  google.maps.visualization.WeightedLocation).weight;
                 }

@@ -1,12 +1,13 @@
 import { WebPlugin } from '@capacitor/core';
-import { HeatmapPlugin } from './definitions';
 
-import { HeatmapData, HeatmapGradient, IHeatmapOptions, IHeatmapType, IGMHeatmapOptions, GMHeatmapData, HeatmapPoint,
-        GMHeatmapPoint, IHeatmapDrawOptions, GMHeatmapGradient, HeatmapPosition, GMHeatmapCoordinate, ILMHeatmapOptions, LMHeatmapData, LMHeatmapPoint, LMHeatmapCoordinate } from './models/models';
-
-import { SimpleHeatmap } from './heatmaps/simple-heatmap';
+import type { HeatmapPlugin } from './definitions';
 import { GoogleMapsHeatmap } from './heatmaps/google-maps-heatmap';
 import { LeafletMapsHeatmap } from './heatmaps/leaflet-maps-heatmap';
+import { SimpleHeatmap } from './heatmaps/simple-heatmap';
+import type { HeatmapData, HeatmapGradient, IHeatmapOptions, IGMHeatmapOptions, GMHeatmapData, HeatmapPoint,
+        GMHeatmapPoint, IHeatmapDrawOptions, GMHeatmapGradient, HeatmapPosition, GMHeatmapCoordinate, ILMHeatmapOptions, LMHeatmapData, LMHeatmapPoint, LMHeatmapCoordinate } from './models/models';
+import { IHeatmapType } from './models/models';
+
 
 export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
 
@@ -125,10 +126,3 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
 
 
 }
-
-const Heatmap = new HeatmapWeb();
-
-export { Heatmap };
-
-import { registerWebPlugin } from '@capacitor/core';
-registerWebPlugin(Heatmap);

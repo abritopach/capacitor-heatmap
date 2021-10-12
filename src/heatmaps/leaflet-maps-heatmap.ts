@@ -1,11 +1,12 @@
-import { BaseHeatmap } from './base-heatmap';
+import { DomUtil, Browser, Point } from 'leaflet';
+import type { Map, LatLngExpression } from 'leaflet';
+
 import { Log } from "../log";
-import { GMHeatmapGradient, ILMHeatmapOptions, LMHeatmapData, HeatmapPoint,
+import type { GMHeatmapGradient, ILMHeatmapOptions, LMHeatmapData, HeatmapPoint,
             HeatmapGradient, LMHeatmapPoint, LMHeatmapCoordinate} from '../models/models';
-
-import { Map, DomUtil, Browser, Point, LatLngExpression } from 'leaflet';
-
 import { Utils }  from "../utils/utils";
+
+import { BaseHeatmap } from './base-heatmap';
 
 export class LeafletMapsHeatmap extends BaseHeatmap {
 
@@ -112,7 +113,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
 
     getValueAt(coordinate: LMHeatmapCoordinate): number | null {
         this._heatmapLogger.log("__LeafletMapsHeatmap__ getValueAt", coordinate);
-        let value = null;
+        const value = null;
 
         const max = this._max === undefined ? 1 : this._max;
         const point: Point = this._map.latLngToContainerPoint(coordinate);
@@ -122,7 +123,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         const offsetY = panePos.y % cellSize;
         const maxZoom = this._map.getMaxZoom();
         const v = 1 / Math.pow(2, Math.max(0, Math.min(maxZoom - this._map.getZoom(), 12)));
-        let grid: any[] = [];
+        const grid: any[] = [];
         let cell: any;
         if (this._map.getBounds().contains(coordinate)) {
             const x = Math.floor((point.x - offsetX) / cellSize) + 2;
@@ -315,24 +316,24 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         */
     }
 
-    _getCenterOffset(latlng: any) {
+    _getCenterOffset(latlng: any): Point {
 		return this._map.latLngToLayerPoint(latlng).subtract(this._getCenterLayerPoint());
     }
 
-    _getCenterLayerPoint() {
+    _getCenterLayerPoint(): Point {
 		return this._map.containerPointToLayerPoint(this._map.getSize().divideBy(2));
     }
 
-    _getMapPanePos() {
+    _getMapPanePos(): Point {
 		return DomUtil.getPosition(this._map.getPanes().overlayPane) || new Point(0, 0);
     };
 
-    _reset() {
+    _reset(): void {
 
         const topLeft = this._map.containerPointToLayerPoint([0, 0]);
         DomUtil.setPosition(this._canvas, topLeft);
 
-        var size = this._map.getSize();
+        const size = this._map.getSize();
 
         if (this._canvas.width !== size.x) {
             this._canvas.width = size.x;
@@ -348,9 +349,9 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
 
     }
 
-    _processData() {
+    _processData(): number[][] {
 
-        let data: Array<Array<number>> = [];
+        const data: number[][] = [];
         // const size: Point = this._map.getSize();
         // const bounds = new Bounds(point([-this._r, -this._r]), size.add([this._r, this._r]));
         const max = this._max === undefined ? 1 : this._max;
@@ -360,7 +361,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         const offsetY = panePos.y % cellSize;
         const maxZoom = this._map.getMaxZoom();
         const v = 1 / Math.pow(2, Math.max(0, Math.min(maxZoom - this._map.getZoom(), 12)));
-        let grid: any[] = [];
+        const grid: any[] = [];
         let cell: any;
 
         this._data.forEach((coordinate: LatLngExpression/*LMHeatmapCoordinate*/) => {

@@ -1,8 +1,8 @@
-import { BaseHeatmap } from "./base-heatmap";
-import { IHeatmapOptions, HeatmapData, HeatmapPoint, HeatmapGradient, HeatmapPosition } from "../models/models";
 import { Log } from "../log";
-
+import type { IHeatmapOptions, HeatmapData, HeatmapPoint, HeatmapGradient, HeatmapPosition } from "../models/models";
 import { Utils }  from "../utils/utils";
+
+import { BaseHeatmap } from "./base-heatmap";
 
 export class SimpleHeatmap extends BaseHeatmap {
 
@@ -240,7 +240,7 @@ export class SimpleHeatmap extends BaseHeatmap {
         this._canvasColorScale.style.position = "relative";
         this._canvasColorScale.style.zIndex = "999999";
         const ctx = this._canvasColorScale.getContext('2d');
-        for (var t = -30; t < 30; t += 0.03) {
+        for (let t = -30; t < 30; t += 0.03) {
             const x0 = (t + 30) * 4;
             const x1 = x0;
             const hue = 240 * (30 - t) / 60;

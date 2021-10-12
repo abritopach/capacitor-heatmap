@@ -1,14 +1,15 @@
-import { HeatmapGradient } from "../models/models";
+import type { HeatmapGradient } from "../models/models";
 
 export const Utils = {
 
-    createCanvas() {
+    createCanvas(): HTMLCanvasElement | null {
         if (typeof document !== 'undefined') {
             return document.createElement('canvas');
         }
+        return null;
     },
 
-    colorize (pixels: any, gradient: any) {
+    colorize (pixels: any, gradient: any): void {
         for (let i = 0, len = pixels.length, j; i < len; i += 4) {
             j = pixels[i + 3] * 4; // Get gradient color from opacity value.
             if (j) {
@@ -19,14 +20,14 @@ export const Utils = {
         }
     },
 
-    gradientArray(grad: HeatmapGradient) {
+    gradientArray(grad: HeatmapGradient): Uint8ClampedArray {
         // Create a 256x1 gradient that we'll use to turn a grayscale heatmap into a colored one.
         const canvas: HTMLCanvasElement = Utils.createCanvas() as HTMLCanvasElement,
             ctx: CanvasRenderingContext2D = canvas.getContext('2d') as CanvasRenderingContext2D,
             gradient = ctx.createLinearGradient(0, 0, 0, 256);
         canvas.width = 1;
         canvas.height = 256;
-        for (var i in grad) {
+        for (const i in grad) {
             gradient.addColorStop(+i, grad[i]);
         }
         ctx.fillStyle = gradient;
@@ -34,7 +35,7 @@ export const Utils = {
         return ctx.getImageData(0, 0, 1, 256).data;
     },
 
-    createCircle(r: number, blur?: number) {
+    createCircle(r: number, blur?: number): {circle: HTMLCanvasElement, radius: number} {
         blur = blur === undefined ? 15 : blur;
         // Create a grayscale blurred circle image that we'll use for drawing points.
         const circle: HTMLCanvasElement  = Utils.createCanvas() as HTMLCanvasElement ,
