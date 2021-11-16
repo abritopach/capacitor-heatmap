@@ -13,13 +13,6 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
 
   heatmap: any;
 
-  constructor() {
-    super({
-      name: 'Heatmap',
-      platforms: ['web']
-    });
-  }
-
   async echo(options: { value: string }): Promise<{value: string}> {
     console.log('ECHO', options);
     return options;
