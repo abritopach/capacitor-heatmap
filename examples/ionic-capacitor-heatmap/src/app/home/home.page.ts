@@ -5,7 +5,7 @@ import { Heatmap } from 'capacitor-heatmap';
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
 import { IHeatmapOptions, IHeatmapType, HeatmapGradient, IHeatmapDrawOptions, HeatmapPosition } from 'capacitor-heatmap/dist/esm/models/models';
 
-window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame;
+window.requestAnimationFrame = window.requestAnimationFrame || window['webkitRequestAnimationFrame'];
 
 @Component({
   selector: 'app-home',
