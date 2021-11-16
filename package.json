@@ -29,25 +29,25 @@
     "leaflet": "^1.7.1"
   },
   "devDependencies": {
-    "@capacitor/android": "^3.2.4",
-    "@capacitor/core": "^3.2.4",
-    "@capacitor/docgen": "^0.0.17",
-    "@capacitor/ios": "^3.2.4",
+    "@capacitor/android": "^3.3.1",
+    "@capacitor/core": "^3.3.1",
+    "@capacitor/docgen": "0.0.18",
+    "@capacitor/ios": "^3.3.1",
     "@ionic/eslint-config": "^0.3.0",
     "@ionic/prettier-config": "^2.0.0",
     "@ionic/swiftlint-config": "^1.1.2",
     "@types/googlemaps": "^3.43.3",
     "@types/html2canvas": "^1.0.0",
-    "@types/leaflet": "^1.7.5",
+    "@types/leaflet": "^1.7.6",
     "eslint": "^7.11.0",
     "prettier": "^2.4.1",
     "rimraf": "^3.0.2",
-    "rollup": "^2.58.0",
+    "rollup": "^2.60.0",
     "swiftlint": "^1.0.1",
     "typescript": "^4.3.5"
   },
   "peerDependencies": {
-    "@capacitor/core": "^3.0.0"
+    "@capacitor/core": "^3.3.1"
   },
   "files": [
     "dist/",
