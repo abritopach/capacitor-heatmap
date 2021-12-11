@@ -2,7 +2,6 @@ import type { HeatmapData, IHeatmapOptions, HeatmapGradient, IGMHeatmapOptions, 
 GMHeatmapPoint, IHeatmapDrawOptions, GMHeatmapGradient, HeatmapPosition, GMHeatmapCoordinate, ILMHeatmapOptions, LMHeatmapData, LMHeatmapPoint, LMHeatmapCoordinate } from "./models/models";
 
 export interface HeatmapPlugin {
-  echo(options: { value: string }): Promise<{value: string}>;
 
   /**
    * Description [This method initialize heatmap.]
