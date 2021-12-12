@@ -1,5 +1,7 @@
 {
   "name": "ionic-capacitor-heatmap",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
