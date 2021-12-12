@@ -10,6 +10,8 @@ import { IHeatmapOptions, IHeatmapType } from 'capacitor-heatmap/dist/esm/models
 })
 export class HeatmapOverIframePage implements OnInit {
 
+  currentYear = new Date().getFullYear();
+
   urlIframe = 'https://www.marca.com';
 
   constructor(public fakeHeatmapDataService: FakeHeatmapDataService) { }
