@@ -3,21 +3,9 @@ manifest
 ADDED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:2:3-4:14
 INJECTED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:2:3-4:14
 INJECTED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:2:3-4:14
-INJECTED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:2:3-4:14
-INJECTED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:2:3-4:14
-INJECTED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:2:3-4:14
-INJECTED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:2:3-4:14
 	package
 		ADDED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:3:7-62
 		INJECTED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml
-		INJECTED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml
-	android:versionName
-		INJECTED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml
-		ADDED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:2:3-4:14
-		INJECTED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml
-	android:versionCode
-		INJECTED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml
-		ADDED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:2:3-4:14
 		INJECTED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:2:13-71
