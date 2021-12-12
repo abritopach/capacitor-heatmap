@@ -14,6 +14,8 @@ window.requestAnimationFrame = window.requestAnimationFrame || window['webkitReq
 })
 export class HomePage implements OnInit {
 
+  currentYear = new Date().getFullYear();
+
   changedGradient = false;
   changedOpacity = false;
   changedRadius = false;

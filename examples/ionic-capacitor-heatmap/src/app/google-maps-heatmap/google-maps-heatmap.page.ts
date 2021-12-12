@@ -10,6 +10,7 @@ import { IGMHeatmapOptions, IHeatmapType, GMHeatmapPoint, HeatmapPosition, GMHea
 })
 export class GoogleMapsHeatmapPage implements OnInit {
 
+  currentYear = new Date().getFullYear();
   map: google.maps.Map;
   changedGradient = false;
   changedOpacity = false;

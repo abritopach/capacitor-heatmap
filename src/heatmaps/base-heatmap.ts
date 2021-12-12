@@ -1,11 +1,14 @@
-import type { HeatmapData, IHeatmapOptions, HeatmapGradient, IGMHeatmapOptions, GMHeatmapData, HeatmapPoint, GMHeatmapPoint, IHeatmapDrawOptions, GMHeatmapGradient, HeatmapPosition, GMHeatmapCoordinate, ILMHeatmapOptions, LMHeatmapData, LMHeatmapPoint } from '../models/models';
+import { Log } from '../log';
+import type { HeatmapData, IHeatmapOptions, HeatmapGradient, IGMHeatmapOptions, GMHeatmapData, HeatmapPoint,
+    GMHeatmapPoint, IHeatmapDrawOptions, GMHeatmapGradient, HeatmapPosition, GMHeatmapCoordinate, ILMHeatmapOptions,
+    LMHeatmapData, LMHeatmapPoint } from '../models/models';
 import { IHeatmapType } from '../models/models';
 
 export abstract class BaseHeatmap {
 
     static readonly DEFAULT_TYPE = IHeatmapType.Simple;
 
-    _heatmapLogger: any;
+    _heatmapLogger: Log = new Log();
 
     abstract initialize(options: IHeatmapOptions | IGMHeatmapOptions | ILMHeatmapOptions): void;
     abstract destroy(): void;

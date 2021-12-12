@@ -13,6 +13,8 @@ import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
 })
 export class LeafletMapsHeatmapPage implements OnInit {
 
+  currentYear = new Date().getFullYear();
+
   mapLeaflet: Map;
 
   destroy = false;
