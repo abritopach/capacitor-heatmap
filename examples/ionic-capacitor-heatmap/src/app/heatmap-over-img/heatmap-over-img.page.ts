@@ -11,6 +11,8 @@ import { RouteEventsService } from '../services/route-events.service';
 })
 export class HeatmapOverImgPage implements OnInit {
 
+  currentYear = new Date().getFullYear();
+
   urlImg = 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/full%20page/img(20).jpg';
 
   constructor(public fakeHeatmapDataService: FakeHeatmapDataService) {

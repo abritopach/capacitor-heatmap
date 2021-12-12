@@ -20,22 +20,22 @@ export class AppComponent {
     {
       title: 'Heatmap over Iframe',
       url: '/heatmap-over-iframe',
-      icon: 'flame'
+      icon: 'layers'
     },
     {
       title: 'Heatmap over Img',
       url: '/heatmap-over-img',
-      icon: 'flame'
+      icon: 'image'
     },
     {
       title: 'Google Maps Heatmap',
       url: '/google-maps-heatmap',
-      icon: 'flame'
+      icon: 'map'
     },
     {
       title: 'Leaflet Maps Heatmap',
       url: '/leaflet-maps-heatmap',
-      icon: 'flame'
+      icon: 'navigate'
     }
   ];
 
