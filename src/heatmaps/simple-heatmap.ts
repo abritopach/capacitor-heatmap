@@ -34,7 +34,7 @@ export class SimpleHeatmap extends BaseHeatmap {
         this._heatmapLogger = new Log(options.debug);
         this._heatmapLogger.log("__SimpleHeatmap__ initialize");
 
-        if (options.showColorScale) {
+        if (options?.colorScale?.show) {
             this._createColorScale(options.element);
         }
 
