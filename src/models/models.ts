@@ -17,6 +17,24 @@ export interface IHeatmapLog {
 }
 
 /**
+ * Description [Interface to define color scale options.]
+ *
+ * @author abrito
+ * @version 0.0.1
+ *
+ * @interface
+*/
+export interface ColorScale {
+    show: boolean;
+    position?: {
+        vertical: "top" | "bottom" | "center",
+        horizontal: "start" | "end" | "center"
+    };
+    boxShadow?: string;
+    textColor?: string;
+}
+
+/**
  * Description [Interface to define simple heatmap initialize options.]
  *
  * @author abrito
@@ -29,7 +47,7 @@ export interface IHeatmapOptions {
     type: IHeatmapType;
     data?: HeatmapData;
     debug?: boolean;
-    showColorScale?: boolean;
+    colorScale?: ColorScale;
 }
 
 /**
