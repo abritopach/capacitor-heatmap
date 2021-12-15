@@ -31,7 +31,34 @@ export interface ColorScale {
         horizontal: "start" | "end" | "center"
     };
     boxShadow?: string;
-    textColor?: string;
+    text?: {
+        start?: string;
+        end?: string;
+        color?: string;
+    }
+}
+
+/**
+ * Description [Interface to define color scale styles.]
+ *
+ * @author abrito
+ * @version 0.0.1
+ *
+ * @interface
+*/
+export interface ColorScaleStyles {
+    width: number;
+    height: number;
+    borderRadius: string;
+    position: string;
+    zIndex: string;
+    marginTop: string;
+    margin: string;
+    padding: string;
+    boxShadow: string;
+    fillTextStart: string;
+    fillTextEnd: string;
+    fillTextColor: string;
 }
 
 /**
