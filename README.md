@@ -22,6 +22,8 @@ Currently you can choose from three types of heatmaps with only one plugin :) (o
 
 ![SimpleHeatmap](readme_resources/simple_heatmap.gif "SimpleHeatmap")
 
+![ColorScale](readme_resources/color_scale.gif "ColorScale")
+
 ## Google Maps Heatmap
 
 ![GoogleMapsHeatmap](readme_resources/google_maps_heatmap.gif "GoogleMapsHeatmap")

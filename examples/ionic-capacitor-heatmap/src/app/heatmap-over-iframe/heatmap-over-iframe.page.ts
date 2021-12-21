@@ -30,7 +30,8 @@ export class HeatmapOverIframePage implements OnInit {
 
   async initializeHeatmapOverIframe() {
 
-    const options: IHeatmapOptions = {element: 'testHeatmapIframe', type: IHeatmapType.Simple, debug: true, colorScale: {show: true}};
+    const options: IHeatmapOptions = {element: 'testHeatmapIframe', type: IHeatmapType.Simple, debug: true,
+    colorScale: {show: true, background: 'black'}};
     const result = await Heatmap.initialize(options);
     console.log('result', result);
 

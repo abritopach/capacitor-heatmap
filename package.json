@@ -1,6 +1,6 @@
 {
   "name": "capacitor-heatmap",
-  "version": "0.0.1-alpha.89",
+  "version": "0.0.1-alpha.90",
   "description": "Capacitor Heatmap Plugin",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
