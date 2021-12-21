@@ -27,7 +27,8 @@ export class SimpleHeatmap extends BaseHeatmap {
         boxShadow: "0px 0px 5px 1px black",
         fillTextStart: 'COLD',
         fillTextEnd: 'HOT',
-        fillTextColor: 'black'
+        fillTextColor: 'black',
+        background: '#00F8'
     }
 
     _canvas!: HTMLCanvasElement;
@@ -250,6 +251,7 @@ export class SimpleHeatmap extends BaseHeatmap {
         this._addColorScaleStyles(this._canvasColorScale, colorScaleOptions);
 
         const ctx = this._canvasColorScale.getContext('2d');
+        this._canvasColorScale.style.backgroundColor = colorScaleOptions?.background ? colorScaleOptions.background : SimpleHeatmap.DEFAULT_COLOR_SCALE_STYLES.background;
         for (let t = -30; t < 30; t += 0.03) {
             const x0 = (t + 30) * 4;
             const x1 = x0;

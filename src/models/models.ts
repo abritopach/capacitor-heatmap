@@ -35,7 +35,8 @@ export interface ColorScale {
         start?: string;
         end?: string;
         color?: string;
-    }
+    },
+    background?: string;
 }
 
 /**
@@ -59,6 +60,7 @@ export interface ColorScaleStyles {
     fillTextStart: string;
     fillTextEnd: string;
     fillTextColor: string;
+    background: string;
 }
 
 /**
