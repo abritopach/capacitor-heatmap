@@ -44,6 +44,7 @@ export class SimpleHeatmap extends BaseHeatmap {
     _gradient!: HeatmapGradient;
     _radius!: number;
     _canvasColorScale!: HTMLCanvasElement;
+    _copyColorScaleOptions: ColorScale = { show: false};
 
     initialize(options: IHeatmapOptions): HTMLCanvasElement {
         this._heatmapLogger = new Log(options.debug);
@@ -196,6 +197,7 @@ export class SimpleHeatmap extends BaseHeatmap {
             this._height = this._canvas.height;
             const opt = {};
             this.draw(opt);
+            this._createColorScale('testHeatmap', this._copyColorScaleOptions);
             return {newWidth: this._canvas.width, newHeight: this._canvas.height};
         }
         return {newWidth: 0, newHeight: 0};
@@ -245,6 +247,10 @@ export class SimpleHeatmap extends BaseHeatmap {
             const colorScale: HTMLElement = document.getElementById('colorScale') as HTMLElement;
             colorScale.parentElement!.removeChild(colorScale);
             // this._canvasColorScale = null;
+        }
+
+        if (colorScaleOptions) {
+            this._copyColorScaleOptions = colorScaleOptions;
         }
 
         this._canvasColorScale = Utils.createCanvas() as HTMLCanvasElement;

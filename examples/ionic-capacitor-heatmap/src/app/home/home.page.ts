@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
+import { Component, OnInit, HostListener, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 
 import { Heatmap } from 'capacitor-heatmap';
 
@@ -13,6 +13,8 @@ window.requestAnimationFrame = window.requestAnimationFrame || window['webkitReq
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
+
+  @ViewChild('myContent', {read: ElementRef}) myContent: ElementRef;
 
   currentYear = new Date().getFullYear();
 
@@ -34,7 +36,10 @@ export class HomePage implements OnInit {
   heatmapCanvas: HTMLCanvasElement = null;
 
   @HostListener('window:resize', ['$event']) async onResize(event) {
-    this.resizeHeatmap(event.target.innerWidth, event.target.innerHeight);
+    console.log('event.target.innerWidth', event.target.innerWidth, 'event.target.innerHeight', event.target.innerHeight);
+    if (this.myContent) {
+      this.resizeHeatmap(this.myContent.nativeElement.offsetWidth, this.myContent.nativeElement.offsetHeight);
+    }
   }
 
   constructor(public fakeHeatmapDataService: FakeHeatmapDataService) {
@@ -68,7 +73,7 @@ export class HomePage implements OnInit {
 
   async initializeHeatmap() {
 
-    const options: IHeatmapOptions = {element: 'testHeatmap', type: IHeatmapType.Simple, debug: true,
+    const options: IHeatmapOptions = {element: 'testHeatmap', type: IHeatmapType.Simple, debug: false,
     colorScale: {show: true, position: {vertical: 'top', horizontal: 'center'}, text: {start: 'FRÍO', end: 'CALIENTE'}} };
     const result = await Heatmap.initialize(options);
     console.log('result', result);
