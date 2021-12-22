@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Heatmap } from 'capacitor-heatmap';
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
 import { IHeatmapOptions, IHeatmapType } from 'capacitor-heatmap/dist/esm/models/models';
-import { RouteEventsService } from '../services/route-events.service';
 
 @Component({
   selector: 'app-heatmap-over-img',

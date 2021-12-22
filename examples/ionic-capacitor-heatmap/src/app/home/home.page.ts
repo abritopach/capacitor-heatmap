@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, OnDestroy, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, HostListener, ViewChild, ElementRef } from '@angular/core';
 
 import { Heatmap } from 'capacitor-heatmap';
 
@@ -91,7 +91,6 @@ export class HomePage implements OnInit {
       const newPoint: Array<number> = [e.clientX - rect.left, e.clientY - rect.top, 18];
       const resultAddPoint = Heatmap.addPoint(newPoint);
       console.log('resultAddPoint', resultAddPoint);
-      // this.frame = this.frame || window.requestAnimationFrame(this.drawHeatmap);
       window.requestAnimationFrame(() => { this.drawHeatmap() });
     };
 
@@ -106,9 +105,6 @@ export class HomePage implements OnInit {
     const options: IHeatmapDrawOptions = {opacity: this.opacity, radius: this.radius, gradient: this.gradient};
     const resultDraw = await Heatmap.draw(options);
     console.log('result draw', resultDraw);
-    // this.frame = null;
-    // const resultDataURL = await Heatmap.getDataURL('png', 95);
-    // console.log('resultDataURL', resultDataURL.value);
   }
 
   onClickClearData() {
@@ -183,7 +179,6 @@ export class HomePage implements OnInit {
   }
 
   async getValueAt() {
-    // const position: HeatmapPosition = [460, 340];
     const position: HeatmapPosition = {x: 949, y: 120};
     const resultValueAt = await Heatmap.getValueAt(position);
     console.log('resultValueAt', resultValueAt);

@@ -9,8 +9,6 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { RouteEventsService } from './services/route-events.service';
-
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -19,7 +17,6 @@ import { RouteEventsService } from './services/route-events.service';
     // StatusBar,
     // SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    RouteEventsService
   ],
   bootstrap: [AppComponent]
 })
