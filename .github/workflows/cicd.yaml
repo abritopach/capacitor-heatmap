@@ -41,25 +41,21 @@ jobs:
       - name: Run linter
         run: npm run eslint
   verify:
-    name: verify
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
+    timeout-minutes: 30
+    needs:
+      - scan
+      - lint
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
+      - uses: actions/setup-node@v1
         with:
-          node-version: '14'
-
-      - name: Cache dependencies
-        uses: actions/cache@v2
+          node-version: 14.x
+      - uses: actions/checkout@v2
+      - name: Restore Dependency Cache
+        uses: actions/cache@v1
         with:
           path: ~/.npm
-          key: npm-${{ hashFiles('package-lock.json') }}
-          restore-keys: npm-
-
-      - name: Install dependencies
-        run: npm ci --ignore-scripts
-
+          key: ${{ runner.OS }}-dependency-cache-${{ hashFiles('**/package.json') }}
+      - run: npm install
       - name: Run verify
         run: npm run verify
