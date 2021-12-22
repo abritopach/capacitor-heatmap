@@ -2,7 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 
 import { Map, tileLayer } from 'leaflet';
 import { Heatmap } from 'capacitor-heatmap';
-import { ILMHeatmapOptions, IHeatmapType, IHeatmapDrawOptions, HeatmapGradient, HeatmapPosition, LMHeatmapCoordinate } from 'capacitor-heatmap/dist/esm/models/models';
+import { ILMHeatmapOptions, IHeatmapType, IHeatmapDrawOptions, HeatmapGradient, LMHeatmapCoordinate } from 'capacitor-heatmap/dist/esm/models/models';
 
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
 
@@ -45,7 +45,6 @@ export class LeafletMapsHeatmapPage implements OnInit {
 
   initializeLMHeatmap() {
     // In setView add latLng and zoom
-    // this.mapLeaflet = new Map('mapLeaflet').setView([37.774546, -122.433523], 13);
     this.mapLeaflet = new Map('mapLeaflet').setView([-37.87, 175.475], 12);
 
     tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
