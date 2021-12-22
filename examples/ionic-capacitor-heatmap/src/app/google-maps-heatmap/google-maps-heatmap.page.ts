@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
 import { Heatmap } from 'capacitor-heatmap';
-import { IGMHeatmapOptions, IHeatmapType, GMHeatmapPoint, HeatmapPosition, GMHeatmapCoordinate } from 'capacitor-heatmap/dist/esm/models/models';
+import { IGMHeatmapOptions, IHeatmapType, GMHeatmapCoordinate } from 'capacitor-heatmap/dist/esm/models/models';
 
 @Component({
   selector: 'app-google-maps-heatmap',
@@ -39,11 +39,6 @@ export class GoogleMapsHeatmapPage implements OnInit {
 
   ngOnInit() {
     console.log('GoogleMapsHeatmapPage::ngOnInit() | method called');
-    /*
-    google.maps.event.addDomListener(window, 'load', () => {
-      this.initializeGMHeatmap();
-    });
-    */
     this.initializeGMHeatmap();
   }
 
@@ -73,8 +68,6 @@ export class GoogleMapsHeatmapPage implements OnInit {
     const options = {data: this.fakeHeatmapDataService.getGoogleMapsData(), opacity: 0.5, radius: 10};
     const result = await Heatmap.draw(options);
     console.log('result draw', result);
-    // const resultDataURL = await Heatmap.getDataURL('png', 95);
-    // console.log('resultDataURL', resultDataURL.value);
   }
 
   onClickClearData() {
@@ -91,7 +84,6 @@ export class GoogleMapsHeatmapPage implements OnInit {
   }
 
   async addData() {
-    // Heatmap.setData(this.fakeHeatmapDataService.getGoogleMapsData2());
     const resultAddData = await Heatmap.setData(this.fakeHeatmapDataService.getGoogleMapsData3());
     console.log('result add data', resultAddData);
   }
@@ -157,8 +149,7 @@ export class GoogleMapsHeatmapPage implements OnInit {
   }
 
   async getValueAt() {
-    const coordinate: GMHeatmapCoordinate = new google.maps.LatLng(37.782551, -122.445368);
-    // const coordinate: GMHeatmapCoordinate = new google.maps.LatLng(37.782, -122.443);
+    const coordinate: GMHeatmapCoordinate = new google.maps.LatLng(37.782551, -122.445368); // new google.maps.LatLng(37.782, -122.443)
     const resultValueAt = await Heatmap.getValueAt(coordinate);
     console.log('resultValueAt ', resultValueAt);
   }
