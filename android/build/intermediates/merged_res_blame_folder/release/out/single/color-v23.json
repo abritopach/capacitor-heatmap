@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/color-v23/abc_tint_switch_track.xml",
+        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/color-v23/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/color-v23/abc_tint_seek_thumb.xml",
+        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/color-v23/abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/color-v23/abc_tint_default.xml",
+        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/color-v23/abc_tint_default.xml"
+    },
+    {
+        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/color-v23/abc_color_highlight_material.xml",
+        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/color-v23/abc_color_highlight_material.xml"
+    },
+    {
+        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/color-v23/abc_tint_spinner.xml",
+        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/color-v23/abc_tint_spinner.xml"
+    },
+    {
+        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/color-v23/abc_tint_btn_checkable.xml",
+        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/color-v23/abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/color-v23/abc_btn_colored_borderless_text_material.xml",
+        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/color-v23/abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/color-v23/abc_btn_colored_text_material.xml",
+        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/color-v23/abc_btn_colored_text_material.xml"
+    },
+    {
+        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/color-v23/abc_tint_edittext.xml",
+        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/color-v23/abc_tint_edittext.xml"
+    }
+]

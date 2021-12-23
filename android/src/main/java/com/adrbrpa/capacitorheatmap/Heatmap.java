@@ -1,12 +1,12 @@
 package com.adrbrpa.capacitorheatmap;
 
 import com.getcapacitor.JSObject;
-import com.getcapacitor.NativePlugin;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
+import com.getcapacitor.annotation.CapacitorPlugin;
 
-@NativePlugin()
+@CapacitorPlugin(name = "Heatmap")
 public class Heatmap extends Plugin {
 
     @PluginMethod()
@@ -15,6 +15,6 @@ public class Heatmap extends Plugin {
 
         JSObject ret = new JSObject();
         ret.put("value", value);
-        call.success(ret);
+        call.resolve(ret);
     }
 }
