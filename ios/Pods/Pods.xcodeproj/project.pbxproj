@@ -7,355 +7,382 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02D93794AAAD83A71AC5BD113770AC20 /* TmpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C431C68EDABE88F37A6334ACF5121297 /* TmpViewController.swift */; };
-		0341A30A6DEDF25125B375CA74B1CAE6 /* CAPNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A16D08BEFC2070EC95FBBCB36292179 /* CAPNotifications.swift */; };
-		0370498819790DECC0024A3EA448BFE2 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670B35132686E581E54C51D223B57D6B /* WebView.swift */; };
-		0431EB9F7FEFD9AED774332E5B7848FC /* CAPPluginMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EB77461C85381E51716A2B1F5577E1 /* CAPPluginMethod.m */; };
-		04F6072A8EDB0B6B32E4F2B61AFFA640 /* CAPPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = DCB5479C6A1A7CEB8F8FBBF82DAE0469 /* CAPPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		09C201AF1CC4D100B94ADD0E29609FED /* CAPBridgeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693794041F679660642AD799B724B266 /* CAPBridgeDelegate.swift */; };
-		0B0E8AADC8319219AA781FA10FF21E13 /* CDVUserAgentUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = FE119BFF5CE03C1B65F6BFACE4501900 /* CDVUserAgentUtil.m */; };
-		10321170293032AABD89C2DC277A8BB2 /* CDVCommandDelegateImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F964017DFA1C34BA61DC54B072F4975 /* CDVCommandDelegateImpl.m */; };
-		11D1EB579FA74EEE727A4C7C45D3C950 /* CAPPluginCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CC2CEF5A5EF928CCA01820F61DFE6C /* CAPPluginCall.swift */; };
-		12B393A97934C5B9E215731CE53BABCC /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE56B6C5E642CB5E7D3F14F45CE24956 /* Storage.swift */; };
-		169C7612FE11483B7864F50BD7CD26F7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CDB574913802A61C677992132A7F95 /* Foundation.framework */; };
-		16CB984C41D26BB96AAC67A6BB8A3C72 /* NSDictionary+CordovaPreferences.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E05EFF12C0B9E47659718216DA7E0DA /* NSDictionary+CordovaPreferences.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		19F533E95E25D45B073E20EE7EA70AC6 /* CapacitorCordova.h in Headers */ = {isa = PBXBuildFile; fileRef = 906C923940B9268C254DF29329102AD8 /* CapacitorCordova.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		1B33A25E4C0C0AB10DA81E14FE68E83A /* Capacitor-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7773F03440F0992D404F02B54908AD32 /* Capacitor-dummy.m */; };
-		1C6F327FC09D2D40C10D4583C1943816 /* Clipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A85ECF36CC3F134FCCE0A637BDE841 /* Clipboard.swift */; };
-		2002DD3CA014E65F295F0FC21BDABB16 /* JS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155BB72DFFFB631E2B3297C2C5B1D0E9 /* JS.swift */; };
-		20A72AA420CAF1DFDC29BF62CE33CC7C /* Keyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = B75E1088C9E51B890AC3403C7C894E77 /* Keyboard.m */; };
-		22266BFD9691A007CF59548083652BE6 /* DocLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCD9FEAC30EEEFC0E44A0BDF2C9AAD4 /* DocLinks.swift */; };
-		23CAD2035D4C4AF1CD57F4B929A5F7A9 /* CAPBridgedPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D67FFBFCAA1EE2BEAF80E85EE14C6F6 /* CAPBridgedPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2425165E145FE69DD644A6C55ABC163B /* Modals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C3F793BC8A6BCF6F3F71657CD68AB4 /* Modals.swift */; };
-		25A7EC60D6FA70ABBA062276074468AA /* Diagnostics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273088682B387AADAAE8183DCC41D771 /* Diagnostics.swift */; };
-		3379D2D080238FE80FCEC9B7059BB598 /* AppDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = CCFE0B2215095C72E7BEB73F7A6E31AD /* AppDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		348551CDB11C1FCD857A764AA8DEE9EB /* Cordova.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 351CAFB01AE1CE21F3443E3CD9E750E4 /* Cordova.framework */; };
-		36EBFBA9FE06065BAA8489AD46406ABF /* CDVInvokedUrlCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 2867BE1FFFE1DC627F9FA352449A6004 /* CDVInvokedUrlCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		388D2C1954A11E94925AFF987E1B2907 /* CAPPluginCall.h in Headers */ = {isa = PBXBuildFile; fileRef = 967B3DDEEE30F3C4E4A6CE36E879CC96 /* CAPPluginCall.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A67C40E5CB2E502243C2017E69C229F /* CDV.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FE8DDD61EEE7B236DA964658216A383 /* CDV.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3B0E64DA957FEC736F42F3C3030494EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 069B846A2ABB32510EF935A027C09AF8 /* AppDelegate.m */; };
-		3B99FD2F0517635A0FD911A0D1C802F5 /* CDVCommandDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 852447C577ED41FEC5A3F0280C6BF007 /* CDVCommandDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3CCFB08E5B62F2C8220F6BCC59EE7C7F /* CDVPluginResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E2562934545251BBC8A7F6F8771304D /* CDVPluginResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4664F3BE691B71647C32F873C0D8FA16 /* NSDictionary+CordovaPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A9DC2AD37A89D3C7199C47CD214136 /* NSDictionary+CordovaPreferences.m */; };
-		4899C59C231DC8FBD543210D422ABE84 /* Pods-PluginTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FBD93D36D06B546B5015A4716941DCBB /* Pods-PluginTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4CB82AF600B8EC5862C14DFCF556E651 /* CDVPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = DB87E510672ACD9A756B4D905105DF5D /* CDVPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4D11A02FB5D70951CAE59DD840DFC2D7 /* CDVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A60068E0842AEAD4025CBBAE1CE67A /* CDVViewController.m */; };
-		4F52A085ECDDE207B966F2DB8A8C1E10 /* CDVUIWebViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = C29498291EF2B014C61E4E199468EC4C /* CDVUIWebViewDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		52B372F00AC218DF40B236CF1F489298 /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94C20E73B58B1AEA41B1E884B03A85C /* Accessibility.swift */; };
-		55F4E0B40A6F08B1E4ADF54810D5E598 /* CAPFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D438367B36705B71FDD7781A7822ED06 /* CAPFile.swift */; };
-		57E0053AA27CCACA2C3836BACE25E226 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE175F45DB99B3922F9E251DC9883E42 /* Haptics.swift */; };
-		5C24924D587CAC37E85626EEF1AC4B82 /* CAPLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE5257BFE81C390CAA1F1B3F58831AA /* CAPLog.swift */; };
-		5CAF1B84E687215E5693D97F0F25B10F /* CDVScreenOrientationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 22B1268DC7C813BCA63AB3919B255B98 /* CDVScreenOrientationDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5FF08EFB9F7D7E23936AC8F71138BDD9 /* CapacitorCordova-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 26D1CFF7419F0DF34AB48C02EF1C9980 /* CapacitorCordova-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		62CE8D534CC6DAAC0C0BDFB434C948C3 /* CDVCommandDelegateImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DF3D47783DECE66C72E994DEEE1D0F4 /* CDVCommandDelegateImpl.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		62F230A7ACF62AB41AEFBFB4B92ACAA9 /* DefaultPlugins.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A4ADCCC40C8DC1DA995DD71ABEF3C1B /* DefaultPlugins.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6548BAE899E15212E367E39BD1C75426 /* CAPAssetHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033EBF3FB9C546751913BA650C915103 /* CAPAssetHandler.swift */; };
-		6B96C9328BBA19B2B2FFB7E867541AA2 /* CDVViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B28736F702F2544B53DA969F7F85518C /* CDVViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6D35302D53D51A0F965D2CA805F84036 /* Pods-Plugin-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A2BC9A9C63563BFD519AB3CE4D5D9D /* Pods-Plugin-dummy.m */; };
-		6E0E7011C53428850FFB28F7D7A4EF2A /* CDVUIWebViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D50EAADD0D2C64867E9C6E92C1E11D0A /* CDVUIWebViewDelegate.m */; };
-		704364CB296AF00C48EDC3306F647EA5 /* Browser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533ACB0561E0A114D57EE5EA5653E767 /* Browser.swift */; };
-		7748D589BDF0A3621603CDDB2719EF2A /* Pods-Plugin-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EFD241FB11A4273E5C38133FF35CF7D /* Pods-Plugin-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7BBF60A1972067EB5EEA4E6AC75208AC /* Keyboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 763916F30BADAB102D3CA5893C15CCB7 /* Keyboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7E9007AAF1D8C223E1839C3D43DB237D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CDB574913802A61C677992132A7F95 /* Foundation.framework */; };
-		8013340CBC0554CF2A36DDA0804F7E0F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9E4A78D242B2E4557E94EB2F1E5477 /* UIColor.swift */; };
-		8991C5D19D5BBDCBFAF573A02FD863B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CDB574913802A61C677992132A7F95 /* Foundation.framework */; };
-		8C1C5B2437D981A85F1E2FE3C3E027B5 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99400864B11D0F2A98A6A0DD8B056ED3 /* Network.swift */; };
-		8EE06717126C1F79B8CB9936391C8782 /* Share.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C263E7BF73E60B5CC35E627B4738DE /* Share.swift */; };
-		9280BBA8BD19A47256B03D1D37F7ACE7 /* Permissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A90981D1627143261C856BAA36C2B1C /* Permissions.swift */; };
-		944BC4026AE06C0B517EC3A8D0BD3BF5 /* CDVURLProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 91DBF49ACC4D94E55A584D34DD3CF3CA /* CDVURLProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9563A9C7DCF3B3FE37ED5DC01375BF48 /* CDVPluginResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C3DD2387EECB5F66C097EE9090D555 /* CDVPluginResult.m */; };
-		98D5C24640970ECE05E563F24262D777 /* UIStatusBarManager+CAPHandleTapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 83135C906C0E8E4B2CA395EEBE7A5BCD /* UIStatusBarManager+CAPHandleTapAction.m */; };
-		9ECE7349B3C6DED992AA901755429D68 /* Filesystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BC2A1A9E208B6A2811391E060266A8 /* Filesystem.swift */; };
-		9F99693097C0051CA274F998629A0B9E /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C9D61818E618F2D4519A1F2364C704 /* SplashScreen.swift */; };
-		A7FE78A4D72287C2B47FEDC753471DCE /* CAPConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD6FAA2DDECEB90477D540AE554B63 /* CAPConfig.swift */; };
-		ADD673B56408BF7A735C6197F4314E62 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3770640962AA1980A71E0C2829EAAFA9 /* Toast.swift */; };
-		B0A670CFD6FDB7A5EFCE5A9BF57C6341 /* CDVConfigParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DA272E8D0D1E004E3301CD1DB94B44BA /* CDVConfigParser.m */; };
-		B0C0B0D0337CDBA0D69DC4CAF7D7EB34 /* CAPBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B767B174CBEB6904D9649CAB095AEC00 /* CAPBridge.swift */; };
-		B22448CBBE4F7D2A80FE92A97F08237C /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1654F166D12A4BD12EAC8BBD1794ED4 /* App.swift */; };
-		B312D2CD4214F2CF9C5B0213100DFCD8 /* CAPPluginCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 39422EC4D0CB134DCB2ED4754F7908A2 /* CAPPluginCall.m */; };
-		B9DAC8F53C2EA52FFF9EF615E2735A4C /* CDVURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EFD11EB7D880780DAA27BD0A9D2387 /* CDVURLProtocol.m */; };
-		BA354F0C1145378C46C1EC85F7C7AA46 /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35A52577A996A43B24ADBA13C48CD3B /* StatusBar.swift */; };
-		BA889C1D3547D2C1393685FCF58B584A /* PushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634EB90BB2B3B81F8463CF701F317240 /* PushNotifications.swift */; };
-		BB54B0DA10E9CCBAC3EFAF7686528DC4 /* CDVConfigParser.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3AC6176949E63E832452D526E4CEB4 /* CDVConfigParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BB860FB899D2E52A1D75DAD8706F8C4B /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = F968FDDAA1063D1C31367DED9FCD39AC /* Device.swift */; };
-		BCC84EE1F1F774963D0AA1F7E0EBB9B8 /* CDVPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = E036FDC2D1F6397CBAA63B65DBD72761 /* CDVPlugin.m */; };
-		BCD1D0FDBED51926ABF28CE60136A46C /* Console.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654D9029F125B2FD26144C729EC999ED /* Console.swift */; };
-		BE41D8BD751013784F5019B9C5AAD029 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF2485C29D2DDA509ACD68C4757A2C5 /* Reachability.swift */; };
-		C3690E20B2F142FD82D2EB9AD249290D /* DefaultPlugins.m in Sources */ = {isa = PBXBuildFile; fileRef = 828D1D21D2757832085FCA5F811AE84A /* DefaultPlugins.m */; };
-		C4D61AD80778EFC5CD1BE23CB8AE1123 /* BackgroundTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5271A8C904E08B00200EBC10D503CBC /* BackgroundTask.swift */; };
-		C51D17A44A8D20C8E4F6AE4A8D319510 /* CAPPluginMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = C072E035F234ED32715D2699B24E1203 /* CAPPluginMethod.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C5CEDB84C94200E524D516CA51E8134B /* LocalNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2EB51688FD9B59EFB0B40B502DFE97 /* LocalNotifications.swift */; };
-		C7DFAF6F68541F4DC359AAB9D8177E56 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7AA56A7BCB8E98326A8BF4D2E6E9FB /* UILabel.swift */; };
-		D282773D0BB24797EA16B5D1DCFADE39 /* CAPUNUserNotificationCenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F5F9D0C1246D76286B40373CAC45B0 /* CAPUNUserNotificationCenterDelegate.swift */; };
-		D655D290A4B763D71B7558F8F8E092F8 /* Capacitor.h in Headers */ = {isa = PBXBuildFile; fileRef = 0063BAD881A18CC11F9F1A7406D17EC8 /* Capacitor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D7B72DE457DBD019F71BEDA33BE15C06 /* CapacitorCordova-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E9F1192C63012C6F6AA2F09EE73040 /* CapacitorCordova-dummy.m */; };
-		D8F63A429C5527917987E85394FE1443 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62008C7BF1EE1FE5E61842B6E8E9F06 /* Camera.swift */; };
-		E06D35AF23C90031EE5645A4356A2D18 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D983ADD0DA9C04F1D54AB35453AF0D /* WebKit.framework */; };
-		E1738E62A487760FCCE8891B757483B1 /* CAPAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15635FC4114BA59BF54491F51F86DAC5 /* CAPAppDelegate.swift */; };
-		E5075E9C7154125FCAE580B873F83A2F /* Geolocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0DB675FC00EC5365322ABFD4EF1EC3 /* Geolocation.swift */; };
-		E7E7308E87E16E536FB47BE16FA2D935 /* CDVInvokedUrlCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6B80645423F14634E669A142B45D28 /* CDVInvokedUrlCommand.m */; };
-		E9716479F6B8424D69D65B3FBDE458A5 /* Pods-PluginTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E74390F09A29D254E98C5610DDD5A28 /* Pods-PluginTests-dummy.m */; };
-		E9BB02D342F27998EB89174AE09D1EFC /* CAPPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E8B7513894D157ACCF635C2E9E8AAC /* CAPPlugin.m */; };
-		EB52287903AA55E5633B170E7096B8B4 /* CAPBridgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB792C0A5F4F4CB3B089B955AC06D6D /* CAPBridgeViewController.swift */; };
-		EC6A8EFCE0333A957A2B4AFE9643A148 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CDB574913802A61C677992132A7F95 /* Foundation.framework */; };
-		EE0DE457D7145E0BFF7863948BC98260 /* CDVPluginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF395EB8506C91E300BEAE93C9A1314 /* CDVPluginManager.m */; };
-		F155E4AE2E52359EA03D774D238BA550 /* Capacitor-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DDACF0AF6DDEBA8A6F6DAC16DD0E31FC /* Capacitor-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F23D79170AFC70075D915D329163B219 /* CDVUserAgentUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = BB5EAC21DD16A3BC68598D0682CB7CF5 /* CDVUserAgentUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F99D922D3BE68E1709D3F3EC43AF7078 /* JSExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D502E439E25D24D3E06EAB18770FDC8 /* JSExport.swift */; };
-		FAA7E1396DAA7EC56F971D8E99390E70 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C64055588F9798D61BDDB2460840C6 /* Photos.swift */; };
-		FD0B21AB98B947A95194259B0BC6439C /* CDVAvailability.h in Headers */ = {isa = PBXBuildFile; fileRef = CBFBBFDBE34C37CCF3C5D85E88D3D036 /* CDVAvailability.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FE9BE01E4D12FBDD8E09F03BB8815BD6 /* CDVPluginManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B6AAE66DFF55D1090B91741FF0C65E9E /* CDVPluginManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		00675176FF871CA2F3B0893D5FABA596 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 836AA53B08735CCA25FCBEB61ECE2D62 /* Foundation.framework */; };
+		09D4D0831A2D8AC1D49A851B4C45BB33 /* CDVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F455940F4369F86707A088E115DA6431 /* CDVViewController.m */; };
+		0AEF641B94A6C789C7730E111BA89DDA /* CAPPluginCall.h in Headers */ = {isa = PBXBuildFile; fileRef = D6025F29D8CD4025B6FDB1A94A26B60D /* CAPPluginCall.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0CF1274ACCFA692016F71E1017FB78F0 /* WebViewDelegationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C2B2597B43666838F86EB2AE31B23 /* WebViewDelegationHandler.swift */; };
+		0D117C5727BACDC2CB014BBF521A4C96 /* CDVCommandDelegateImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = EB9C46B9384BA7D714FBB738806D786A /* CDVCommandDelegateImpl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0EB0D916405A8B74B6485F8AED287B52 /* TmpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB344E6CFF012B1CF0362AD86ECBD3B /* TmpViewController.swift */; };
+		113531B71E00B8EC5635C067A1BAA589 /* CapacitorCordova-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D254A4EBC8390D953B496A7E031087F /* CapacitorCordova-dummy.m */; };
+		13261D586B71241BF3D94545AF13B19C /* WKWebView+Capacitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F0E55F9F193D72C5EB960F8EFE100F /* WKWebView+Capacitor.swift */; };
+		158C6C82CF10FBB43DB48D44F27E9166 /* CapacitorCordova.h in Headers */ = {isa = PBXBuildFile; fileRef = 87A3402237A379EDCD6B3F7FFBD6FBB0 /* CapacitorCordova.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		183E9878DC6739EE15D04DEB0DFFAC38 /* CDVURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = F2AC7704B1D105ACB51B6E15112C9B56 /* CDVURLProtocol.m */; };
+		19C25586E762DE4B0D16A34F9A82F22D /* CAPBridgeViewController+CDVScreenOrientationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAC748FFA0D187EE657AABFD08A9BC4 /* CAPBridgeViewController+CDVScreenOrientationDelegate.m */; };
+		2443AA1B5EE25C1B61F74DF5CB10C1C8 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99B23715A290880D7B884EA4347AD5E /* WebView.swift */; };
+		2AA72E77388336D426E00F0F16C70A12 /* CDVAvailability.h in Headers */ = {isa = PBXBuildFile; fileRef = F5EA51EF7FF15F420C39B67BC4AA2BB6 /* CDVAvailability.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2AB272ED56FC6910939BE6B452236537 /* Pods-PluginTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FBD93D36D06B546B5015A4716941DCBB /* Pods-PluginTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		314E70C52A85291B9B0479509D37F785 /* CAPPluginMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DF79DF4BCBB8C0C2DA162DD0B9ACBA /* CAPPluginMethod.m */; };
+		32359D2A42B526323E6D19EE78EB6DAE /* Capacitor-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B2DD7FAE865DA8B886D9867A87C729C9 /* Capacitor-dummy.m */; };
+		32442B4791A6357A2FABC7C6138E079C /* CAPInstanceConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 42DBBB29A9ABAE8B8A594A8FB4F46BE3 /* CAPInstanceConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		33DF2B6E77E8C201B514F0088D69FC35 /* CAPBridgeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC8825734B17FA18DC0F6B24F8790F /* CAPBridgeDelegate.swift */; };
+		342942F8E74A06C53C62A47E42E6431C /* CAPPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = F1BD50339E3391F470F512DFC95312C4 /* CAPPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		36CCA340B9CD015BAD7712D21EB68B7A /* CAPFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818D2FD2EEC516816F35D84289D10EA2 /* CAPFile.swift */; };
+		37FA76784C5CE052B1CA93A24F62CEB3 /* CAPPluginMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = DF845C1F0DF33F631A161CBFC0067CE3 /* CAPPluginMethod.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3899A7F7B56A14B2443E8AAF34E2BDC7 /* CAPInstanceDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1ADB7F16949AA7656074642ADFFA2 /* CAPInstanceDescriptor.swift */; };
+		3A21670B488183AA2C6399C8A94EB665 /* CDVCommandDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DDD557DDA681EC7EB0B1025048EB2C3 /* CDVCommandDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B48136E65F42941E4876116E20BAE80 /* JSTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCDED8F6D2473F45070BC8B4C8416CB /* JSTypes.swift */; };
+		3CF5A0AC67EE1BBF2C5F7E52486A03E0 /* CDVInvokedUrlCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F17A698A8E19DCF5EB104E7058DA23A /* CDVInvokedUrlCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3E005519C18C841566E989F963208D30 /* CAPBridgedJSTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2837BF08C35E8727EA5639BEF4AFD93E /* CAPBridgedJSTypes.m */; };
+		403DB01130417FA3E7DE77CB601F1F72 /* CDVPluginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBAEDEFE836D5924FEC4D05621DD8E1 /* CDVPluginManager.m */; };
+		414A0CABDD2B61A4674ACBEF9C8D28D2 /* CAPApplicationDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD2B925B4ED799EFF36F0AA6688BC16 /* CAPApplicationDelegateProxy.swift */; };
+		427CEABA0A5C38E19D97F8B5B93C4866 /* NSDictionary+CordovaPreferences.h in Headers */ = {isa = PBXBuildFile; fileRef = 38603A16B2177A1E7DAD9BA057B6AE18 /* NSDictionary+CordovaPreferences.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		438313AEAC6106313C3D70110731FE43 /* CDVPlugin+Resources.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647F38F667AA5A15EC7ACFFBC8EE302 /* CDVPlugin+Resources.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48ED9C692526E5A2860609B544292542 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15AE296986E7EA9099B1F1A3C0632470 /* WebKit.framework */; };
+		4D466FA0AB55B7F08029203CCBA5251C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 836AA53B08735CCA25FCBEB61ECE2D62 /* Foundation.framework */; };
+		4E1C7C62151993ACB9A2C41DD0E8249A /* NSDictionary+CordovaPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 0595A1303DD9FF59A38B1481DE488CAD /* NSDictionary+CordovaPreferences.m */; };
+		4E3983855D38B1492D98CCFBBF21664D /* CAPInstanceConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1285116DEBF3A84E4D7E399B2511FA /* CAPInstanceConfiguration.swift */; };
+		50FDF7D61EA9A036AFB84E72C82ADE6D /* CAPInstanceDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FEEC8823A679CE7791E9EF08A9E6E3 /* CAPInstanceDescriptor.m */; };
+		52C1777F64D95C3885A2D7D9219CEB3C /* CAPPluginCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406E47DEBB7348AB74A9EF1991995C0E /* CAPPluginCall.swift */; };
+		53BE1B6FAB258D445F043F305AC2A982 /* CapacitorBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1844C33568177925731A3EDAE7E17D /* CapacitorBridge.swift */; };
+		55473C590A743544B36C0AB16DA366AD /* CAPBridgedPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B79D5450DEC39EF536E37990DB71BD7 /* CAPBridgedPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		59EB6C129639B56056DCABA6629D7F66 /* Pods-Plugin-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A2BC9A9C63563BFD519AB3CE4D5D9D /* Pods-Plugin-dummy.m */; };
+		6AE3B2A1239117FFFEB5D9E048598BBA /* Cordova.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 351CAFB01AE1CE21F3443E3CD9E750E4 /* Cordova.framework */; };
+		705EEB64F6E52F3B47AD24D38A287551 /* CDVScreenOrientationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 503BF3D83BF8F38D2A4F60013602D21E /* CDVScreenOrientationDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7190A3EFF5C4F74E72543FFB365BA6D3 /* CAPPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 0525E66B9C3BDD2B3EDCBC46FEE09B6E /* CAPPlugin.m */; };
+		78FAC0A5815747D76CF28B394020B96A /* CDVConfigParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FF839557F83730B4B4E6F223DF8C0CED /* CDVConfigParser.m */; };
+		792909C3DA3490DC365DFE881587A1D7 /* CAPBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2F0E3889AEF23CC4D2AD85574453 /* CAPBridge.swift */; };
+		7A5D45706BA503225CF5F480B017AFE4 /* CDVPlugin+Resources.m in Sources */ = {isa = PBXBuildFile; fileRef = 009A31A69B1263AA5BEC5B357F0EF311 /* CDVPlugin+Resources.m */; };
+		7ABECF4B8AE84B3A314B8988F8BC4289 /* CapacitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C60F6406701DE37EE80CACAED2041A /* CapacitorExtension.swift */; };
+		7ACF29A1647B7BDCBF42A2EBBDA496E8 /* WKWebView+Capacitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB69F1F16471B343FFA8B71F88FCD02 /* WKWebView+Capacitor.m */; };
+		7BBF4F6B4BE4F7EEADB2CAB7B4D9F4D7 /* CDVPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 675C2E248BF51592940D1B41E8054AB5 /* CDVPlugin.m */; };
+		7CC9A691137294516A85745527452744 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CF0249A5B86BF7577FF0479FF765E5 /* AppDelegate.m */; };
+		8B2B22B670953DB72EE08437E8211A03 /* Console.swift in Sources */ = {isa = PBXBuildFile; fileRef = B995FC6500C332B4B8838EADCB45AEB3 /* Console.swift */; };
+		8CFCB488465B388E5721E2451873F432 /* KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4647563C1CACE3140098EC718FA69320 /* KeyPath.swift */; };
+		947898A65C38042756F4079A9AC6B829 /* WebViewAssetHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF501596E090E268D36BEAD1550989F5 /* WebViewAssetHandler.swift */; };
+		97F77E912F6D3B6B6FE0A97A18A30E35 /* CAPLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74543717CD5848B8544A63A9B28B8652 /* CAPLog.swift */; };
+		9B87AFF01C62D1D383B23D53942B5259 /* CAPBridgedJSTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = D4CB8F0A87C7A7CF0C73967494AE4076 /* CAPBridgedJSTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9B8C19D7E5454A96FA117B99E556EE6B /* CDVPluginManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0358920F702471D0639B52FCF3B4EB46 /* CDVPluginManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9E8CD5C9CCEA9842D09DFB928E7968FA /* UIStatusBarManager+CAPHandleTapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = A66B90AB2B0FEC2D9639AACA424EC6D6 /* UIStatusBarManager+CAPHandleTapAction.m */; };
+		9E9427578C52E17B0A350692A5B725C0 /* CAPInstanceConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = C76E78EC48C03C2C53556C34FDDF9B09 /* CAPInstanceConfiguration.m */; };
+		A74BBDFD7C501FA6EE4010485FF29583 /* Capacitor.h in Headers */ = {isa = PBXBuildFile; fileRef = E3371942650BECC2D08F0AC0B252F83E /* Capacitor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ACE4048A431EAF46DDEC4341A931A0DF /* CDVPluginResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 49460EF4C6D32BD0620F9BAF61D61DEF /* CDVPluginResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AE0A157D845E136EA43BA20A7F8AE7B0 /* Array+Capacitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28B00AD819CE95FB5D2623694DA1A71 /* Array+Capacitor.swift */; };
+		AF630C31D5A79586F63881A5F7463E67 /* Pods-PluginTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E74390F09A29D254E98C5610DDD5A28 /* Pods-PluginTests-dummy.m */; };
+		B27B05F270567995D7761BBF59FB350C /* PluginCallResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DA86B763C20B9FE6C9CF286C929F11 /* PluginCallResult.swift */; };
+		B5A71C0D47057D0E65C04EC84A24B385 /* CDVInvokedUrlCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAABC08A75E9DD96124A5838BC71EFD /* CDVInvokedUrlCommand.m */; };
+		B94A4AD2A9613D6F1DEDB2F3D9B31093 /* CAPBridgeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6BD30FEA091A8D18CD1CEEF39CB801 /* CAPBridgeProtocol.swift */; };
+		C1929DBD81F7A5E4F376D9A84E80DF57 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFABC698A91763DE47604F02CC8E25 /* UIColor.swift */; };
+		C42A15EF6AFC89AC05A1B7ECB205A4C7 /* Data+Capacitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EEE8199015989507D58CAAEE414856 /* Data+Capacitor.swift */; };
+		C53B13BBABCD530693400CF2A28A114D /* CDVViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 26887A80F387D0FC7CAEE2479E24A3F1 /* CDVViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C8548FCC70DD8AA0A0BDAE31D212AFA8 /* DocLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4904AEAA694399E96E9398B2AF798C75 /* DocLinks.swift */; };
+		CF9B1A89824DF80D3D48199BE7308B88 /* CDVURLProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = E367BEECC2B54FF6C7CFB48DAC1F8557 /* CDVURLProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D022CB221B4DCB7BED2C6C1F76C9772D /* JS.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBFE11B12ED6A00BA9E76286149F500 /* JS.swift */; };
+		D3163A29F47496C92C285BAB100712F6 /* Pods-Plugin-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EFD241FB11A4273E5C38133FF35CF7D /* Pods-Plugin-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D76D549196EF3766D52AA6BEDF861675 /* CAPNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC44420AF25A2812B0AD0314FC4DB90 /* CAPNotifications.swift */; };
+		D7DCA9345214E46478597276DDD444AD /* DefaultPlugins.m in Sources */ = {isa = PBXBuildFile; fileRef = E330E8624740146422BC92AA669DE724 /* DefaultPlugins.m */; };
+		D7FD473D5B8C65C00797979E0C26C83F /* CDVPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = A55CB66969D6C3D82B242D1651CCB290 /* CDVPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D854200CF9DC215B51E7AB606B49B3A5 /* JSExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AFAD33C394BFB1C88851E1EAB9181F /* JSExport.swift */; };
+		D9ACDA0C0DDD732AD3EA18C17B3B02CF /* native-bridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 1285BF216BA16E142FB07D3F03A298F4 /* native-bridge.js */; };
+		DB25C702FD38D204934E5B6B42280D55 /* AppDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CBD3BA3A48D4E64349D074D6F1BCB12 /* AppDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCBD083DA6825B9486EA1EC61796A653 /* CDVCommandDelegateImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9FFC1DC0459F71D0F816833C6D4541 /* CDVCommandDelegateImpl.m */; };
+		E14758A68B8338DB9EDBE02BEE793923 /* CAPBridgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1932D17D0954C4CFE288446EE67FDA3A /* CAPBridgeViewController.swift */; };
+		E23A11930B1F0B376BA3573E1684FFA2 /* NotificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CC707D0139057F45E1C0790F12D73 /* NotificationRouter.swift */; };
+		E4A0833CE7E74EC1C5C835EEFBFAD761 /* CAPBridgeViewController+CDVScreenOrientationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = AE45B5361CEADD32D72B5C20430DF0F3 /* CAPBridgeViewController+CDVScreenOrientationDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E6FF0EFF8CCB2F26C59F7E5AA73152C3 /* CAPPluginCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CF27BACD2F158093F5463EB5C3BF9A /* CAPPluginCall.m */; };
+		E724A516A46988E9D8A1AC14E3EA7C12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 836AA53B08735CCA25FCBEB61ECE2D62 /* Foundation.framework */; };
+		E8A3034AAC22831C5EE90FF6FBD7720C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 836AA53B08735CCA25FCBEB61ECE2D62 /* Foundation.framework */; };
+		EA2E30D3E2B2398BE6936CA791373C07 /* CDVPluginResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD28FC4F5EA0ABE47BDD7EF842BBC6C /* CDVPluginResult.m */; };
+		F06124CA8CFF8843A1D84511D83D9B14 /* CDVConfigParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 512285ED8D3980241992DFDD5B91A679 /* CDVConfigParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F283821BD859552A79631A63E2A69B9F /* NotificationHandlerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6547A8D369523D98957A3016F62CBF /* NotificationHandlerProtocol.swift */; };
+		FB9232FEA107F215007BE65BA4ED29C0 /* CDV.h in Headers */ = {isa = PBXBuildFile; fileRef = D5C6E526D809FA897053F7931163CD19 /* CDV.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FF84226483AF8F58F5591AD3BD0C4906 /* CAPInstanceDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 35ED2B3AF2BA5A2189E2B54225E0F8C3 /* CAPInstanceDescriptor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1C6DFF8559D66FCE5655F99723078DC3 /* PBXContainerItemProxy */ = {
+		19934B9979739B4E1D498AAC03353C32 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 400AE44335852A2D8D746557E21E8EB0;
 			remoteInfo = CapacitorCordova;
 		};
-		752160B9E217B990996A8817222E370E /* PBXContainerItemProxy */ = {
+		6E4BBBAEFF4DF70F86288B4FDCE42B4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 400AE44335852A2D8D746557E21E8EB0;
+			remoteInfo = CapacitorCordova;
+		};
+		79ECF4D78D5407C1D99A9E1CE5344FB2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 0ECF3D6BFCC08377AE23B027EE1D4371;
 			remoteInfo = Capacitor;
 		};
-		A1354707E0EDC3D2153733F7C62677E9 /* PBXContainerItemProxy */ = {
+		C244E71BA488A8345EF177AAF634ECB1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 400AE44335852A2D8D746557E21E8EB0;
 			remoteInfo = CapacitorCordova;
 		};
-		BAC73F9700C1E9F4E5B0630727811E0F /* PBXContainerItemProxy */ = {
+		D7C0EE355632C05D1EDBF1F432E21109 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 0ECF3D6BFCC08377AE23B027EE1D4371;
 			remoteInfo = Capacitor;
-		};
-		C654906C524DB524B8E04EE0D76B5288 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 400AE44335852A2D8D746557E21E8EB0;
-			remoteInfo = CapacitorCordova;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0063BAD881A18CC11F9F1A7406D17EC8 /* Capacitor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Capacitor.h; path = ios/Capacitor/Capacitor/Capacitor.h; sourceTree = "<group>"; };
-		02D983ADD0DA9C04F1D54AB35453AF0D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
-		02EFD11EB7D880780DAA27BD0A9D2387 /* CDVURLProtocol.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDVURLProtocol.m; sourceTree = "<group>"; };
-		033EBF3FB9C546751913BA650C915103 /* CAPAssetHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CAPAssetHandler.swift; path = ios/Capacitor/Capacitor/CAPAssetHandler.swift; sourceTree = "<group>"; };
-		05A31D6BE6C7FB6B0B69FDAB9188ABF9 /* CapacitorCordova.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = CapacitorCordova.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		069B846A2ABB32510EF935A027C09AF8 /* AppDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0D67FFBFCAA1EE2BEAF80E85EE14C6F6 /* CAPBridgedPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CAPBridgedPlugin.h; path = ios/Capacitor/Capacitor/CAPBridgedPlugin.h; sourceTree = "<group>"; };
+		009A31A69B1263AA5BEC5B357F0EF311 /* CDVPlugin+Resources.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CDVPlugin+Resources.m"; sourceTree = "<group>"; };
+		00DA86B763C20B9FE6C9CF286C929F11 /* PluginCallResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PluginCallResult.swift; path = Capacitor/Capacitor/PluginCallResult.swift; sourceTree = "<group>"; };
+		01CF27BACD2F158093F5463EB5C3BF9A /* CAPPluginCall.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CAPPluginCall.m; path = Capacitor/Capacitor/CAPPluginCall.m; sourceTree = "<group>"; };
+		0358920F702471D0639B52FCF3B4EB46 /* CDVPluginManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDVPluginManager.h; sourceTree = "<group>"; };
+		0525E66B9C3BDD2B3EDCBC46FEE09B6E /* CAPPlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CAPPlugin.m; path = Capacitor/Capacitor/CAPPlugin.m; sourceTree = "<group>"; };
+		0595A1303DD9FF59A38B1481DE488CAD /* NSDictionary+CordovaPreferences.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+CordovaPreferences.m"; sourceTree = "<group>"; };
+		0AB69F1F16471B343FFA8B71F88FCD02 /* WKWebView+Capacitor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "WKWebView+Capacitor.m"; path = "Capacitor/Capacitor/WKWebView+Capacitor.m"; sourceTree = "<group>"; };
+		0F8AFF3D2C90E24D31055D049DDE67BF /* Capacitor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Capacitor.release.xcconfig; sourceTree = "<group>"; };
 		11DF9CA040CEBA3928A7F34FB4928E2C /* Pods-Plugin-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Plugin-Info.plist"; sourceTree = "<group>"; };
-		155BB72DFFFB631E2B3297C2C5B1D0E9 /* JS.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JS.swift; path = ios/Capacitor/Capacitor/JS.swift; sourceTree = "<group>"; };
-		15635FC4114BA59BF54491F51F86DAC5 /* CAPAppDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CAPAppDelegate.swift; path = ios/Capacitor/Capacitor/CAPAppDelegate.swift; sourceTree = "<group>"; };
-		16C3DD2387EECB5F66C097EE9090D555 /* CDVPluginResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDVPluginResult.m; sourceTree = "<group>"; };
+		1285BF216BA16E142FB07D3F03A298F4 /* native-bridge.js */ = {isa = PBXFileReference; includeInIndex = 1; name = "native-bridge.js"; path = "Capacitor/Capacitor/assets/native-bridge.js"; sourceTree = "<group>"; };
+		15AE296986E7EA9099B1F1A3C0632470 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
+		16CF0249A5B86BF7577FF0479FF765E5 /* AppDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1932D17D0954C4CFE288446EE67FDA3A /* CAPBridgeViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CAPBridgeViewController.swift; path = Capacitor/Capacitor/CAPBridgeViewController.swift; sourceTree = "<group>"; };
 		1ABFDA3391AEBA42EFB0FEBF824A6E34 /* Cordova.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Cordova.framework; path = CapacitorCordova.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1E9E4A78D242B2E4557E94EB2F1E5477 /* UIColor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = ios/Capacitor/Capacitor/UIColor.swift; sourceTree = "<group>"; };
-		22B1268DC7C813BCA63AB3919B255B98 /* CDVScreenOrientationDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDVScreenOrientationDelegate.h; sourceTree = "<group>"; };
-		26D1CFF7419F0DF34AB48C02EF1C9980 /* CapacitorCordova-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CapacitorCordova-umbrella.h"; sourceTree = "<group>"; };
-		273088682B387AADAAE8183DCC41D771 /* Diagnostics.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Diagnostics.swift; path = ios/Capacitor/Capacitor/Diagnostics.swift; sourceTree = "<group>"; };
-		27C9D61818E618F2D4519A1F2364C704 /* SplashScreen.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
-		2867BE1FFFE1DC627F9FA352449A6004 /* CDVInvokedUrlCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDVInvokedUrlCommand.h; sourceTree = "<group>"; };
-		29C64055588F9798D61BDDB2460840C6 /* Photos.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
-		2D502E439E25D24D3E06EAB18770FDC8 /* JSExport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSExport.swift; path = ios/Capacitor/Capacitor/JSExport.swift; sourceTree = "<group>"; };
-		2DCD9FEAC30EEEFC0E44A0BDF2C9AAD4 /* DocLinks.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DocLinks.swift; path = ios/Capacitor/Capacitor/DocLinks.swift; sourceTree = "<group>"; };
-		2DE5257BFE81C390CAA1F1B3F58831AA /* CAPLog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CAPLog.swift; path = ios/Capacitor/Capacitor/CAPLog.swift; sourceTree = "<group>"; };
-		31BC2A1A9E208B6A2811391E060266A8 /* Filesystem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Filesystem.swift; sourceTree = "<group>"; };
-		32EB77461C85381E51716A2B1F5577E1 /* CAPPluginMethod.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CAPPluginMethod.m; path = ios/Capacitor/Capacitor/CAPPluginMethod.m; sourceTree = "<group>"; };
+		1F17A698A8E19DCF5EB104E7058DA23A /* CDVInvokedUrlCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDVInvokedUrlCommand.h; sourceTree = "<group>"; };
+		22DF79DF4BCBB8C0C2DA162DD0B9ACBA /* CAPPluginMethod.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CAPPluginMethod.m; path = Capacitor/Capacitor/CAPPluginMethod.m; sourceTree = "<group>"; };
+		23C60F6406701DE37EE80CACAED2041A /* CapacitorExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CapacitorExtension.swift; path = Capacitor/Capacitor/CapacitorExtension.swift; sourceTree = "<group>"; };
+		24246F5A3F2E10AA8DC5CEA1C7DABE35 /* Capacitor.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Capacitor.modulemap; sourceTree = "<group>"; };
+		2647F38F667AA5A15EC7ACFFBC8EE302 /* CDVPlugin+Resources.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CDVPlugin+Resources.h"; sourceTree = "<group>"; };
+		26887A80F387D0FC7CAEE2479E24A3F1 /* CDVViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDVViewController.h; sourceTree = "<group>"; };
+		2837BF08C35E8727EA5639BEF4AFD93E /* CAPBridgedJSTypes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CAPBridgedJSTypes.m; path = Capacitor/Capacitor/CAPBridgedJSTypes.m; sourceTree = "<group>"; };
+		2BC44420AF25A2812B0AD0314FC4DB90 /* CAPNotifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CAPNotifications.swift; path = Capacitor/Capacitor/CAPNotifications.swift; sourceTree = "<group>"; };
+		30BF2F0E3889AEF23CC4D2AD85574453 /* CAPBridge.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CAPBridge.swift; path = Capacitor/Capacitor/CAPBridge.swift; sourceTree = "<group>"; };
 		351CAFB01AE1CE21F3443E3CD9E750E4 /* Cordova.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cordova.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		35CC2CEF5A5EF928CCA01820F61DFE6C /* CAPPluginCall.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CAPPluginCall.swift; path = ios/Capacitor/Capacitor/CAPPluginCall.swift; sourceTree = "<group>"; };
-		3770640962AA1980A71E0C2829EAAFA9 /* Toast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
-		39422EC4D0CB134DCB2ED4754F7908A2 /* CAPPluginCall.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CAPPluginCall.m; path = ios/Capacitor/Capacitor/CAPPluginCall.m; sourceTree = "<group>"; };
-		3A90981D1627143261C856BAA36C2B1C /* Permissions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Permissions.swift; sourceTree = "<group>"; };
+		35ED2B3AF2BA5A2189E2B54225E0F8C3 /* CAPInstanceDescriptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CAPInstanceDescriptor.h; path = Capacitor/Capacitor/CAPInstanceDescriptor.h; sourceTree = "<group>"; };
+		38603A16B2177A1E7DAD9BA057B6AE18 /* NSDictionary+CordovaPreferences.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+CordovaPreferences.h"; sourceTree = "<group>"; };
+		3AB51599A9B4407E77758EA57E91F1C8 /* CapacitorCordova.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CapacitorCordova.debug.xcconfig; sourceTree = "<group>"; };
+		3B19633DB69151857CDC073CFC2F515C /* Capacitor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Capacitor.debug.xcconfig; sourceTree = "<group>"; };
+		3E6547A8D369523D98957A3016F62CBF /* NotificationHandlerProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NotificationHandlerProtocol.swift; path = Capacitor/Capacitor/NotificationHandlerProtocol.swift; sourceTree = "<group>"; };
+		3F9AD6B677C7CBA4FF009B3E308EA185 /* Capacitor-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Capacitor-Info.plist"; sourceTree = "<group>"; };
 		401B4870616B3D09347BE1F13F95D477 /* Pods-Plugin.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Plugin.modulemap"; sourceTree = "<group>"; };
-		40E9F1192C63012C6F6AA2F09EE73040 /* CapacitorCordova-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CapacitorCordova-dummy.m"; sourceTree = "<group>"; };
-		41F5F9D0C1246D76286B40373CAC45B0 /* CAPUNUserNotificationCenterDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CAPUNUserNotificationCenterDelegate.swift; path = ios/Capacitor/Capacitor/CAPUNUserNotificationCenterDelegate.swift; sourceTree = "<group>"; };
+		406E47DEBB7348AB74A9EF1991995C0E /* CAPPluginCall.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CAPPluginCall.swift; path = Capacitor/Capacitor/CAPPluginCall.swift; sourceTree = "<group>"; };
+		42DBBB29A9ABAE8B8A594A8FB4F46BE3 /* CAPInstanceConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CAPInstanceConfiguration.h; path = Capacitor/Capacitor/CAPInstanceConfiguration.h; sourceTree = "<group>"; };
+		43BA597384CD4553CDD3A4ED6BA39F47 /* Capacitor-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Capacitor-prefix.pch"; sourceTree = "<group>"; };
 		44D6062E8C618EC2B8F1D7229E8AD501 /* Capacitor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Capacitor.framework; path = Capacitor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45AEE2D3BD43D61882B01AAE2B8F11E4 /* Pods-PluginTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PluginTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		4647563C1CACE3140098EC718FA69320 /* KeyPath.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyPath.swift; path = Capacitor/Capacitor/KeyPath.swift; sourceTree = "<group>"; };
 		47F881CAB117FE10E92963EF6CC91861 /* Pods-PluginTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PluginTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4904AEAA694399E96E9398B2AF798C75 /* DocLinks.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DocLinks.swift; path = Capacitor/Capacitor/DocLinks.swift; sourceTree = "<group>"; };
+		49460EF4C6D32BD0620F9BAF61D61DEF /* CDVPluginResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDVPluginResult.h; sourceTree = "<group>"; };
+		4AC1ADB7F16949AA7656074642ADFFA2 /* CAPInstanceDescriptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CAPInstanceDescriptor.swift; path = Capacitor/Capacitor/CAPInstanceDescriptor.swift; sourceTree = "<group>"; };
+		4B79D5450DEC39EF536E37990DB71BD7 /* CAPBridgedPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CAPBridgedPlugin.h; path = Capacitor/Capacitor/CAPBridgedPlugin.h; sourceTree = "<group>"; };
 		4B7B23985828F9D35ECCA1361A486792 /* Pods_Plugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Plugin.framework; path = "Pods-Plugin.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		533ACB0561E0A114D57EE5EA5653E767 /* Browser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Browser.swift; sourceTree = "<group>"; };
+		4CAC748FFA0D187EE657AABFD08A9BC4 /* CAPBridgeViewController+CDVScreenOrientationDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CAPBridgeViewController+CDVScreenOrientationDelegate.m"; path = "Capacitor/Capacitor/CAPBridgeViewController+CDVScreenOrientationDelegate.m"; sourceTree = "<group>"; };
+		4CBAEDEFE836D5924FEC4D05621DD8E1 /* CDVPluginManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDVPluginManager.m; sourceTree = "<group>"; };
+		4D254A4EBC8390D953B496A7E031087F /* CapacitorCordova-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CapacitorCordova-dummy.m"; sourceTree = "<group>"; };
+		4DDD557DDA681EC7EB0B1025048EB2C3 /* CDVCommandDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDVCommandDelegate.h; sourceTree = "<group>"; };
+		503BF3D83BF8F38D2A4F60013602D21E /* CDVScreenOrientationDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDVScreenOrientationDelegate.h; sourceTree = "<group>"; };
+		512285ED8D3980241992DFDD5B91A679 /* CDVConfigParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDVConfigParser.h; sourceTree = "<group>"; };
 		535AEEBA96B786E87F23F75310B8CB74 /* Pods-Plugin-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Plugin-acknowledgements.plist"; sourceTree = "<group>"; };
 		58DEAF78291AAC1E83073B9084B45542 /* Pods_PluginTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PluginTests.framework; path = "Pods-PluginTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5FE8DDD61EEE7B236DA964658216A383 /* CDV.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDV.h; sourceTree = "<group>"; };
-		634EB90BB2B3B81F8463CF701F317240 /* PushNotifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PushNotifications.swift; sourceTree = "<group>"; };
-		654D9029F125B2FD26144C729EC999ED /* Console.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Console.swift; sourceTree = "<group>"; };
-		670B35132686E581E54C51D223B57D6B /* WebView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
-		693794041F679660642AD799B724B266 /* CAPBridgeDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CAPBridgeDelegate.swift; path = ios/Capacitor/Capacitor/CAPBridgeDelegate.swift; sourceTree = "<group>"; };
-		6A2EB51688FD9B59EFB0B40B502DFE97 /* LocalNotifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocalNotifications.swift; sourceTree = "<group>"; };
-		6E2562934545251BBC8A7F6F8771304D /* CDVPluginResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDVPluginResult.h; sourceTree = "<group>"; };
+		5DB344E6CFF012B1CF0362AD86ECBD3B /* TmpViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TmpViewController.swift; path = Capacitor/Capacitor/TmpViewController.swift; sourceTree = "<group>"; };
+		5DF2FF06D70E2EABCAB3D167F2AC3245 /* CapacitorCordova-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "CapacitorCordova-Info.plist"; sourceTree = "<group>"; };
+		5EFC8825734B17FA18DC0F6B24F8790F /* CAPBridgeDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CAPBridgeDelegate.swift; path = Capacitor/Capacitor/CAPBridgeDelegate.swift; sourceTree = "<group>"; };
+		675C2E248BF51592940D1B41E8054AB5 /* CDVPlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDVPlugin.m; sourceTree = "<group>"; };
+		6CBD3BA3A48D4E64349D074D6F1BCB12 /* AppDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6F1715C2DEF7461A3964E29A0FCB6D3D /* Pods-Plugin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Plugin.release.xcconfig"; sourceTree = "<group>"; };
-		763916F30BADAB102D3CA5893C15CCB7 /* Keyboard.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Keyboard.h; sourceTree = "<group>"; };
-		7773F03440F0992D404F02B54908AD32 /* Capacitor-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Capacitor-dummy.m"; sourceTree = "<group>"; };
-		77C263E7BF73E60B5CC35E627B4738DE /* Share.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Share.swift; sourceTree = "<group>"; };
-		7A16D08BEFC2070EC95FBBCB36292179 /* CAPNotifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CAPNotifications.swift; path = ios/Capacitor/Capacitor/CAPNotifications.swift; sourceTree = "<group>"; };
+		71F0E55F9F193D72C5EB960F8EFE100F /* WKWebView+Capacitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "WKWebView+Capacitor.swift"; path = "Capacitor/Capacitor/WKWebView+Capacitor.swift"; sourceTree = "<group>"; };
+		74543717CD5848B8544A63A9B28B8652 /* CAPLog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CAPLog.swift; path = Capacitor/Capacitor/CAPLog.swift; sourceTree = "<group>"; };
+		75FEEC8823A679CE7791E9EF08A9E6E3 /* CAPInstanceDescriptor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CAPInstanceDescriptor.m; path = Capacitor/Capacitor/CAPInstanceDescriptor.m; sourceTree = "<group>"; };
 		7D967D566F7C3FD1B78180239E63BC92 /* Pods-PluginTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PluginTests.release.xcconfig"; sourceTree = "<group>"; };
 		7E74390F09A29D254E98C5610DDD5A28 /* Pods-PluginTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PluginTests-dummy.m"; sourceTree = "<group>"; };
 		7EFD241FB11A4273E5C38133FF35CF7D /* Pods-Plugin-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Plugin-umbrella.h"; sourceTree = "<group>"; };
-		7F964017DFA1C34BA61DC54B072F4975 /* CDVCommandDelegateImpl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDVCommandDelegateImpl.m; sourceTree = "<group>"; };
-		828D1D21D2757832085FCA5F811AE84A /* DefaultPlugins.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DefaultPlugins.m; sourceTree = "<group>"; };
-		83135C906C0E8E4B2CA395EEBE7A5BCD /* UIStatusBarManager+CAPHandleTapAction.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIStatusBarManager+CAPHandleTapAction.m"; path = "ios/Capacitor/Capacitor/UIStatusBarManager+CAPHandleTapAction.m"; sourceTree = "<group>"; };
-		852447C577ED41FEC5A3F0280C6BF007 /* CDVCommandDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDVCommandDelegate.h; sourceTree = "<group>"; };
-		8DF3D47783DECE66C72E994DEEE1D0F4 /* CDVCommandDelegateImpl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDVCommandDelegateImpl.h; sourceTree = "<group>"; };
-		8E05EFF12C0B9E47659718216DA7E0DA /* NSDictionary+CordovaPreferences.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+CordovaPreferences.h"; sourceTree = "<group>"; };
-		8FF395EB8506C91E300BEAE93C9A1314 /* CDVPluginManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDVPluginManager.m; sourceTree = "<group>"; };
-		906C923940B9268C254DF29329102AD8 /* CapacitorCordova.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CapacitorCordova.h; path = ios/CapacitorCordova/CapacitorCordova/CapacitorCordova.h; sourceTree = "<group>"; };
-		91C3F793BC8A6BCF6F3F71657CD68AB4 /* Modals.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Modals.swift; sourceTree = "<group>"; };
-		91D68CF8F308FC009680EC14D2109822 /* Capacitor.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Capacitor.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		91DBF49ACC4D94E55A584D34DD3CF3CA /* CDVURLProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDVURLProtocol.h; sourceTree = "<group>"; };
+		818D2FD2EEC516816F35D84289D10EA2 /* CAPFile.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CAPFile.swift; path = Capacitor/Capacitor/CAPFile.swift; sourceTree = "<group>"; };
+		820D18E83FC10A835211903A69E0AEDE /* Capacitor.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = Capacitor.modulemap; path = Capacitor/Capacitor/Capacitor.modulemap; sourceTree = "<group>"; };
+		836AA53B08735CCA25FCBEB61ECE2D62 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		843CC707D0139057F45E1C0790F12D73 /* NotificationRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NotificationRouter.swift; path = Capacitor/Capacitor/NotificationRouter.swift; sourceTree = "<group>"; };
+		87A3402237A379EDCD6B3F7FFBD6FBB0 /* CapacitorCordova.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CapacitorCordova.h; path = CapacitorCordova/CapacitorCordova/CapacitorCordova.h; sourceTree = "<group>"; };
 		939147BBA617256FB279F110F9DD2227 /* Pods-PluginTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PluginTests-Info.plist"; sourceTree = "<group>"; };
-		967B3DDEEE30F3C4E4A6CE36E879CC96 /* CAPPluginCall.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CAPPluginCall.h; path = ios/Capacitor/Capacitor/CAPPluginCall.h; sourceTree = "<group>"; };
-		99400864B11D0F2A98A6A0DD8B056ED3 /* Network.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
-		99CDB574913802A61C677992132A7F95 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		9A4ADCCC40C8DC1DA995DD71ABEF3C1B /* DefaultPlugins.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DefaultPlugins.h; sourceTree = "<group>"; };
+		9AD2B925B4ED799EFF36F0AA6688BC16 /* CAPApplicationDelegateProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CAPApplicationDelegateProxy.swift; path = Capacitor/Capacitor/CAPApplicationDelegateProxy.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9DF2485C29D2DDA509ACD68C4757A2C5 /* Reachability.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		A1E5822FC61F9421CF2456D453B75418 /* Pods-PluginTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PluginTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		A2A9DC2AD37A89D3C7199C47CD214136 /* NSDictionary+CordovaPreferences.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+CordovaPreferences.m"; sourceTree = "<group>"; };
-		A3E8B7513894D157ACCF635C2E9E8AAC /* CAPPlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CAPPlugin.m; path = ios/Capacitor/Capacitor/CAPPlugin.m; sourceTree = "<group>"; };
-		A4C8F17200F4452A57012D380D6A18B1 /* CapacitorCordova-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "CapacitorCordova-Info.plist"; sourceTree = "<group>"; };
-		A5271A8C904E08B00200EBC10D503CBC /* BackgroundTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BackgroundTask.swift; sourceTree = "<group>"; };
-		A62008C7BF1EE1FE5E61842B6E8E9F06 /* Camera.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
-		AB3AC6176949E63E832452D526E4CEB4 /* CDVConfigParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDVConfigParser.h; sourceTree = "<group>"; };
-		AD6B80645423F14634E669A142B45D28 /* CDVInvokedUrlCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDVInvokedUrlCommand.m; sourceTree = "<group>"; };
-		AE175F45DB99B3922F9E251DC9883E42 /* Haptics.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
-		B28736F702F2544B53DA969F7F85518C /* CDVViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDVViewController.h; sourceTree = "<group>"; };
+		A28B00AD819CE95FB5D2623694DA1A71 /* Array+Capacitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Array+Capacitor.swift"; path = "Capacitor/Capacitor/Array+Capacitor.swift"; sourceTree = "<group>"; };
+		A55CB66969D6C3D82B242D1651CCB290 /* CDVPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDVPlugin.h; sourceTree = "<group>"; };
+		A66B90AB2B0FEC2D9639AACA424EC6D6 /* UIStatusBarManager+CAPHandleTapAction.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIStatusBarManager+CAPHandleTapAction.m"; path = "Capacitor/Capacitor/UIStatusBarManager+CAPHandleTapAction.m"; sourceTree = "<group>"; };
+		A8EEE8199015989507D58CAAEE414856 /* Data+Capacitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Data+Capacitor.swift"; path = "Capacitor/Capacitor/Data+Capacitor.swift"; sourceTree = "<group>"; };
+		A99B23715A290880D7B884EA4347AD5E /* WebView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		ABAB2826B4C86A46214C6319475FB417 /* CapacitorCordova.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CapacitorCordova.release.xcconfig; sourceTree = "<group>"; };
+		AE45B5361CEADD32D72B5C20430DF0F3 /* CAPBridgeViewController+CDVScreenOrientationDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CAPBridgeViewController+CDVScreenOrientationDelegate.h"; path = "Capacitor/Capacitor/CAPBridgeViewController+CDVScreenOrientationDelegate.h"; sourceTree = "<group>"; };
+		B2DD7FAE865DA8B886D9867A87C729C9 /* Capacitor-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Capacitor-dummy.m"; sourceTree = "<group>"; };
+		B3AFAD33C394BFB1C88851E1EAB9181F /* JSExport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSExport.swift; path = Capacitor/Capacitor/JSExport.swift; sourceTree = "<group>"; };
 		B5A2BC9A9C63563BFD519AB3CE4D5D9D /* Pods-Plugin-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Plugin-dummy.m"; sourceTree = "<group>"; };
-		B6AAE66DFF55D1090B91741FF0C65E9E /* CDVPluginManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDVPluginManager.h; sourceTree = "<group>"; };
-		B75E1088C9E51B890AC3403C7C894E77 /* Keyboard.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Keyboard.m; sourceTree = "<group>"; };
-		B767B174CBEB6904D9649CAB095AEC00 /* CAPBridge.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CAPBridge.swift; path = ios/Capacitor/Capacitor/CAPBridge.swift; sourceTree = "<group>"; };
-		BB5EAC21DD16A3BC68598D0682CB7CF5 /* CDVUserAgentUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDVUserAgentUtil.h; sourceTree = "<group>"; };
-		BCEDFB68C4D3B6E7FEF0242FA089DAC9 /* CapacitorCordova.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CapacitorCordova.xcconfig; sourceTree = "<group>"; };
-		C072E035F234ED32715D2699B24E1203 /* CAPPluginMethod.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CAPPluginMethod.h; path = ios/Capacitor/Capacitor/CAPPluginMethod.h; sourceTree = "<group>"; };
-		C29498291EF2B014C61E4E199468EC4C /* CDVUIWebViewDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDVUIWebViewDelegate.h; sourceTree = "<group>"; };
-		C3F9D865FAB70A72FBCC07821F0A5086 /* CapacitorCordova-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CapacitorCordova-prefix.pch"; sourceTree = "<group>"; };
-		C431C68EDABE88F37A6334ACF5121297 /* TmpViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TmpViewController.swift; path = ios/Capacitor/Capacitor/TmpViewController.swift; sourceTree = "<group>"; };
-		C44C60E98F04300CF590A083EF63AB78 /* Capacitor-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Capacitor-prefix.pch"; sourceTree = "<group>"; };
+		B995FC6500C332B4B8838EADCB45AEB3 /* Console.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Console.swift; sourceTree = "<group>"; };
+		BC5A44DEC24F9202415865E5C2CB322D /* CapacitorCordova.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = CapacitorCordova.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BD1285116DEBF3A84E4D7E399B2511FA /* CAPInstanceConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CAPInstanceConfiguration.swift; path = Capacitor/Capacitor/CAPInstanceConfiguration.swift; sourceTree = "<group>"; };
+		BDCDED8F6D2473F45070BC8B4C8416CB /* JSTypes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSTypes.swift; path = Capacitor/Capacitor/JSTypes.swift; sourceTree = "<group>"; };
+		BF501596E090E268D36BEAD1550989F5 /* WebViewAssetHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebViewAssetHandler.swift; path = Capacitor/Capacitor/WebViewAssetHandler.swift; sourceTree = "<group>"; };
+		C76E78EC48C03C2C53556C34FDDF9B09 /* CAPInstanceConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CAPInstanceConfiguration.m; path = Capacitor/Capacitor/CAPInstanceConfiguration.m; sourceTree = "<group>"; };
 		C818B5D2E7E4FE4DB6A541C59C3F46A2 /* Pods-Plugin-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Plugin-acknowledgements.markdown"; sourceTree = "<group>"; };
-		CB1DA46A32782E01A3C4BC6843513E10 /* Capacitor.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Capacitor.modulemap; sourceTree = "<group>"; };
-		CBFBBFDBE34C37CCF3C5D85E88D3D036 /* CDVAvailability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDVAvailability.h; sourceTree = "<group>"; };
-		CCFE0B2215095C72E7BEB73F7A6E31AD /* AppDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		CE56B6C5E642CB5E7D3F14F45CE24956 /* Storage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
-		D35A52577A996A43B24ADBA13C48CD3B /* StatusBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
-		D438367B36705B71FDD7781A7822ED06 /* CAPFile.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CAPFile.swift; path = ios/Capacitor/Capacitor/CAPFile.swift; sourceTree = "<group>"; };
-		D4BD6FAA2DDECEB90477D540AE554B63 /* CAPConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CAPConfig.swift; path = ios/Capacitor/Capacitor/CAPConfig.swift; sourceTree = "<group>"; };
-		D50EAADD0D2C64867E9C6E92C1E11D0A /* CDVUIWebViewDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDVUIWebViewDelegate.m; sourceTree = "<group>"; };
+		CA1844C33568177925731A3EDAE7E17D /* CapacitorBridge.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CapacitorBridge.swift; path = Capacitor/Capacitor/CapacitorBridge.swift; sourceTree = "<group>"; };
+		CA9FFC1DC0459F71D0F816833C6D4541 /* CDVCommandDelegateImpl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDVCommandDelegateImpl.m; sourceTree = "<group>"; };
+		CBAABC08A75E9DD96124A5838BC71EFD /* CDVInvokedUrlCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDVInvokedUrlCommand.m; sourceTree = "<group>"; };
+		D4CB8F0A87C7A7CF0C73967494AE4076 /* CAPBridgedJSTypes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CAPBridgedJSTypes.h; path = Capacitor/Capacitor/CAPBridgedJSTypes.h; sourceTree = "<group>"; };
+		D5C6E526D809FA897053F7931163CD19 /* CDV.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDV.h; sourceTree = "<group>"; };
+		D6025F29D8CD4025B6FDB1A94A26B60D /* CAPPluginCall.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CAPPluginCall.h; path = Capacitor/Capacitor/CAPPluginCall.h; sourceTree = "<group>"; };
 		D6A9D9102A6C05CE4B93BA2C13954FE9 /* Pods-PluginTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PluginTests-frameworks.sh"; sourceTree = "<group>"; };
-		DA272E8D0D1E004E3301CD1DB94B44BA /* CDVConfigParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDVConfigParser.m; sourceTree = "<group>"; };
+		D8D836423E5A1957EDFBFB983E7D332C /* CapacitorCordova.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CapacitorCordova.modulemap; sourceTree = "<group>"; };
 		DAA5DBF72380C5466DCBC107B7747A60 /* Pods-Plugin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Plugin.debug.xcconfig"; sourceTree = "<group>"; };
-		DB87E510672ACD9A756B4D905105DF5D /* CDVPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDVPlugin.h; sourceTree = "<group>"; };
-		DCB5479C6A1A7CEB8F8FBBF82DAE0469 /* CAPPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CAPPlugin.h; path = ios/Capacitor/Capacitor/CAPPlugin.h; sourceTree = "<group>"; };
-		DDACF0AF6DDEBA8A6F6DAC16DD0E31FC /* Capacitor-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Capacitor-umbrella.h"; sourceTree = "<group>"; };
-		DF7AA56A7BCB8E98326A8BF4D2E6E9FB /* UILabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UILabel.swift; path = ios/Capacitor/Capacitor/UILabel.swift; sourceTree = "<group>"; };
-		E036FDC2D1F6397CBAA63B65DBD72761 /* CDVPlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDVPlugin.m; sourceTree = "<group>"; };
-		E0D2B1AAFEA87B7F110D572D6FAA349A /* Capacitor-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Capacitor-Info.plist"; sourceTree = "<group>"; };
-		E1654F166D12A4BD12EAC8BBD1794ED4 /* App.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
-		E3A85ECF36CC3F134FCCE0A637BDE841 /* Clipboard.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Clipboard.swift; sourceTree = "<group>"; };
+		DD6C2B2597B43666838F86EB2AE31B23 /* WebViewDelegationHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebViewDelegationHandler.swift; path = Capacitor/Capacitor/WebViewDelegationHandler.swift; sourceTree = "<group>"; };
+		DE729245BF0B2BBAE98AF64A56D66A5F /* CapacitorCordova.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = CapacitorCordova.modulemap; path = CapacitorCordova/CapacitorCordova/CapacitorCordova.modulemap; sourceTree = "<group>"; };
+		DF845C1F0DF33F631A161CBFC0067CE3 /* CAPPluginMethod.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CAPPluginMethod.h; path = Capacitor/Capacitor/CAPPluginMethod.h; sourceTree = "<group>"; };
+		E330E8624740146422BC92AA669DE724 /* DefaultPlugins.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DefaultPlugins.m; sourceTree = "<group>"; };
+		E3371942650BECC2D08F0AC0B252F83E /* Capacitor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Capacitor.h; path = Capacitor/Capacitor/Capacitor.h; sourceTree = "<group>"; };
+		E367BEECC2B54FF6C7CFB48DAC1F8557 /* CDVURLProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDVURLProtocol.h; sourceTree = "<group>"; };
 		E8950E00418A9BCE1D0E315A85B496FB /* Pods-PluginTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PluginTests.modulemap"; sourceTree = "<group>"; };
-		E94C20E73B58B1AEA41B1E884B03A85C /* Accessibility.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Accessibility.swift; sourceTree = "<group>"; };
-		EB0DB675FC00EC5365322ABFD4EF1EC3 /* Geolocation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Geolocation.swift; sourceTree = "<group>"; };
-		F1A60068E0842AEAD4025CBBAE1CE67A /* CDVViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDVViewController.m; sourceTree = "<group>"; };
-		F4D11F5C3532F0237696013B841F8BB6 /* Capacitor.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Capacitor.xcconfig; sourceTree = "<group>"; };
-		F968FDDAA1063D1C31367DED9FCD39AC /* Device.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
-		FA5700C5F82421C773DA2DD80488D0FA /* CapacitorCordova.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CapacitorCordova.modulemap; sourceTree = "<group>"; };
-		FAB792C0A5F4F4CB3B089B955AC06D6D /* CAPBridgeViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CAPBridgeViewController.swift; path = ios/Capacitor/Capacitor/CAPBridgeViewController.swift; sourceTree = "<group>"; };
+		E9E549372966BA814DDC165DF870D09C /* CapacitorCordova-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CapacitorCordova-prefix.pch"; sourceTree = "<group>"; };
+		EB9C46B9384BA7D714FBB738806D786A /* CDVCommandDelegateImpl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDVCommandDelegateImpl.h; sourceTree = "<group>"; };
+		EBBFE11B12ED6A00BA9E76286149F500 /* JS.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JS.swift; path = Capacitor/Capacitor/JS.swift; sourceTree = "<group>"; };
+		ED6BD30FEA091A8D18CD1CEEF39CB801 /* CAPBridgeProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CAPBridgeProtocol.swift; path = Capacitor/Capacitor/CAPBridgeProtocol.swift; sourceTree = "<group>"; };
+		EE748616B69F57730262E73507278BE6 /* Capacitor.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Capacitor.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F1BD50339E3391F470F512DFC95312C4 /* CAPPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CAPPlugin.h; path = Capacitor/Capacitor/CAPPlugin.h; sourceTree = "<group>"; };
+		F2AC7704B1D105ACB51B6E15112C9B56 /* CDVURLProtocol.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDVURLProtocol.m; sourceTree = "<group>"; };
+		F455940F4369F86707A088E115DA6431 /* CDVViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDVViewController.m; sourceTree = "<group>"; };
+		F5EA51EF7FF15F420C39B67BC4AA2BB6 /* CDVAvailability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CDVAvailability.h; sourceTree = "<group>"; };
 		FBD93D36D06B546B5015A4716941DCBB /* Pods-PluginTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PluginTests-umbrella.h"; sourceTree = "<group>"; };
-		FE119BFF5CE03C1B65F6BFACE4501900 /* CDVUserAgentUtil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDVUserAgentUtil.m; sourceTree = "<group>"; };
+		FCD28FC4F5EA0ABE47BDD7EF842BBC6C /* CDVPluginResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDVPluginResult.m; sourceTree = "<group>"; };
+		FCFFABC698A91763DE47604F02CC8E25 /* UIColor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = Capacitor/Capacitor/UIColor.swift; sourceTree = "<group>"; };
+		FF839557F83730B4B4E6F223DF8C0CED /* CDVConfigParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CDVConfigParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		556C3E8430BC3AA1397D6E5735BA289D /* Frameworks */ = {
+		09A3C8F5F4124EF39C11A4869ED86B43 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC6A8EFCE0333A957A2B4AFE9643A148 /* Foundation.framework in Frameworks */,
+				E724A516A46988E9D8A1AC14E3EA7C12 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8AADEA415C46814B9F2BE6A675F4ECA2 /* Frameworks */ = {
+		8DD0E3D29D0C940C1D86BABC522AD68D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				348551CDB11C1FCD857A764AA8DEE9EB /* Cordova.framework in Frameworks */,
-				7E9007AAF1D8C223E1839C3D43DB237D /* Foundation.framework in Frameworks */,
+				4D466FA0AB55B7F08029203CCBA5251C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		921C45421F263252B2C09216E1C2CCF0 /* Frameworks */ = {
+		B6974F81757DF174FB7733A61D8B5FEA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8991C5D19D5BBDCBFAF573A02FD863B6 /* Foundation.framework in Frameworks */,
+				6AE3B2A1239117FFFEB5D9E048598BBA /* Cordova.framework in Frameworks */,
+				E8A3034AAC22831C5EE90FF6FBD7720C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CE1104579B276B5925C2DD9F0A010C96 /* Frameworks */ = {
+		CA1303277F438F2D97385394569B649A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				169C7612FE11483B7864F50BD7CD26F7 /* Foundation.framework in Frameworks */,
-				E06D35AF23C90031EE5645A4356A2D18 /* WebKit.framework in Frameworks */,
+				00675176FF871CA2F3B0893D5FABA596 /* Foundation.framework in Frameworks */,
+				48ED9C692526E5A2860609B544292542 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0035CD21044E73333C465F7349681D15 /* CapacitorCordova */ = {
+		0B1EBB84A790AF56ABC17FC553F33FF3 /* CapacitorCordova */ = {
 			isa = PBXGroup;
 			children = (
-				906C923940B9268C254DF29329102AD8 /* CapacitorCordova.h */,
-				EDE9D03C2F166CB64F5032730DE6EF3D /* Classes */,
-				012C28420AE522D434E83E00FF7C6D82 /* Pod */,
-				69F2764B7963F3BFE4CAACE9D7B73942 /* Support Files */,
+				87A3402237A379EDCD6B3F7FFBD6FBB0 /* CapacitorCordova.h */,
+				8DA7963F702BEDBE95F38FB00327AA7F /* Classes */,
+				6CDE671A332698A0EE4431045D7AC59F /* Pod */,
+				DA6CBBBF9739BB1050A2DA6497D5642A /* Support Files */,
 			);
 			name = CapacitorCordova;
 			path = "../../node_modules/@capacitor/ios";
 			sourceTree = "<group>";
 		};
-		012C28420AE522D434E83E00FF7C6D82 /* Pod */ = {
+		27B9CD6A40A323054E92707440ECD21B /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				05A31D6BE6C7FB6B0B69FDAB9188ABF9 /* CapacitorCordova.podspec */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
-		02FC7D808420EDDCA02207781F84D7FB /* Photos */ = {
-			isa = PBXGroup;
-			children = (
-				29C64055588F9798D61BDDB2460840C6 /* Photos.swift */,
-			);
-			name = Photos;
-			path = Photos;
-			sourceTree = "<group>";
-		};
-		4C3C7899773225C367EA5F9645782C13 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F410E8D10FBE3518F2986806FE426260 /* Capacitor */,
-				0035CD21044E73333C465F7349681D15 /* CapacitorCordova */,
+				37A1391468E132C6215090DD9C53E1FC /* Capacitor */,
+				0B1EBB84A790AF56ABC17FC553F33FF3 /* CapacitorCordova */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		56B89A4948E17D0FDCDD5050DBC49ADF /* Support Files */ = {
+		37A1391468E132C6215090DD9C53E1FC /* Capacitor */ = {
 			isa = PBXGroup;
 			children = (
-				CB1DA46A32782E01A3C4BC6843513E10 /* Capacitor.modulemap */,
-				F4D11F5C3532F0237696013B841F8BB6 /* Capacitor.xcconfig */,
-				7773F03440F0992D404F02B54908AD32 /* Capacitor-dummy.m */,
-				E0D2B1AAFEA87B7F110D572D6FAA349A /* Capacitor-Info.plist */,
-				C44C60E98F04300CF590A083EF63AB78 /* Capacitor-prefix.pch */,
-				DDACF0AF6DDEBA8A6F6DAC16DD0E31FC /* Capacitor-umbrella.h */,
+				A28B00AD819CE95FB5D2623694DA1A71 /* Array+Capacitor.swift */,
+				E3371942650BECC2D08F0AC0B252F83E /* Capacitor.h */,
+				CA1844C33568177925731A3EDAE7E17D /* CapacitorBridge.swift */,
+				23C60F6406701DE37EE80CACAED2041A /* CapacitorExtension.swift */,
+				9AD2B925B4ED799EFF36F0AA6688BC16 /* CAPApplicationDelegateProxy.swift */,
+				30BF2F0E3889AEF23CC4D2AD85574453 /* CAPBridge.swift */,
+				5EFC8825734B17FA18DC0F6B24F8790F /* CAPBridgeDelegate.swift */,
+				D4CB8F0A87C7A7CF0C73967494AE4076 /* CAPBridgedJSTypes.h */,
+				2837BF08C35E8727EA5639BEF4AFD93E /* CAPBridgedJSTypes.m */,
+				4B79D5450DEC39EF536E37990DB71BD7 /* CAPBridgedPlugin.h */,
+				ED6BD30FEA091A8D18CD1CEEF39CB801 /* CAPBridgeProtocol.swift */,
+				1932D17D0954C4CFE288446EE67FDA3A /* CAPBridgeViewController.swift */,
+				AE45B5361CEADD32D72B5C20430DF0F3 /* CAPBridgeViewController+CDVScreenOrientationDelegate.h */,
+				4CAC748FFA0D187EE657AABFD08A9BC4 /* CAPBridgeViewController+CDVScreenOrientationDelegate.m */,
+				818D2FD2EEC516816F35D84289D10EA2 /* CAPFile.swift */,
+				42DBBB29A9ABAE8B8A594A8FB4F46BE3 /* CAPInstanceConfiguration.h */,
+				C76E78EC48C03C2C53556C34FDDF9B09 /* CAPInstanceConfiguration.m */,
+				BD1285116DEBF3A84E4D7E399B2511FA /* CAPInstanceConfiguration.swift */,
+				35ED2B3AF2BA5A2189E2B54225E0F8C3 /* CAPInstanceDescriptor.h */,
+				75FEEC8823A679CE7791E9EF08A9E6E3 /* CAPInstanceDescriptor.m */,
+				4AC1ADB7F16949AA7656074642ADFFA2 /* CAPInstanceDescriptor.swift */,
+				74543717CD5848B8544A63A9B28B8652 /* CAPLog.swift */,
+				2BC44420AF25A2812B0AD0314FC4DB90 /* CAPNotifications.swift */,
+				F1BD50339E3391F470F512DFC95312C4 /* CAPPlugin.h */,
+				0525E66B9C3BDD2B3EDCBC46FEE09B6E /* CAPPlugin.m */,
+				D6025F29D8CD4025B6FDB1A94A26B60D /* CAPPluginCall.h */,
+				01CF27BACD2F158093F5463EB5C3BF9A /* CAPPluginCall.m */,
+				406E47DEBB7348AB74A9EF1991995C0E /* CAPPluginCall.swift */,
+				DF845C1F0DF33F631A161CBFC0067CE3 /* CAPPluginMethod.h */,
+				22DF79DF4BCBB8C0C2DA162DD0B9ACBA /* CAPPluginMethod.m */,
+				A8EEE8199015989507D58CAAEE414856 /* Data+Capacitor.swift */,
+				4904AEAA694399E96E9398B2AF798C75 /* DocLinks.swift */,
+				EBBFE11B12ED6A00BA9E76286149F500 /* JS.swift */,
+				B3AFAD33C394BFB1C88851E1EAB9181F /* JSExport.swift */,
+				BDCDED8F6D2473F45070BC8B4C8416CB /* JSTypes.swift */,
+				4647563C1CACE3140098EC718FA69320 /* KeyPath.swift */,
+				1285BF216BA16E142FB07D3F03A298F4 /* native-bridge.js */,
+				3E6547A8D369523D98957A3016F62CBF /* NotificationHandlerProtocol.swift */,
+				843CC707D0139057F45E1C0790F12D73 /* NotificationRouter.swift */,
+				00DA86B763C20B9FE6C9CF286C929F11 /* PluginCallResult.swift */,
+				5DB344E6CFF012B1CF0362AD86ECBD3B /* TmpViewController.swift */,
+				FCFFABC698A91763DE47604F02CC8E25 /* UIColor.swift */,
+				A66B90AB2B0FEC2D9639AACA424EC6D6 /* UIStatusBarManager+CAPHandleTapAction.m */,
+				BF501596E090E268D36BEAD1550989F5 /* WebViewAssetHandler.swift */,
+				DD6C2B2597B43666838F86EB2AE31B23 /* WebViewDelegationHandler.swift */,
+				0AB69F1F16471B343FFA8B71F88FCD02 /* WKWebView+Capacitor.m */,
+				71F0E55F9F193D72C5EB960F8EFE100F /* WKWebView+Capacitor.swift */,
+				A17B663E7ADD85F18D480D2507E01935 /* Plugins */,
+				B5A3F91648A83C5E38A6364B33782857 /* Pod */,
+				48DC2754EE68506A810A8F43460839DA /* Support Files */,
+			);
+			name = Capacitor;
+			path = "../../node_modules/@capacitor/ios";
+			sourceTree = "<group>";
+		};
+		48DC2754EE68506A810A8F43460839DA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				24246F5A3F2E10AA8DC5CEA1C7DABE35 /* Capacitor.modulemap */,
+				B2DD7FAE865DA8B886D9867A87C729C9 /* Capacitor-dummy.m */,
+				3F9AD6B677C7CBA4FF009B3E308EA185 /* Capacitor-Info.plist */,
+				43BA597384CD4553CDD3A4ED6BA39F47 /* Capacitor-prefix.pch */,
+				3B19633DB69151857CDC073CFC2F515C /* Capacitor.debug.xcconfig */,
+				0F8AFF3D2C90E24D31055D049DDE67BF /* Capacitor.release.xcconfig */,
 			);
 			name = "Support Files";
 			path = "../../../ios/Pods/Target Support Files/Capacitor";
@@ -365,33 +392,18 @@
 			isa = PBXGroup;
 			children = (
 				351CAFB01AE1CE21F3443E3CD9E750E4 /* Cordova.framework */,
-				CE56A1F049702CC9B39E93731044ABCF /* iOS */,
+				AF7C994CA17138F9A3277B2C85314BF7 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5A96C26452B6EF84F5D05DEAA0B938F4 /* Network */ = {
+		6CDE671A332698A0EE4431045D7AC59F /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				99400864B11D0F2A98A6A0DD8B056ED3 /* Network.swift */,
-				9DF2485C29D2DDA509ACD68C4757A2C5 /* Reachability.swift */,
+				DE729245BF0B2BBAE98AF64A56D66A5F /* CapacitorCordova.modulemap */,
+				BC5A44DEC24F9202415865E5C2CB322D /* CapacitorCordova.podspec */,
 			);
-			name = Network;
-			path = Network;
-			sourceTree = "<group>";
-		};
-		69F2764B7963F3BFE4CAACE9D7B73942 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				FA5700C5F82421C773DA2DD80488D0FA /* CapacitorCordova.modulemap */,
-				BCEDFB68C4D3B6E7FEF0242FA089DAC9 /* CapacitorCordova.xcconfig */,
-				40E9F1192C63012C6F6AA2F09EE73040 /* CapacitorCordova-dummy.m */,
-				A4C8F17200F4452A57012D380D6A18B1 /* CapacitorCordova-Info.plist */,
-				C3F9D865FAB70A72FBCC07821F0A5086 /* CapacitorCordova-prefix.pch */,
-				26D1CFF7419F0DF34AB48C02EF1C9980 /* CapacitorCordova-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../../../ios/Pods/Target Support Files/CapacitorCordova";
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		740E12C899D56C459793F8D89BE2D003 /* Targets Support Files */ = {
@@ -401,41 +413,6 @@
 				F22F323547F39068C402A67FCA68E7C2 /* Pods-PluginTests */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		82FC0DCE8FF2CE194EBEF359AE05DF73 /* Plugins */ = {
-			isa = PBXGroup;
-			children = (
-				E94C20E73B58B1AEA41B1E884B03A85C /* Accessibility.swift */,
-				E1654F166D12A4BD12EAC8BBD1794ED4 /* App.swift */,
-				A5271A8C904E08B00200EBC10D503CBC /* BackgroundTask.swift */,
-				533ACB0561E0A114D57EE5EA5653E767 /* Browser.swift */,
-				A62008C7BF1EE1FE5E61842B6E8E9F06 /* Camera.swift */,
-				E3A85ECF36CC3F134FCCE0A637BDE841 /* Clipboard.swift */,
-				654D9029F125B2FD26144C729EC999ED /* Console.swift */,
-				9A4ADCCC40C8DC1DA995DD71ABEF3C1B /* DefaultPlugins.h */,
-				828D1D21D2757832085FCA5F811AE84A /* DefaultPlugins.m */,
-				F968FDDAA1063D1C31367DED9FCD39AC /* Device.swift */,
-				31BC2A1A9E208B6A2811391E060266A8 /* Filesystem.swift */,
-				EB0DB675FC00EC5365322ABFD4EF1EC3 /* Geolocation.swift */,
-				AE175F45DB99B3922F9E251DC9883E42 /* Haptics.swift */,
-				763916F30BADAB102D3CA5893C15CCB7 /* Keyboard.h */,
-				B75E1088C9E51B890AC3403C7C894E77 /* Keyboard.m */,
-				6A2EB51688FD9B59EFB0B40B502DFE97 /* LocalNotifications.swift */,
-				91C3F793BC8A6BCF6F3F71657CD68AB4 /* Modals.swift */,
-				3A90981D1627143261C856BAA36C2B1C /* Permissions.swift */,
-				634EB90BB2B3B81F8463CF701F317240 /* PushNotifications.swift */,
-				77C263E7BF73E60B5CC35E627B4738DE /* Share.swift */,
-				27C9D61818E618F2D4519A1F2364C704 /* SplashScreen.swift */,
-				D35A52577A996A43B24ADBA13C48CD3B /* StatusBar.swift */,
-				CE56B6C5E642CB5E7D3F14F45CE24956 /* Storage.swift */,
-				3770640962AA1980A71E0C2829EAAFA9 /* Toast.swift */,
-				670B35132686E581E54C51D223B57D6B /* WebView.swift */,
-				5A96C26452B6EF84F5D05DEAA0B938F4 /* Network */,
-				02FC7D808420EDDCA02207781F84D7FB /* Photos */,
-			);
-			name = Plugins;
-			path = ios/Capacitor/Capacitor/Plugins;
 			sourceTree = "<group>";
 		};
 		8C0C94AB912114BEDD51A64682444E19 /* Pods-Plugin */ = {
@@ -454,12 +431,13 @@
 			path = "Target Support Files/Pods-Plugin";
 			sourceTree = "<group>";
 		};
-		8C6F6557408947809492DC9A46E7640B /* Pod */ = {
+		8DA7963F702BEDBE95F38FB00327AA7F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				91D68CF8F308FC009680EC14D2109822 /* Capacitor.podspec */,
+				9244DEE03081F65C54386707DBBDEF04 /* Public */,
 			);
-			name = Pod;
+			name = Classes;
+			path = CapacitorCordova/CapacitorCordova/Classes;
 			sourceTree = "<group>";
 		};
 		919EFE202983ACA4B33E57FD8A2220D2 /* Products */ = {
@@ -473,69 +451,92 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CE56A1F049702CC9B39E93731044ABCF /* iOS */ = {
+		9244DEE03081F65C54386707DBBDEF04 /* Public */ = {
 			isa = PBXGroup;
 			children = (
-				99CDB574913802A61C677992132A7F95 /* Foundation.framework */,
-				02D983ADD0DA9C04F1D54AB35453AF0D /* WebKit.framework */,
+				6CBD3BA3A48D4E64349D074D6F1BCB12 /* AppDelegate.h */,
+				16CF0249A5B86BF7577FF0479FF765E5 /* AppDelegate.m */,
+				D5C6E526D809FA897053F7931163CD19 /* CDV.h */,
+				F5EA51EF7FF15F420C39B67BC4AA2BB6 /* CDVAvailability.h */,
+				4DDD557DDA681EC7EB0B1025048EB2C3 /* CDVCommandDelegate.h */,
+				EB9C46B9384BA7D714FBB738806D786A /* CDVCommandDelegateImpl.h */,
+				CA9FFC1DC0459F71D0F816833C6D4541 /* CDVCommandDelegateImpl.m */,
+				512285ED8D3980241992DFDD5B91A679 /* CDVConfigParser.h */,
+				FF839557F83730B4B4E6F223DF8C0CED /* CDVConfigParser.m */,
+				1F17A698A8E19DCF5EB104E7058DA23A /* CDVInvokedUrlCommand.h */,
+				CBAABC08A75E9DD96124A5838BC71EFD /* CDVInvokedUrlCommand.m */,
+				A55CB66969D6C3D82B242D1651CCB290 /* CDVPlugin.h */,
+				675C2E248BF51592940D1B41E8054AB5 /* CDVPlugin.m */,
+				2647F38F667AA5A15EC7ACFFBC8EE302 /* CDVPlugin+Resources.h */,
+				009A31A69B1263AA5BEC5B357F0EF311 /* CDVPlugin+Resources.m */,
+				0358920F702471D0639B52FCF3B4EB46 /* CDVPluginManager.h */,
+				4CBAEDEFE836D5924FEC4D05621DD8E1 /* CDVPluginManager.m */,
+				49460EF4C6D32BD0620F9BAF61D61DEF /* CDVPluginResult.h */,
+				FCD28FC4F5EA0ABE47BDD7EF842BBC6C /* CDVPluginResult.m */,
+				503BF3D83BF8F38D2A4F60013602D21E /* CDVScreenOrientationDelegate.h */,
+				E367BEECC2B54FF6C7CFB48DAC1F8557 /* CDVURLProtocol.h */,
+				F2AC7704B1D105ACB51B6E15112C9B56 /* CDVURLProtocol.m */,
+				26887A80F387D0FC7CAEE2479E24A3F1 /* CDVViewController.h */,
+				F455940F4369F86707A088E115DA6431 /* CDVViewController.m */,
+				38603A16B2177A1E7DAD9BA057B6AE18 /* NSDictionary+CordovaPreferences.h */,
+				0595A1303DD9FF59A38B1481DE488CAD /* NSDictionary+CordovaPreferences.m */,
+			);
+			name = Public;
+			path = Public;
+			sourceTree = "<group>";
+		};
+		A17B663E7ADD85F18D480D2507E01935 /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				B995FC6500C332B4B8838EADCB45AEB3 /* Console.swift */,
+				E330E8624740146422BC92AA669DE724 /* DefaultPlugins.m */,
+				A99B23715A290880D7B884EA4347AD5E /* WebView.swift */,
+			);
+			name = Plugins;
+			path = Capacitor/Capacitor/Plugins;
+			sourceTree = "<group>";
+		};
+		AF7C994CA17138F9A3277B2C85314BF7 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				836AA53B08735CCA25FCBEB61ECE2D62 /* Foundation.framework */,
+				15AE296986E7EA9099B1F1A3C0632470 /* WebKit.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		B5A3F91648A83C5E38A6364B33782857 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				820D18E83FC10A835211903A69E0AEDE /* Capacitor.modulemap */,
+				EE748616B69F57730262E73507278BE6 /* Capacitor.podspec */,
+			);
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				4C3C7899773225C367EA5F9645782C13 /* Development Pods */,
+				27B9CD6A40A323054E92707440ECD21B /* Development Pods */,
 				5751801D79E9B5E4730ADC54EEA299E5 /* Frameworks */,
 				919EFE202983ACA4B33E57FD8A2220D2 /* Products */,
 				740E12C899D56C459793F8D89BE2D003 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		D9F4B4B2B0E6870CF76748D217DB0CEE /* Public */ = {
+		DA6CBBBF9739BB1050A2DA6497D5642A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				CCFE0B2215095C72E7BEB73F7A6E31AD /* AppDelegate.h */,
-				069B846A2ABB32510EF935A027C09AF8 /* AppDelegate.m */,
-				5FE8DDD61EEE7B236DA964658216A383 /* CDV.h */,
-				CBFBBFDBE34C37CCF3C5D85E88D3D036 /* CDVAvailability.h */,
-				852447C577ED41FEC5A3F0280C6BF007 /* CDVCommandDelegate.h */,
-				8DF3D47783DECE66C72E994DEEE1D0F4 /* CDVCommandDelegateImpl.h */,
-				7F964017DFA1C34BA61DC54B072F4975 /* CDVCommandDelegateImpl.m */,
-				AB3AC6176949E63E832452D526E4CEB4 /* CDVConfigParser.h */,
-				DA272E8D0D1E004E3301CD1DB94B44BA /* CDVConfigParser.m */,
-				2867BE1FFFE1DC627F9FA352449A6004 /* CDVInvokedUrlCommand.h */,
-				AD6B80645423F14634E669A142B45D28 /* CDVInvokedUrlCommand.m */,
-				DB87E510672ACD9A756B4D905105DF5D /* CDVPlugin.h */,
-				E036FDC2D1F6397CBAA63B65DBD72761 /* CDVPlugin.m */,
-				B6AAE66DFF55D1090B91741FF0C65E9E /* CDVPluginManager.h */,
-				8FF395EB8506C91E300BEAE93C9A1314 /* CDVPluginManager.m */,
-				6E2562934545251BBC8A7F6F8771304D /* CDVPluginResult.h */,
-				16C3DD2387EECB5F66C097EE9090D555 /* CDVPluginResult.m */,
-				22B1268DC7C813BCA63AB3919B255B98 /* CDVScreenOrientationDelegate.h */,
-				C29498291EF2B014C61E4E199468EC4C /* CDVUIWebViewDelegate.h */,
-				D50EAADD0D2C64867E9C6E92C1E11D0A /* CDVUIWebViewDelegate.m */,
-				91DBF49ACC4D94E55A584D34DD3CF3CA /* CDVURLProtocol.h */,
-				02EFD11EB7D880780DAA27BD0A9D2387 /* CDVURLProtocol.m */,
-				BB5EAC21DD16A3BC68598D0682CB7CF5 /* CDVUserAgentUtil.h */,
-				FE119BFF5CE03C1B65F6BFACE4501900 /* CDVUserAgentUtil.m */,
-				B28736F702F2544B53DA969F7F85518C /* CDVViewController.h */,
-				F1A60068E0842AEAD4025CBBAE1CE67A /* CDVViewController.m */,
-				8E05EFF12C0B9E47659718216DA7E0DA /* NSDictionary+CordovaPreferences.h */,
-				A2A9DC2AD37A89D3C7199C47CD214136 /* NSDictionary+CordovaPreferences.m */,
+				D8D836423E5A1957EDFBFB983E7D332C /* CapacitorCordova.modulemap */,
+				4D254A4EBC8390D953B496A7E031087F /* CapacitorCordova-dummy.m */,
+				5DF2FF06D70E2EABCAB3D167F2AC3245 /* CapacitorCordova-Info.plist */,
+				E9E549372966BA814DDC165DF870D09C /* CapacitorCordova-prefix.pch */,
+				3AB51599A9B4407E77758EA57E91F1C8 /* CapacitorCordova.debug.xcconfig */,
+				ABAB2826B4C86A46214C6319475FB417 /* CapacitorCordova.release.xcconfig */,
 			);
-			name = Public;
-			path = Public;
-			sourceTree = "<group>";
-		};
-		EDE9D03C2F166CB64F5032730DE6EF3D /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				D9F4B4B2B0E6870CF76748D217DB0CEE /* Public */,
-			);
-			name = Classes;
-			path = ios/CapacitorCordova/CapacitorCordova/Classes;
+			name = "Support Files";
+			path = "../../../ios/Pods/Target Support Files/CapacitorCordova";
 			sourceTree = "<group>";
 		};
 		F22F323547F39068C402A67FCA68E7C2 /* Pods-PluginTests */ = {
@@ -555,100 +556,61 @@
 			path = "Target Support Files/Pods-PluginTests";
 			sourceTree = "<group>";
 		};
-		F410E8D10FBE3518F2986806FE426260 /* Capacitor */ = {
-			isa = PBXGroup;
-			children = (
-				0063BAD881A18CC11F9F1A7406D17EC8 /* Capacitor.h */,
-				15635FC4114BA59BF54491F51F86DAC5 /* CAPAppDelegate.swift */,
-				033EBF3FB9C546751913BA650C915103 /* CAPAssetHandler.swift */,
-				B767B174CBEB6904D9649CAB095AEC00 /* CAPBridge.swift */,
-				693794041F679660642AD799B724B266 /* CAPBridgeDelegate.swift */,
-				0D67FFBFCAA1EE2BEAF80E85EE14C6F6 /* CAPBridgedPlugin.h */,
-				FAB792C0A5F4F4CB3B089B955AC06D6D /* CAPBridgeViewController.swift */,
-				D4BD6FAA2DDECEB90477D540AE554B63 /* CAPConfig.swift */,
-				D438367B36705B71FDD7781A7822ED06 /* CAPFile.swift */,
-				2DE5257BFE81C390CAA1F1B3F58831AA /* CAPLog.swift */,
-				7A16D08BEFC2070EC95FBBCB36292179 /* CAPNotifications.swift */,
-				DCB5479C6A1A7CEB8F8FBBF82DAE0469 /* CAPPlugin.h */,
-				A3E8B7513894D157ACCF635C2E9E8AAC /* CAPPlugin.m */,
-				967B3DDEEE30F3C4E4A6CE36E879CC96 /* CAPPluginCall.h */,
-				39422EC4D0CB134DCB2ED4754F7908A2 /* CAPPluginCall.m */,
-				35CC2CEF5A5EF928CCA01820F61DFE6C /* CAPPluginCall.swift */,
-				C072E035F234ED32715D2699B24E1203 /* CAPPluginMethod.h */,
-				32EB77461C85381E51716A2B1F5577E1 /* CAPPluginMethod.m */,
-				41F5F9D0C1246D76286B40373CAC45B0 /* CAPUNUserNotificationCenterDelegate.swift */,
-				273088682B387AADAAE8183DCC41D771 /* Diagnostics.swift */,
-				2DCD9FEAC30EEEFC0E44A0BDF2C9AAD4 /* DocLinks.swift */,
-				155BB72DFFFB631E2B3297C2C5B1D0E9 /* JS.swift */,
-				2D502E439E25D24D3E06EAB18770FDC8 /* JSExport.swift */,
-				C431C68EDABE88F37A6334ACF5121297 /* TmpViewController.swift */,
-				1E9E4A78D242B2E4557E94EB2F1E5477 /* UIColor.swift */,
-				DF7AA56A7BCB8E98326A8BF4D2E6E9FB /* UILabel.swift */,
-				83135C906C0E8E4B2CA395EEBE7A5BCD /* UIStatusBarManager+CAPHandleTapAction.m */,
-				82FC0DCE8FF2CE194EBEF359AE05DF73 /* Plugins */,
-				8C6F6557408947809492DC9A46E7640B /* Pod */,
-				56B89A4948E17D0FDCDD5050DBC49ADF /* Support Files */,
-			);
-			name = Capacitor;
-			path = "../../node_modules/@capacitor/ios";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		3C19B0395581052F11B93610CC97F00F /* Headers */ = {
+		4B6CB64D0D078CD51947AFB94A5FBE39 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4899C59C231DC8FBD543210D422ABE84 /* Pods-PluginTests-umbrella.h in Headers */,
+				A74BBDFD7C501FA6EE4010485FF29583 /* Capacitor.h in Headers */,
+				9B87AFF01C62D1D383B23D53942B5259 /* CAPBridgedJSTypes.h in Headers */,
+				55473C590A743544B36C0AB16DA366AD /* CAPBridgedPlugin.h in Headers */,
+				E4A0833CE7E74EC1C5C835EEFBFAD761 /* CAPBridgeViewController+CDVScreenOrientationDelegate.h in Headers */,
+				32442B4791A6357A2FABC7C6138E079C /* CAPInstanceConfiguration.h in Headers */,
+				FF84226483AF8F58F5591AD3BD0C4906 /* CAPInstanceDescriptor.h in Headers */,
+				342942F8E74A06C53C62A47E42E6431C /* CAPPlugin.h in Headers */,
+				0AEF641B94A6C789C7730E111BA89DDA /* CAPPluginCall.h in Headers */,
+				37FA76784C5CE052B1CA93A24F62CEB3 /* CAPPluginMethod.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5BD0E79AADD8E1414C6BA9BD6D31AA02 /* Headers */ = {
+		A953780CDA48BDE68004900C0CCA4018 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F155E4AE2E52359EA03D774D238BA550 /* Capacitor-umbrella.h in Headers */,
-				D655D290A4B763D71B7558F8F8E092F8 /* Capacitor.h in Headers */,
-				23CAD2035D4C4AF1CD57F4B929A5F7A9 /* CAPBridgedPlugin.h in Headers */,
-				04F6072A8EDB0B6B32E4F2B61AFFA640 /* CAPPlugin.h in Headers */,
-				388D2C1954A11E94925AFF987E1B2907 /* CAPPluginCall.h in Headers */,
-				C51D17A44A8D20C8E4F6AE4A8D319510 /* CAPPluginMethod.h in Headers */,
-				62F230A7ACF62AB41AEFBFB4B92ACAA9 /* DefaultPlugins.h in Headers */,
-				7BBF60A1972067EB5EEA4E6AC75208AC /* Keyboard.h in Headers */,
+				D3163A29F47496C92C285BAB100712F6 /* Pods-Plugin-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C7DF6DDDA8D5E0115C4D31E6BBEE64B4 /* Headers */ = {
+		AD5D02B71F3552F93FEC7705B762444A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3379D2D080238FE80FCEC9B7059BB598 /* AppDelegate.h in Headers */,
-				5FF08EFB9F7D7E23936AC8F71138BDD9 /* CapacitorCordova-umbrella.h in Headers */,
-				19F533E95E25D45B073E20EE7EA70AC6 /* CapacitorCordova.h in Headers */,
-				3A67C40E5CB2E502243C2017E69C229F /* CDV.h in Headers */,
-				FD0B21AB98B947A95194259B0BC6439C /* CDVAvailability.h in Headers */,
-				3B99FD2F0517635A0FD911A0D1C802F5 /* CDVCommandDelegate.h in Headers */,
-				62CE8D534CC6DAAC0C0BDFB434C948C3 /* CDVCommandDelegateImpl.h in Headers */,
-				BB54B0DA10E9CCBAC3EFAF7686528DC4 /* CDVConfigParser.h in Headers */,
-				36EBFBA9FE06065BAA8489AD46406ABF /* CDVInvokedUrlCommand.h in Headers */,
-				4CB82AF600B8EC5862C14DFCF556E651 /* CDVPlugin.h in Headers */,
-				FE9BE01E4D12FBDD8E09F03BB8815BD6 /* CDVPluginManager.h in Headers */,
-				3CCFB08E5B62F2C8220F6BCC59EE7C7F /* CDVPluginResult.h in Headers */,
-				5CAF1B84E687215E5693D97F0F25B10F /* CDVScreenOrientationDelegate.h in Headers */,
-				4F52A085ECDDE207B966F2DB8A8C1E10 /* CDVUIWebViewDelegate.h in Headers */,
-				944BC4026AE06C0B517EC3A8D0BD3BF5 /* CDVURLProtocol.h in Headers */,
-				F23D79170AFC70075D915D329163B219 /* CDVUserAgentUtil.h in Headers */,
-				6B96C9328BBA19B2B2FFB7E867541AA2 /* CDVViewController.h in Headers */,
-				16CB984C41D26BB96AAC67A6BB8A3C72 /* NSDictionary+CordovaPreferences.h in Headers */,
+				DB25C702FD38D204934E5B6B42280D55 /* AppDelegate.h in Headers */,
+				158C6C82CF10FBB43DB48D44F27E9166 /* CapacitorCordova.h in Headers */,
+				FB9232FEA107F215007BE65BA4ED29C0 /* CDV.h in Headers */,
+				2AA72E77388336D426E00F0F16C70A12 /* CDVAvailability.h in Headers */,
+				3A21670B488183AA2C6399C8A94EB665 /* CDVCommandDelegate.h in Headers */,
+				0D117C5727BACDC2CB014BBF521A4C96 /* CDVCommandDelegateImpl.h in Headers */,
+				F06124CA8CFF8843A1D84511D83D9B14 /* CDVConfigParser.h in Headers */,
+				3CF5A0AC67EE1BBF2C5F7E52486A03E0 /* CDVInvokedUrlCommand.h in Headers */,
+				438313AEAC6106313C3D70110731FE43 /* CDVPlugin+Resources.h in Headers */,
+				D7FD473D5B8C65C00797979E0C26C83F /* CDVPlugin.h in Headers */,
+				9B8C19D7E5454A96FA117B99E556EE6B /* CDVPluginManager.h in Headers */,
+				ACE4048A431EAF46DDEC4341A931A0DF /* CDVPluginResult.h in Headers */,
+				705EEB64F6E52F3B47AD24D38A287551 /* CDVScreenOrientationDelegate.h in Headers */,
+				CF9B1A89824DF80D3D48199BE7308B88 /* CDVURLProtocol.h in Headers */,
+				C53B13BBABCD530693400CF2A28A114D /* CDVViewController.h in Headers */,
+				427CEABA0A5C38E19D97F8B5B93C4866 /* NSDictionary+CordovaPreferences.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DB9F64D27B5165FDB3CF646A42070DF3 /* Headers */ = {
+		E8F4EDAD91B05621E3A008E10C01D6C7 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7748D589BDF0A3621603CDDB2719EF2A /* Pods-Plugin-umbrella.h in Headers */,
+				2AB272ED56FC6910939BE6B452236537 /* Pods-PluginTests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,17 +619,17 @@
 /* Begin PBXNativeTarget section */
 		0ECF3D6BFCC08377AE23B027EE1D4371 /* Capacitor */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0C86CBC809406FCF56F0782C88D661DA /* Build configuration list for PBXNativeTarget "Capacitor" */;
+			buildConfigurationList = AAE5E9BA53284324DDCEA97CE47799B0 /* Build configuration list for PBXNativeTarget "Capacitor" */;
 			buildPhases = (
-				5BD0E79AADD8E1414C6BA9BD6D31AA02 /* Headers */,
-				4BB86FBB5F5CA388CDA919682F6E0FC2 /* Sources */,
-				8AADEA415C46814B9F2BE6A675F4ECA2 /* Frameworks */,
-				764B6DC42DB11361E22C91971464B565 /* Resources */,
+				4B6CB64D0D078CD51947AFB94A5FBE39 /* Headers */,
+				F49286DF9A7B8422AF28A73502C094F4 /* Sources */,
+				B6974F81757DF174FB7733A61D8B5FEA /* Frameworks */,
+				5C26FBA279E8AEE31A35E0CE13438EDE /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				9DB7E64B35F68463C092FFE462AEFABD /* PBXTargetDependency */,
+				3241D91F8DEBB787665BE864B8734937 /* PBXTargetDependency */,
 			);
 			name = Capacitor;
 			productName = Capacitor;
@@ -676,18 +638,18 @@
 		};
 		10467BF5021453A5297325418ACC4E64 /* Pods-Plugin */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0934C656C7180B9B02D7D935921D1E8A /* Build configuration list for PBXNativeTarget "Pods-Plugin" */;
+			buildConfigurationList = 09FD18F5BBC7A6F8DFF5B93E0D0B902C /* Build configuration list for PBXNativeTarget "Pods-Plugin" */;
 			buildPhases = (
-				DB9F64D27B5165FDB3CF646A42070DF3 /* Headers */,
-				07CF4FB7EF7E49DDA234DF98D62FF2FF /* Sources */,
-				556C3E8430BC3AA1397D6E5735BA289D /* Frameworks */,
-				9170E65509986150835DB24C17C596DC /* Resources */,
+				A953780CDA48BDE68004900C0CCA4018 /* Headers */,
+				B14F80712DD87D9241BA8B2A6854B733 /* Sources */,
+				8DD0E3D29D0C940C1D86BABC522AD68D /* Frameworks */,
+				5CBA657C6F0373FFD1BC78EC553AEC90 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				01651F972FB8927B83865589148CEF58 /* PBXTargetDependency */,
-				CE1BA0075B879DDE76D3967C3A0E5703 /* PBXTargetDependency */,
+				CF9EFD9D94445B7B72304F1E9C9E5753 /* PBXTargetDependency */,
+				6FF38E814FF79A3420B22F28BE8D99FD /* PBXTargetDependency */,
 			);
 			name = "Pods-Plugin";
 			productName = "Pods-Plugin";
@@ -696,12 +658,12 @@
 		};
 		400AE44335852A2D8D746557E21E8EB0 /* CapacitorCordova */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F7C8D608E9AF7AB2857F10B21D39F7FE /* Build configuration list for PBXNativeTarget "CapacitorCordova" */;
+			buildConfigurationList = EB12DE296AF27C7CBA8323D0182ADEB7 /* Build configuration list for PBXNativeTarget "CapacitorCordova" */;
 			buildPhases = (
-				C7DF6DDDA8D5E0115C4D31E6BBEE64B4 /* Headers */,
-				876B104EE54EEE847D26A0952F93DD9A /* Sources */,
-				CE1104579B276B5925C2DD9F0A010C96 /* Frameworks */,
-				FDDE04E3FD403C34D494A7E9E587ACFC /* Resources */,
+				AD5D02B71F3552F93FEC7705B762444A /* Headers */,
+				9F48F2964580D1D736CA9132BEACA01D /* Sources */,
+				CA1303277F438F2D97385394569B649A /* Frameworks */,
+				972ACA6F64A67C3EF797D559E67CBA8E /* Resources */,
 			);
 			buildRules = (
 			);
@@ -714,18 +676,18 @@
 		};
 		401C34F4B17A319A7086C93431C92B42 /* Pods-PluginTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0B5B4D9093D2C07F80DC012DF23ACB59 /* Build configuration list for PBXNativeTarget "Pods-PluginTests" */;
+			buildConfigurationList = D20AE74F6B1887F3F68497742C61710A /* Build configuration list for PBXNativeTarget "Pods-PluginTests" */;
 			buildPhases = (
-				3C19B0395581052F11B93610CC97F00F /* Headers */,
-				CDEFC7CF06C26294DD81C1E88A3EA5C9 /* Sources */,
-				921C45421F263252B2C09216E1C2CCF0 /* Frameworks */,
-				9CD44530B0FF945CF008369FBBB22C3D /* Resources */,
+				E8F4EDAD91B05621E3A008E10C01D6C7 /* Headers */,
+				8474CD88FA624CACA08D3037A2616079 /* Sources */,
+				09A3C8F5F4124EF39C11A4869ED86B43 /* Frameworks */,
+				0D1695535A6A4265C0BCAAB7801E1AB8 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				10CC587C088C57D83ACD0E93ADEF8A84 /* PBXTargetDependency */,
-				C7F485018127F70554E5C710878352C7 /* PBXTargetDependency */,
+				5170CD6BF86094133EF15FFADE4444EE /* PBXTargetDependency */,
+				611A0E299E25E214698D69EFBB295C46 /* PBXTargetDependency */,
 			);
 			name = "Pods-PluginTests";
 			productName = "Pods-PluginTests";
@@ -763,28 +725,29 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		764B6DC42DB11361E22C91971464B565 /* Resources */ = {
+		0D1695535A6A4265C0BCAAB7801E1AB8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9170E65509986150835DB24C17C596DC /* Resources */ = {
+		5C26FBA279E8AEE31A35E0CE13438EDE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9ACDA0C0DDD732AD3EA18C17B3B02CF /* native-bridge.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CBA657C6F0373FFD1BC78EC553AEC90 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9CD44530B0FF945CF008369FBBB22C3D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FDDE04E3FD403C34D494A7E9E587ACFC /* Resources */ = {
+		972ACA6F64A67C3EF797D559E67CBA8E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -794,141 +757,131 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		07CF4FB7EF7E49DDA234DF98D62FF2FF /* Sources */ = {
+		8474CD88FA624CACA08D3037A2616079 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D35302D53D51A0F965D2CA805F84036 /* Pods-Plugin-dummy.m in Sources */,
+				AF630C31D5A79586F63881A5F7463E67 /* Pods-PluginTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4BB86FBB5F5CA388CDA919682F6E0FC2 /* Sources */ = {
+		9F48F2964580D1D736CA9132BEACA01D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52B372F00AC218DF40B236CF1F489298 /* Accessibility.swift in Sources */,
-				B22448CBBE4F7D2A80FE92A97F08237C /* App.swift in Sources */,
-				C4D61AD80778EFC5CD1BE23CB8AE1123 /* BackgroundTask.swift in Sources */,
-				704364CB296AF00C48EDC3306F647EA5 /* Browser.swift in Sources */,
-				D8F63A429C5527917987E85394FE1443 /* Camera.swift in Sources */,
-				1B33A25E4C0C0AB10DA81E14FE68E83A /* Capacitor-dummy.m in Sources */,
-				E1738E62A487760FCCE8891B757483B1 /* CAPAppDelegate.swift in Sources */,
-				6548BAE899E15212E367E39BD1C75426 /* CAPAssetHandler.swift in Sources */,
-				B0C0B0D0337CDBA0D69DC4CAF7D7EB34 /* CAPBridge.swift in Sources */,
-				09C201AF1CC4D100B94ADD0E29609FED /* CAPBridgeDelegate.swift in Sources */,
-				EB52287903AA55E5633B170E7096B8B4 /* CAPBridgeViewController.swift in Sources */,
-				A7FE78A4D72287C2B47FEDC753471DCE /* CAPConfig.swift in Sources */,
-				55F4E0B40A6F08B1E4ADF54810D5E598 /* CAPFile.swift in Sources */,
-				5C24924D587CAC37E85626EEF1AC4B82 /* CAPLog.swift in Sources */,
-				0341A30A6DEDF25125B375CA74B1CAE6 /* CAPNotifications.swift in Sources */,
-				E9BB02D342F27998EB89174AE09D1EFC /* CAPPlugin.m in Sources */,
-				B312D2CD4214F2CF9C5B0213100DFCD8 /* CAPPluginCall.m in Sources */,
-				11D1EB579FA74EEE727A4C7C45D3C950 /* CAPPluginCall.swift in Sources */,
-				0431EB9F7FEFD9AED774332E5B7848FC /* CAPPluginMethod.m in Sources */,
-				D282773D0BB24797EA16B5D1DCFADE39 /* CAPUNUserNotificationCenterDelegate.swift in Sources */,
-				1C6F327FC09D2D40C10D4583C1943816 /* Clipboard.swift in Sources */,
-				BCD1D0FDBED51926ABF28CE60136A46C /* Console.swift in Sources */,
-				C3690E20B2F142FD82D2EB9AD249290D /* DefaultPlugins.m in Sources */,
-				BB860FB899D2E52A1D75DAD8706F8C4B /* Device.swift in Sources */,
-				25A7EC60D6FA70ABBA062276074468AA /* Diagnostics.swift in Sources */,
-				22266BFD9691A007CF59548083652BE6 /* DocLinks.swift in Sources */,
-				9ECE7349B3C6DED992AA901755429D68 /* Filesystem.swift in Sources */,
-				E5075E9C7154125FCAE580B873F83A2F /* Geolocation.swift in Sources */,
-				57E0053AA27CCACA2C3836BACE25E226 /* Haptics.swift in Sources */,
-				2002DD3CA014E65F295F0FC21BDABB16 /* JS.swift in Sources */,
-				F99D922D3BE68E1709D3F3EC43AF7078 /* JSExport.swift in Sources */,
-				20A72AA420CAF1DFDC29BF62CE33CC7C /* Keyboard.m in Sources */,
-				C5CEDB84C94200E524D516CA51E8134B /* LocalNotifications.swift in Sources */,
-				2425165E145FE69DD644A6C55ABC163B /* Modals.swift in Sources */,
-				8C1C5B2437D981A85F1E2FE3C3E027B5 /* Network.swift in Sources */,
-				9280BBA8BD19A47256B03D1D37F7ACE7 /* Permissions.swift in Sources */,
-				FAA7E1396DAA7EC56F971D8E99390E70 /* Photos.swift in Sources */,
-				BA889C1D3547D2C1393685FCF58B584A /* PushNotifications.swift in Sources */,
-				BE41D8BD751013784F5019B9C5AAD029 /* Reachability.swift in Sources */,
-				8EE06717126C1F79B8CB9936391C8782 /* Share.swift in Sources */,
-				9F99693097C0051CA274F998629A0B9E /* SplashScreen.swift in Sources */,
-				BA354F0C1145378C46C1EC85F7C7AA46 /* StatusBar.swift in Sources */,
-				12B393A97934C5B9E215731CE53BABCC /* Storage.swift in Sources */,
-				02D93794AAAD83A71AC5BD113770AC20 /* TmpViewController.swift in Sources */,
-				ADD673B56408BF7A735C6197F4314E62 /* Toast.swift in Sources */,
-				8013340CBC0554CF2A36DDA0804F7E0F /* UIColor.swift in Sources */,
-				C7DFAF6F68541F4DC359AAB9D8177E56 /* UILabel.swift in Sources */,
-				98D5C24640970ECE05E563F24262D777 /* UIStatusBarManager+CAPHandleTapAction.m in Sources */,
-				0370498819790DECC0024A3EA448BFE2 /* WebView.swift in Sources */,
+				7CC9A691137294516A85745527452744 /* AppDelegate.m in Sources */,
+				113531B71E00B8EC5635C067A1BAA589 /* CapacitorCordova-dummy.m in Sources */,
+				DCBD083DA6825B9486EA1EC61796A653 /* CDVCommandDelegateImpl.m in Sources */,
+				78FAC0A5815747D76CF28B394020B96A /* CDVConfigParser.m in Sources */,
+				B5A71C0D47057D0E65C04EC84A24B385 /* CDVInvokedUrlCommand.m in Sources */,
+				7A5D45706BA503225CF5F480B017AFE4 /* CDVPlugin+Resources.m in Sources */,
+				7BBF4F6B4BE4F7EEADB2CAB7B4D9F4D7 /* CDVPlugin.m in Sources */,
+				403DB01130417FA3E7DE77CB601F1F72 /* CDVPluginManager.m in Sources */,
+				EA2E30D3E2B2398BE6936CA791373C07 /* CDVPluginResult.m in Sources */,
+				183E9878DC6739EE15D04DEB0DFFAC38 /* CDVURLProtocol.m in Sources */,
+				09D4D0831A2D8AC1D49A851B4C45BB33 /* CDVViewController.m in Sources */,
+				4E1C7C62151993ACB9A2C41DD0E8249A /* NSDictionary+CordovaPreferences.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		876B104EE54EEE847D26A0952F93DD9A /* Sources */ = {
+		B14F80712DD87D9241BA8B2A6854B733 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B0E64DA957FEC736F42F3C3030494EA /* AppDelegate.m in Sources */,
-				D7B72DE457DBD019F71BEDA33BE15C06 /* CapacitorCordova-dummy.m in Sources */,
-				10321170293032AABD89C2DC277A8BB2 /* CDVCommandDelegateImpl.m in Sources */,
-				B0A670CFD6FDB7A5EFCE5A9BF57C6341 /* CDVConfigParser.m in Sources */,
-				E7E7308E87E16E536FB47BE16FA2D935 /* CDVInvokedUrlCommand.m in Sources */,
-				BCC84EE1F1F774963D0AA1F7E0EBB9B8 /* CDVPlugin.m in Sources */,
-				EE0DE457D7145E0BFF7863948BC98260 /* CDVPluginManager.m in Sources */,
-				9563A9C7DCF3B3FE37ED5DC01375BF48 /* CDVPluginResult.m in Sources */,
-				6E0E7011C53428850FFB28F7D7A4EF2A /* CDVUIWebViewDelegate.m in Sources */,
-				B9DAC8F53C2EA52FFF9EF615E2735A4C /* CDVURLProtocol.m in Sources */,
-				0B0E8AADC8319219AA781FA10FF21E13 /* CDVUserAgentUtil.m in Sources */,
-				4D11A02FB5D70951CAE59DD840DFC2D7 /* CDVViewController.m in Sources */,
-				4664F3BE691B71647C32F873C0D8FA16 /* NSDictionary+CordovaPreferences.m in Sources */,
+				59EB6C129639B56056DCABA6629D7F66 /* Pods-Plugin-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CDEFC7CF06C26294DD81C1E88A3EA5C9 /* Sources */ = {
+		F49286DF9A7B8422AF28A73502C094F4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9716479F6B8424D69D65B3FBDE458A5 /* Pods-PluginTests-dummy.m in Sources */,
+				AE0A157D845E136EA43BA20A7F8AE7B0 /* Array+Capacitor.swift in Sources */,
+				32359D2A42B526323E6D19EE78EB6DAE /* Capacitor-dummy.m in Sources */,
+				53BE1B6FAB258D445F043F305AC2A982 /* CapacitorBridge.swift in Sources */,
+				7ABECF4B8AE84B3A314B8988F8BC4289 /* CapacitorExtension.swift in Sources */,
+				414A0CABDD2B61A4674ACBEF9C8D28D2 /* CAPApplicationDelegateProxy.swift in Sources */,
+				792909C3DA3490DC365DFE881587A1D7 /* CAPBridge.swift in Sources */,
+				33DF2B6E77E8C201B514F0088D69FC35 /* CAPBridgeDelegate.swift in Sources */,
+				3E005519C18C841566E989F963208D30 /* CAPBridgedJSTypes.m in Sources */,
+				B94A4AD2A9613D6F1DEDB2F3D9B31093 /* CAPBridgeProtocol.swift in Sources */,
+				19C25586E762DE4B0D16A34F9A82F22D /* CAPBridgeViewController+CDVScreenOrientationDelegate.m in Sources */,
+				E14758A68B8338DB9EDBE02BEE793923 /* CAPBridgeViewController.swift in Sources */,
+				36CCA340B9CD015BAD7712D21EB68B7A /* CAPFile.swift in Sources */,
+				9E9427578C52E17B0A350692A5B725C0 /* CAPInstanceConfiguration.m in Sources */,
+				4E3983855D38B1492D98CCFBBF21664D /* CAPInstanceConfiguration.swift in Sources */,
+				50FDF7D61EA9A036AFB84E72C82ADE6D /* CAPInstanceDescriptor.m in Sources */,
+				3899A7F7B56A14B2443E8AAF34E2BDC7 /* CAPInstanceDescriptor.swift in Sources */,
+				97F77E912F6D3B6B6FE0A97A18A30E35 /* CAPLog.swift in Sources */,
+				D76D549196EF3766D52AA6BEDF861675 /* CAPNotifications.swift in Sources */,
+				7190A3EFF5C4F74E72543FFB365BA6D3 /* CAPPlugin.m in Sources */,
+				E6FF0EFF8CCB2F26C59F7E5AA73152C3 /* CAPPluginCall.m in Sources */,
+				52C1777F64D95C3885A2D7D9219CEB3C /* CAPPluginCall.swift in Sources */,
+				314E70C52A85291B9B0479509D37F785 /* CAPPluginMethod.m in Sources */,
+				8B2B22B670953DB72EE08437E8211A03 /* Console.swift in Sources */,
+				C42A15EF6AFC89AC05A1B7ECB205A4C7 /* Data+Capacitor.swift in Sources */,
+				D7DCA9345214E46478597276DDD444AD /* DefaultPlugins.m in Sources */,
+				C8548FCC70DD8AA0A0BDAE31D212AFA8 /* DocLinks.swift in Sources */,
+				D022CB221B4DCB7BED2C6C1F76C9772D /* JS.swift in Sources */,
+				D854200CF9DC215B51E7AB606B49B3A5 /* JSExport.swift in Sources */,
+				3B48136E65F42941E4876116E20BAE80 /* JSTypes.swift in Sources */,
+				8CFCB488465B388E5721E2451873F432 /* KeyPath.swift in Sources */,
+				F283821BD859552A79631A63E2A69B9F /* NotificationHandlerProtocol.swift in Sources */,
+				E23A11930B1F0B376BA3573E1684FFA2 /* NotificationRouter.swift in Sources */,
+				B27B05F270567995D7761BBF59FB350C /* PluginCallResult.swift in Sources */,
+				0EB0D916405A8B74B6485F8AED287B52 /* TmpViewController.swift in Sources */,
+				C1929DBD81F7A5E4F376D9A84E80DF57 /* UIColor.swift in Sources */,
+				9E8CD5C9CCEA9842D09DFB928E7968FA /* UIStatusBarManager+CAPHandleTapAction.m in Sources */,
+				2443AA1B5EE25C1B61F74DF5CB10C1C8 /* WebView.swift in Sources */,
+				947898A65C38042756F4079A9AC6B829 /* WebViewAssetHandler.swift in Sources */,
+				0CF1274ACCFA692016F71E1017FB78F0 /* WebViewDelegationHandler.swift in Sources */,
+				7ACF29A1647B7BDCBF42A2EBBDA496E8 /* WKWebView+Capacitor.m in Sources */,
+				13261D586B71241BF3D94545AF13B19C /* WKWebView+Capacitor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		01651F972FB8927B83865589148CEF58 /* PBXTargetDependency */ = {
+		3241D91F8DEBB787665BE864B8734937 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CapacitorCordova;
+			target = 400AE44335852A2D8D746557E21E8EB0 /* CapacitorCordova */;
+			targetProxy = 6E4BBBAEFF4DF70F86288B4FDCE42B4A /* PBXContainerItemProxy */;
+		};
+		5170CD6BF86094133EF15FFADE4444EE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Capacitor;
 			target = 0ECF3D6BFCC08377AE23B027EE1D4371 /* Capacitor */;
-			targetProxy = 752160B9E217B990996A8817222E370E /* PBXContainerItemProxy */;
+			targetProxy = D7C0EE355632C05D1EDBF1F432E21109 /* PBXContainerItemProxy */;
 		};
-		10CC587C088C57D83ACD0E93ADEF8A84 /* PBXTargetDependency */ = {
+		611A0E299E25E214698D69EFBB295C46 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CapacitorCordova;
+			target = 400AE44335852A2D8D746557E21E8EB0 /* CapacitorCordova */;
+			targetProxy = C244E71BA488A8345EF177AAF634ECB1 /* PBXContainerItemProxy */;
+		};
+		6FF38E814FF79A3420B22F28BE8D99FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CapacitorCordova;
+			target = 400AE44335852A2D8D746557E21E8EB0 /* CapacitorCordova */;
+			targetProxy = 19934B9979739B4E1D498AAC03353C32 /* PBXContainerItemProxy */;
+		};
+		CF9EFD9D94445B7B72304F1E9C9E5753 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Capacitor;
 			target = 0ECF3D6BFCC08377AE23B027EE1D4371 /* Capacitor */;
-			targetProxy = BAC73F9700C1E9F4E5B0630727811E0F /* PBXContainerItemProxy */;
-		};
-		9DB7E64B35F68463C092FFE462AEFABD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CapacitorCordova;
-			target = 400AE44335852A2D8D746557E21E8EB0 /* CapacitorCordova */;
-			targetProxy = C654906C524DB524B8E04EE0D76B5288 /* PBXContainerItemProxy */;
-		};
-		C7F485018127F70554E5C710878352C7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CapacitorCordova;
-			target = 400AE44335852A2D8D746557E21E8EB0 /* CapacitorCordova */;
-			targetProxy = 1C6DFF8559D66FCE5655F99723078DC3 /* PBXContainerItemProxy */;
-		};
-		CE1BA0075B879DDE76D3967C3A0E5703 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CapacitorCordova;
-			target = 400AE44335852A2D8D746557E21E8EB0 /* CapacitorCordova */;
-			targetProxy = A1354707E0EDC3D2153733F7C62677E9 /* PBXContainerItemProxy */;
+			targetProxy = 79ECF4D78D5407C1D99A9E1CE5344FB2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		1470340C1CAB7D6EE4DE333BFB410EBA /* Debug */ = {
+		2C93376F9EAD52377845ACFAB1DD7C77 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F4D11F5C3532F0237696013B841F8BB6 /* Capacitor.xcconfig */;
+			baseConfigurationReference = 3AB51599A9B4407E77758EA57E91F1C8 /* CapacitorCordova.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -937,28 +890,133 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Capacitor/Capacitor-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Capacitor/Capacitor-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/CapacitorCordova/CapacitorCordova-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CapacitorCordova/CapacitorCordova-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Capacitor/Capacitor.modulemap";
-				PRODUCT_MODULE_NAME = Capacitor;
-				PRODUCT_NAME = Capacitor;
+				MODULEMAP_FILE = "Target Support Files/CapacitorCordova/CapacitorCordova.modulemap";
+				PRODUCT_MODULE_NAME = Cordova;
+				PRODUCT_NAME = Cordova;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		257497152829C177993B5EC99C1D227A /* Release */ = {
+		6E957CE85B7FFA19779B15D72BDA216F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D967D566F7C3FD1B78180239E63BC92 /* Pods-PluginTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PluginTests/Pods-PluginTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PluginTests/Pods-PluginTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		85F4EEBE9A5E1542C7E510A914ADB794 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAA5DBF72380C5466DCBC107B7747A60 /* Pods-Plugin.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Plugin/Pods-Plugin-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Plugin/Pods-Plugin.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8A982FC7C4B49B346C626B6486EC60CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F1715C2DEF7461A3964E29A0FCB6D3D /* Pods-Plugin.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Plugin/Pods-Plugin-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Plugin/Pods-Plugin.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		903A0004D3E6651EFD5D2E16214D101B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -981,6 +1039,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1015,14 +1074,12 @@
 			};
 			name = Release;
 		};
-		75C2C8E95159F51CD680E90DA24961E7 /* Debug */ = {
+		94B6D56E9534118B441A1646C5C794E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DAA5DBF72380C5466DCBC107B7747A60 /* Pods-Plugin.debug.xcconfig */;
+			baseConfigurationReference = 3B19633DB69151857CDC073CFC2F515C /* Capacitor.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -1031,172 +1088,31 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Plugin/Pods-Plugin-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Capacitor/Capacitor-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Capacitor/Capacitor-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Plugin/Pods-Plugin.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				MODULEMAP_FILE = "Target Support Files/Capacitor/Capacitor.modulemap";
+				PRODUCT_MODULE_NAME = Capacitor;
+				PRODUCT_NAME = Capacitor;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		795DCD1FE8E328C9C136EC72920A0A07 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6F1715C2DEF7461A3964E29A0FCB6D3D /* Pods-Plugin.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Plugin/Pods-Plugin-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Plugin/Pods-Plugin.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		81F4DBCE55AF57A8CC004FE679156EAB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BCEDFB68C4D3B6E7FEF0242FA089DAC9 /* CapacitorCordova.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/CapacitorCordova/CapacitorCordova-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CapacitorCordova/CapacitorCordova-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/CapacitorCordova/CapacitorCordova.modulemap";
-				PRODUCT_MODULE_NAME = Cordova;
-				PRODUCT_NAME = Cordova;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		83D7E7AF2FFAC6CE4107AF523F46214D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BCEDFB68C4D3B6E7FEF0242FA089DAC9 /* CapacitorCordova.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/CapacitorCordova/CapacitorCordova-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CapacitorCordova/CapacitorCordova-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/CapacitorCordova/CapacitorCordova.modulemap";
-				PRODUCT_MODULE_NAME = Cordova;
-				PRODUCT_NAME = Cordova;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		ACAF71990A1D944036348884F80F7EC2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D967D566F7C3FD1B78180239E63BC92 /* Pods-PluginTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-PluginTests/Pods-PluginTests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-PluginTests/Pods-PluginTests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		D9062C343088BE0860A33292C90BD68A /* Debug */ = {
+		A711F0BA6BE47E5D9B94B034B38E1D28 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 47F881CAB117FE10E92963EF6CC91861 /* Pods-PluginTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -1224,10 +1140,11 @@
 			};
 			name = Debug;
 		};
-		DD8F832993327D1DD8046C3CBCBD97CD /* Debug */ = {
+		B4EFE046ACF8F37157F6E322C7FCFC28 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1250,6 +1167,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1288,13 +1206,45 @@
 			};
 			name = Debug;
 		};
-		E9C746D93C7D96282FEAEAD58EFA8AC6 /* Release */ = {
+		D3D1FF428236A28B5351905BF8FFD2A3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F4D11F5C3532F0237696013B841F8BB6 /* Capacitor.xcconfig */;
+			baseConfigurationReference = ABAB2826B4C86A46214C6319475FB417 /* CapacitorCordova.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CapacitorCordova/CapacitorCordova-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CapacitorCordova/CapacitorCordova-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/CapacitorCordova/CapacitorCordova.modulemap";
+				PRODUCT_MODULE_NAME = Cordova;
+				PRODUCT_NAME = Cordova;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E0537B5DF0D577966887A7BBE7332114 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F8AFF3D2C90E24D31055D049DDE67BF /* Capacitor.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -1306,7 +1256,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Capacitor/Capacitor-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Capacitor/Capacitor-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Capacitor/Capacitor.modulemap";
 				PRODUCT_MODULE_NAME = Capacitor;
@@ -1314,7 +1264,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 5.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1325,29 +1275,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0934C656C7180B9B02D7D935921D1E8A /* Build configuration list for PBXNativeTarget "Pods-Plugin" */ = {
+		09FD18F5BBC7A6F8DFF5B93E0D0B902C /* Build configuration list for PBXNativeTarget "Pods-Plugin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				75C2C8E95159F51CD680E90DA24961E7 /* Debug */,
-				795DCD1FE8E328C9C136EC72920A0A07 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0B5B4D9093D2C07F80DC012DF23ACB59 /* Build configuration list for PBXNativeTarget "Pods-PluginTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D9062C343088BE0860A33292C90BD68A /* Debug */,
-				ACAF71990A1D944036348884F80F7EC2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0C86CBC809406FCF56F0782C88D661DA /* Build configuration list for PBXNativeTarget "Capacitor" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1470340C1CAB7D6EE4DE333BFB410EBA /* Debug */,
-				E9C746D93C7D96282FEAEAD58EFA8AC6 /* Release */,
+				85F4EEBE9A5E1542C7E510A914ADB794 /* Debug */,
+				8A982FC7C4B49B346C626B6486EC60CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1355,17 +1287,35 @@
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DD8F832993327D1DD8046C3CBCBD97CD /* Debug */,
-				257497152829C177993B5EC99C1D227A /* Release */,
+				B4EFE046ACF8F37157F6E322C7FCFC28 /* Debug */,
+				903A0004D3E6651EFD5D2E16214D101B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F7C8D608E9AF7AB2857F10B21D39F7FE /* Build configuration list for PBXNativeTarget "CapacitorCordova" */ = {
+		AAE5E9BA53284324DDCEA97CE47799B0 /* Build configuration list for PBXNativeTarget "Capacitor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				81F4DBCE55AF57A8CC004FE679156EAB /* Debug */,
-				83D7E7AF2FFAC6CE4107AF523F46214D /* Release */,
+				94B6D56E9534118B441A1646C5C794E8 /* Debug */,
+				E0537B5DF0D577966887A7BBE7332114 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D20AE74F6B1887F3F68497742C61710A /* Build configuration list for PBXNativeTarget "Pods-PluginTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A711F0BA6BE47E5D9B94B034B38E1D28 /* Debug */,
+				6E957CE85B7FFA19779B15D72BDA216F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB12DE296AF27C7CBA8323D0182ADEB7 /* Build configuration list for PBXNativeTarget "CapacitorCordova" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C93376F9EAD52377845ACFAB1DD7C77 /* Debug */,
+				D3D1FF428236A28B5351905BF8FFD2A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
