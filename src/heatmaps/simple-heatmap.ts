@@ -1,8 +1,12 @@
 import { Log } from "../log";
-import type { IHeatmapOptions, HeatmapData, HeatmapPoint, HeatmapGradient, HeatmapPosition, ColorScale, ColorScaleStyles } from "../models/models";
+import { IHeatmapOptions, HeatmapData, HeatmapPoint, HeatmapGradient, HeatmapPosition, ColorScale,
+    ColorScaleStyles, VerticalPosition, HorizontalPosition } from "../models/models";
 import { Utils }  from "../utils/utils";
 
 import { BaseHeatmap } from "./base-heatmap";
+
+const ZERO_PX = "0px";
+const TEN_PX = "10px";
 
 export class SimpleHeatmap extends BaseHeatmap {
 
@@ -23,7 +27,7 @@ export class SimpleHeatmap extends BaseHeatmap {
         zIndex: "999999",
         marginTop: "-10px",
         margin: "15px",
-        padding: "10px",
+        padding: TEN_PX,
         boxShadow: "0px 0px 5px 1px black",
         fillTextStart: 'COLD',
         fillTextEnd: 'HOT',
@@ -287,40 +291,49 @@ export class SimpleHeatmap extends BaseHeatmap {
         canvasColorScale.style.margin = SimpleHeatmap.DEFAULT_COLOR_SCALE_STYLES.margin;
         canvasColorScale.style.padding = SimpleHeatmap.DEFAULT_COLOR_SCALE_STYLES.padding;
         canvasColorScale.style.boxShadow = colorScaleOptions.boxShadow ? colorScaleOptions.boxShadow : SimpleHeatmap.DEFAULT_COLOR_SCALE_STYLES.boxShadow;
+        this._setColorScalePosition(canvasColorScale, colorScaleOptions);
+    }
 
+    private _setColorScalePosition(canvasColorScale: HTMLCanvasElement, colorScaleOptions: ColorScale) {
         if (!colorScaleOptions.position) {
-            canvasColorScale.style.left = "0px";
-            canvasColorScale.style.right = "0px";
+            canvasColorScale.style.left = ZERO_PX;
+            canvasColorScale.style.right = ZERO_PX;
         }
 
-        if ((colorScaleOptions.position?.vertical === "top") && (colorScaleOptions.position?.horizontal === "start")) {
-            canvasColorScale.style.left = "0px";
-            canvasColorScale.style.right = "0px";
+        if ((colorScaleOptions.position?.vertical === VerticalPosition.TOP) &&
+        (colorScaleOptions.position?.horizontal === HorizontalPosition.START)) {
+            canvasColorScale.style.left = ZERO_PX;
+            canvasColorScale.style.right = ZERO_PX;
         }
-        if ((colorScaleOptions.position?.vertical === "top") && (colorScaleOptions.position?.horizontal === "end")) {
-            canvasColorScale.style.right = "0px";
+        if ((colorScaleOptions.position?.vertical === VerticalPosition.TOP) &&
+        (colorScaleOptions.position?.horizontal === HorizontalPosition.END)) {
+            canvasColorScale.style.right = ZERO_PX;
         }
-        if ((colorScaleOptions.position?.vertical === "bottom") && (colorScaleOptions.position?.horizontal === "start")) {
-            canvasColorScale.style.left = "0px";
-            canvasColorScale.style.right = "0px";
-            canvasColorScale.style.bottom = "0px";
+        if ((colorScaleOptions.position?.vertical === VerticalPosition.BOTTOM) &&
+        (colorScaleOptions.position?.horizontal === HorizontalPosition.START)) {
+            canvasColorScale.style.left = ZERO_PX;
+            canvasColorScale.style.right = ZERO_PX;
+            canvasColorScale.style.bottom = ZERO_PX;
         }
-        if ((colorScaleOptions.position?.vertical === "bottom") && (colorScaleOptions.position?.horizontal === "end")) {
-            canvasColorScale.style.bottom = "0px";
-            canvasColorScale.style.right = "0px";
+        if ((colorScaleOptions.position?.vertical === VerticalPosition.BOTTOM) &&
+        (colorScaleOptions.position?.horizontal === HorizontalPosition.END)) {
+            canvasColorScale.style.bottom = ZERO_PX;
+            canvasColorScale.style.right = ZERO_PX;
         }
-        if ((colorScaleOptions.position?.vertical === "top") && (colorScaleOptions.position?.horizontal === "center")) {
+        if ((colorScaleOptions.position?.vertical === VerticalPosition.TOP) &&
+        (colorScaleOptions.position?.horizontal === HorizontalPosition.CENTER)) {
             canvasColorScale.style.margin = "auto";
-            canvasColorScale.style.marginTop = "10px";
-            canvasColorScale.style.left = "0px";
-            canvasColorScale.style.right = "0px";
+            canvasColorScale.style.marginTop = TEN_PX;
+            canvasColorScale.style.left = ZERO_PX;
+            canvasColorScale.style.right = ZERO_PX;
         }
-        if ((colorScaleOptions.position?.vertical === "bottom") && (colorScaleOptions.position?.horizontal === "center")) {
+        if ((colorScaleOptions.position?.vertical === VerticalPosition.BOTTOM) &&
+        (colorScaleOptions.position?.horizontal === HorizontalPosition.CENTER)) {
             canvasColorScale.style.margin = "auto";
-            canvasColorScale.style.left = "0px";
-            canvasColorScale.style.right = "0px";
-            canvasColorScale.style.bottom = "0px";
-            canvasColorScale.style.marginBottom = "10px";
+            canvasColorScale.style.left = ZERO_PX;
+            canvasColorScale.style.right = ZERO_PX;
+            canvasColorScale.style.bottom = ZERO_PX;
+            canvasColorScale.style.marginBottom = TEN_PX;
         }
     }
 
@@ -350,7 +363,7 @@ export class SimpleHeatmap extends BaseHeatmap {
         this.setSiblingElementStyles(overlap.parent, {width, height});
         this.setCanvasElementStyles({width, height});
         if ((this._canvas.width === 0) || (this._canvas.height === 0)) {
-            this._heatmapLogger.error("__SimpleHeatmap__ ERROR -> Canvas dimensions are zero.");
+            this._heatmapLogger.error("__SimpleHeatmap__ ERROR -> Canvas dimensions are ZERO_PX.");
         }
     }
     */
