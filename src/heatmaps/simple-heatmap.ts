@@ -1,12 +1,10 @@
+import { PixelsValue } from "../constants/constants";
 import { Log } from "../log";
-import { IHeatmapOptions, HeatmapData, HeatmapPoint, HeatmapGradient, HeatmapPosition, ColorScale,
-    ColorScaleStyles, VerticalPosition, HorizontalPosition } from "../models/models";
+import type { IHeatmapOptions, HeatmapData, HeatmapPoint, HeatmapGradient, HeatmapPosition, ColorScale,
+    ColorScaleStyles } from "../models/models";
 import { Utils }  from "../utils/utils";
 
 import { BaseHeatmap } from "./base-heatmap";
-
-const ZERO_PX = "0px";
-const TEN_PX = "10px";
 
 export class SimpleHeatmap extends BaseHeatmap {
 
@@ -22,18 +20,27 @@ export class SimpleHeatmap extends BaseHeatmap {
     static readonly DEFAULT_COLOR_SCALE_STYLES: ColorScaleStyles = {
         width: 250,
         height: 20,
-        borderRadius: "5px",
+        borderRadius: PixelsValue.five,
         position: "absolute",
         zIndex: "999999",
         marginTop: "-10px",
-        margin: "15px",
-        padding: TEN_PX,
+        margin: PixelsValue.fifteen,
+        padding: PixelsValue.ten,
         boxShadow: "0px 0px 5px 1px black",
         fillTextStart: 'COLD',
         fillTextEnd: 'HOT',
         fillTextColor: 'black',
         background: '#00F8'
     }
+
+    colorScalePosition: Record<string, any> = {
+        "top_start": {left: PixelsValue.zero, right: PixelsValue.zero},
+        "top_center": {left: PixelsValue.zero, right: PixelsValue.zero, margin: 'auto'},
+        "top_end": {right: PixelsValue.zero},
+        "bottom_start": {left: PixelsValue.zero, right: PixelsValue.zero, bottom: PixelsValue.zero},
+        "bottom_center": {left: PixelsValue.zero, right: PixelsValue.zero, bottom: PixelsValue.zero, margin: 'auto', marginBottom: PixelsValue.ten},
+        "bottom_end": {right: PixelsValue.zero, bottom: PixelsValue.zero}
+    };
 
     _canvas!: HTMLCanvasElement;
     _ctx!: CanvasRenderingContext2D;
@@ -296,45 +303,11 @@ export class SimpleHeatmap extends BaseHeatmap {
 
     private _setColorScalePosition(canvasColorScale: HTMLCanvasElement, colorScaleOptions: ColorScale) {
         if (!colorScaleOptions.position) {
-            canvasColorScale.style.left = ZERO_PX;
-            canvasColorScale.style.right = ZERO_PX;
+            this._setStyleAttribute(canvasColorScale, this.colorScalePosition['top_start']);
         }
-
-        if ((colorScaleOptions.position?.vertical === VerticalPosition.TOP) &&
-        (colorScaleOptions.position?.horizontal === HorizontalPosition.START)) {
-            canvasColorScale.style.left = ZERO_PX;
-            canvasColorScale.style.right = ZERO_PX;
-        }
-        if ((colorScaleOptions.position?.vertical === VerticalPosition.TOP) &&
-        (colorScaleOptions.position?.horizontal === HorizontalPosition.END)) {
-            canvasColorScale.style.right = ZERO_PX;
-        }
-        if ((colorScaleOptions.position?.vertical === VerticalPosition.BOTTOM) &&
-        (colorScaleOptions.position?.horizontal === HorizontalPosition.START)) {
-            canvasColorScale.style.left = ZERO_PX;
-            canvasColorScale.style.right = ZERO_PX;
-            canvasColorScale.style.bottom = ZERO_PX;
-        }
-        if ((colorScaleOptions.position?.vertical === VerticalPosition.BOTTOM) &&
-        (colorScaleOptions.position?.horizontal === HorizontalPosition.END)) {
-            canvasColorScale.style.bottom = ZERO_PX;
-            canvasColorScale.style.right = ZERO_PX;
-        }
-        if ((colorScaleOptions.position?.vertical === VerticalPosition.TOP) &&
-        (colorScaleOptions.position?.horizontal === HorizontalPosition.CENTER)) {
-            canvasColorScale.style.margin = "auto";
-            canvasColorScale.style.marginTop = TEN_PX;
-            canvasColorScale.style.left = ZERO_PX;
-            canvasColorScale.style.right = ZERO_PX;
-        }
-        if ((colorScaleOptions.position?.vertical === VerticalPosition.BOTTOM) &&
-        (colorScaleOptions.position?.horizontal === HorizontalPosition.CENTER)) {
-            canvasColorScale.style.margin = "auto";
-            canvasColorScale.style.left = ZERO_PX;
-            canvasColorScale.style.right = ZERO_PX;
-            canvasColorScale.style.bottom = ZERO_PX;
-            canvasColorScale.style.marginBottom = TEN_PX;
-        }
+        const { position } = colorScaleOptions;
+        const stylesToApply = this.colorScalePosition[`${position?.vertical}_${position?.horizontal}`];
+        this._setStyleAttribute(canvasColorScale, stylesToApply);
     }
 
     /*
@@ -363,10 +336,22 @@ export class SimpleHeatmap extends BaseHeatmap {
         this.setSiblingElementStyles(overlap.parent, {width, height});
         this.setCanvasElementStyles({width, height});
         if ((this._canvas.width === 0) || (this._canvas.height === 0)) {
-            this._heatmapLogger.error("__SimpleHeatmap__ ERROR -> Canvas dimensions are ZERO_PX.");
+            this._heatmapLogger.error("__SimpleHeatmap__ ERROR -> Canvas dimensions are PixelsValue.zero.");
         }
     }
     */
+
+    private _setStyleAttribute(element: HTMLElement, attrs: { [key: string]: any }): void {
+        if (attrs !== undefined) {
+            Object.keys(attrs).forEach((key: string) => {
+                element.style.setProperty(key, attrs[key]);
+            });
+            for (const key of Object.keys(attrs)) {
+                console.log(key, attrs[key]);
+                element.style.setProperty(key, attrs[key]);
+            }
+        }
+    }
 
     private _getElementDimensions(element: string) {
         const el: HTMLElement = document.getElementById(element) as HTMLElement;
