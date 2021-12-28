@@ -75,7 +75,7 @@ export class HomePage implements OnInit {
   async initializeHeatmap() {
 
     const options: IHeatmapOptions = {element: 'testHeatmap', type: IHeatmapType.Simple, debug: false,
-    colorScale: {show: true, position: {vertical: VerticalPosition.BOTTOM, horizontal: HorizontalPosition.START}, text: {start: 'FRÍO', end: 'CALIENTE'}} };
+    colorScale: {show: true, position: {vertical: VerticalPosition.TOP, horizontal: HorizontalPosition.CENTER}, text: {start: 'FRÍO', end: 'CALIENTE'}} };
     const result = await Heatmap.initialize(options);
     console.log('result', result);
 
