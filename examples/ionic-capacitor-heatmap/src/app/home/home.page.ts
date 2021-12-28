@@ -3,7 +3,8 @@ import { Component, OnInit, HostListener, ViewChild, ElementRef } from '@angular
 import { Heatmap } from 'capacitor-heatmap';
 
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
-import { IHeatmapOptions, IHeatmapType, HeatmapGradient, IHeatmapDrawOptions, HeatmapPosition } from 'capacitor-heatmap/dist/esm/models/models';
+import { IHeatmapOptions, IHeatmapType, HeatmapGradient, IHeatmapDrawOptions, HeatmapPosition,
+  VerticalPosition, HorizontalPosition } from 'capacitor-heatmap/dist/esm/models/models';
 
 window.requestAnimationFrame = window.requestAnimationFrame || window['webkitRequestAnimationFrame'];
 
@@ -74,7 +75,7 @@ export class HomePage implements OnInit {
   async initializeHeatmap() {
 
     const options: IHeatmapOptions = {element: 'testHeatmap', type: IHeatmapType.Simple, debug: false,
-    colorScale: {show: true, position: {vertical: 'top', horizontal: 'center'}, text: {start: 'FRÍO', end: 'CALIENTE'}} };
+    colorScale: {show: true, position: {vertical: VerticalPosition.TOP, horizontal: HorizontalPosition.CENTER}, text: {start: 'FRÍO', end: 'CALIENTE'}} };
     const result = await Heatmap.initialize(options);
     console.log('result', result);
 

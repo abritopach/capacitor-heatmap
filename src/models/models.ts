@@ -1,5 +1,18 @@
 import type { Map, LatLngExpression, LatLngTuple } from 'leaflet';
 
+export enum VerticalPosition {
+    TOP = 'top',
+    BOTTOM = 'bottom',
+    CENTER = 'center',
+}
+
+export enum HorizontalPosition {
+    START = 'start',
+    END = 'end',
+    CENTER = 'center',
+}
+
+
 /**
  * Description [Interface to define heatmap logs.]
  *
@@ -27,8 +40,8 @@ export interface IHeatmapLog {
 export interface ColorScale {
     show: boolean;
     position?: {
-        vertical: "top" | "bottom" | "center",
-        horizontal: "start" | "end" | "center"
+        vertical: VerticalPosition;
+        horizontal: HorizontalPosition;
     };
     boxShadow?: string;
     text?: {
