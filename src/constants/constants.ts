@@ -15,3 +15,15 @@ export const Position = {
     absolute: "absolute",
     relative: "relative"
 } as const;
+
+export const Labels = {
+    colorScale: {
+        textStart: "COLD",
+        textEnd: "HOT"
+    }
+}
+
+export const Colors = {
+    black: "#000000",
+    blue: "#0000F8"
+}
