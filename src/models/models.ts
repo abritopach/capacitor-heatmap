@@ -50,6 +50,7 @@ export interface ColorScale {
         color?: string;
     },
     background?: string;
+    gradientColorMode?: 'original' | 'inverted'
 }
 
 /**

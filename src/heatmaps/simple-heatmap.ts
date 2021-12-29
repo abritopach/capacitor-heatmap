@@ -1,4 +1,4 @@
-import { PixelsValue, Position, ZIndex } from "../constants/constants";
+import { Colors, Labels, PixelsValue, Position, ZIndex } from "../constants/constants";
 import { Log } from "../log";
 import type { IHeatmapOptions, HeatmapData, HeatmapPoint, HeatmapGradient, HeatmapPosition, ColorScale,
     ColorScaleStyles } from "../models/models";
@@ -26,11 +26,11 @@ export class SimpleHeatmap extends BaseHeatmap {
         marginTop: `-${PixelsValue.ten}`,
         margin: PixelsValue.fifteen,
         padding: PixelsValue.ten,
-        boxShadow: `${PixelsValue.zero} ${PixelsValue.zero} ${PixelsValue.five} ${PixelsValue.one} black`,
-        fillTextStart: 'COLD',
-        fillTextEnd: 'HOT',
-        fillTextColor: 'black',
-        background: '#00F8'
+        boxShadow: `${PixelsValue.zero} ${PixelsValue.zero} ${PixelsValue.five} ${PixelsValue.one} ${Colors.black}`,
+        fillTextStart: Labels.colorScale.textStart,
+        fillTextEnd: Labels.colorScale.textEnd,
+        fillTextColor: Colors.black,
+        background: Colors.blue
     }
 
     static readonly COLOR_SCALE_TEXT_POSITION = {
