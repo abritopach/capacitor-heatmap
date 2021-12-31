@@ -25,5 +25,5 @@ export const Labels = {
 
 export const Colors = {
     black: "#000000",
-    blue: "#0000F8"
+    blue: "#311B92"
 }
