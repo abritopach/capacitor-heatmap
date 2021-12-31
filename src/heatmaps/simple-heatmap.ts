@@ -42,10 +42,11 @@ export class SimpleHeatmap extends BaseHeatmap {
 
     colorScalePosition: Record<string, any> = {
         "top_start": {left: PixelsValue.zero, right: PixelsValue.zero},
-        "top_center": {left: PixelsValue.zero, right: PixelsValue.zero, margin: 'auto'},
+        "top_center": {left: PixelsValue.zero, right: PixelsValue.zero, margin: 'auto', 'margin-top': PixelsValue.ten},
         "top_end": {right: PixelsValue.zero},
         "bottom_start": {left: PixelsValue.zero, right: PixelsValue.zero, bottom: PixelsValue.zero},
-        "bottom_center": {left: PixelsValue.zero, right: PixelsValue.zero, bottom: PixelsValue.zero, margin: 'auto', marginBottom: PixelsValue.ten},
+        "bottom_center": {left: PixelsValue.zero, right: PixelsValue.zero, bottom: PixelsValue.zero,
+            margin: 'auto', 'margin-bottom': PixelsValue.ten},
         "bottom_end": {right: PixelsValue.zero, bottom: PixelsValue.zero}
     };
 
