@@ -1,4 +1,4 @@
-import type { IHeatmapLog } from './models/models';
+import type { HeatmapLog } from './models/models';
 
 /**
  * Description [Class to handle logs.]
@@ -6,7 +6,7 @@ import type { IHeatmapLog } from './models/models';
  * @author abrito
  * @version 0.0.1
 */
-export class Log implements IHeatmapLog {
+export class Log implements HeatmapLog {
 
     logEnabled = false;
 

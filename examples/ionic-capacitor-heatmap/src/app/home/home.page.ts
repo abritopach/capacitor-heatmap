@@ -3,7 +3,7 @@ import { Component, OnInit, HostListener, ViewChild, ElementRef } from '@angular
 import { Heatmap } from 'capacitor-heatmap';
 
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
-import { IHeatmapOptions, IHeatmapType, HeatmapGradient, IHeatmapDrawOptions, HeatmapPosition,
+import { HeatmapOptions, HeatmapType, HeatmapGradient, HeatmapDrawOptions, HeatmapPosition,
   VerticalPosition, HorizontalPosition } from 'capacitor-heatmap/dist/esm/models/models';
 
 window.requestAnimationFrame = window.requestAnimationFrame || window['webkitRequestAnimationFrame'];
@@ -74,7 +74,7 @@ export class HomePage implements OnInit {
 
   async initializeHeatmap() {
 
-    const options: IHeatmapOptions = {element: 'testHeatmap', type: IHeatmapType.Simple, debug: false,
+    const options: HeatmapOptions = {element: 'testHeatmap', type: HeatmapType.Simple, debug: false,
     colorScale: {show: true, position: {vertical: VerticalPosition.TOP, horizontal: HorizontalPosition.END}, text: {start: 'FRÍO', end: 'CALIENTE'}} };
     const result = await Heatmap.initialize(options);
     console.log('result', result);
@@ -103,7 +103,7 @@ export class HomePage implements OnInit {
   }
 
   async drawHeatmap() {
-    const options: IHeatmapDrawOptions = {opacity: this.opacity, radius: this.radius, gradient: this.gradient};
+    const options: HeatmapDrawOptions = {opacity: this.opacity, radius: this.radius, gradient: this.gradient};
     const resultDraw = await Heatmap.draw(options);
     console.log('result draw', resultDraw);
   }
