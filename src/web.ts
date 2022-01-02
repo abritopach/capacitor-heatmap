@@ -4,27 +4,28 @@ import type { HeatmapPlugin } from './definitions';
 import { GoogleMapsHeatmap } from './heatmaps/google-maps-heatmap';
 import { LeafletMapsHeatmap } from './heatmaps/leaflet-maps-heatmap';
 import { SimpleHeatmap } from './heatmaps/simple-heatmap';
-import type { HeatmapData, HeatmapGradient, IHeatmapOptions, IGMHeatmapOptions, GMHeatmapData, HeatmapPoint,
-        GMHeatmapPoint, IHeatmapDrawOptions, GMHeatmapGradient, HeatmapPosition, GMHeatmapCoordinate, ILMHeatmapOptions, LMHeatmapData, LMHeatmapPoint, LMHeatmapCoordinate } from './models/models';
-import { IHeatmapType } from './models/models';
+import type { HeatmapData, HeatmapGradient, HeatmapOptions, GMHeatmapOptions, GMHeatmapData, HeatmapPoint,
+        GMHeatmapPoint, HeatmapDrawOptions, GMHeatmapGradient, HeatmapPosition, GMHeatmapCoordinate,
+        LMHeatmapOptions, LMHeatmapData, LMHeatmapPoint, LMHeatmapCoordinate } from './models/models';
+import { HeatmapType } from './models/models';
 
 
 export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
 
   heatmap: any;
 
-  async initialize(options: (IHeatmapOptions | IGMHeatmapOptions | ILMHeatmapOptions)): Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer}> {
-    const type = typeof options.type !== "undefined" ? options.type : IHeatmapType.Simple;
+  async initialize(options: (HeatmapOptions | GMHeatmapOptions | LMHeatmapOptions)): Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer}> {
+    const type = typeof options.type !== "undefined" ? options.type : HeatmapType.Simple;
     switch(type) {
-      case IHeatmapType.Simple: {
+      case HeatmapType.Simple: {
         this.heatmap = new SimpleHeatmap();
         break;
       }
-      case IHeatmapType.GoogleMaps: {
+      case HeatmapType.GoogleMaps: {
         this.heatmap = new GoogleMapsHeatmap();
         break;
       }
-      case IHeatmapType.LeafletMaps: {
+      case HeatmapType.LeafletMaps: {
         this.heatmap = new LeafletMapsHeatmap();
         break;
       }
@@ -76,7 +77,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
 
   /*********/
 
-  async draw(options: IHeatmapDrawOptions): Promise<{value: boolean}> {
+  async draw(options: HeatmapDrawOptions): Promise<{value: boolean}> {
     return {value: this.heatmap.draw(options)};
   }
 

@@ -21,7 +21,7 @@ export enum HorizontalPosition {
  *
  * @interface
 */
-export interface IHeatmapLog {
+export interface HeatmapLog {
     log(primaryMessage: string, ...supportingData: any[]): void;
     debug(primaryMessage: string, ...supportingData: any[]): void;
     warn(primaryMessage: string, ...supportingData: any[]): void;
@@ -85,9 +85,9 @@ export interface ColorScaleStyles {
  *
  * @interface
 */
-export interface IHeatmapOptions {
+export interface HeatmapOptions {
     element: string;
-    type: IHeatmapType;
+    type: HeatmapType;
     data?: HeatmapData;
     debug?: boolean;
     colorScale?: ColorScale;
@@ -101,7 +101,7 @@ export interface IHeatmapOptions {
  *
  * @interface
 */
-export interface IHeatmapPosition {
+export interface Coordinate {
     x: number;
     y: number;
 }
@@ -114,13 +114,13 @@ export interface IHeatmapPosition {
  *
  * @interface
 */
-export interface IHeatmapPoint {
+export interface Point {
     x: number;
     y: number;
     thickness: number;
 }
 
-export enum IHeatmapType {
+export enum HeatmapType {
     Simple = 'simple',
     GoogleMaps = 'googlemaps',
     LeafletMaps = 'leafletmaps'
@@ -134,7 +134,7 @@ export enum IHeatmapType {
  *
  * @interface
 */
-export interface IHeatmapDrawOptions {
+export interface HeatmapDrawOptions {
     opacity?: number,
     radius?: number,
     gradient?: HeatmapGradient | GMHeatmapGradient
@@ -142,9 +142,9 @@ export interface IHeatmapDrawOptions {
 }
 
 export type HeatmapGradient = Record<number, string>;
-export type HeatmapPoint = number[] | IHeatmapPoint;
-export type HeatmapPosition = number[] | IHeatmapPosition;
-export type HeatmapData = (number[] | IHeatmapPoint)[];
+export type HeatmapPoint = number[] | Point;
+export type HeatmapPosition = number[] | Coordinate;
+export type HeatmapData = (number[] | Point)[];
 
 /**
  * Description [Interface to define google maps heatmap initialize options.]
@@ -154,9 +154,9 @@ export type HeatmapData = (number[] | IHeatmapPoint)[];
  *
  * @interface
 */
-export interface IGMHeatmapOptions {
+export interface GMHeatmapOptions {
     map: google.maps.Map;
-    type: IHeatmapType;
+    type: HeatmapType;
     data?: GMHeatmapData;
     debug?: boolean;
 }
@@ -175,9 +175,9 @@ export type GMHeatmapData = google.maps.MVCArray<google.maps.LatLng | google.map
  *
  * @interface
 */
-export interface ILMHeatmapOptions {
+export interface LMHeatmapOptions {
     map: Map;
-    type: IHeatmapType;
+    type: HeatmapType;
     data?: LMHeatmapData;
     debug?: boolean;
 }

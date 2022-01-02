@@ -1,6 +1,6 @@
 import { Colors, Labels, PixelsValue, Position, ZIndex } from "../constants/constants";
 import { Log } from "../log";
-import type { IHeatmapOptions, HeatmapData, HeatmapPoint, HeatmapGradient, HeatmapPosition, ColorScale,
+import type { HeatmapOptions, HeatmapData, HeatmapPoint, HeatmapGradient, HeatmapPosition, ColorScale,
     ColorScaleStyles } from "../models/models";
 import { Utils }  from "../utils/utils";
 
@@ -65,7 +65,7 @@ export class SimpleHeatmap extends BaseHeatmap {
     _canvasColorScale!: HTMLCanvasElement;
     _copyColorScaleOptions: ColorScale = { show: false};
 
-    initialize(options: IHeatmapOptions): HTMLCanvasElement {
+    initialize(options: HeatmapOptions): HTMLCanvasElement {
         this._heatmapLogger = new Log(options.debug);
         this._heatmapLogger.log("__SimpleHeatmap__ initialize");
 

@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
 import { Heatmap } from 'capacitor-heatmap';
-import { IGMHeatmapOptions, IHeatmapType, GMHeatmapCoordinate } from 'capacitor-heatmap/dist/esm/models/models';
+import { GMHeatmapOptions, HeatmapType, GMHeatmapCoordinate } from 'capacitor-heatmap/dist/esm/models/models';
 
 @Component({
   selector: 'app-google-maps-heatmap',
@@ -57,7 +57,7 @@ export class GoogleMapsHeatmapPage implements OnInit {
       mapTypeId: 'satellite'
     });
 
-    const options: IGMHeatmapOptions = {type: IHeatmapType.GoogleMaps, map: this.map,
+    const options: GMHeatmapOptions = {type: HeatmapType.GoogleMaps, map: this.map,
       /*data: this.fakeHeatmapDataService.getGoogleMapsData(),*/ debug: true};
     const result = await Heatmap.initialize(options);
     console.log('result initialize', result);

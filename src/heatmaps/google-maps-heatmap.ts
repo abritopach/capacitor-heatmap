@@ -1,7 +1,7 @@
 import html2canvas from 'html2canvas';
 
 import { Log } from "../log";
-import type { IGMHeatmapOptions, GMHeatmapData, GMHeatmapPoint, GMHeatmapGradient, GMHeatmapCoordinate } from '../models/models';
+import type { GMHeatmapOptions, GMHeatmapData, GMHeatmapPoint, GMHeatmapGradient, GMHeatmapCoordinate } from '../models/models';
 
 import { BaseHeatmap } from './base-heatmap';
 
@@ -27,7 +27,7 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
     _heatmap!: google.maps.visualization.HeatmapLayer;
     _data: GMHeatmapData = new google.maps.MVCArray([]);
 
-    initialize(options: IGMHeatmapOptions): google.maps.visualization.HeatmapLayer {
+    initialize(options: GMHeatmapOptions): google.maps.visualization.HeatmapLayer {
         this._heatmapLogger = new Log(options.debug);
         this._heatmapLogger.log("__GoogleMapsHeatmap__ initialize");
 
