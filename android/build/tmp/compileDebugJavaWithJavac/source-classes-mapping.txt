@@ -1,4 +1,2 @@
 com/adrbrpa/capacitorheatmap/capacitorheatmap/BuildConfig.java
  com.adrbrpa.capacitorheatmap.capacitorheatmap.BuildConfig
-com/adrbrpa/capacitorheatmap/Heatmap.java
- com.adrbrpa.capacitorheatmap.Heatmap

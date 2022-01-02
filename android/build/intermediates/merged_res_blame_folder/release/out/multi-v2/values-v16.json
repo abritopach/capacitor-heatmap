@@ -4,7 +4,7 @@
             "outputFile": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/values-v16/values-v16.xml",
+                    "source": "/Users/abrito/.gradle/caches/transforms-3/8a61133e6b9f7d03525d786190c02b93/transformed/appcompat-1.2.0/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/Users/abrito/.gradle/caches/transforms-3/4256020f6bfc7069f5462874d314ddd1/transformed/core-1.3.2/res/values-v16/values-v16.xml",
+                    "source": "/Users/abrito/.gradle/caches/transforms-3/023f9857847d81383ccc2f8409f22b08/transformed/core-1.6.0/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -38,7 +38,7 @@
             "outputFile": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/values-v16/values-v16.xml",
+                    "source": "/Users/abrito/.gradle/caches/transforms-3/8a61133e6b9f7d03525d786190c02b93/transformed/appcompat-1.2.0/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -57,7 +57,7 @@
                     }
                 },
                 {
-                    "source": "/Users/abrito/.gradle/caches/transforms-3/4256020f6bfc7069f5462874d314ddd1/transformed/core-1.3.2/res/values-v16/values-v16.xml",
+                    "source": "/Users/abrito/.gradle/caches/transforms-3/023f9857847d81383ccc2f8409f22b08/transformed/core-1.6.0/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
