@@ -2,7 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 
 import { Map, tileLayer } from 'leaflet';
 import { Heatmap } from 'capacitor-heatmap';
-import { ILMHeatmapOptions, IHeatmapType, IHeatmapDrawOptions, HeatmapGradient, LMHeatmapCoordinate } from 'capacitor-heatmap/dist/esm/models/models';
+import { LMHeatmapOptions, HeatmapType, HeatmapDrawOptions, HeatmapGradient, LMHeatmapCoordinate } from 'capacitor-heatmap/dist/esm/models/models';
 
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
 
@@ -55,7 +55,7 @@ export class LeafletMapsHeatmapPage implements OnInit {
       this.mapLeaflet.invalidateSize();
 
       // Initialize.
-      const options: ILMHeatmapOptions = {type: IHeatmapType.LeafletMaps, map: this.mapLeaflet, debug: true};
+      const options: LMHeatmapOptions = {type: HeatmapType.LeafletMaps, map: this.mapLeaflet, debug: true};
       const result = await Heatmap.initialize(options);
       console.log('result initialize', result);
 
@@ -66,7 +66,7 @@ export class LeafletMapsHeatmapPage implements OnInit {
       console.log('result set data', resultSetData);
 
       // Draw
-      const drawOptions: IHeatmapDrawOptions = {};
+      const drawOptions: HeatmapDrawOptions = {};
       const resultDraw = await Heatmap.draw(drawOptions);
       console.log('result draw', resultDraw);
     }, 1000);

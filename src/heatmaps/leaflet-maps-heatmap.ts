@@ -2,7 +2,7 @@ import { DomUtil, Browser, Point } from 'leaflet';
 import type { Map, LatLngExpression } from 'leaflet';
 
 import { Log } from "../log";
-import type { GMHeatmapGradient, ILMHeatmapOptions, LMHeatmapData, HeatmapPoint,
+import type { GMHeatmapGradient, LMHeatmapOptions, LMHeatmapData, HeatmapPoint,
             HeatmapGradient, LMHeatmapPoint, LMHeatmapCoordinate} from '../models/models';
 import { Utils }  from "../utils/utils";
 
@@ -35,7 +35,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
     _width!: number;
     _height!: number;
 
-    initialize(options: ILMHeatmapOptions): HTMLCanvasElement {
+    initialize(options: LMHeatmapOptions): HTMLCanvasElement {
         this._heatmapLogger = new Log(options.debug);
         this._heatmapLogger.log("__LeafletMapsHeatmap__ initialize");
         this._map = options.map;
