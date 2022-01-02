@@ -4,7 +4,7 @@
             "outputFile": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/values-v17/values-v17.xml",
             "map": [
                 {
-                    "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/values-v17/values-v17.xml",
+                    "source": "/Users/abrito/.gradle/caches/transforms-3/8a61133e6b9f7d03525d786190c02b93/transformed/appcompat-1.2.0/res/values-v17/values-v17.xml",
                     "from": {
                         "startLines": "2,5,9,12,15,18,22,25,29,33,37,40,43,46,50,53,57",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -20,7 +20,7 @@
             "outputFile": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-v17/values-v17.xml",
             "map": [
                 {
-                    "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/values-v17/values-v17.xml",
+                    "source": "/Users/abrito/.gradle/caches/transforms-3/8a61133e6b9f7d03525d786190c02b93/transformed/appcompat-1.2.0/res/values-v17/values-v17.xml",
                     "from": {
                         "startLines": "2,5,9,12,15,18,22,25,29,33,37,40,43,46,50,53,57",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

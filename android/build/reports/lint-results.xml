@@ -2,6 +2,20 @@
 <issues format="5" by="lint 4.2.1">
 
     <issue
+        id="ObsoleteLintCustomCheck"
+        severity="Warning"
+        message="Lint found an issue registry (`androidx.appcompat.AppCompatIssueRegistry`) which is older than the current API level; these checks may not work correctly.&#xA;&#xA;Recompile the checks against the latest version. Custom check API version is 7 (4.0), current lint API level is 8 (4.1)"
+        category="Lint"
+        priority="10"
+        summary="Obsolete custom lint check"
+        explanation="Lint can be extended with &quot;custom checks&quot;: additional checks implemented by developers and libraries to for example enforce specific API usages required by a library or a company coding style guideline.&#xA;&#xA;The Lint APIs are not yet stable, so these checks may either cause a performance degradation, or stop working, or provide wrong results.&#xA;&#xA;This warning flags custom lint checks that are found to be using obsolete APIs and will need to be updated to run in the current lint environment.&#xA;&#xA;It may also flag issues found to be using a **newer** version of the API, meaning that you need to use a newer version of lint (or Android Studio or Gradle plugin etc) to work with these checks."
+        includedVariants="debug"
+        excludedVariants="release">
+        <location
+            file="/Users/abrito/.gradle/caches/transforms-3/8a61133e6b9f7d03525d786190c02b93/transformed/appcompat-1.2.0/jars/lint.jar"/>
+    </issue>
+
+    <issue
         id="JcenterRepositoryObsolete"
         severity="Warning"
         message="JCenter is at end of life"
@@ -15,7 +29,7 @@
         errorLine2="        ~~~~~~~~~">
         <location
             file="/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build.gradle"
-            line="10"
+            line="11"
             column="9"/>
     </issue>
 
@@ -33,7 +47,7 @@
         errorLine2="    ~~~~~~~~~">
         <location
             file="/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build.gradle"
-            line="46"
+            line="49"
             column="5"/>
     </issue>
 
@@ -49,7 +63,7 @@
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build.gradle"
-            line="14"
+            line="15"
             column="9"/>
     </issue>
 
@@ -65,7 +79,7 @@
         errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build.gradle"
-            line="54"
+            line="57"
             column="20"/>
     </issue>
 
@@ -81,7 +95,7 @@
         errorLine2="                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build.gradle"
-            line="55"
+            line="58"
             column="24"/>
     </issue>
 
@@ -99,7 +113,7 @@
         excludedVariants="release">
         <location
             file="/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build.gradle"
-            line="56"
+            line="59"
             column="31"/>
     </issue>
 
@@ -117,8 +131,24 @@
         excludedVariants="release">
         <location
             file="/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build.gradle"
-            line="57"
+            line="60"
             column="31"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="A newer version of androidx.core:core-ktx than 1.6.0 is available: 1.7.0"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Gradle Dependency"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    implementation &quot;androidx.core:core-ktx:1.6.0&quot;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build.gradle"
+            line="61"
+            column="20"/>
     </issue>
 
 </issues>

@@ -4,7 +4,7 @@
             "outputFile": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-sw600dp-v13/values-sw600dp-v13.xml",
             "map": [
                 {
-                    "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/values-sw600dp-v13/values-sw600dp-v13.xml",
+                    "source": "/Users/abrito/.gradle/caches/transforms-3/8a61133e6b9f7d03525d786190c02b93/transformed/appcompat-1.2.0/res/values-sw600dp-v13/values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -19,7 +19,7 @@
             "outputFile": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/values-sw600dp-v13/values-sw600dp-v13.xml",
             "map": [
                 {
-                    "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/values-sw600dp-v13/values-sw600dp-v13.xml",
+                    "source": "/Users/abrito/.gradle/caches/transforms-3/8a61133e6b9f7d03525d786190c02b93/transformed/appcompat-1.2.0/res/values-sw600dp-v13/values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
