@@ -85,6 +85,7 @@ attr backgroundStacked
 attr backgroundTint
 attr backgroundTintMode
 attr barLength
+attr blur
 attr borderlessButtonStyle
 attr buttonBarButtonStyle
 attr buttonBarNegativeButtonStyle
@@ -127,6 +128,11 @@ attr contentInsetStartWithNavigation
 attr controlBackground
 attr coordinatorLayoutStyle
 attr customNavigationLayout
+attr dataPadding
+attr dataPaddingBottom
+attr dataPaddingLeft
+attr dataPaddingRight
+attr dataPaddingTop
 attr defaultQueryHint
 attr dialogCornerRadius
 attr dialogPreferredPadding
@@ -209,14 +215,19 @@ attr listPreferredItemPaddingStart
 attr logo
 attr logoDescription
 attr maxButtonHeight
+attr maxDrawingHeight
+attr maxDrawingWidth
+attr maxOpacity
 attr measureWithLargestChild
 attr menu
+attr minOpacity
 attr multiChoiceItemLayout
 attr navigationContentDescription
 attr navigationIcon
 attr navigationMode
 attr nestedScrollViewStyle
 attr numericModifiers
+attr opacity
 attr overlapAnchor
 attr paddingBottomNoButtons
 attr paddingEnd
@@ -235,6 +246,7 @@ attr queryBackground
 attr queryHint
 attr queryPatterns
 attr radioButtonStyle
+attr radius
 attr ratingBarStyle
 attr ratingBarStyleIndicator
 attr ratingBarStyleSmall
@@ -309,6 +321,7 @@ attr tooltipText
 attr track
 attr trackTint
 attr trackTintMode
+attr transparentBackground
 attr ttcIndex
 attr viewInflaterClass
 attr voiceIcon
@@ -716,6 +729,7 @@ id expanded_menu
 id forever
 id fragment_container_view_tag
 id group_divider
+id heatmap
 id home
 id icon
 id icon_group
@@ -853,6 +867,7 @@ layout notification_template_part_time
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
+layout simple_heatmap_layout
 layout support_simple_spinner_dropdown_item
 string abc_action_bar_home_description
 string abc_action_bar_up_description
@@ -1280,6 +1295,7 @@ styleable PopupWindow android_popupAnimationStyle android_popupBackground overla
 styleable PopupWindowBackgroundState state_above_anchor
 styleable RecycleListView paddingBottomNoButtons paddingTopNoTitle
 styleable SearchView android_focusable android_imeOptions android_inputType android_maxWidth closeIcon commitIcon defaultQueryHint goIcon iconifiedByDefault layout queryBackground queryHint searchHintIcon searchIcon submitBackground suggestionRowLayout voiceIcon
+styleable SimpleHeatMap blur dataPadding dataPaddingBottom dataPaddingLeft dataPaddingRight dataPaddingTop maxDrawingHeight maxDrawingWidth maxOpacity minOpacity opacity radius transparentBackground
 styleable Spinner android_dropDownWidth android_entries android_popupBackground android_prompt popupTheme
 styleable StateListDrawable android_constantSize android_dither android_enterFadeDuration android_exitFadeDuration android_variablePadding android_visible
 styleable StateListDrawableItem android_drawable

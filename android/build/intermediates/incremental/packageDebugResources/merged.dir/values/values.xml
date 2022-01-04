@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="my_string">Just a simple string</string>
+    <declare-styleable name="SimpleHeatMap">
+        <attr format="integer" name="opacity"/>
+        <attr format="integer" name="minOpacity"/>
+        <attr format="integer" name="maxOpacity"/>
+        <attr format="float" name="blur"/>
+        <attr format="dimension" name="radius"/>
+        <attr format="dimension" name="dataPaddingTop"/>
+        <attr format="dimension" name="dataPaddingBottom"/>
+        <attr format="dimension" name="dataPaddingLeft"/>
+        <attr format="dimension" name="dataPaddingRight"/>
+        <attr format="dimension" name="dataPadding"/>
+        <attr format="dimension" name="maxDrawingWidth"/>
+        <attr format="dimension" name="maxDrawingHeight"/>
+        <attr format="boolean" name="transparentBackground"/>
+    </declare-styleable>
 </resources>
