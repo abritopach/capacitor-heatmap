@@ -5,6 +5,7 @@ import { Component, OnInit, HostListener, ViewChild, ElementRef } from '@angular
 import { Heatmap } from 'capacitor-heatmap';
 import { HeatmapOptions, HeatmapType, HeatmapGradient, HeatmapDrawOptions, HeatmapPosition,
   VerticalPosition, HorizontalPosition } from 'capacitor-heatmap/dist/esm/models/models';
+import { Capacitor } from '@capacitor/core';
 
 /* Project */
 
@@ -66,7 +67,12 @@ export class HomePage implements OnInit {
   ionViewWillEnter() {
     console.log('HomePage::ionViewWillEnter() | method called');
     this.initialize();
-    this.initializeHeatmap();
+
+    if (Capacitor.getPlatform() === 'web') {
+      this.initializeHeatmap();
+    } else { // Native
+      this.initializeHeatmapPluginNative();
+    }
   }
 
   ionViewWillLeave() {
@@ -213,6 +219,16 @@ export class HomePage implements OnInit {
     const resultGetImage = await Heatmap.getDataURL('image/png', 1);
     console.log('resultGetImage', resultGetImage);
     this.commonService.presentToastWithOptions(resultGetImage.value);
+  }
+
+  // Native
+
+  async initializeHeatmapPluginNative() {
+
+    const options: HeatmapOptions = {element: 'testHeatmap', type: HeatmapType.Simple, debug: false,
+    colorScale: {show: true, position: {vertical: VerticalPosition.TOP, horizontal: HorizontalPosition.END}, text: {start: 'FRÍO', end: 'CALIENTE'}} };
+    const result = await Heatmap.initialize(options);
+    console.log('result', result);
   }
 
 }
