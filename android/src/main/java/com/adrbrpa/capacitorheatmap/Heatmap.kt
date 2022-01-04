@@ -23,7 +23,7 @@ class Heatmap : Plugin() {
                 "$colorScale");
 
         when (type) {
-            "simple" -> implementation = SimpleHeatmap()
+            "simple" -> implementation = SimpleHeatmap(context)
             else -> {
                 Log.e(TAG, "[Heatmap Plugin Native Android]: Heatmap type $type not implemented");
             }

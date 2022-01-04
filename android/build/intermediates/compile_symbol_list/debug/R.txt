@@ -84,6 +84,7 @@ int attr backgroundStacked 0x0
 int attr backgroundTint 0x0
 int attr backgroundTintMode 0x0
 int attr barLength 0x0
+int attr blur 0x0
 int attr borderlessButtonStyle 0x0
 int attr buttonBarButtonStyle 0x0
 int attr buttonBarNegativeButtonStyle 0x0
@@ -126,6 +127,11 @@ int attr contentInsetStartWithNavigation 0x0
 int attr controlBackground 0x0
 int attr coordinatorLayoutStyle 0x0
 int attr customNavigationLayout 0x0
+int attr dataPadding 0x0
+int attr dataPaddingBottom 0x0
+int attr dataPaddingLeft 0x0
+int attr dataPaddingRight 0x0
+int attr dataPaddingTop 0x0
 int attr defaultQueryHint 0x0
 int attr dialogCornerRadius 0x0
 int attr dialogPreferredPadding 0x0
@@ -208,14 +214,19 @@ int attr listPreferredItemPaddingStart 0x0
 int attr logo 0x0
 int attr logoDescription 0x0
 int attr maxButtonHeight 0x0
+int attr maxDrawingHeight 0x0
+int attr maxDrawingWidth 0x0
+int attr maxOpacity 0x0
 int attr measureWithLargestChild 0x0
 int attr menu 0x0
+int attr minOpacity 0x0
 int attr multiChoiceItemLayout 0x0
 int attr navigationContentDescription 0x0
 int attr navigationIcon 0x0
 int attr navigationMode 0x0
 int attr nestedScrollViewStyle 0x0
 int attr numericModifiers 0x0
+int attr opacity 0x0
 int attr overlapAnchor 0x0
 int attr paddingBottomNoButtons 0x0
 int attr paddingEnd 0x0
@@ -234,6 +245,7 @@ int attr queryBackground 0x0
 int attr queryHint 0x0
 int attr queryPatterns 0x0
 int attr radioButtonStyle 0x0
+int attr radius 0x0
 int attr ratingBarStyle 0x0
 int attr ratingBarStyleIndicator 0x0
 int attr ratingBarStyleSmall 0x0
@@ -308,6 +320,7 @@ int attr tooltipText 0x0
 int attr track 0x0
 int attr trackTint 0x0
 int attr trackTintMode 0x0
+int attr transparentBackground 0x0
 int attr ttcIndex 0x0
 int attr viewInflaterClass 0x0
 int attr voiceIcon 0x0
@@ -715,6 +728,7 @@ int id expanded_menu 0x0
 int id forever 0x0
 int id fragment_container_view_tag 0x0
 int id group_divider 0x0
+int id heatmap 0x0
 int id home 0x0
 int id icon 0x0
 int id icon_group 0x0
@@ -852,6 +866,7 @@ int layout notification_template_part_time 0x0
 int layout select_dialog_item_material 0x0
 int layout select_dialog_multichoice_material 0x0
 int layout select_dialog_singlechoice_material 0x0
+int layout simple_heatmap_layout 0x0
 int layout support_simple_spinner_dropdown_item 0x0
 int string abc_action_bar_home_description 0x0
 int string abc_action_bar_up_description 0x0
@@ -1638,6 +1653,20 @@ int styleable SearchView_searchIcon 13
 int styleable SearchView_submitBackground 14
 int styleable SearchView_suggestionRowLayout 15
 int styleable SearchView_voiceIcon 16
+int[] styleable SimpleHeatMap { 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0 }
+int styleable SimpleHeatMap_blur 0
+int styleable SimpleHeatMap_dataPadding 1
+int styleable SimpleHeatMap_dataPaddingBottom 2
+int styleable SimpleHeatMap_dataPaddingLeft 3
+int styleable SimpleHeatMap_dataPaddingRight 4
+int styleable SimpleHeatMap_dataPaddingTop 5
+int styleable SimpleHeatMap_maxDrawingHeight 6
+int styleable SimpleHeatMap_maxDrawingWidth 7
+int styleable SimpleHeatMap_maxOpacity 8
+int styleable SimpleHeatMap_minOpacity 9
+int styleable SimpleHeatMap_opacity 10
+int styleable SimpleHeatMap_radius 11
+int styleable SimpleHeatMap_transparentBackground 12
 int[] styleable Spinner { 0x1010262, 0x10100b2, 0x1010176, 0x101017b, 0x0 }
 int styleable Spinner_android_dropDownWidth 0
 int styleable Spinner_android_entries 1

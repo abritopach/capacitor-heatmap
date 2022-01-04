@@ -1,11 +1,14 @@
 package com.adrbrpa.capacitorheatmap.heatmaps
 
+import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Paint
+import android.util.AttributeSet
+import android.view.View
 import androidx.annotation.ColorInt
 import com.adrbrpa.capacitorheatmap.data.models.Point
 
-class SimpleHeatmap: BaseHeatmap {
+class SimpleHeatmap(context: Context) : View(context), BaseHeatmap {
 
     /**
      * The data that will be displayed in the heatmap.
