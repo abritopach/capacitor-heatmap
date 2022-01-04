@@ -5,6 +5,7 @@ import { Heatmap } from 'capacitor-heatmap';
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
 import { HeatmapOptions, HeatmapType, HeatmapGradient, HeatmapDrawOptions, HeatmapPosition,
   VerticalPosition, HorizontalPosition } from 'capacitor-heatmap/dist/esm/models/models';
+import { Capacitor } from '@capacitor/core';
 
 window.requestAnimationFrame = window.requestAnimationFrame || window['webkitRequestAnimationFrame'];
 
@@ -65,7 +66,12 @@ export class HomePage implements OnInit {
   ionViewWillEnter() {
     console.log('HomePage::ionViewWillEnter() | method called');
     this.initialize();
-    this.initializeHeatmap();
+
+    if (Capacitor.getPlatform() === 'web') {
+      this.initializeHeatmap();
+    } else { // Native
+      this.initializeHeatmapPluginNative();
+    }
   }
 
   ionViewWillLeave() {
@@ -204,6 +210,16 @@ export class HomePage implements OnInit {
   async destroyHeatmap() {
     const resultDestroy = await Heatmap.destroy();
     console.log('resultDestroy', resultDestroy);
+  }
+
+  // Native
+
+  async initializeHeatmapPluginNative() {
+
+    const options: HeatmapOptions = {element: 'testHeatmap', type: HeatmapType.Simple, debug: false,
+    colorScale: {show: true, position: {vertical: VerticalPosition.TOP, horizontal: HorizontalPosition.END}, text: {start: 'FRÍO', end: 'CALIENTE'}} };
+    const result = await Heatmap.initialize(options);
+    console.log('result', result);
   }
 
 }
