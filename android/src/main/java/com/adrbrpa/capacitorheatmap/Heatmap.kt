@@ -13,7 +13,7 @@ import com.getcapacitor.Plugin
 class Heatmap : Plugin() {
 
     private val TAG: String = Heatmap::class.java.simpleName
-    private lateinit var implementation: BaseHeatmap
+    private lateinit var heatmap: BaseHeatmap
 
     @PluginMethod
     fun initialize(call: PluginCall) {
@@ -23,7 +23,11 @@ class Heatmap : Plugin() {
                 "$colorScale");
 
         when (type) {
-            "simple" -> implementation = SimpleHeatmap(context)
+            "simple" -> {
+                heatmap = SimpleHeatmap(context)
+                heatmap.setMin(0.0)
+                heatmap.setMax(100.0)
+            }
             else -> {
                 Log.e(TAG, "[Heatmap Plugin Native Android]: Heatmap type $type not implemented");
             }

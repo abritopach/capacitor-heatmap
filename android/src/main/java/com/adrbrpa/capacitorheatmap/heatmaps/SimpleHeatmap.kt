@@ -4,21 +4,25 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Paint
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import androidx.annotation.ColorInt
+import com.adrbrpa.capacitorheatmap.capacitorheatmap.R
 import com.adrbrpa.capacitorheatmap.data.models.Point
 
-class SimpleHeatmap(context: Context) : View(context), BaseHeatmap {
+class SimpleHeatmap(context: Context, private val attrs: AttributeSet? = null) : View(context, attrs), BaseHeatmap {
+
+    private val TAG: String = SimpleHeatmap::class.java.simpleName
 
     /**
      * The data that will be displayed in the heatmap.
      */
-    private val data: List<Point>? = null
+    private var data: List<Point>? = null
 
     /**
      * A buffer for new data that hasn't been displayed yet.
      */
-    private val dataBuffer: List<Point>? = null
+    private var dataBuffer: List<Point>? = null
 
     /**
      * Whether the information stored in dataBuffer has changed.
@@ -28,12 +32,12 @@ class SimpleHeatmap(context: Context) : View(context), BaseHeatmap {
     /**
      * The value that corresponds to the minimum of the gradient scale.
      */
-    private val min = Double.NEGATIVE_INFINITY
+    private var min = Double.NEGATIVE_INFINITY
 
     /**
      * The value that corresponds to the maximum of the gradient scale.
      */
-    private val max = Double.POSITIVE_INFINITY
+    private var max = Double.POSITIVE_INFINITY
 
     /**
      * The amount of blur to use.
@@ -48,7 +52,7 @@ class SimpleHeatmap(context: Context) : View(context), BaseHeatmap {
     /**
      * If greater than 0 this will be used as the transparency for the entire map.
      */
-    private val opacity = 0
+    private var opacity = 0
 
     /**
      * The minimum opacity to use in the map. Only used when [HeatMap.opacity] is 0.
@@ -80,19 +84,19 @@ class SimpleHeatmap(context: Context) : View(context), BaseHeatmap {
     /**
      * A paint for solid black.
      */
-    private val mBlack: Paint? = null
+    private var mBlack: Paint? = null
 
     private val mTransparentBackground = true
 
     /**
      * A paint for the background fill.
      */
-    private val mBackground: Paint? = null
+    private var mBackground: Paint? = null
 
     /**
      * A paint to be used to fill objects.
      */
-    private val mFill: Paint? = null
+    private var mFill: Paint? = null
 
     /**
      * The color palette being used to create the radial gradients.
@@ -154,8 +158,32 @@ class SimpleHeatmap(context: Context) : View(context), BaseHeatmap {
      */
     private val mUseDrawingCache = false
 
+    init {
+        Log.d(TAG, "[Heatmap Plugin Native Android]: SimpleHeatmap::init method called")
+        initialize()
+        context.theme.obtainStyledAttributes(
+            attrs,
+            R.styleable.SimpleHeatmap,
+            0, 0).apply {
+
+            try {
+                opacity = getInteger(R.styleable.SimpleHeatmap_opacity, -1)
+            } finally {
+                recycle()
+            }
+        }
+    }
+
     override fun initialize() {
-        TODO("Not yet implemented")
+        Log.d(TAG, "[Heatmap Plugin Native Android]: SimpleHeatmap::initialize method called")
+        mBlack = Paint()
+        mBlack?.color = -0x1000000
+        mFill = Paint()
+        mFill?.style = Paint.Style.FILL
+        mBackground = Paint()
+        if (!mTransparentBackground) mBackground?.color = -0x10102
+        data = ArrayList<Point>()
+        dataBuffer = ArrayList<Point>()
     }
 
     override fun destroy() {
@@ -182,8 +210,12 @@ class SimpleHeatmap(context: Context) : View(context), BaseHeatmap {
         TODO("Not yet implemented")
     }
 
-    override fun setMax() {
-        TODO("Not yet implemented")
+    override fun setMax(max: Double) {
+        this.max = max;
+    }
+
+    override fun setMin(min: Double) {
+        this.min = min
     }
 
     override fun draw() {

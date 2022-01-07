@@ -12,7 +12,8 @@ interface BaseHeatmap {
     fun getValueAt()
     fun clearData()
     fun addPoint()
-    fun setMax()
+    fun setMax(max: Double)
+    fun setMin(min: Double)
     /*********/
     // Methods for rendering heatmap.
     /*********/

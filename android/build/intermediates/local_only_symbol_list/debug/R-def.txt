@@ -18,4 +18,4 @@ id webview
 layout bridge_layout_main
 layout simple_heatmap_layout
 string my_string
-styleable SimpleHeatMap opacity minOpacity maxOpacity blur radius dataPaddingTop dataPaddingBottom dataPaddingLeft dataPaddingRight dataPadding maxDrawingWidth maxDrawingHeight transparentBackground
+styleable SimpleHeatmap opacity minOpacity maxOpacity blur radius dataPaddingTop dataPaddingBottom dataPaddingLeft dataPaddingRight dataPadding maxDrawingWidth maxDrawingHeight transparentBackground

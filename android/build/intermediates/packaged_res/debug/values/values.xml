@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="my_string">Just a simple string</string>
-    <declare-styleable name="SimpleHeatMap">
+    <declare-styleable name="SimpleHeatmap">
         <attr format="integer" name="opacity"/>
         <attr format="integer" name="minOpacity"/>
         <attr format="integer" name="maxOpacity"/>
