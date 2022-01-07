@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <com.adrbrpa.capacitorheatmap.heatmaps.SimpleHeatmap
-        android:id="@+id/heatmap"
+        android:id="@+id/simple_heatmap"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         custom:minOpacity="0"

@@ -1653,20 +1653,20 @@ int styleable SearchView_searchIcon 13
 int styleable SearchView_submitBackground 14
 int styleable SearchView_suggestionRowLayout 15
 int styleable SearchView_voiceIcon 16
-int[] styleable SimpleHeatMap { 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0 }
-int styleable SimpleHeatMap_blur 0
-int styleable SimpleHeatMap_dataPadding 1
-int styleable SimpleHeatMap_dataPaddingBottom 2
-int styleable SimpleHeatMap_dataPaddingLeft 3
-int styleable SimpleHeatMap_dataPaddingRight 4
-int styleable SimpleHeatMap_dataPaddingTop 5
-int styleable SimpleHeatMap_maxDrawingHeight 6
-int styleable SimpleHeatMap_maxDrawingWidth 7
-int styleable SimpleHeatMap_maxOpacity 8
-int styleable SimpleHeatMap_minOpacity 9
-int styleable SimpleHeatMap_opacity 10
-int styleable SimpleHeatMap_radius 11
-int styleable SimpleHeatMap_transparentBackground 12
+int[] styleable SimpleHeatmap { 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0 }
+int styleable SimpleHeatmap_blur 0
+int styleable SimpleHeatmap_dataPadding 1
+int styleable SimpleHeatmap_dataPaddingBottom 2
+int styleable SimpleHeatmap_dataPaddingLeft 3
+int styleable SimpleHeatmap_dataPaddingRight 4
+int styleable SimpleHeatmap_dataPaddingTop 5
+int styleable SimpleHeatmap_maxDrawingHeight 6
+int styleable SimpleHeatmap_maxDrawingWidth 7
+int styleable SimpleHeatmap_maxOpacity 8
+int styleable SimpleHeatmap_minOpacity 9
+int styleable SimpleHeatmap_opacity 10
+int styleable SimpleHeatmap_radius 11
+int styleable SimpleHeatmap_transparentBackground 12
 int[] styleable Spinner { 0x1010262, 0x10100b2, 0x1010176, 0x101017b, 0x0 }
 int styleable Spinner_android_dropDownWidth 0
 int styleable Spinner_android_entries 1

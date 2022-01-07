@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="SimpleHeatMap">
+    <declare-styleable name="SimpleHeatmap">
         <attr name="opacity" format="integer" />
         <attr name="minOpacity" format="integer" />
         <attr name="maxOpacity" format="integer" />
