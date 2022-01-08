@@ -10,7 +10,9 @@ import androidx.annotation.ColorInt
 import com.adrbrpa.capacitorheatmap.capacitorheatmap.R
 import com.adrbrpa.capacitorheatmap.data.models.Point
 
-class SimpleHeatmap(context: Context, private val attrs: AttributeSet? = null) : View(context, attrs), BaseHeatmap {
+class SimpleHeatmap @JvmOverloads constructor(
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : View(context, attrs, defStyleAttr), BaseHeatmap {
 
     private val TAG: String = SimpleHeatmap::class.java.simpleName
 
