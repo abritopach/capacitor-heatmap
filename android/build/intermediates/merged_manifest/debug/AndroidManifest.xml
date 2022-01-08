@@ -6,4 +6,9 @@
         android:minSdkVersion="21"
         android:targetSdkVersion="30" />
 
+    <application android:allowBackup="true" >
+        <activity android:name="com.adrbrpa.capacitorheatmap.SimpleHeatmapActivity" >
+        </activity>
+    </application>
+
 </manifest>

@@ -728,7 +728,6 @@ int id expanded_menu 0x0
 int id forever 0x0
 int id fragment_container_view_tag 0x0
 int id group_divider 0x0
-int id heatmap 0x0
 int id home 0x0
 int id icon 0x0
 int id icon_group 0x0
@@ -772,6 +771,7 @@ int id search_src_text 0x0
 int id search_voice_btn 0x0
 int id select_dialog_listview 0x0
 int id shortcut 0x0
+int id simple_heatmap 0x0
 int id spacer 0x0
 int id special_effects_controller_view_tag 0x0
 int id split_action_bar 0x0

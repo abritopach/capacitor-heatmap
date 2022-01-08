@@ -1,14 +1,22 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:2:3-4:14
-INJECTED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:2:3-4:14
-INJECTED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:2:3-4:14
+ADDED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:2:3-10:14
+INJECTED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:2:3-10:14
+INJECTED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:2:3-10:14
 	package
 		ADDED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:3:7-62
 		INJECTED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml
 		INJECTED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:2:13-71
+application
+ADDED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:5:5-9:19
+	android:allowBackup
+		ADDED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:6:9-35
+activity#com.adrbrpa.capacitorheatmap.SimpleHeatmapActivity
+ADDED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:7:7-8:18
+	android:name
+		ADDED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:7:17-82
 uses-sdk
 INJECTED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml

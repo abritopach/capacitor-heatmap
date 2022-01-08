@@ -729,7 +729,6 @@ id expanded_menu
 id forever
 id fragment_container_view_tag
 id group_divider
-id heatmap
 id home
 id icon
 id icon_group
@@ -773,6 +772,7 @@ id search_src_text
 id search_voice_btn
 id select_dialog_listview
 id shortcut
+id simple_heatmap
 id spacer
 id special_effects_controller_view_tag
 id split_action_bar
