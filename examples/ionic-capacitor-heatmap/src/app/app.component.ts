@@ -36,6 +36,11 @@ export class AppComponent {
       title: 'Leaflet Maps Heatmap',
       url: '/leaflet-maps-heatmap',
       icon: 'navigate'
+    },
+    {
+      title: 'MapBox Maps Heatmap',
+      url: '/mapbox-maps-heatmap',
+      icon: 'pin'
     }
   ];
 
