@@ -1,5 +1,7 @@
 package com.adrbrpa.capacitorheatmap.heatmaps
 
+import com.adrbrpa.capacitorheatmap.data.models.Point
+
 interface BaseHeatmap {
 
     fun initialize()
@@ -11,7 +13,7 @@ interface BaseHeatmap {
     fun getData()
     fun getValueAt()
     fun clearData()
-    fun addPoint()
+    fun addPoint(point: Point)
     fun setMax(max: Double)
     fun setMin(min: Double)
     /*********/
