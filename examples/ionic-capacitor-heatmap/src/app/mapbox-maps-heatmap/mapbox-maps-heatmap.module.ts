@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
-import { IonicModule } from '@ionic/angular';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 import { MapboxMapsHeatmapPageRoutingModule } from './mapbox-maps-heatmap-routing.module';
 
@@ -10,9 +7,7 @@ import { MapboxMapsHeatmapPage } from './mapbox-maps-heatmap.page';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
+    SharedModule,
     MapboxMapsHeatmapPageRoutingModule
   ],
   declarations: [MapboxMapsHeatmapPage]

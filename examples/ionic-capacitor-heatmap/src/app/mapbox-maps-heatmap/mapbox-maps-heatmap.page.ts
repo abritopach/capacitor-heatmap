@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapboxMapsHeatmapPage implements OnInit {
 
+  currentYear = new Date().getFullYear();
+
   constructor() { }
 
   ngOnInit() {
