@@ -1,8 +1,7 @@
 package com.adrbrpa.capacitorheatmap.heatmaps
 
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.Paint
+import android.graphics.*
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
@@ -19,17 +18,17 @@ class SimpleHeatmap @JvmOverloads constructor(
     /**
      * The data that will be displayed in the heatmap.
      */
-    private var data: List<Point>? = null
+    private var data: MutableList<Point>? = null
 
     /**
      * A buffer for new data that hasn't been displayed yet.
      */
-    private var dataBuffer: List<Point>? = null
+    private var dataBuffer: MutableList<Point>? = null
 
     /**
      * Whether the information stored in dataBuffer has changed.
      */
-    private val dataModified = false
+    private var dataModified = false
 
     /**
      * The value that corresponds to the minimum of the gradient scale.
@@ -103,17 +102,17 @@ class SimpleHeatmap @JvmOverloads constructor(
     /**
      * The color palette being used to create the radial gradients.
      */
-    private val palette: IntArray? = null
+    private var palette: IntArray? = null
 
     /**
      * Whether the palette needs refreshed.
      */
-    private val needsRefresh = true
+    private var needsRefresh = true
 
     /**
      * Update the shadow layer when the size changes.
      */
-    private val sizeChange = false
+    private var sizeChange = false
 
     /**
      * The top padding on the heatmap.
@@ -186,6 +185,10 @@ class SimpleHeatmap @JvmOverloads constructor(
         if (!mTransparentBackground) mBackground?.color = -0x10102
         data = ArrayList<Point>()
         dataBuffer = ArrayList<Point>()
+        if (mUseDrawingCache) {
+            this.isDrawingCacheEnabled = true
+            this.drawingCacheBackgroundColor = Color.TRANSPARENT
+        }
     }
 
     override fun destroy() {
@@ -205,11 +208,16 @@ class SimpleHeatmap @JvmOverloads constructor(
     }
 
     override fun clearData() {
-        TODO("Not yet implemented")
+        Log.d(TAG, "[Heatmap Plugin Native Android]: SimpleHeatmap::clearData method called")
+        dataBuffer?.clear()
+        dataModified = true
     }
 
-    override fun addPoint() {
-        TODO("Not yet implemented")
+    override fun addPoint(point: Point) {
+        Log.d(TAG, "[Heatmap Plugin Native Android]: SimpleHeatmap::addPoint method called" +
+                "-> point: $point")
+        dataBuffer?.add(point)
+        dataModified = true
     }
 
     override fun setMax(max: Double) {
@@ -221,7 +229,22 @@ class SimpleHeatmap @JvmOverloads constructor(
     }
 
     override fun draw() {
-        TODO("Not yet implemented")
+        Log.d(TAG, "[Heatmap Plugin Native Android]: SimpleHeatmap::draw method called")
+        val bit = Bitmap.createBitmap(256, 1, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(bit)
+        val grad = LinearGradient(0f, 0f, 256f, 1f, colors, positions, Shader.TileMode.CLAMP)
+        val paint = Paint()
+        paint.style = Paint.Style.FILL
+        paint.shader = grad
+        canvas.drawLine(0f, 0f, 256f, 1f, paint)
+        palette = IntArray(256)
+        bit.getPixels(palette, 0, 256, 0, 0, 256, 1)
+        if (dataModified) {
+            data?.clear()
+            dataBuffer?.let { data?.addAll(it) }
+            dataBuffer!!.clear()
+            dataModified = false
+        }
     }
 
     override fun resize() {
