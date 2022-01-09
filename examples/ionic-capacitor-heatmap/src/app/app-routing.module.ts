@@ -20,6 +20,10 @@ const routes: Routes = [
     path: 'leaflet-maps-heatmap',
     loadChildren: () => import('./leaflet-maps-heatmap/leaflet-maps-heatmap.module').then( m => m.LeafletMapsHeatmapPageModule)
   },
+  {
+    path: 'mapbox-maps-heatmap',
+    loadChildren: () => import('./mapbox-maps-heatmap/mapbox-maps-heatmap.module').then( m => m.MapboxMapsHeatmapPageModule)
+  },
 ];
 
 @NgModule({
