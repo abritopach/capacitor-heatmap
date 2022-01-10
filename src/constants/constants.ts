@@ -1,5 +1,5 @@
 export const Logs = {
-    mapbox: '__LeafletMapsHeatmap__'
+    mapbox: '__MapboxMapsHeatmap__'
 }
 
 export const PixelsValue = {
