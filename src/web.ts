@@ -3,6 +3,7 @@ import { WebPlugin } from '@capacitor/core';
 import type { HeatmapPlugin } from './definitions';
 import { GoogleMapsHeatmap } from './heatmaps/google-maps-heatmap';
 import { LeafletMapsHeatmap } from './heatmaps/leaflet-maps-heatmap';
+import { MapboxMapsHeatmap } from './heatmaps/mapbox-maps-heatmap';
 import { SimpleHeatmap } from './heatmaps/simple-heatmap';
 import type { HeatmapData, HeatmapGradient, HeatmapOptions, GMHeatmapOptions, GMHeatmapData, HeatmapPoint,
         GMHeatmapPoint, HeatmapDrawOptions, GMHeatmapGradient, HeatmapPosition, GMHeatmapCoordinate,
@@ -27,6 +28,10 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
       }
       case HeatmapType.LeafletMaps: {
         this.heatmap = new LeafletMapsHeatmap();
+        break;
+      }
+      case HeatmapType.MapboxMaps: {
+        this.heatmap = new MapboxMapsHeatmap();
         break;
       }
       default: {

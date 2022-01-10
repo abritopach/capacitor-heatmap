@@ -1,5 +1,5 @@
 import type { Map, LatLngExpression, LatLngTuple } from 'leaflet';
-import type mapboxgl from 'mapbox-gl';
+import * as mapboxgl from 'mapbox-gl';
 
 export enum VerticalPosition {
     TOP = 'top',
