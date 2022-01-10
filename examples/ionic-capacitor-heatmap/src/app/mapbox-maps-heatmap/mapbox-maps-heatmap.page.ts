@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 import { environment } from 'src/environments/environment';
+import { Heatmap } from '../../../../../dist/esm';
+import { HeatmapType, MapboxHeatmapOptions } from '../../../../../dist/esm/models/models';
 
 @Component({
   selector: 'app-mapbox-maps-heatmap',
@@ -26,10 +28,22 @@ export class MapboxMapsHeatmapPage implements OnInit {
     this.map = new mapboxgl.Map({
       container: 'mapBox',
       style: `mapbox://styles/mapbox/streets-v11`,
-      zoom: 15,
-      center: [-3.703790, 40.416775]
+      // zoom: 15,
+      // center: [-3.703790, 40.416775]
+      center: [-120, 50],
+      zoom: 2
     });
     this.map.addControl(new mapboxgl.NavigationControl());
+    this.initializeMapboxHeatmap();
+  }
+
+  async initializeMapboxHeatmap() {
+
+      // Initialize.
+      const options: MapboxHeatmapOptions = {type: HeatmapType.MapboxMaps, map: this.map, debug: true};
+      const result = await Heatmap.initialize(options);
+      console.log('result initialize', result);
+
   }
 
 }

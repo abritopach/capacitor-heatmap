@@ -1,3 +1,7 @@
+export const Logs = {
+    mapbox: '__MapboxMapsHeatmap__'
+}
+
 export const PixelsValue = {
     zero: "0px",
     one: "1px",
