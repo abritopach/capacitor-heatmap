@@ -1,4 +1,5 @@
 import type { Map, LatLngExpression, LatLngTuple } from 'leaflet';
+import type mapboxgl from 'mapbox-gl';
 
 export enum VerticalPosition {
     TOP = 'top',
@@ -123,7 +124,8 @@ export interface Point {
 export enum HeatmapType {
     Simple = 'simple',
     GoogleMaps = 'googlemaps',
-    LeafletMaps = 'leafletmaps'
+    LeafletMaps = 'leafletmaps',
+    MapboxMaps = 'mapboxmaps'
 }
 
 /**
@@ -185,3 +187,18 @@ export interface LMHeatmapOptions {
 export type LMHeatmapData = LatLngExpression[];
 export type LMHeatmapPoint = LatLngExpression;
 export type LMHeatmapCoordinate = LatLngTuple;
+
+/**
+ * Description [Interface to define mapbox maps heatmap initialize options.]
+ *
+ * @author abrito
+ * @version 0.0.1
+ *
+ * @interface
+*/
+export interface MapboxHeatmapOptions {
+    map: mapboxgl.Map;
+    type: HeatmapType;
+    data?: HeatmapData;
+    debug?: boolean;
+}

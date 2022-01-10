@@ -6,7 +6,7 @@ import { LeafletMapsHeatmap } from './heatmaps/leaflet-maps-heatmap';
 import { SimpleHeatmap } from './heatmaps/simple-heatmap';
 import type { HeatmapData, HeatmapGradient, HeatmapOptions, GMHeatmapOptions, GMHeatmapData, HeatmapPoint,
         GMHeatmapPoint, HeatmapDrawOptions, GMHeatmapGradient, HeatmapPosition, GMHeatmapCoordinate,
-        LMHeatmapOptions, LMHeatmapData, LMHeatmapPoint, LMHeatmapCoordinate } from './models/models';
+        LMHeatmapOptions, LMHeatmapData, LMHeatmapPoint, LMHeatmapCoordinate, MapboxHeatmapOptions } from './models/models';
 import { HeatmapType } from './models/models';
 
 
@@ -14,7 +14,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
 
   heatmap: any;
 
-  async initialize(options: (HeatmapOptions | GMHeatmapOptions | LMHeatmapOptions)): Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer}> {
+  async initialize(options: (HeatmapOptions | GMHeatmapOptions | LMHeatmapOptions | MapboxHeatmapOptions)): Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer}> {
     const type = typeof options.type !== "undefined" ? options.type : HeatmapType.Simple;
     switch(type) {
       case HeatmapType.Simple: {

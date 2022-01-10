@@ -1,6 +1,6 @@
 import type { HeatmapData, HeatmapOptions, HeatmapGradient, GMHeatmapOptions, GMHeatmapData, HeatmapPoint,
 GMHeatmapPoint, HeatmapDrawOptions, GMHeatmapGradient, HeatmapPosition, GMHeatmapCoordinate, LMHeatmapOptions,
-LMHeatmapData, LMHeatmapPoint, LMHeatmapCoordinate } from "./models/models";
+LMHeatmapData, LMHeatmapPoint, LMHeatmapCoordinate, MapboxHeatmapOptions } from "./models/models";
 
 export interface HeatmapPlugin {
 
@@ -15,7 +15,7 @@ export interface HeatmapPlugin {
    * @param {IHeatmapOptions | IGMHeatmapOptions} options - Json options object to initialize heatmap.
    * @returns {Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer}>} Canvas Element or Google Maps Heatmap Layer.
   */
-  initialize(options: HeatmapOptions | GMHeatmapOptions | LMHeatmapOptions): Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer}>;
+  initialize(options: HeatmapOptions | GMHeatmapOptions | LMHeatmapOptions | MapboxHeatmapOptions): Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer}>;
 
   /**
    * Description [This method destroy heatmap.]
