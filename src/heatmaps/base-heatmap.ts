@@ -1,7 +1,7 @@
 import { Log } from '../log';
 import type { HeatmapData, HeatmapOptions, HeatmapGradient, GMHeatmapOptions, GMHeatmapData, HeatmapPoint,
     GMHeatmapPoint, HeatmapDrawOptions, GMHeatmapGradient, HeatmapPosition, GMHeatmapCoordinate, LMHeatmapOptions,
-    LMHeatmapData, LMHeatmapPoint } from '../models/models';
+    LMHeatmapData, LMHeatmapPoint, MapboxHeatmapOptions } from '../models/models';
 import { HeatmapType } from '../models/models';
 
 export abstract class BaseHeatmap {
@@ -10,7 +10,7 @@ export abstract class BaseHeatmap {
 
     _heatmapLogger: Log = new Log();
 
-    abstract initialize(options: HeatmapOptions | GMHeatmapOptions | LMHeatmapOptions): void;
+    abstract initialize(options: HeatmapOptions | GMHeatmapOptions | LMHeatmapOptions | MapboxHeatmapOptions): void;
     abstract destroy(): void;
     /*********/
     // Methods for handling heatmap data.
