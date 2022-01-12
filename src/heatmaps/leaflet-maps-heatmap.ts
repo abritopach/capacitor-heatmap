@@ -1,6 +1,7 @@
 import { DomUtil, Browser, Point } from 'leaflet';
 import type { Map, LatLngExpression } from 'leaflet';
 
+import { Logs } from '../constants/constants';
 import { Log } from "../log";
 import type { GMHeatmapGradient, LMHeatmapOptions, LMHeatmapData, HeatmapPoint,
             HeatmapGradient, LMHeatmapPoint, LMHeatmapCoordinate} from '../models/models';
@@ -37,13 +38,13 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
 
     initialize(options: LMHeatmapOptions): HTMLCanvasElement {
         this._heatmapLogger = new Log(options.debug);
-        this._heatmapLogger.log("__LeafletMapsHeatmap__ initialize");
+        this._heatmapLogger.log(`${Logs.heatmaps.leaflet} ${Logs.methods.initialize}`);
         this._map = options.map;
         console.log('map', this._map);
 
         this._data = typeof options.data !== 'undefined' ? options.data :
         (
-            this._heatmapLogger.warn("__LeafletMapsHeatmap__ Data is undefined or empty. Passes heatmap data into draw function or set heatmap data with setData function."),
+            this._heatmapLogger.warn(`${Logs.heatmaps.leaflet} Data is undefined or empty. Passes heatmap data into draw function or set heatmap data with setData function.`),
             []
         );
 
@@ -80,7 +81,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
     }
 
     destroy(): void {
-        this._heatmapLogger.log("__LeafletMapsHeatmap__ destroy");
+        this._heatmapLogger.log(`${Logs.heatmaps.leaflet} ${Logs.methods.destroy}`);
         this._map.getPanes().overlayPane.removeChild(this._canvas);
         this._map.off('moveend', () => {
             this._reset();
@@ -98,7 +99,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
     // Methods for handling heatmap data.
     /*********/
     setData(data: LMHeatmapData): LMHeatmapData {
-        this._heatmapLogger.log("__LeafletMapsHeatmap__ setData", data);
+        this._heatmapLogger.log(`${Logs.heatmaps.leaflet} ${Logs.methods.setData}`, data);
         this._data = [];
         this._data = [...data];
         const opt = {};
@@ -107,12 +108,12 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
     }
 
     getData(): LMHeatmapData {
-        this._heatmapLogger.log("__LeafletMapsHeatmap__ getData");
+        this._heatmapLogger.log(`${Logs.heatmaps.leaflet} ${Logs.methods.getData}`);
         return this._data;
     }
 
     getValueAt(coordinate: LMHeatmapCoordinate): number | null {
-        this._heatmapLogger.log("__LeafletMapsHeatmap__ getValueAt", coordinate);
+        this._heatmapLogger.log(`${Logs.heatmaps.leaflet} ${Logs.methods.getValueAt}`, coordinate);
         const value = null;
 
         const max = this._max === undefined ? 1 : this._max;
@@ -151,7 +152,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
     }
 
     clearData(): LMHeatmapData {
-        this._heatmapLogger.log("__LeafletMapsHeatmap__ clearData");
+        this._heatmapLogger.log(`${Logs.heatmaps.leaflet} ${Logs.methods.clearData}`);
         this._data = [];
         const opt = {};
         this.draw(opt);
@@ -159,7 +160,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
     }
 
     addPoint(point: LMHeatmapPoint): LMHeatmapData {
-        this._heatmapLogger.log("__LeafletMapsHeatmap__ addPoint", {newPoint: point});
+        this._heatmapLogger.log(`${Logs.heatmaps.leaflet} ${Logs.methods.addPoint}`, {newPoint: point});
         this._data.push(point);
         const opt = {};
         this.draw(opt);
@@ -167,7 +168,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
     }
 
     setMax(max: number): number {
-        this._heatmapLogger.log("__LeafletMapsHeatmap__ max", max);
+        this._heatmapLogger.log(`${Logs.heatmaps.leaflet} ${Logs.methods.setMax}`, max);
         this._max = max;
         return this._max;
     }
@@ -177,7 +178,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
     // Methods for rendering heatmap.
     /*********/
     draw(options: {opacity?: number, radius?: number, gradient?: string[], data?: LMHeatmapData}): boolean {
-        this._heatmapLogger.log("__LeafletMapsHeatmap__ draw", options);
+        this._heatmapLogger.log(`${Logs.heatmaps.leaflet} ${Logs.methods.draw}`, options);
         if (!this._map) { return false; }
 
         this._data = typeof options.data !== 'undefined' ? options.data : this._data;
@@ -217,7 +218,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
     // Methods for handling heatmap appearance.
     /*********/
     resize(options: {width: number, height: number}): {newWidth: number, newHeight: number} {
-        this._heatmapLogger.log("__LeafletMapsHeatmap__ resize", options);
+        this._heatmapLogger.log(`${Logs.heatmaps.leaflet} ${Logs.methods.resize}`, options);
         if ((this._canvas !== null) && (typeof this._canvas !== "undefined")) {
             this._clearCanvas();
             this._canvas.width = options.width;
@@ -236,7 +237,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
     }
 
     gradient(grad: GMHeatmapGradient): HeatmapGradient {
-        this._heatmapLogger.log("__LeafletMapsHeatmap__ gradient", grad);
+        this._heatmapLogger.log(`${Logs.heatmaps.leaflet} ${Logs.methods.gradient}`, grad);
         this._gradient = grad;
         const opt = {gradient: grad};
         this.draw(opt);
@@ -244,7 +245,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
     }
 
     opacity(opa: number): number {
-        this._heatmapLogger.log("__LeafletMapsHeatmap__ opacity", opa);
+        this._heatmapLogger.log(`${Logs.heatmaps.leaflet} ${Logs.methods.opacity}`, opa);
         this._opacity = opa;
         const opt = {opacity: opa};
         this.draw(opt);
@@ -252,7 +253,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
     }
 
     radius(rad: number): number {
-        this._heatmapLogger.log("__LeafletMapsHeatmap__ radius", rad);
+        this._heatmapLogger.log(`${Logs.heatmaps.leaflet} ${Logs.methods.radius}`, rad);
         this._radius = rad;
         const opt = {radius: rad};
         this.draw(opt);
@@ -264,7 +265,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
     // Method to obtain the image of the canvas.
     /*********/
     getDataURL(type: string, imageQuality: number): string {
-        this._heatmapLogger.log("__LeafletMapsHeatmap__ getDataURL", type, imageQuality);
+        this._heatmapLogger.log(`${Logs.heatmaps.leaflet} ${Logs.methods.getDataUrl}`, type, imageQuality);
         return this._canvas.toDataURL(type, imageQuality);
     }
 
@@ -316,19 +317,20 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         */
     }
 
+
     _getCenterOffset(latlng: any): Point {
 		return this._map.latLngToLayerPoint(latlng).subtract(this._getCenterLayerPoint());
     }
 
-    _getCenterLayerPoint(): Point {
+    private _getCenterLayerPoint(): Point {
 		return this._map.containerPointToLayerPoint(this._map.getSize().divideBy(2));
     }
 
-    _getMapPanePos(): Point {
+    private _getMapPanePos(): Point {
 		return DomUtil.getPosition(this._map.getPanes().overlayPane) || new Point(0, 0);
     };
 
-    _reset(): void {
+    private _reset(): void {
 
         const topLeft = this._map.containerPointToLayerPoint([0, 0]);
         DomUtil.setPosition(this._canvas, topLeft);
@@ -349,7 +351,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
 
     }
 
-    _processData(): number[][] {
+    private _processData(): number[][] {
 
         const data: number[][] = [];
         // const size: Point = this._map.getSize();

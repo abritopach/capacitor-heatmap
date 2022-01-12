@@ -30,14 +30,14 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
 
     initialize(options: MapboxHeatmapOptions): HTMLCanvasElement {
         this._heatmapLogger = new Log(options.debug);
-        this._heatmapLogger.log(`${Logs.mapbox} initialize`);
+        this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.initialize}`);
 
         this._map = options.map;
         console.log('map', this._map);
 
         this._data = typeof options.data !== 'undefined' ? options.data :
         (
-            this._heatmapLogger.warn(`${Logs.mapbox} Data is undefined or empty. Passes heatmap data into draw function or set heatmap data with setData function.`),
+            this._heatmapLogger.warn(`${Logs.heatmaps.mapbox} Data is undefined or empty. Passes heatmap data into draw function or set heatmap data with setData function.`),
             []
         );
 
@@ -50,7 +50,7 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
     }
 
     destroy(): void {
-        this._heatmapLogger.log(`${Logs.mapbox} destroy`);
+        this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.destroy}`);
         this._map.remove();
     }
 
@@ -59,7 +59,7 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
     // Methods for handling heatmap data.
     /*********/
     setData(data: HeatmapData): HeatmapData {
-        this._heatmapLogger.log(`${Logs.mapbox} setData`, data);
+        this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.setData}`, data);
         this._data = [];
         this._data = [...data];
         const opt = {};
@@ -68,30 +68,30 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
     }
 
     getData(): HeatmapData {
-        this._heatmapLogger.log(`${Logs.mapbox} getData`);
+        this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.getData}`);
         return this._data;
     }
 
     getValueAt(coordinate: []): number | null {
-        this._heatmapLogger.log(`${Logs.mapbox} getValueAt`, coordinate);
+        this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.getValueAt}`, coordinate);
                 // TODO: Not implemented yet.
         return null;
     }
 
     clearData(): HeatmapData {
-        this._heatmapLogger.log(`${Logs.mapbox} clearData`);
+        this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.clearData}`);
         // TODO: Not implemented yet.
         return [];
     }
 
     addPoint(point: HeatmapPoint): HeatmapData {
-        this._heatmapLogger.log(`${Logs.mapbox} addPoint`, {newPoint: point});
+        this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.addPoint}`, {newPoint: point});
         // TODO: Not implemented yet.
         return [];
     }
 
     setMax(max: number): number {
-        this._heatmapLogger.log(`${Logs.mapbox} max`, max);
+        this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.setMax}`, max);
         // TODO: Not implemented yet.
         return 0;
 
@@ -102,7 +102,7 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
     // Methods for rendering heatmap.
     /*********/
     draw(options: {opacity?: number, radius?: number, gradient?: string[], data?: HeatmapData}): boolean {
-        this._heatmapLogger.log(`${Logs.mapbox} draw`, options);
+        this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.draw}`, options);
         if (!this._map) { return false; }
 
         this._data = typeof options.data !== 'undefined' ? options.data : this._data;
@@ -118,24 +118,24 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
     /*********/
     resize(options: {width: number, height: number}): {newWidth: number, newHeight: number} {
         // TODO: Not implemented yet.
-        this._heatmapLogger.log(`${Logs.mapbox} resize`, options);
+        this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.resize}`, options);
         return {newWidth: 0, newHeight: 0};
     }
 
     gradient(grad: HeatmapGradient): HeatmapGradient {
-        this._heatmapLogger.log(`${Logs.mapbox} gradient`, grad);
+        this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.gradient}`, grad);
         // TODO: Not implemented yet.
         return {};
     }
 
     opacity(opa: number): number {
-        this._heatmapLogger.log(`${Logs.mapbox} opacity`, opa);
+        this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.opacity}`, opa);
         // TODO: Not implemented yet.
         return 0;
     }
 
     radius(rad: number): number {
-        this._heatmapLogger.log(`${Logs.mapbox} radius`, rad);
+        this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.radius}`, rad);
         // TODO: Not implemented yet.
         return 0;
     }
@@ -145,7 +145,7 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
     // Method to obtain the image of the canvas.
     /*********/
     getDataURL(type: string, imageQuality: number): string {
-        this._heatmapLogger.log(`${Logs.mapbox} getDataURL`, type, imageQuality);
+        this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.getDataUrl}`, type, imageQuality);
         // TODO: Not implemented yet.
         return '';
     }
