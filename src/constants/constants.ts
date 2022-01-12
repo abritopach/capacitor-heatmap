@@ -1,5 +1,26 @@
 export const Logs = {
-    mapbox: '__MapboxMapsHeatmap__'
+    heatmaps: {
+        simple: '__SimpleHeatmap__',
+        google: '__GoogleMapsHeatmap__',
+        leaflet: '__LeafletMapsHeatmap__',
+        mapbox: '__MapboxMapsHeatmap__',
+    },
+    methods: {
+        initialize: 'initialize',
+        destroy: 'destroy',
+        setData: 'setData',
+        getData: 'getData',
+        getValueAt: 'getValueAt',
+        clearData: 'clearData',
+        addPoint: 'addPoint',
+        setMax: 'setMax',
+        draw: 'draw',
+        resize: 'resize',
+        gradient: 'gradient',
+        opacity: 'opacity',
+        radius: 'radius',
+        getDataUrl: 'getDataUrl',
+    }
 }
 
 export const PixelsValue = {
