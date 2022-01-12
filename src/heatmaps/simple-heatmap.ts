@@ -1,4 +1,4 @@
-import { Colors, Labels, PixelsValue, Position, ZIndex } from "../constants/constants";
+import { Colors, Labels, Logs, PixelsValue, Position, ZIndex } from "../constants/constants";
 import { Log } from "../log";
 import type { HeatmapOptions, HeatmapData, HeatmapPoint, HeatmapGradient, HeatmapPosition, ColorScale,
     ColorScaleStyles } from "../models/models";
@@ -70,7 +70,7 @@ export class SimpleHeatmap extends BaseHeatmap {
 
     initialize(options: HeatmapOptions): HTMLCanvasElement {
         this._heatmapLogger = new Log(options.debug);
-        this._heatmapLogger.log("__SimpleHeatmap__ initialize");
+        this._heatmapLogger.log(`${Logs.heatmaps.simple} ${Logs.methods.initialize}`);
 
         if (options?.colorScale?.show) {
             this._createColorScale(options.element, options.colorScale);
@@ -83,7 +83,7 @@ export class SimpleHeatmap extends BaseHeatmap {
         this._max = 1;
         this._data = typeof options.data !== 'undefined' ? options.data :
         (
-            this._heatmapLogger.warn("__SimpleHeatmap__ Data is undefined or empty. Passes heatmap data into draw function or set heatmap data with setData function."),
+            this._heatmapLogger.warn(`${Logs.heatmaps.simple} Data is undefined or empty. Passes heatmap data into draw function or set heatmap data with setData function.`),
             []
         );
         this._opacity = SimpleHeatmap.DEFAULT_OPACITY;
@@ -98,6 +98,7 @@ export class SimpleHeatmap extends BaseHeatmap {
     }
 
     destroy():  HTMLCanvasElement {
+        this._heatmapLogger.log(`${Logs.heatmaps.simple} ${Logs.methods.destroy}`);
         if (this._canvas !== null) {
             this._clearCanvas();
             this.clearData();
@@ -113,7 +114,7 @@ export class SimpleHeatmap extends BaseHeatmap {
     /*********/
 
     setData(data: HeatmapData): HeatmapData {
-        this._heatmapLogger.log("__SimpleHeatmap__ setData");
+        this._heatmapLogger.log(`${Logs.heatmaps.simple} ${Logs.methods.setData}`);
         this._data = [];
         this._data = [...data];
         const opt = {};
@@ -122,13 +123,13 @@ export class SimpleHeatmap extends BaseHeatmap {
     }
 
     getData(): HeatmapData {
-        this._heatmapLogger.log("__SimpleHeatmap__ getData");
+        this._heatmapLogger.log(`${Logs.heatmaps.simple} ${Logs.methods.getData}`);
         return this._data;
     }
 
     getValueAt(position: HeatmapPosition): number | null {
         let value = null;
-        this._heatmapLogger.log("__SimpleHeatmap__ getValueAt", position);
+        this._heatmapLogger.log(`${Logs.heatmaps.simple} ${Logs.methods.getValueAt}`, position);
         const xSearched = Array.isArray(position) ? position[0] : position.x;
         const ySearched = Array.isArray(position) ? position[1] : position.y;
         this._data.forEach((point: HeatmapPoint) => {
@@ -143,7 +144,7 @@ export class SimpleHeatmap extends BaseHeatmap {
     }
 
     clearData(): HeatmapData {
-        this._heatmapLogger.log("__SimpleHeatmap__ clearData");
+        this._heatmapLogger.log(`${Logs.heatmaps.simple} ${Logs.methods.clearData}`);
         this._data = [];
         const opt = {};
         this.draw(opt);
@@ -151,7 +152,7 @@ export class SimpleHeatmap extends BaseHeatmap {
     }
 
     addPoint(point: HeatmapPoint): HeatmapData {
-        this._heatmapLogger.log("__SimpleHeatmap__ addPoint", {newPoint: point});
+        this._heatmapLogger.log(`${Logs.heatmaps.simple} ${Logs.methods.addPoint}`, {newPoint: point});
         this._data.push(point);
         const opt = {};
         this.draw(opt);
@@ -168,7 +169,7 @@ export class SimpleHeatmap extends BaseHeatmap {
     /*********/
 
     draw(options: {opacity?: number, radius?: number, gradient?: HeatmapGradient, data?: HeatmapData}): boolean {
-        this._heatmapLogger.log("__SimpleHeatmap__ draw");
+        this._heatmapLogger.log(`${Logs.heatmaps.simple} ${Logs.methods.draw}`);
 
         this._opacity = typeof options.opacity !== "undefined" ? options.opacity : this._opacity;
 
@@ -178,7 +179,7 @@ export class SimpleHeatmap extends BaseHeatmap {
 
         this._gradArray = typeof options.gradient !== "undefined" ? Utils.gradientArray(options.gradient) : Utils.gradientArray(this._gradient);
         this._data = typeof options.data !== 'undefined' ? options.data : this._data;
-        this._heatmapLogger.log("__SimpleHeatmap__ draw", {length: this._data.length});
+        this._heatmapLogger.log(`${Logs.heatmaps.simple} draw`, {length: this._data.length});
 
         this._heatmapLogger.log("circle", {circle: this._circle});
         this._heatmapLogger.log("width&height", {width: this._width, height: this._height});
@@ -210,7 +211,7 @@ export class SimpleHeatmap extends BaseHeatmap {
     /*********/
 
     resize(options: {width: number, height: number}): {newWidth: number, newHeight: number} {
-        this._heatmapLogger.log("__SimpleHeatmap__ resize", {options: options});
+        this._heatmapLogger.log(`${Logs.heatmaps.simple} ${Logs.methods.resize}`, {options: options});
         if ((this._canvas !== null) && (typeof this._canvas !== "undefined")) {
             this._clearCanvas();
             this._canvas.width = options.width;
@@ -226,7 +227,7 @@ export class SimpleHeatmap extends BaseHeatmap {
     }
 
     gradient(g: HeatmapGradient): HeatmapGradient {
-        this._heatmapLogger.log("__SimpleHeatmap__ gradient", g);
+        this._heatmapLogger.log(`${Logs.heatmaps.simple} ${Logs.methods.gradient}`, g);
         this._gradient = g;
         const opt = {gradient: g};
         this.draw(opt);
@@ -234,7 +235,7 @@ export class SimpleHeatmap extends BaseHeatmap {
     }
 
     opacity(opa: number): number {
-        this._heatmapLogger.log("__SimpleHeatmap__ opacity", opa);
+        this._heatmapLogger.log(`${Logs.heatmaps.simple} ${Logs.methods.opacity}`, opa);
         this._opacity = opa;
         const opt = {opacity: opa};
         this.draw(opt);
@@ -242,7 +243,7 @@ export class SimpleHeatmap extends BaseHeatmap {
     }
 
     radius(r: number): number {
-        this._heatmapLogger.log("__SimpleHeatmap__ radius", r);
+        this._heatmapLogger.log(`${Logs.heatmaps.simple} ${Logs.methods.radius}`, r);
         this._radius = r;
         const opt = {radius: r};
         this.draw(opt);
@@ -253,7 +254,7 @@ export class SimpleHeatmap extends BaseHeatmap {
     // Method to obtain the image of the canvas.
     /*********/
     getDataURL(type: string, imageQuality: number): string {
-        this._heatmapLogger.log("__SimpleHeatmap__ getDataURL", type, imageQuality);
+        this._heatmapLogger.log(`${Logs.heatmaps.simple} ${Logs.methods.getDataUrl}`, type, imageQuality);
         return this._canvas.toDataURL(type, imageQuality);
     }
 
@@ -262,7 +263,6 @@ export class SimpleHeatmap extends BaseHeatmap {
     /*********/
 
     private _createColorScale(element: string, colorScaleOptions: ColorScale) {
-        this._heatmapLogger.log("__SimpleHeatmap__ createColorScale");
         const el: HTMLElement = document.getElementById(element) as HTMLElement;
 
         if (document.getElementById('colorScale') !== null) {
@@ -323,7 +323,7 @@ export class SimpleHeatmap extends BaseHeatmap {
 
     /*
     private setSiblingElementStyles(parent: string, dimensions: {width: number, height: number}) {
-        this._heatmapLogger.log("__SimpleHeatmap__ setSiblingElementStyles", dimensions);
+        this._heatmapLogger.log(`${Logs.heatmaps.simple} setSiblingElementStyles", dimensions);
         const {width, height} = dimensions;
         const element = document.getElementById(parent).firstElementChild as HTMLElement;
         element.style.width = width.toString() + "px";
@@ -333,7 +333,7 @@ export class SimpleHeatmap extends BaseHeatmap {
     }
 
     private setCanvasElementStyles(dimensions: {width: number, height: number}) {
-        this._heatmapLogger.log("__SimpleHeatmap__ setCanvasElementStyles", dimensions);
+        this._heatmapLogger.log(`${Logs.heatmaps.simple} setCanvasElementStyles", dimensions);
         const {width, height} = dimensions;
         this._canvas.width = width;
         this._canvas.height = height;
@@ -347,7 +347,7 @@ export class SimpleHeatmap extends BaseHeatmap {
         this.setSiblingElementStyles(overlap.parent, {width, height});
         this.setCanvasElementStyles({width, height});
         if ((this._canvas.width === 0) || (this._canvas.height === 0)) {
-            this._heatmapLogger.error("__SimpleHeatmap__ ERROR -> Canvas dimensions are PixelsValue.zero.");
+            this._heatmapLogger.error(`${Logs.heatmaps.simple} ERROR -> Canvas dimensions are PixelsValue.zero.");
         }
     }
     */
@@ -402,11 +402,11 @@ export class SimpleHeatmap extends BaseHeatmap {
                 el.parentElement.appendChild(this._canvas);
             }
             else {
-                this._heatmapLogger.error("__SimpleHeatmap__  ERROR -> Element has no parent.");
+                this._heatmapLogger.error(`${Logs.heatmaps.simple}  ERROR -> Element has no parent.`);
             }
         }
         else {
-            this._heatmapLogger.error("__SimpleHeatmap__  ERROR -> Element doesn't exist.");
+            this._heatmapLogger.error(`${Logs.heatmaps.simple}  ERROR -> Element doesn't exist.`);
         }
     }
 
