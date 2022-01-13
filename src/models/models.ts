@@ -140,7 +140,7 @@ export interface HeatmapDrawOptions {
     opacity?: number,
     radius?: number,
     gradient?: HeatmapGradient | GMHeatmapGradient
-    data?:  HeatmapData | GMHeatmapData | LMHeatmapData
+    data?:  HeatmapData | GMHeatmapData | LMHeatmapData | MapboxHeatmapData
 }
 
 export type HeatmapGradient = Record<number, string>;
@@ -199,6 +199,8 @@ export type LMHeatmapCoordinate = LatLngTuple;
 export interface MapboxHeatmapOptions {
     map: mapboxgl.Map;
     type: HeatmapType;
-    data?: HeatmapData;
+    data?: MapboxHeatmapData;
     debug?: boolean;
 }
+
+export type MapboxHeatmapData = mapboxgl.LngLatLike[];
