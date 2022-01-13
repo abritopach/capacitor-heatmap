@@ -1,6 +1,6 @@
 import type { HeatmapData, HeatmapOptions, HeatmapGradient, GMHeatmapOptions, GMHeatmapData, HeatmapPoint,
 GMHeatmapPoint, HeatmapDrawOptions, GMHeatmapGradient, HeatmapPosition, GMHeatmapCoordinate, LMHeatmapOptions,
-LMHeatmapData, LMHeatmapPoint, LMHeatmapCoordinate, MapboxHeatmapOptions } from "./models/models";
+LMHeatmapData, LMHeatmapPoint, LMHeatmapCoordinate, MapboxHeatmapOptions, MapboxHeatmapData } from "./models/models";
 
 export interface HeatmapPlugin {
 
@@ -45,7 +45,7 @@ export interface HeatmapPlugin {
    * @param {HeatmapData | GMHeatmapData} data - Data to set.
    * @returns {Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer}>} Canvas Element or Google Maps Heatmap Layer.
   */
-  setData(data: HeatmapData | GMHeatmapData | LMHeatmapData): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData}>;
+  setData(data: HeatmapData | GMHeatmapData | LMHeatmapData | MapboxHeatmapData): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData}>;
 
   /**
    * Description [This method get heatmap data of [[x, y, thickness], ...] or [{x: value, y: value, thickness: value},...] format.]

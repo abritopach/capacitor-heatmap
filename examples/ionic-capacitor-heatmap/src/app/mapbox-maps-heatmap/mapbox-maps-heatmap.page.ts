@@ -46,6 +46,13 @@ export class MapboxMapsHeatmapPage implements OnInit {
       console.log('result initialize', result);
 
       const data = this.fakeHeatmapDataService.getMapboxMapsData();
+      console.log('data', data);
+
+      // Set data.
+      /*
+      const resultSetData = await Heatmap.setData(data.features);
+      console.log('result set data', resultSetData);
+      */
 
   }
 

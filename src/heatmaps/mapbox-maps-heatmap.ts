@@ -1,6 +1,6 @@
 import { Logs } from "../constants/constants";
 import { Log } from "../log";
-import type { HeatmapGradient, HeatmapData, MapboxHeatmapOptions, HeatmapPoint} from '../models/models';
+import type { HeatmapGradient, HeatmapData, MapboxHeatmapOptions, HeatmapPoint, MapboxHeatmapData } from '../models/models';
 
 import { BaseHeatmap } from './base-heatmap';
 
@@ -16,7 +16,7 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
 
     _map!: mapboxgl.Map;
     _canvas!: HTMLCanvasElement;
-    _data: HeatmapData = [];
+    _data: MapboxHeatmapData = [];
     _circle!: HTMLCanvasElement;
     _gradArray!: Uint8ClampedArray;
     _r!: number;
@@ -58,7 +58,7 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
     /*********/
     // Methods for handling heatmap data.
     /*********/
-    setData(data: HeatmapData): HeatmapData {
+    setData(data: MapboxHeatmapData): MapboxHeatmapData {
         this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.setData}`, data);
         this._data = [];
         this._data = [...data];
@@ -67,7 +67,7 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
         return this._data;
     }
 
-    getData(): HeatmapData {
+    getData(): MapboxHeatmapData {
         this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.getData}`);
         return this._data;
     }
@@ -101,7 +101,7 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
     /*********/
     // Methods for rendering heatmap.
     /*********/
-    draw(options: {opacity?: number, radius?: number, gradient?: string[], data?: HeatmapData}): boolean {
+    draw(options: {opacity?: number, radius?: number, gradient?: string[], data?: MapboxHeatmapData}): boolean {
         this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.draw}`, options);
         if (!this._map) { return false; }
 
@@ -158,9 +158,64 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
 
         this._map.on('load', () => {
 
+            /*
             this._map.addSource('earthquakes', {
                 'type': 'geojson',
                 'data': 'https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson'
+            });
+            */
+
+            this._map.addSource('earthquakes', {
+                type: 'geojson',
+                data: {
+                    type: 'FeatureCollection',
+                    features: [
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -151.5129, 63.1016, 0.0 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -150.4048, 63.1224, 105.5 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -151.3597, 63.0781, 0.0 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -118.497, 34.299667, 7.64 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -87.6901, 12.0623, 46.41 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -151.5053, 63.0719, 0.0 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -178.4576, -20.2873, 614.26 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -148.789, 63.1725, 7.5 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -120.993164, 36.421833, 6.37 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -117.0155, 33.656333, 12.37 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -151.512, 63.0879, 10.8 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -151.4378, 63.0933, 0.0 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -149.6538, 63.2272, 96.8 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -151.5325, 63.0844, 0.0 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -149.4752, 61.8518, 54.3 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -150.8597, 61.6214, 50.0 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -149.7142, 62.9656, 93.6 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -151.2484, 61.2705, 69.1 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -152.0732, 65.5942, 14.8 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -90.5445, 13.5146, 54.36 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -118.819504, 37.605499, 4.14 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -118.930168, 37.636833, -0.71 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -117.509167, 34.1555, 16.34 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -116.792167, 33.5115, 5.16 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -150.9126, 63.1812, 150.4 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -155.078659, 19.374167, 2.15 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -147.3106, 61.5726, 26.9 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -150.5846, 60.2607, 34.2 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -116.929, 34.254833, 18.27 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -151.5065, 63.0847, 0.0 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -147.8929, 63.5257, 3.3 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -175.7258, -18.9821, 195.22 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -151.3473, 63.0775, 0.0 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -121.137497, 36.579834, 7.72 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -151.1075, 61.8312, 71.7 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -151.3769, 63.0621, 0.0 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -94.8319, 16.7195, 58.84 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -120.689833, 47.049167, 5.38 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -151.5283, 63.0785, 0.0 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -151.6683, 60.7696, 67.1 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -149.7591, 61.6478, 30.6 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -151.3458, 63.0633, 0.0 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -151.4669, 63.0675, 3.4 ] } },
+                        { "type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [ -151.5169, 63.083, 1.0 ] } },
+                    ]
+                }
             });
 
             this._map.addLayer({
