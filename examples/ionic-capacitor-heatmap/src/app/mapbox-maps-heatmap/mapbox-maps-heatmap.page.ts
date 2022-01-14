@@ -17,6 +17,8 @@ export class MapboxMapsHeatmapPage implements OnInit {
   mapbox = (mapboxgl as typeof mapboxgl);
   map: mapboxgl.Map;
 
+  destroy = false;
+
   constructor(private fakeHeatmapDataService: FakeHeatmapDataService) {
     this.mapbox.accessToken = environment.MAP_BOX_API_TOKEN;
   }
@@ -49,11 +51,18 @@ export class MapboxMapsHeatmapPage implements OnInit {
       console.log('data', data);
 
       // Set data.
-      /*
-      const resultSetData = await Heatmap.setData(data.features);
+      const resultSetData = await Heatmap.setData(data);
       console.log('result set data', resultSetData);
-      */
 
+  }
+
+  onClickClearData() {
+    this.clearData();
+  }
+
+  async clearData() {
+    const resultClearData = await Heatmap.clearData();
+    console.log('result clear data', resultClearData);
   }
 
 }
