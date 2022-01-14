@@ -18,6 +18,48 @@
   <ion-item lines="none">
     <div id="mapBox"> </div>
   </ion-item>
+  <ion-segment *ngIf="!destroy">
+    <ion-segment-button checked layout="icon-start" (click)="onClickClearData()">
+      <ion-label>Clear data</ion-label>
+      <ion-icon name="trash"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button layout="icon-start">
+      <ion-label>Add new data</ion-label>
+      <ion-icon name="map"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button layout="icon-start">
+      <ion-label>Add new point</ion-label>
+      <ion-icon name="pin"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+  <ion-segment *ngIf="!destroy">
+    <ion-segment-button layout="icon-start">
+      <ion-label>Change gradient</ion-label>
+      <ion-icon name="brush"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button layout="icon-start">
+      <ion-label>Change opacity</ion-label>
+      <ion-icon name="contrast"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button layout="icon-start">
+      <ion-label>Change radius</ion-label>
+      <ion-icon name="radio-button-off"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+  <ion-segment *ngIf="!destroy">
+    <ion-segment-button layout="icon-start">
+      <ion-label>Value at -37.8869090667,175.3657417333</ion-label>
+      <ion-icon name="search"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button checked layout="icon-start">
+      <ion-label>Resize 500x300px</ion-label>
+      <ion-icon name="resize"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button layout="icon-start">
+      <ion-label>Destroy</ion-label>
+      <ion-icon name="trash"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
 </ion-content>
 
 <ion-footer>

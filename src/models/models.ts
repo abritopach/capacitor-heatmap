@@ -203,4 +203,4 @@ export interface MapboxHeatmapOptions {
     debug?: boolean;
 }
 
-export type MapboxHeatmapData = mapboxgl.LngLatLike[];
+export type MapboxHeatmapData = HeatmapData;
