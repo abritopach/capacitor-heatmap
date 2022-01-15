@@ -1,6 +1,6 @@
 import type { HeatmapData, HeatmapOptions, HeatmapGradient, GMHeatmapOptions, GMHeatmapData, HeatmapPoint,
 GMHeatmapPoint, HeatmapDrawOptions, GMHeatmapGradient, HeatmapPosition, GMHeatmapCoordinate, LMHeatmapOptions,
-LMHeatmapData, LMHeatmapPoint, LMHeatmapCoordinate, MapboxHeatmapOptions, MapboxHeatmapData } from "./models/models";
+LMHeatmapData, LMHeatmapPoint, LMHeatmapCoordinate, MapboxHeatmapOptions, MapboxHeatmapData, MapboxHeatmapCoordinate } from "./models/models";
 
 export interface HeatmapPlugin {
 
@@ -58,7 +58,7 @@ export interface HeatmapPlugin {
    * @returns {Promise<{value: HeatmapData | GMHeatmapData}>} Heatmap data.
   */
   getData(): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData}>;
-  getValueAt(position: HeatmapPosition | GMHeatmapCoordinate | LMHeatmapCoordinate): Promise<{value: number}>;
+  getValueAt(position: HeatmapPosition | GMHeatmapCoordinate | LMHeatmapCoordinate | MapboxHeatmapCoordinate): Promise<{value: number}>;
 
   /**
    * Description [This method clear heatmap data.]
