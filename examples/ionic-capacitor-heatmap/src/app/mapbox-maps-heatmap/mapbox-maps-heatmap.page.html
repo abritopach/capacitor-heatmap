@@ -23,7 +23,7 @@
       <ion-label>Clear data</ion-label>
       <ion-icon name="trash"></ion-icon>
     </ion-segment-button>
-    <ion-segment-button layout="icon-start">
+    <ion-segment-button layout="icon-start" (click)="onClickAddData()">
       <ion-label>Add new data</ion-label>
       <ion-icon name="map"></ion-icon>
     </ion-segment-button>
@@ -47,8 +47,8 @@
     </ion-segment-button>
   </ion-segment>
   <ion-segment *ngIf="!destroy">
-    <ion-segment-button layout="icon-start">
-      <ion-label>Value at -37.8869090667,175.3657417333</ion-label>
+    <ion-segment-button layout="icon-start" (click)="onClickGetValueAt()">
+      <ion-label>Value at -87.6901,12.0623</ion-label>
       <ion-icon name="search"></ion-icon>
     </ion-segment-button>
     <ion-segment-button checked layout="icon-start">

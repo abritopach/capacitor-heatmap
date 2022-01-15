@@ -1,6 +1,8 @@
+import type { GeoJSONSource } from "mapbox-gl";
+
 import { Logs } from "../constants/constants";
 import { Log } from "../log";
-import type { HeatmapGradient, HeatmapData, MapboxHeatmapOptions, HeatmapPoint, MapboxHeatmapData } from '../models/models';
+import type { HeatmapGradient, HeatmapData, MapboxHeatmapOptions, HeatmapPoint, MapboxHeatmapData, MapboxHeatmapCoordinate } from '../models/models';
 
 import { BaseHeatmap } from './base-heatmap';
 
@@ -41,6 +43,10 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
             []
         );
 
+        if (this._map) {
+            this._addHeatmapLayer2Map();
+        }
+
         return this._canvas;
 
     }
@@ -68,17 +74,39 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
         return this._data;
     }
 
-    getValueAt(coordinate: []): number | null {
+    getValueAt(coordinate: MapboxHeatmapCoordinate): number | null {
         this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.getValueAt}`, coordinate);
-                // TODO: Not implemented yet.
-        return null;
+        let value = null;
+        const latSearched = Array.isArray(coordinate) ? coordinate[0] : coordinate.lat;
+        const longSearched = Array.isArray(coordinate) ? coordinate[1] : coordinate.long;
+        this._data.forEach(d => {
+            const lat = Array.isArray(d) ? d[0] : d.lat;
+            const long = Array.isArray(d) ? d[1] : d.long;
+            const thickness = Array.isArray(d) ? d[2] : d.thickness;
+            if ((lat === latSearched) && (long === longSearched)) {
+                value = thickness;
+            }
+        });
+        return value;
     }
 
     clearData(): MapboxHeatmapData {
         this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.clearData}`);
         this._data = [];
-        const opt = {};
-        this.draw(opt);
+        const source = this._map.getSource('heatmap-data') as GeoJSONSource;
+        source.setData(
+            {
+            type: "FeatureCollection",
+            features: [{
+                type: "Feature",
+                properties: {},
+                geometry: {
+                    type: "Point",
+                    coordinates: [ 0, 0 ]
+                }
+            }]
+            }
+        );
         return this._data;
     }
 
@@ -104,65 +132,18 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
         if (!this._map) { return false; }
 
         this._data = typeof options.data !== 'undefined' ? options.data : this._data;
-
         console.log('data', this._data);
 
         const features = this._data.map(d => {
             return { type: "Feature", properties: {}, geometry: { type: "Point", coordinates: d } } as GeoJSON.Feature;
         });
 
+        if (this._map.loaded()) {
+            this._addDataToSource(features);
+        }
+
         this._map.on('load', () => {
-            this._map.addSource('heatmap-data', {
-                type: 'geojson',
-                data: {
-                    type: 'FeatureCollection',
-                    features: features
-                }
-            });
-
-            this._map.addLayer({
-                'id': 'heatmap-gradient-layer',
-                'type': 'heatmap',
-                'source': 'heatmap-data',
-                'maxzoom': 9,
-                'paint': {
-                    // Increase the heatmap weight based on frequency and property magnitude
-                    'heatmap-weight': ['interpolate', ['linear'], ['get', 'mag'], 0, 0, 6, 1],
-                    // Increase the heatmap color weight weight by zoom level
-                    // heatmap-intensity is a multiplier on top of heatmap-weight
-                    'heatmap-intensity': ['interpolate', ['linear'], ['zoom'], 0, 1, 9, 3],
-                    // Color ramp for heatmap.  Domain is 0 (low) to 1 (high).
-                    // Begin color ramp at 0-stop with a 0-transparancy color
-                    // to create a blur-like effect.
-                    'heatmap-color': ['interpolate', ['linear'], ['heatmap-density'], 0, 'rgba(33,102,172,0)', 0.2, 'rgb(103,169,207)', 0.4, 'rgb(209,229,240)', 0.6, 'rgb(253,219,199)', 0.8, 'rgb(239,138,98)', 1, 'rgb(178,24,43)'],
-                    // Adjust the heatmap radius by zoom level
-                    'heatmap-radius': ['interpolate', ['linear'], ['zoom'], 0, 2, 9, 20],
-                    // Transition from heatmap to circle layer by zoom level
-                    'heatmap-opacity': ['interpolate', ['linear'], ['zoom'], 7, 1, 9, 0]
-                }
-            },
-            'waterway-label'
-            );
-
-            this._map.addLayer({
-                'id': 'heatmap-point-layer',
-                'type': 'circle',
-                'source': 'heatmap-data',
-                'minzoom': 7,
-                'paint': {
-                    // Size circle radius by earthquake magnitude and zoom level
-                    'circle-radius': ['interpolate', ['linear'], ['zoom'], 7, ['interpolate', ['linear'], ['get', 'mag'], 1, 1, 6, 4], 16, ['interpolate', ['linear'], ['get', 'mag'], 1, 5, 6, 50]],
-                    // Color circle by earthquake magnitude
-                    'circle-color': ['interpolate',['linear'], ['get', 'mag'], 1, 'rgba(33,102,172,0)', 2, 'rgb(103,169,207)', 3, 'rgb(209,229,240)', 4, 'rgb(253,219,199)', 5, 'rgb(239,138,98)', 6, 'rgb(178,24,43)'],
-                    'circle-stroke-color': 'white',
-                    'circle-stroke-width': 1,
-                    // Transition from heatmap to circle layer by zoom level
-                    'circle-opacity': ['interpolate', ['linear'], ['zoom'], 7, 0, 8, 1]
-                }
-            },
-            'waterway-label'
-            );
-
+            this._addDataToSource(features);
         });
 
         return true;
@@ -209,5 +190,77 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
     /*********/
     // Private methods.
     /*********/
+
+    private _addDataToSource(features: GeoJSON.Feature[]) {
+        const source = this._map.getSource('heatmap-data') as GeoJSONSource;
+        source.setData(
+            {
+                type: "FeatureCollection",
+                features: features
+            }
+        );
+    }
+
+    private _addHeatmapLayer2Map() {
+
+        this._map.on('load', () => {
+
+            // Add data source.
+            this._map.addSource('heatmap-data', {
+                type: 'geojson',
+                data: {
+                    type: 'FeatureCollection',
+                    features: []
+                }
+            });
+
+            // Add data gradient layer.
+            this._map.addLayer({
+                'id': 'heatmap-gradient-layer',
+                'type': 'heatmap',
+                'source': 'heatmap-data',
+                'maxzoom': 9,
+                'paint': {
+                    // Increase the heatmap weight based on frequency and property magnitude
+                    'heatmap-weight': ['interpolate', ['linear'], ['get', 'mag'], 0, 0, 6, 1],
+                    // Increase the heatmap color weight weight by zoom level
+                    // heatmap-intensity is a multiplier on top of heatmap-weight
+                    'heatmap-intensity': ['interpolate', ['linear'], ['zoom'], 0, 1, 9, 3],
+                    // Color ramp for heatmap.  Domain is 0 (low) to 1 (high).
+                    // Begin color ramp at 0-stop with a 0-transparancy color
+                    // to create a blur-like effect.
+                    'heatmap-color': ['interpolate', ['linear'], ['heatmap-density'], 0, 'rgba(33,102,172,0)', 0.2, 'rgb(103,169,207)', 0.4, 'rgb(209,229,240)', 0.6, 'rgb(253,219,199)', 0.8, 'rgb(239,138,98)', 1, 'rgb(178,24,43)'],
+                    // Adjust the heatmap radius by zoom level
+                    'heatmap-radius': ['interpolate', ['linear'], ['zoom'], 0, 2, 9, 20],
+                    // Transition from heatmap to circle layer by zoom level
+                    'heatmap-opacity': ['interpolate', ['linear'], ['zoom'], 7, 1, 9, 0]
+                }
+            },
+            'waterway-label'
+            );
+
+            // Add ddata point layer.
+            this._map.addLayer({
+                'id': 'heatmap-point-layer',
+                'type': 'circle',
+                'source': 'heatmap-data',
+                'minzoom': 7,
+                'paint': {
+                    // Size circle radius by earthquake magnitude and zoom level
+                    'circle-radius': ['interpolate', ['linear'], ['zoom'], 7, ['interpolate', ['linear'], ['get', 'mag'], 1, 1, 6, 4], 16, ['interpolate', ['linear'], ['get', 'mag'], 1, 5, 6, 50]],
+                    // Color circle by earthquake magnitude
+                    'circle-color': ['interpolate',['linear'], ['get', 'mag'], 1, 'rgba(33,102,172,0)', 2, 'rgb(103,169,207)', 3, 'rgb(209,229,240)', 4, 'rgb(253,219,199)', 5, 'rgb(239,138,98)', 6, 'rgb(178,24,43)'],
+                    'circle-stroke-color': 'white',
+                    'circle-stroke-width': 1,
+                    // Transition from heatmap to circle layer by zoom level
+                    'circle-opacity': ['interpolate', ['linear'], ['zoom'], 7, 0, 8, 1]
+                }
+            },
+            'waterway-label'
+            );
+
+        });
+
+    }
 
 }

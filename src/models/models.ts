@@ -203,4 +203,19 @@ export interface MapboxHeatmapOptions {
     debug?: boolean;
 }
 
-export type MapboxHeatmapData = HeatmapData;
+/**
+ * Description [Interface to define location.]
+ *
+ * @author abrito
+ * @version 0.0.1
+ *
+ * @interface
+*/
+export interface Location {
+    lat: number;
+    long: number;
+    thickness?: number;
+}
+
+export type MapboxHeatmapData = (number[] | Location)[];;
+export type MapboxHeatmapCoordinate = [number, number] | Location;

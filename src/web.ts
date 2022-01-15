@@ -7,7 +7,7 @@ import { MapboxMapsHeatmap } from './heatmaps/mapbox-maps-heatmap';
 import { SimpleHeatmap } from './heatmaps/simple-heatmap';
 import type { HeatmapData, HeatmapGradient, HeatmapOptions, GMHeatmapOptions, GMHeatmapData, HeatmapPoint,
         GMHeatmapPoint, HeatmapDrawOptions, GMHeatmapGradient, HeatmapPosition, GMHeatmapCoordinate,
-        LMHeatmapOptions, LMHeatmapData, LMHeatmapPoint, LMHeatmapCoordinate, MapboxHeatmapOptions, MapboxHeatmapData } from './models/models';
+        LMHeatmapOptions, LMHeatmapData, LMHeatmapPoint, LMHeatmapCoordinate, MapboxHeatmapOptions, MapboxHeatmapData, MapboxHeatmapCoordinate } from './models/models';
 import { HeatmapType } from './models/models';
 
 
@@ -60,7 +60,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
     return {value: this.heatmap.getData()};
   }
 
-  async getValueAt(position: HeatmapPosition | GMHeatmapCoordinate | LMHeatmapCoordinate): Promise<{value: number}> {
+  async getValueAt(position: HeatmapPosition | GMHeatmapCoordinate | LMHeatmapCoordinate | MapboxHeatmapCoordinate): Promise<{value: number}> {
     return {value: this.heatmap.getValueAt(position)};
   }
 
