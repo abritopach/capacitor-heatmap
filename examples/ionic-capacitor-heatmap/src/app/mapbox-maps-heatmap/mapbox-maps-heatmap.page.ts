@@ -65,4 +65,27 @@ export class MapboxMapsHeatmapPage implements OnInit {
     console.log('result clear data', resultClearData);
   }
 
+  onClickAddData() {
+    this.addData();
+  }
+
+  async addData() {
+
+    const data = this.fakeHeatmapDataService.getMapboxMapsData();
+    console.log('data', data);
+
+    const resultAddData = await Heatmap.setData(data);
+    console.log('result add data', resultAddData);
+  }
+
+  onClickGetValueAt() {
+    this.getValueAt();
+  }
+
+  async getValueAt() {
+    const coordinate = [-87.6901, 12.0623];
+    const resultValueAt = await Heatmap.getValueAt(coordinate);
+    console.log('resultValueAt', resultValueAt);
+  }
+
 }
