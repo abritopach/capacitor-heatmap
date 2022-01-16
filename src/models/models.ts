@@ -217,5 +217,6 @@ export interface Location {
     thickness?: number;
 }
 
-export type MapboxHeatmapData = (number[] | Location)[];;
+export type MapboxHeatmapData = (number[] | Location)[];
+export type MapBoxHeatmapPoint = Location;
 export type MapboxHeatmapCoordinate = [number, number] | Location;
