@@ -1,6 +1,6 @@
 import type { HeatmapData, HeatmapOptions, HeatmapGradient, GMHeatmapOptions, GMHeatmapData, HeatmapPoint,
 GMHeatmapPoint, HeatmapDrawOptions, GMHeatmapGradient, HeatmapPosition, GMHeatmapCoordinate, LMHeatmapOptions,
-LMHeatmapData, LMHeatmapPoint, LMHeatmapCoordinate, MapboxHeatmapOptions, MapboxHeatmapData, MapboxHeatmapCoordinate } from "./models/models";
+LMHeatmapData, LMHeatmapPoint, LMHeatmapCoordinate, MapboxHeatmapOptions, MapboxHeatmapData, MapboxHeatmapCoordinate, MapBoxHeatmapPoint } from "./models/models";
 
 export interface HeatmapPlugin {
 
@@ -82,7 +82,7 @@ export interface HeatmapPlugin {
    * @name addPoint
    * @returns {Promise<{value: HeatmapData | GMHeatmapData}>} Heatmap data.
   */
-  addPoint(point: HeatmapPoint | GMHeatmapPoint | LMHeatmapPoint): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData}>;
+  addPoint(point: HeatmapPoint | GMHeatmapPoint | LMHeatmapPoint | MapBoxHeatmapPoint): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData | MapboxHeatmapData}>;
 
   /**
    * Description [This method set max data value (1 by default).]

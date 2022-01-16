@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  MAP_BOX_API_TOKEN: 'pk.eyJ1IjoiYWJyaXRvIiwiYSI6ImNreTc2YjF5NjB6YWQydnFjbnQ5aWY5emgifQ.7tQVW3_tZGD5HTx-UYnxBA'
+  MAP_BOX_API_TOKEN: 'pk.eyJ1IjoiYWJyaXRvIiwiYSI6ImNreTkyY3BxejAyOWEyb3F0bXMydnJhejMifQ.fxiaYo8sjFWuhGWUf2pPeQ'
 };
 
 /*
