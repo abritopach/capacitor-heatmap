@@ -2,7 +2,7 @@ import type { GeoJSONSource } from "mapbox-gl";
 
 import { Logs } from "../constants/constants";
 import { Log } from "../log";
-import type { HeatmapGradient, HeatmapData, MapboxHeatmapOptions, HeatmapPoint, MapboxHeatmapData, MapboxHeatmapCoordinate, MapBoxHeatmapPoint } from '../models/models';
+import type { HeatmapGradient, MapboxHeatmapOptions, MapboxHeatmapData, MapboxHeatmapCoordinate, MapBoxHeatmapPoint } from '../models/models';
 
 import { BaseHeatmap } from './base-heatmap';
 
