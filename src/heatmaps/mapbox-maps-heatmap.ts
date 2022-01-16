@@ -2,7 +2,7 @@ import type { GeoJSONSource } from "mapbox-gl";
 
 import { Logs } from "../constants/constants";
 import { Log } from "../log";
-import type { HeatmapGradient, HeatmapData, MapboxHeatmapOptions, HeatmapPoint, MapboxHeatmapData, MapboxHeatmapCoordinate } from '../models/models';
+import type { HeatmapGradient, MapboxHeatmapOptions, MapboxHeatmapData, MapboxHeatmapCoordinate, MapBoxHeatmapPoint } from '../models/models';
 
 import { BaseHeatmap } from './base-heatmap';
 
@@ -110,10 +110,12 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
         return this._data;
     }
 
-    addPoint(point: HeatmapPoint): HeatmapData {
+    addPoint(point: MapBoxHeatmapPoint): MapboxHeatmapData {
         this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.addPoint}`, {newPoint: point});
-        // TODO: Not implemented yet.
-        return [];
+        this._data.push(point);
+        const opt = {};
+        this.draw(opt);
+        return this._data;
     }
 
     setMax(max: number): number {
