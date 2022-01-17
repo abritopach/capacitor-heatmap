@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 import { environment } from 'src/environments/environment';
 import { Heatmap } from '../../../../../dist/esm';
-import { HeatmapType, MapboxHeatmapOptions } from '../../../../../dist/esm/models/models';
+import { HeatmapGradient, HeatmapType, MapboxHeatmapOptions } from '../../../../../dist/esm/models/models';
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
 
 @Component({
@@ -86,6 +86,23 @@ export class MapboxMapsHeatmapPage implements OnInit {
     const coordinate = [-87.6901, 12.0623];
     const resultValueAt = await Heatmap.getValueAt(coordinate);
     console.log('resultValueAt', resultValueAt);
+  }
+
+  onClickChangeGradient() {
+    this.changeGradient();
+  }
+
+  async changeGradient() {
+    const gradient: HeatmapGradient = {
+      0: 'rgba(33,102,172,0)',
+      0.2: 'rgb(0, 0, 255)',
+      0.4: 'rgb(0,255,255)',
+      0.6: 'rgb(0, 255, 0)',
+      0.8: 'rgba(244, 227, 0, 1)',
+      1: 'rgb(178,24,43)'
+    };
+    const resultChangeGradient = await Heatmap.gradient(gradient);
+    console.log('resultChangeGradient', resultChangeGradient);
   }
 
 }

@@ -163,8 +163,15 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
 
     gradient(grad: HeatmapGradient): HeatmapGradient {
         this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.gradient}`, grad);
-        // TODO: Not implemented yet.
-        return {};
+        this._gradient = grad;
+        const gradColors: (string | number)[] = [];
+        Object.entries(grad).sort().forEach(([key, value]) => {
+            gradColors.push(parseFloat(key));
+            gradColors.push(value);
+        });
+        this._map.setPaintProperty('heatmap-gradient-layer', 'heatmap-color',
+        ['interpolate', ['linear'], ['heatmap-density'], ...gradColors]);
+        return this._gradient;
     }
 
     opacity(opa: number): number {
@@ -218,13 +225,11 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
 
             // Add data gradient layer.
             this._map.addLayer({
-                'id': 'heatmap-gradient-layer',
-                'type': 'heatmap',
-                'source': 'heatmap-data',
-                'maxzoom': 9,
-                'paint': {
-                    // Increase the heatmap weight based on frequency and property magnitude
-                    'heatmap-weight': ['interpolate', ['linear'], ['get', 'mag'], 0, 0, 6, 1],
+                id: 'heatmap-gradient-layer',
+                type: 'heatmap',
+                source: 'heatmap-data',
+                maxzoom: 9,
+                paint: {
                     // Increase the heatmap color weight weight by zoom level
                     // heatmap-intensity is a multiplier on top of heatmap-weight
                     'heatmap-intensity': ['interpolate', ['linear'], ['zoom'], 0, 1, 9, 3],
