@@ -177,8 +177,13 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
 
     opacity(opa: number): number {
         this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.opacity}`, opa);
-        // TODO: Not implemented yet.
-        return 0;
+        this._opacity = opa;
+        this._map.setPaintProperty(
+            'heatmap-gradient-layer',
+            'heatmap-opacity',
+            opa
+            );
+        return this._opacity;
     }
 
     radius(rad: number): number {
