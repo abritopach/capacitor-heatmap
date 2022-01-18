@@ -16,6 +16,16 @@ export class MapboxMapsHeatmapPage implements OnInit {
 
   mapbox = (mapboxgl as typeof mapboxgl);
   map: mapboxgl.Map;
+  changedGradient = false;
+  DEFAULT_GRADIENT: HeatmapGradient = {
+    0: 'rgba(33,102,172,0)',
+    0.2: 'rgb(0, 0, 255)',
+    0.4: 'rgb(0,255,255)',
+    0.6: 'rgb(0, 255, 0)',
+    0.8: 'rgb(255,255,0)',
+    1: 'rgb(255,0,0)'
+  };
+  gradient = this.DEFAULT_GRADIENT;
 
   destroy = false;
 
@@ -95,13 +105,15 @@ export class MapboxMapsHeatmapPage implements OnInit {
   async changeGradient() {
     const gradient: HeatmapGradient = {
       0: 'rgba(33,102,172,0)',
-      0.2: 'rgb(0, 0, 255)',
-      0.4: 'rgb(0,255,255)',
-      0.6: 'rgb(0, 255, 0)',
-      0.8: 'rgba(244, 227, 0, 1)',
+      0.2: 'rgb(103,169,207)',
+      0.4: 'rgb(209,229,240)',
+      0.6: 'rgb(253,219,199)',
+      0.8: 'rgb(239,138,98)',
       1: 'rgb(178,24,43)'
     };
-    const resultChangeGradient = await Heatmap.gradient(gradient);
+    this.changedGradient = !this.changedGradient;
+    this.gradient = this.changedGradient ? gradient : this.DEFAULT_GRADIENT;
+    const resultChangeGradient = await Heatmap.gradient(this.gradient);
     console.log('resultChangeGradient', resultChangeGradient);
   }
 
