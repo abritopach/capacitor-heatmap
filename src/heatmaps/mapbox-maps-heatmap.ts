@@ -9,11 +9,12 @@ import { BaseHeatmap } from './base-heatmap';
 export class MapboxMapsHeatmap extends BaseHeatmap {
 
     static readonly DEFAULT_GRADIENT: HeatmapGradient = {
-        0.4: 'rgb(0, 0, 255)',
-        0.6: 'rgb(0,255,255)',
-        0.7: 'rgb(0, 255, 0)',
-        0.8: 'rgba(244, 227, 0, 1)',
-        1.0: 'rgb(178,24,43)'
+        0: 'rgba(33,102,172,0)',
+        0.2: 'rgb(0, 0, 255)',
+        0.4: 'rgb(0,255,255)',
+        0.6: 'rgb(0, 255, 0)',
+        0.8: 'rgb(255,255,0)',
+        1: 'rgb(255,0,0)'
     };
 
     _map!: mapboxgl.Map;
@@ -176,8 +177,13 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
 
     opacity(opa: number): number {
         this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.opacity}`, opa);
-        // TODO: Not implemented yet.
-        return 0;
+        this._opacity = opa;
+        this._map.setPaintProperty(
+            'heatmap-gradient-layer',
+            'heatmap-opacity',
+            opa
+            );
+        return this._opacity;
     }
 
     radius(rad: number): number {
@@ -223,6 +229,12 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
                 }
             });
 
+            const gradColors: (string | number)[] = [];
+            Object.entries(MapboxMapsHeatmap.DEFAULT_GRADIENT).sort().forEach(([key, value]) => {
+                gradColors.push(parseFloat(key));
+                gradColors.push(value);
+            });
+
             // Add data gradient layer.
             this._map.addLayer({
                 id: 'heatmap-gradient-layer',
@@ -236,7 +248,7 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
                     // Color ramp for heatmap.  Domain is 0 (low) to 1 (high).
                     // Begin color ramp at 0-stop with a 0-transparancy color
                     // to create a blur-like effect.
-                    'heatmap-color': ['interpolate', ['linear'], ['heatmap-density'], 0, 'rgba(33,102,172,0)', 0.2, 'rgb(103,169,207)', 0.4, 'rgb(209,229,240)', 0.6, 'rgb(253,219,199)', 0.8, 'rgb(239,138,98)', 1, 'rgb(178,24,43)'],
+                    'heatmap-color': ['interpolate', ['linear'], ['heatmap-density'], ...gradColors],
                     // Adjust the heatmap radius by zoom level
                     'heatmap-radius': ['interpolate', ['linear'], ['zoom'], 0, 2, 9, 20],
                     // Transition from heatmap to circle layer by zoom level
