@@ -16,8 +16,11 @@ export class MapboxMapsHeatmapPage implements OnInit {
 
   mapbox = (mapboxgl as typeof mapboxgl);
   map: mapboxgl.Map;
+
   changedGradient = false;
   changedOpacity = false;
+  changedRadius = false;
+
   DEFAULT_GRADIENT: HeatmapGradient = {
     0: 'rgba(33,102,172,0)',
     0.2: 'rgb(0, 0, 255)',
@@ -28,6 +31,7 @@ export class MapboxMapsHeatmapPage implements OnInit {
   };
   gradient = this.DEFAULT_GRADIENT;
   opacity = 0.05;
+  radius = 20;
 
   destroy = false;
 
@@ -128,6 +132,17 @@ export class MapboxMapsHeatmapPage implements OnInit {
     this.opacity = this.changedOpacity ? 0.5 : 1;
     const resultChangeOpacity = await Heatmap.opacity(this.opacity);
     console.log('resultChangeOpacity', resultChangeOpacity);
+  }
+
+  onClickChangeRadius() {
+    this.changeRadius();
+  }
+
+  async changeRadius() {
+    this.changedRadius = !this.changedRadius;
+    this.radius = this.changedRadius ? 30 : 20;
+    const resultChangeRadius = await Heatmap.radius(this.radius);
+    console.log('resultChangeRadius', resultChangeRadius);
   }
 
 }

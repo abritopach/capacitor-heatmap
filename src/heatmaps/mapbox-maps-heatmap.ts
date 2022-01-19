@@ -182,14 +182,21 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
             'heatmap-gradient-layer',
             'heatmap-opacity',
             opa
-            );
+        );
         return this._opacity;
     }
 
     radius(rad: number): number {
         this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.radius}`, rad);
-        // TODO: Not implemented yet.
-        return 0;
+        this._radius = rad;
+        this._map.setPaintProperty(
+            'heatmap-point-layer',
+            'circle-radius',
+            {
+                stops: [[0, 10], [9, 40]]
+            }
+        );
+        return this._radius;
     }
 
 
@@ -258,14 +265,25 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
             'waterway-label'
             );
 
-            // Add ddata point layer.
+            // Add data point layer.
             this._map.addLayer({
-                'id': 'heatmap-point-layer',
-                'type': 'circle',
-                'source': 'heatmap-data',
-                'minzoom': 7,
-                'paint': {
+                id: 'heatmap-point-layer',
+                type: 'circle',
+                source: 'heatmap-data',
+                minzoom: 7,
+                paint: {
                     // Size circle radius by earthquake magnitude and zoom level
+                    // 'circle-radius': ['interpolate', ['linear'], ['zoom'], 7, ['interpolate', ['linear'], ['get', 'mag'], 1, 1, 6, 4], 16, ['interpolate', ['linear'], ['get', 'mag'], 1, 5, 6, 50]],
+                    // Circles have a radius of 1px at zoom level 8, a radius of 6px at zoom level 11,
+                    // and a radius of 40px at zoom level 16.
+                    /*
+                    'circle-radius': {
+                        stops: [[8, 1], [11, 6], [16, 40]]
+                    },
+                    "circle-radius": ["interpolate",["exponential", 2],["zoom"],0, 0,   20,200]
+                    */
+                    //'circle-radius': ['interpolate', ['linear'], ['zoom'], 0, 2, 9, 20],
+                    //'circle-color': 'black',
                     'circle-radius': ['interpolate', ['linear'], ['zoom'], 7, ['interpolate', ['linear'], ['get', 'mag'], 1, 1, 6, 4], 16, ['interpolate', ['linear'], ['get', 'mag'], 1, 5, 6, 50]],
                     // Color circle by earthquake magnitude
                     'circle-color': ['interpolate',['linear'], ['get', 'mag'], 1, 'rgba(33,102,172,0)', 2, 'rgb(103,169,207)', 3, 'rgb(209,229,240)', 4, 'rgb(253,219,199)', 5, 'rgb(239,138,98)', 6, 'rgb(178,24,43)'],
