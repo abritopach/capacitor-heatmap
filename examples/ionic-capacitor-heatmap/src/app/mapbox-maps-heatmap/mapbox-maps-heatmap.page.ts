@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 import { environment } from 'src/environments/environment';
 import { Heatmap } from '../../../../../dist/esm';
@@ -34,6 +34,10 @@ export class MapboxMapsHeatmapPage implements OnInit {
   radius = 20;
 
   destroy = false;
+
+  @HostListener('window:resize', ['$event']) async onResize(event) {
+    this.resizeHeatmap(event.target.innerWidth, event.target.innerHeight);
+  }
 
   constructor(private fakeHeatmapDataService: FakeHeatmapDataService) {
     this.mapbox.accessToken = environment.MAP_BOX_API_TOKEN;
@@ -143,6 +147,26 @@ export class MapboxMapsHeatmapPage implements OnInit {
     this.radius = this.changedRadius ? 30 : 20;
     const resultChangeRadius = await Heatmap.radius(this.radius);
     console.log('resultChangeRadius', resultChangeRadius);
+  }
+
+  onClickResize() {
+    this.resizeHeatmap(500, 300);
+  }
+
+  async resizeHeatmap(width: number, height: number) {
+    const options = {width, height};
+    const resultResize = await Heatmap.resize(options);
+    console.log('resultResize', resultResize);
+  }
+
+  onClickDestroy() {
+    this.destroy = !this.destroy;
+    this.destroyHeatmap();
+  }
+
+  async destroyHeatmap() {
+    const resultDestroy = await Heatmap.destroy();
+    console.log('resultDestroy', resultDestroy);
   }
 
 }
