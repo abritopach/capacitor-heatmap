@@ -13,11 +13,22 @@
 
 Capacitor Heatmap is a custom Native Capacitor plugin to show Heatmap on Web, IOS and  Android platforms.
 
-Currently you can choose from three types of heatmaps with only one plugin :) (only WEB at this moment):
+Currently you can choose from **four types** of heatmaps with only one plugin :) (only WEB at this moment):
 
-    * Simple Heatmap.
-    * Google Maps Heatmap.
-    * Leaflet Maps Heatmap.
+<table>
+  <tr>
+    <td>Simple Heatmap</td>
+     <td>Google Maps Heatmap</td>
+     <td>Leaflet Maps Heatmap</td>
+     <td>Mapbox Maps Heatmap</td>
+  </tr>
+  <tr>
+    <td><img src="readme_resources/simple.png" width=256 height=256></td>
+    <td><img src="readme_resources/google-maps.png" width=256 height=256></td>
+    <td><img src="readme_resources/leaflet-maps.png" width=256 height=256></td>
+    <td><img src="readme_resources/mapbox-maps.png" width=256 height=256></td>
+  </tr>
+ </table>
 
 ## Simple Heatmap
 
