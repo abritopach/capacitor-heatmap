@@ -157,9 +157,12 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
     // Methods for handling heatmap appearance.
     /*********/
     resize(options: {width: number, height: number}): {newWidth: number, newHeight: number} {
-        // TODO: Not implemented yet.
         this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.resize}`, options);
-        return {newWidth: 0, newHeight: 0};
+        const container = this._map.getContainer();
+        container.style.width = options.width + 'px';
+        container.style.height = options.height + 'px';
+        this._map.resize();
+        return {newWidth: options.width, newHeight: options.height};
     }
 
     gradient(grad: HeatmapGradient): HeatmapGradient {

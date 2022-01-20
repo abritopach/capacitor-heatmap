@@ -51,11 +51,11 @@
       <ion-label>Value at -87.6901,12.0623</ion-label>
       <ion-icon name="search"></ion-icon>
     </ion-segment-button>
-    <ion-segment-button checked layout="icon-start">
+    <ion-segment-button checked layout="icon-start" (click)="onClickResize()">
       <ion-label>Resize 500x300px</ion-label>
       <ion-icon name="resize"></ion-icon>
     </ion-segment-button>
-    <ion-segment-button layout="icon-start">
+    <ion-segment-button layout="icon-start" (click)="onClickDestroy()">
       <ion-label>Destroy</ion-label>
       <ion-icon name="trash"></ion-icon>
     </ion-segment-button>
