@@ -121,9 +121,8 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
 
     setMax(max: number): number {
         this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.setMax}`, max);
-        // TODO: Not implemented yet.
-        return 0;
-
+        this._max = max;
+        return this._max;
     }
 
 
@@ -193,10 +192,15 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
         this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.radius}`, rad);
         this._radius = rad;
         this._map.setPaintProperty(
-            'heatmap-point-layer',
-            'circle-radius',
+            'heatmap-gradient-layer',
+            'heatmap-radius',
             {
-                stops: [[0, 10], [9, 40]]
+                stops: [
+                    [0, 5],
+                    [2, 10],
+                    [9, 20],
+                    [15, 50],
+                ]
             }
         );
         return this._radius;
@@ -250,19 +254,19 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
                 id: 'heatmap-gradient-layer',
                 type: 'heatmap',
                 source: 'heatmap-data',
-                maxzoom: 9,
+                maxzoom: 15,
                 paint: {
                     // Increase the heatmap color weight weight by zoom level
                     // heatmap-intensity is a multiplier on top of heatmap-weight
-                    'heatmap-intensity': ['interpolate', ['linear'], ['zoom'], 0, 1, 9, 3],
+                    'heatmap-intensity': ['interpolate', ['linear'], ['zoom'], 0, 1, 15, 5],
                     // Color ramp for heatmap.  Domain is 0 (low) to 1 (high).
                     // Begin color ramp at 0-stop with a 0-transparancy color
                     // to create a blur-like effect.
                     'heatmap-color': ['interpolate', ['linear'], ['heatmap-density'], ...gradColors],
                     // Adjust the heatmap radius by zoom level
-                    'heatmap-radius': ['interpolate', ['linear'], ['zoom'], 0, 2, 9, 20],
+                    'heatmap-radius': ['interpolate', ['linear'], ['zoom'], 0, 2, 15, 20],
                     // Transition from heatmap to circle layer by zoom level
-                    'heatmap-opacity': ['interpolate', ['linear'], ['zoom'], 7, 1, 9, 0]
+                    'heatmap-opacity': ['interpolate', ['linear'], ['zoom'], 15, 1, 20, 0]
                 }
             },
             'waterway-label'
@@ -273,10 +277,8 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
                 id: 'heatmap-point-layer',
                 type: 'circle',
                 source: 'heatmap-data',
-                minzoom: 7,
+                minzoom: 15,
                 paint: {
-                    // Size circle radius by earthquake magnitude and zoom level
-                    // 'circle-radius': ['interpolate', ['linear'], ['zoom'], 7, ['interpolate', ['linear'], ['get', 'mag'], 1, 1, 6, 4], 16, ['interpolate', ['linear'], ['get', 'mag'], 1, 5, 6, 50]],
                     // Circles have a radius of 1px at zoom level 8, a radius of 6px at zoom level 11,
                     // and a radius of 40px at zoom level 16.
                     /*
@@ -285,15 +287,12 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
                     },
                     "circle-radius": ["interpolate",["exponential", 2],["zoom"],0, 0,   20,200]
                     */
-                    //'circle-radius': ['interpolate', ['linear'], ['zoom'], 0, 2, 9, 20],
-                    //'circle-color': 'black',
-                    'circle-radius': ['interpolate', ['linear'], ['zoom'], 7, ['interpolate', ['linear'], ['get', 'mag'], 1, 1, 6, 4], 16, ['interpolate', ['linear'], ['get', 'mag'], 1, 5, 6, 50]],
-                    // Color circle by earthquake magnitude
-                    'circle-color': ['interpolate',['linear'], ['get', 'mag'], 1, 'rgba(33,102,172,0)', 2, 'rgb(103,169,207)', 3, 'rgb(209,229,240)', 4, 'rgb(253,219,199)', 5, 'rgb(239,138,98)', 6, 'rgb(178,24,43)'],
+                    'circle-radius': ['interpolate', ['linear'], ['zoom'], 0, 2, 15, 20],
+                    'circle-color': 'black',
                     'circle-stroke-color': 'white',
                     'circle-stroke-width': 1,
                     // Transition from heatmap to circle layer by zoom level
-                    'circle-opacity': ['interpolate', ['linear'], ['zoom'], 7, 0, 8, 1]
+                    'circle-opacity': ['interpolate', ['linear'], ['zoom'], 15, 1, 20, 0]
                 }
             },
             'waterway-label'
