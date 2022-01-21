@@ -57,6 +57,9 @@ export class MapboxMapsHeatmapPage implements OnInit {
       zoom: 2
     });
     this.map.addControl(new mapboxgl.NavigationControl());
+    this.map.on('zoom', () => {
+      console.log('Mapbox zoom', this.map.getZoom());
+    });
     this.initializeMapboxHeatmap();
   }
 
