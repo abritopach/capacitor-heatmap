@@ -163,11 +163,12 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
     /*********/
     getDataURL(type: string, imageQuality: number): void {
         this._heatmapLogger.log(`${Logs.heatmaps.google} ${Logs.methods.getDataUrl}`, type, imageQuality);
-
         html2canvas(document.getElementById('map') as HTMLElement, {
             useCORS: true
         }).then((canvas: HTMLCanvasElement) => {
-            console.log(canvas.toDataURL('image/png'));
+            console.log(canvas.toDataURL(type, imageQuality));
+        }, (error) => {
+            console.log(error.toString());
         });
     }
 }

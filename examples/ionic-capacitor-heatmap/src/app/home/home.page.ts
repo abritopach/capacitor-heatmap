@@ -206,4 +206,13 @@ export class HomePage implements OnInit {
     console.log('resultDestroy', resultDestroy);
   }
 
+  onClickGetImage() {
+    this.getHeatmapImage();
+  }
+
+  async getHeatmapImage() {
+    const resultGetImage = await Heatmap.getDataURL('image/png', 1);
+    console.log('resultGetImage', resultGetImage);
+  }
+
 }

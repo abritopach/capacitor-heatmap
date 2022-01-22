@@ -1,3 +1,4 @@
+import html2canvas from "html2canvas";
 import type { GeoJSONSource } from "mapbox-gl";
 
 import { Logs } from "../constants/constants";
@@ -203,10 +204,15 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
     /*********/
     // Method to obtain the image of the canvas.
     /*********/
-    getDataURL(type: string, imageQuality: number): string {
+    getDataURL(type: string, imageQuality: number): void {
         this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.getDataUrl}`, type, imageQuality);
-        // TODO: Not implemented yet.
-        return '';
+        html2canvas(document.getElementById('mapBox') as HTMLElement, {
+            useCORS: true
+        }).then((canvas: HTMLCanvasElement) => {
+            console.log(canvas.toDataURL(type, imageQuality));
+        }, (error) => {
+            console.log(error.toString());
+        });
     }
 
     /*********/
