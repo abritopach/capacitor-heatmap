@@ -18,20 +18,13 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
     };
 
     _map!: mapboxgl.Map;
-    _canvas!: HTMLCanvasElement;
     _data: MapboxHeatmapData = [];
-    _circle!: HTMLCanvasElement;
-    _gradArray!: Uint8ClampedArray;
-    _r!: number;
     _opacity!: number;
     _gradient!: HeatmapGradient;
     _radius!: number;
     _max!: number;
-    _ctx!: CanvasRenderingContext2D;
-    _width!: number;
-    _height!: number;
 
-    initialize(options: MapboxHeatmapOptions): HTMLCanvasElement {
+    initialize(options: MapboxHeatmapOptions): mapboxgl.Map {
         this._heatmapLogger = new Log(options.debug);
         this._heatmapLogger.log(`${Logs.heatmaps.mapbox} ${Logs.methods.initialize}`);
 
@@ -48,7 +41,7 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
             this._addHeatmapLayer2Map();
         }
 
-        return this._canvas;
+        return this._map;
 
     }
 
