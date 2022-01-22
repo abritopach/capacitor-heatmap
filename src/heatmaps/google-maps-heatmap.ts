@@ -27,6 +27,7 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
     _map!: google.maps.Map;
     _heatmap!: google.maps.visualization.HeatmapLayer;
     _data: GMHeatmapData = new google.maps.MVCArray([]);
+    _max!: number;
 
     initialize(options: GMHeatmapOptions): google.maps.visualization.HeatmapLayer {
         this._heatmapLogger = new Log(options.debug);
@@ -105,9 +106,9 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
         return this._heatmap.getData();
     }
 
-    setMax(max: number): void {
-        // TODO
-        console.log(max);
+    setMax(max: number): number {
+        this._max = max;
+        return this._max;
     }
 
 
