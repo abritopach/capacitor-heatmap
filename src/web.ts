@@ -15,7 +15,8 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
 
   heatmap: any;
 
-  async initialize(options: (HeatmapOptions | GMHeatmapOptions | LMHeatmapOptions | MapboxHeatmapOptions)): Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer}> {
+  async initialize(options: (HeatmapOptions | GMHeatmapOptions | LMHeatmapOptions | MapboxHeatmapOptions)):
+  Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer | mapboxgl.Map}> {
     const type = typeof options.type !== "undefined" ? options.type : HeatmapType.Simple;
     switch(type) {
       case HeatmapType.Simple: {
