@@ -35,5 +35,5 @@ export abstract class BaseHeatmap {
     /*********/
     // Method to obtain the image of the canvas.
     /*********/
-    abstract getDataURL(type: string, imageQuality: number): void;
+    abstract getDataURL(type: string, imageQuality: number): string | Promise<string>;
 }

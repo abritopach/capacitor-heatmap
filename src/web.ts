@@ -116,7 +116,7 @@ export class HeatmapWeb extends WebPlugin implements HeatmapPlugin {
   /*********/
 
   async getDataURL(type: string, imageQuality: number): Promise<{value: string}> {
-    return {value: this.heatmap.getDataURL(type, imageQuality)};
+    return {value: await this.heatmap.getDataURL(type, imageQuality)};
   }
 
 

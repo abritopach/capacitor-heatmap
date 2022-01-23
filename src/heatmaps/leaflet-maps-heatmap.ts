@@ -265,15 +265,16 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
     /*********/
     // Method to obtain the image of the canvas.
     /*********/
-    getDataURL(type: string, imageQuality: number): void {
+    async getDataURL(type: string, imageQuality: number): Promise<string> {
         this._heatmapLogger.log(`${Logs.heatmaps.leaflet} ${Logs.methods.getDataUrl}`, type, imageQuality);
-        html2canvas(document.getElementById('mapLeaflet') as HTMLElement, {
-            useCORS: true
-        }).then((canvas: HTMLCanvasElement) => {
-            console.log(canvas.toDataURL(type, imageQuality));
-        }, (error) => {
-            console.log(error.toString());
-        });
+        try {
+            const canvas = await html2canvas(this._map.getContainer(), {
+                useCORS: true
+            });
+            return canvas.toDataURL(type, imageQuality);
+        } catch (error: unknown) {
+            return (error as Error).message.toString();
+        }
     }
 
     /*********/
