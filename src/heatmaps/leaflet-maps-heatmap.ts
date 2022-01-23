@@ -1,3 +1,4 @@
+import html2canvas from 'html2canvas';
 import { DomUtil, Browser, Point } from 'leaflet';
 import type { Map, LatLngExpression } from 'leaflet';
 
@@ -264,9 +265,16 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
     /*********/
     // Method to obtain the image of the canvas.
     /*********/
-    getDataURL(type: string, imageQuality: number): string {
+    async getDataURL(type: string, imageQuality: number): Promise<string> {
         this._heatmapLogger.log(`${Logs.heatmaps.leaflet} ${Logs.methods.getDataUrl}`, type, imageQuality);
-        return this._canvas.toDataURL(type, imageQuality);
+        try {
+            const canvas = await html2canvas(this._map.getContainer(), {
+                useCORS: true
+            });
+            return canvas.toDataURL(type, imageQuality);
+        } catch (error: unknown) {
+            return (error as Error).message.toString();
+        }
     }
 
     /*********/

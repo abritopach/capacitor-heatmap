@@ -54,7 +54,8 @@ export class MapboxMapsHeatmapPage implements OnInit {
       // zoom: 15,
       // center: [-3.703790, 40.416775]
       center: [-120, 50],
-      zoom: 2
+      zoom: 2,
+      preserveDrawingBuffer: true // Needed to take a screenshot.
     });
     this.map.addControl(new mapboxgl.NavigationControl());
     this.map.on('zoom', () => {
@@ -170,6 +171,15 @@ export class MapboxMapsHeatmapPage implements OnInit {
   async destroyHeatmap() {
     const resultDestroy = await Heatmap.destroy();
     console.log('resultDestroy', resultDestroy);
+  }
+
+  onClickGetImage() {
+    this.getHeatmapImage();
+  }
+
+  async getHeatmapImage() {
+    const resultGetImage = await Heatmap.getDataURL('image/png', 1);
+    console.log('resultGetImage', resultGetImage);
   }
 
 }

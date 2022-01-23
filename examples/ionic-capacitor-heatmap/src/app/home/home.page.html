@@ -65,6 +65,12 @@
       <ion-icon name="trash"></ion-icon>
     </ion-segment-button>
   </ion-segment>
+  <ion-segment *ngIf="!destroy">
+    <ion-segment-button layout="icon-start" (click)="onClickGetImage()">
+      <ion-label>Heatmap screenshot</ion-label>
+      <ion-icon name="camera"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
 </ion-content>
 
 <ion-footer>
