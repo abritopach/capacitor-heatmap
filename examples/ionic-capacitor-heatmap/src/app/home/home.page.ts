@@ -5,7 +5,8 @@ import { Heatmap } from 'capacitor-heatmap';
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
 import { HeatmapOptions, HeatmapType, HeatmapGradient, HeatmapDrawOptions, HeatmapPosition,
   VerticalPosition, HorizontalPosition } from 'capacitor-heatmap/dist/esm/models/models';
-import { ToastController } from '@ionic/angular';
+import { ModalController, ToastController } from '@ionic/angular';
+import { ShowImageModalComponent } from '../components/modals/show-image-modal/show-image-modal.component';
 
 window.requestAnimationFrame = window.requestAnimationFrame || window['webkitRequestAnimationFrame'];
 
@@ -44,7 +45,8 @@ export class HomePage implements OnInit {
     }
   }
 
-  constructor(public fakeHeatmapDataService: FakeHeatmapDataService, private toastController: ToastController) {
+  constructor(public fakeHeatmapDataService: FakeHeatmapDataService, private toastController: ToastController,
+    private modalController: ModalController) {
     console.log('HomePage::constructor() | method called');
   }
 
@@ -214,10 +216,10 @@ export class HomePage implements OnInit {
   async getHeatmapImage() {
     const resultGetImage = await Heatmap.getDataURL('image/png', 1);
     console.log('resultGetImage', resultGetImage);
-    await this.presentToastWithOptions();
+    await this.presentToastWithOptions(resultGetImage.value);
   }
 
-  async presentToastWithOptions() {
+  async presentToastWithOptions(img: string) {
     const toast = await this.toastController.create({
       header: 'Take screenshot',
       message: 'New heatmap capture taken',
@@ -230,7 +232,7 @@ export class HomePage implements OnInit {
           icon: 'eye',
           text: ' Show',
           handler: () => {
-            console.log('Show clicked');
+            this.presentHeatmapScreenshotModal(img)
           }
         }
       ]
@@ -239,6 +241,15 @@ export class HomePage implements OnInit {
 
     const { role } = await toast.onDidDismiss();
     console.log('onDidDismiss resolved with role', role);
+  }
+
+  async presentHeatmapScreenshotModal(img: string) {
+    const componentProps = { img};
+    const modal = await this.modalController.create({
+      component: ShowImageModalComponent,
+      componentProps
+    });
+    return await modal.present();
   }
 
 
