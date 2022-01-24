@@ -20,6 +20,9 @@ export const Logs = {
         opacity: 'opacity',
         radius: 'radius',
         getDataUrl: 'getDataUrl',
+    },
+    errors: {
+        invalidOpacity: 'Invalid opacity value (must be between 0 and 1)'
     }
 }
 
