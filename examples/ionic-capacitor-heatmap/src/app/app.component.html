@@ -13,6 +13,7 @@
               <ion-icon slot="start" [name]="p.icon"></ion-icon>
               <ion-label>
                 {{p.title}}
+                <span *ngIf="p.url === '/mapbox-maps-heatmap'" class="blink_me">NEW</span>
               </ion-label>
             </ion-item>
           </ion-menu-toggle>
