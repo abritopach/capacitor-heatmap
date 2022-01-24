@@ -1,0 +1,10 @@
+.blink_me {
+    color: #d32f2f;
+    animation: blinker 2s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}

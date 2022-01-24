@@ -1,10 +1,16 @@
+// Angular
 import { Component, OnInit, HostListener } from '@angular/core';
 
+// Third parties
 import { Map, tileLayer } from 'leaflet';
 import { Heatmap } from 'capacitor-heatmap';
 import { LMHeatmapOptions, HeatmapType, HeatmapDrawOptions, HeatmapGradient, LMHeatmapCoordinate } from 'capacitor-heatmap/dist/esm/models/models';
 
+/* Project */
+
+// Services
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
+import { CommonService } from '../services/common.service';
 
 @Component({
   selector: 'app-leaflet-maps-heatmap',
@@ -37,7 +43,7 @@ export class LeafletMapsHeatmapPage implements OnInit {
     this.resizeHeatmap(event.target.innerWidth, event.target.innerHeight);
   }
 
-  constructor(public fakeHeatmapDataService: FakeHeatmapDataService) { }
+  constructor(public fakeHeatmapDataService: FakeHeatmapDataService, private commonService: CommonService) { }
 
   ngOnInit() {
     this.initializeLMHeatmap();
@@ -182,6 +188,7 @@ export class LeafletMapsHeatmapPage implements OnInit {
   async getHeatmapImage() {
     const resultGetImage = await Heatmap.getDataURL('image/png', 1);
     console.log('resultGetImage', resultGetImage);
+    this.commonService.presentToastWithOptions(resultGetImage.value);
   }
 
 }
