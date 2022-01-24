@@ -247,10 +247,16 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
 
     opacity(opa: number): number {
         this._heatmapLogger.log(`${Logs.heatmaps.leaflet} ${Logs.methods.opacity}`, opa);
-        this._opacity = opa;
-        const opt = {opacity: opa};
-        this.draw(opt);
-        return this._opacity;
+        if (opa >= 0 && opa <= 1) {
+            this._opacity = opa;
+            const opt = {opacity: opa};
+            this.draw(opt);
+            return this._opacity;
+        }
+        else {
+            this._heatmapLogger.error(`${Logs.heatmaps.leaflet} ${Logs.methods.opacity}  ERROR -> ${Logs.errors.invalidOpacity}`);
+            return -1;
+        }
     }
 
     radius(rad: number): number {
