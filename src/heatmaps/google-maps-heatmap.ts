@@ -147,8 +147,14 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
 
     opacity(opa: number): number {
         this._heatmapLogger.log(`${Logs.heatmaps.google} ${Logs.methods.opacity}`, opa);
-        this._heatmap.set('opacity', opa);
-        return opa;
+        if (opa >= 0 && opa <= 1) {
+            this._heatmap.set('opacity', opa);
+            return opa;
+        }
+        else {
+            this._heatmapLogger.error(`${Logs.heatmaps.google} ${Logs.methods.opacity}  ERROR -> ${Logs.errors.invalidOpacity}`);
+            return -1;
+        }
     }
 
     radius(rad: number): number {
