@@ -1,8 +1,18 @@
+// Angular
 import { Component, HostListener, OnInit } from '@angular/core';
+
+// Third parties
 import * as mapboxgl from 'mapbox-gl';
-import { environment } from 'src/environments/environment';
 import { Heatmap } from '../../../../../dist/esm';
 import { HeatmapGradient, HeatmapType, MapboxHeatmapOptions } from '../../../../../dist/esm/models/models';
+
+/* Project */
+
+// Environments
+import { environment } from 'src/environments/environment';
+
+// Services
+import { CommonService } from '../services/common.service';
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
 
 @Component({
@@ -39,7 +49,7 @@ export class MapboxMapsHeatmapPage implements OnInit {
     this.resizeHeatmap(event.target.innerWidth, event.target.innerHeight);
   }
 
-  constructor(private fakeHeatmapDataService: FakeHeatmapDataService) {
+  constructor(private fakeHeatmapDataService: FakeHeatmapDataService, private commonService: CommonService) {
     this.mapbox.accessToken = environment.MAP_BOX_API_TOKEN;
   }
 
@@ -180,6 +190,7 @@ export class MapboxMapsHeatmapPage implements OnInit {
   async getHeatmapImage() {
     const resultGetImage = await Heatmap.getDataURL('image/png', 1);
     console.log('resultGetImage', resultGetImage);
+    this.commonService.presentToastWithOptions(resultGetImage.value);
   }
 
 }

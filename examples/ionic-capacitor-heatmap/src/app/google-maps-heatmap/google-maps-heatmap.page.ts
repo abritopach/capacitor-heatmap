@@ -1,7 +1,15 @@
+// Angular
 import { Component, OnInit, HostListener } from '@angular/core';
-import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
+
+// Third parties
 import { Heatmap } from 'capacitor-heatmap';
 import { GMHeatmapOptions, HeatmapType, GMHeatmapCoordinate } from 'capacitor-heatmap/dist/esm/models/models';
+
+/* Project */
+
+// Services
+import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
+import { CommonService } from '../services/common.service';
 
 @Component({
   selector: 'app-google-maps-heatmap',
@@ -35,7 +43,7 @@ export class GoogleMapsHeatmapPage implements OnInit {
     this.resizeHeatmap(event.target.innerWidth, event.target.innerHeight);
   }
 
-  constructor(public fakeHeatmapDataService: FakeHeatmapDataService) { }
+  constructor(public fakeHeatmapDataService: FakeHeatmapDataService, private commonService: CommonService) { }
 
   ngOnInit() {
     console.log('GoogleMapsHeatmapPage::ngOnInit() | method called');
@@ -181,6 +189,7 @@ export class GoogleMapsHeatmapPage implements OnInit {
   async getHeatmapImage() {
     const resultGetImage = await Heatmap.getDataURL('image/png', 1);
     console.log('resultGetImage', resultGetImage);
+    this.commonService.presentToastWithOptions(resultGetImage.value);
   }
 
 }
