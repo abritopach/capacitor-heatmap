@@ -10,6 +10,8 @@ import { GMHeatmapOptions, HeatmapType, GMHeatmapCoordinate } from 'capacitor-he
 // Services
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
 import { CommonService } from '../services/common.service';
+import { Loader } from '@googlemaps/js-api-loader';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-google-maps-heatmap',
@@ -20,6 +22,18 @@ export class GoogleMapsHeatmapPage implements OnInit {
 
   currentYear = new Date().getFullYear();
   map: google.maps.Map;
+
+  loader = new Loader({
+    apiKey: environment.GOOGLE_MAPS_API_KEY,
+    libraries: ['visualization']
+  });
+
+  mapOptions = {
+    center: {lat: 37.774546, lng: -122.433523},
+    zoom: 13,
+    mapTypeId: 'satellite'
+  } as google.maps.MapOptions;
+
   changedGradient = false;
   changedOpacity = false;
   changedRadius = false;
@@ -47,7 +61,7 @@ export class GoogleMapsHeatmapPage implements OnInit {
 
   ngOnInit() {
     console.log('GoogleMapsHeatmapPage::ngOnInit() | method called');
-    this.initializeGMHeatmap();
+    this.loadGoogleMaps();
   }
 
   ionViewWillEnter() {
@@ -55,15 +69,19 @@ export class GoogleMapsHeatmapPage implements OnInit {
     this.destroy = false;
   }
 
+  loadGoogleMaps() {
+    this.loader
+      .load()
+      .then((google) => {
+        this.map = new google.maps.Map(document.getElementById('map'), this.mapOptions);
+        this.initializeGMHeatmap();
+      })
+      .catch(e => {
+        console.log('Error loading Google Maps', e);
+      });
+  }
+
   async initializeGMHeatmap() {
-
-    const sanFrancisco = new google.maps.LatLng(37.774546, -122.433523);
-
-    this.map = new google.maps.Map(document.getElementById('map'), {
-      center: sanFrancisco,
-      zoom: 13,
-      mapTypeId: 'satellite'
-    });
 
     const options: GMHeatmapOptions = {type: HeatmapType.GoogleMaps, map: this.map,
       /*data: this.fakeHeatmapDataService.getGoogleMapsData(),*/ debug: true};

@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  GOOGLE_MAPS_API_KEY: 'AIzaSyBIPFDXtWm3kEXPSKVFRkzHzgVXv9Vk7ZQ',
   MAP_BOX_API_TOKEN: 'pk.eyJ1IjoiYWJyaXRvIiwiYSI6ImNreTkyY3BxejAyOWEyb3F0bXMydnJhejMifQ.fxiaYo8sjFWuhGWUf2pPeQ'
 };
 
