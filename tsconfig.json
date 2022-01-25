@@ -18,7 +18,7 @@
     "strict": true,
     "target": "es2017",
     "types": [
-      "googlemaps"
+      "google.maps"
     ]
   },
   "files": [
