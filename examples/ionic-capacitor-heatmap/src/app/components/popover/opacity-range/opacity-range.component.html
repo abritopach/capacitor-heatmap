@@ -2,7 +2,7 @@
   <ng-template>
     <ion-content>
       <ion-item>
-        <ion-range min="0" max="1" step="0.01" pin [pinFormatter]="customFormatter"
+        <ion-range min="0" max="1" step="0.01" pin [pinFormatter]="customFormatter" debounce="300"
         (ionChange)="onClickChangeOpacity($event)">
           <ion-icon slot="start" name="sunny"></ion-icon>
           <ion-icon slot="end" name="sunny"></ion-icon>

@@ -26,7 +26,6 @@ export class HomePage implements OnInit {
   currentYear = new Date().getFullYear();
 
   changedGradient = false;
-  changedOpacity = false;
   changedRadius = false;
   radius = 20;
 
@@ -58,7 +57,6 @@ export class HomePage implements OnInit {
 
   initialize() {
     this.changedGradient = false;
-    this.changedOpacity = false;
     this.changedRadius = false;
     this.destroy = false;
     this.heatmapCanvas = null;
@@ -162,7 +160,6 @@ export class HomePage implements OnInit {
   }
 
   async changeOpacity(opacity: number) {
-    this.changedOpacity = !this.changedOpacity;
     const resultChangeOpacity = await Heatmap.opacity(opacity);
     console.log('resultChangeOpacity', resultChangeOpacity);
   }
