@@ -26,10 +26,8 @@ export class HomePage implements OnInit {
   currentYear = new Date().getFullYear();
 
   changedGradient = false;
-  changedOpacity = false;
   changedRadius = false;
   radius = 20;
-  opacity = 0.05;
 
   DEFAULT_GRADIENT: HeatmapGradient = {
     0.4: 'blue',
@@ -59,12 +57,10 @@ export class HomePage implements OnInit {
 
   initialize() {
     this.changedGradient = false;
-    this.changedOpacity = false;
     this.changedRadius = false;
     this.destroy = false;
     this.heatmapCanvas = null;
     this.radius = 20;
-    this.opacity = 0.05;
     this.gradient = this.DEFAULT_GRADIENT;
   }
 
@@ -109,7 +105,7 @@ export class HomePage implements OnInit {
   }
 
   async drawHeatmap() {
-    const options: HeatmapDrawOptions = {opacity: this.opacity, radius: this.radius, gradient: this.gradient};
+    const options: HeatmapDrawOptions = {radius: this.radius, gradient: this.gradient};
     const resultDraw = await Heatmap.draw(options);
     console.log('result draw', resultDraw);
   }
@@ -159,14 +155,12 @@ export class HomePage implements OnInit {
     console.log('resultGradient', resultGradient);
   }
 
-  onClickChangeOpacity() {
-    this.changeOpacity();
+  onClickChangeOpacity(opacity: number) {
+    this.changeOpacity(opacity);
   }
 
-  async changeOpacity() {
-    this.changedOpacity = !this.changedOpacity;
-    this.opacity = this.changedOpacity ? 0.1 : 0.05;
-    const resultChangeOpacity = await Heatmap.opacity(this.opacity);
+  async changeOpacity(opacity: number) {
+    const resultChangeOpacity = await Heatmap.opacity(opacity);
     console.log('resultChangeOpacity', resultChangeOpacity);
   }
 

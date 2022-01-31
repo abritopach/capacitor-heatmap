@@ -25,7 +25,6 @@ export class LeafletMapsHeatmapPage implements OnInit {
 
   destroy = false;
   changedGradient = false;
-  changedOpacity = false;
   changedRadius = false;
 
   DEFAULT_GRADIENT: HeatmapGradient = {
@@ -36,7 +35,6 @@ export class LeafletMapsHeatmapPage implements OnInit {
     1.0: 'red'
   };
   gradient = this.DEFAULT_GRADIENT;
-  opacity = 0.05;
   radius = 20;
 
   @HostListener('window:resize', ['$event']) async onResize(event) {
@@ -129,14 +127,12 @@ export class LeafletMapsHeatmapPage implements OnInit {
     console.log('resultChangeGradient', resultChangeGradient);
   }
 
-  onClickChangeOpacity() {
-    this.changeOpacity();
+  onClickChangeOpacity(opacity: number) {
+    this.changeOpacity(opacity);
   }
 
-  async changeOpacity() {
-    this.changedOpacity = !this.changedOpacity;
-    this.opacity = this.changedOpacity ? 0.1 : 0.05;
-    const resultChangeOpacity = await Heatmap.opacity(this.opacity);
+  async changeOpacity(opacity: number) {
+    const resultChangeOpacity = await Heatmap.opacity(opacity);
     console.log('resultChangeOpacity', resultChangeOpacity);
   }
 

@@ -35,7 +35,6 @@ export class GoogleMapsHeatmapPage implements OnInit {
   } as google.maps.MapOptions;
 
   changedGradient = false;
-  changedOpacity = false;
   changedRadius = false;
   destroy = false;
 
@@ -150,13 +149,12 @@ export class GoogleMapsHeatmapPage implements OnInit {
     console.log('resultChangeGradient', resultChangeGradient);
   }
 
-  onClickChangeOpacity() {
-    this.changeOpacity();
+  onClickChangeOpacity(opacity: number) {
+    this.changeOpacity(opacity);
   }
 
-  async changeOpacity() {
-    this.changedOpacity = !this.changedOpacity;
-    const resultChangeOpacity = await Heatmap.opacity(this.changedOpacity ? 1 : 0.5);
+  async changeOpacity(opacity: number) {
+    const resultChangeOpacity = await Heatmap.opacity(opacity);
     console.log('resultChangeOpacity', resultChangeOpacity);
   }
 
