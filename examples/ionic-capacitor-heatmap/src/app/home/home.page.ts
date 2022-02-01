@@ -28,6 +28,7 @@ export class HomePage implements OnInit {
   changedGradient = false;
   changedRadius = false;
   radius = 20;
+  opacity = 0.5;
 
   DEFAULT_GRADIENT: HeatmapGradient = {
     0.4: 'blue',
@@ -83,7 +84,7 @@ export class HomePage implements OnInit {
 
     this.heatmapCanvas = result.value as HTMLCanvasElement;
 
-    Heatmap.setMax(18);
+    Heatmap.setMax(10);
 
     if ((this.heatmapCanvas.width > window.innerWidth) || (this.heatmapCanvas.height > window.innerHeight)) {
       this.resizeHeatmap(window.innerWidth, window.innerHeight);
@@ -156,6 +157,7 @@ export class HomePage implements OnInit {
   }
 
   onClickChangeOpacity(opacity: number) {
+    this.opacity = opacity;
     this.changeOpacity(opacity);
   }
 

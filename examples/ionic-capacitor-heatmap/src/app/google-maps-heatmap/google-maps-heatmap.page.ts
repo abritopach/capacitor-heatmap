@@ -51,6 +51,7 @@ export class GoogleMapsHeatmapPage implements OnInit {
     'rgba(255, 57, 0, 1)',
     'rgba(255, 0, 0, 1)'
   ];
+  opacity = 0.5;
 
   @HostListener('window:resize', ['$event']) async onResize(event) {
     this.resizeHeatmap(event.target.innerWidth, event.target.innerHeight);
@@ -150,6 +151,7 @@ export class GoogleMapsHeatmapPage implements OnInit {
   }
 
   onClickChangeOpacity(opacity: number) {
+    this.opacity = opacity;
     this.changeOpacity(opacity);
   }
 
