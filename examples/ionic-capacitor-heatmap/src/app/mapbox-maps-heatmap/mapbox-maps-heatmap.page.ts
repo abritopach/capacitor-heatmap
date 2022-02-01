@@ -40,6 +40,7 @@ export class MapboxMapsHeatmapPage implements OnInit {
   };
   gradient = this.DEFAULT_GRADIENT;
   radius = 20;
+  opacity = 0.5;
 
   destroy = false;
 
@@ -140,6 +141,7 @@ export class MapboxMapsHeatmapPage implements OnInit {
   }
 
   onClickChangeOpacity(opacity: number) {
+    this.opacity = opacity;
     this.changeOpacity(opacity);
   }
 

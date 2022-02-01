@@ -36,6 +36,7 @@ export class LeafletMapsHeatmapPage implements OnInit {
   };
   gradient = this.DEFAULT_GRADIENT;
   radius = 20;
+  opacity = 0.5;
 
   @HostListener('window:resize', ['$event']) async onResize(event) {
     this.resizeHeatmap(event.target.innerWidth, event.target.innerHeight);
@@ -128,6 +129,7 @@ export class LeafletMapsHeatmapPage implements OnInit {
   }
 
   onClickChangeOpacity(opacity: number) {
+    this.opacity = opacity;
     this.changeOpacity(opacity);
   }
 

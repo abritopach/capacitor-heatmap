@@ -24,7 +24,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
         1.0: 'red'
     };
     static readonly DEFAULT_RADIUS = 20;
-    static readonly DEFAULT_OPACITY = 0.05;
+    static readonly DEFAULT_OPACITY = 0.5;
 
     _circle!: HTMLCanvasElement;
     _gradArray!: Uint8ClampedArray;
@@ -201,7 +201,7 @@ export class LeafletMapsHeatmap extends BaseHeatmap {
             const thickness = Array.isArray(point) ? point[2] : point.thickness;
             const x = Array.isArray(point) ? point[0] : point.x;
             const y = Array.isArray(point) ? point[1] : point.y;
-            ctx.globalAlpha = Math.min(Math.max(thickness / this._max, this._opacity), 1);
+            ctx.globalAlpha = Math.min(thickness / this._max, this._opacity);
             ctx.drawImage(this._circle, x - this._r, y - this._r);
         });
 
