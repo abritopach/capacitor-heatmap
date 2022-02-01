@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class OpacityRangeComponent implements OnInit {
 
   @Input() trigger: string;
+  @Input() defaultValue: number = 0.5;
   @Output() onChangeOpacity = new EventEmitter<number>();
 
   constructor() { }
