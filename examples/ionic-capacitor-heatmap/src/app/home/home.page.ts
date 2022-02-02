@@ -90,10 +90,10 @@ export class HomePage implements OnInit {
       this.resizeHeatmap(window.innerWidth, window.innerHeight);
     }
 
-    this.heatmapCanvas.onmousemove = (e) => {
+    this.heatmapCanvas.onmousemove = async (e) => {
       const rect = this.heatmapCanvas.getBoundingClientRect();
       const newPoint: Array<number> = [e.clientX - rect.left, e.clientY - rect.top, 18];
-      const resultAddPoint = Heatmap.addPoint(newPoint);
+      const resultAddPoint = await Heatmap.addPoint(newPoint);
       console.log('resultAddPoint', resultAddPoint);
       window.requestAnimationFrame(() => { this.drawHeatmap() });
     };

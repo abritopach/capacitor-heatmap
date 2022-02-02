@@ -175,7 +175,8 @@ export class GoogleMapsHeatmap extends BaseHeatmap {
             });
             return canvas.toDataURL(type, imageQuality);
         } catch (error: unknown) {
-            return (error as Error).message.toString();
+            this._heatmapLogger.error(`${Logs.heatmaps.google} ${Logs.methods.getDataUrl}  ERROR -> ${Logs.errors.heatmapScreenShot}`);
+            return (error as Error).message?.toString();
         }
     }
 }
