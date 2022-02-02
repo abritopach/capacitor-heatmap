@@ -22,7 +22,8 @@ export const Logs = {
         getDataUrl: 'getDataUrl',
     },
     errors: {
-        invalidOpacity: 'Invalid opacity value (must be between 0 and 1)'
+        invalidOpacity: 'Invalid opacity value (must be between 0 and 1)',
+        heatmapScreenShot: 'Unable to obtain a screenshot of the heatmap.'
     }
 }
 
