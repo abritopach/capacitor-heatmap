@@ -111,6 +111,11 @@ export class Log implements HeatmapLog {
         if (this.logEnabled) {
             suportingDetails.length > 0 ? console[msgType]("[Capacitor Heatmap Plugin Web]: " + msg, suportingDetails)
             : console[msgType]("[Capacitor Heatmap Plugin Web]: " + msg);
+        } else {
+            if (msgType === "error") {
+                suportingDetails.length > 0 ? console.error("[Capacitor Heatmap Plugin Web]: " + msg, suportingDetails)
+                : console.error("[Capacitor Heatmap Plugin Web]: " + msg);
+            }
         }
     }
 

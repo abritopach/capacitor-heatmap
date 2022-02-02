@@ -218,7 +218,8 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
             });
             return canvas.toDataURL(type, imageQuality);
         } catch (error: unknown) {
-            return (error as Error).message.toString();
+            this._heatmapLogger.error(`${Logs.heatmaps.mapbox} ${Logs.methods.getDataUrl}  ERROR -> ${Logs.errors.heatmapScreenShot}`);
+            return (error as Error).message?.toString();
         }
     }
 
