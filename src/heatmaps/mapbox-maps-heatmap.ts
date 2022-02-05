@@ -195,11 +195,12 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
             'heatmap-gradient-layer',
             'heatmap-radius',
             {
+                'base': rad,
                 stops: [
-                    [0, 5],
-                    [2, 10],
-                    [9, 20],
-                    [15, 50],
+                    [0, rad], // Zoom level 0
+                    [2, rad + 5], // Zoom level 2
+                    [9, rad + 15], // Zoom level 9
+                    [15, rad + 45], // Zoom level 15
                 ]
             }
         );

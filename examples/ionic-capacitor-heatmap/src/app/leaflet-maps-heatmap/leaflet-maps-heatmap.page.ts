@@ -25,7 +25,6 @@ export class LeafletMapsHeatmapPage implements OnInit {
 
   destroy = false;
   changedGradient = false;
-  changedRadius = false;
 
   DEFAULT_GRADIENT: HeatmapGradient = {
     0.4: 'blue',
@@ -138,14 +137,13 @@ export class LeafletMapsHeatmapPage implements OnInit {
     console.log('resultChangeOpacity', resultChangeOpacity);
   }
 
-  onClickChangeRadius() {
-    this.changeRadius();
+  onClickChangeRadius(radius: number) {
+    this.radius = radius;
+    this.changeRadius(radius);
   }
 
-  async changeRadius() {
-    this.changedRadius = !this.changedRadius;
-    this.radius = this.changedRadius ? 30 : 20;
-    const resultChangeRadius = await Heatmap.radius(this.radius);
+  async changeRadius(radius: number) {
+    const resultChangeRadius = await Heatmap.radius(radius);
     console.log('resultChangeRadius', resultChangeRadius);
   }
 
