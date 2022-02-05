@@ -41,11 +41,13 @@
       <ion-label>Change opacity</ion-label>
       <ion-icon name="contrast"></ion-icon>
     </ion-segment-button>
-    <app-opacity-range [defaultValue]="opacity" trigger="opacity-button-mapbox" (onChangeOpacity)="onClickChangeOpacity($event)"></app-opacity-range>
-    <ion-segment-button layout="icon-start" (click)="onClickChangeRadius()">
+    <app-range [defaultValue]="opacity" trigger="opacity-button-mapbox" (onChangeValue)="onClickChangeOpacity($event)"></app-range>
+    <ion-segment-button id="radius-button-mapbox" layout="icon-start">
       <ion-label>Change radius</ion-label>
       <ion-icon name="radio-button-off"></ion-icon>
     </ion-segment-button>
+    <app-range [defaultValue]="radius" min="1" max="100" step="0.5" startIcon="remove" endIcon="add"
+    trigger="radius-button-mapbox" (onChangeValue)="onClickChangeRadius($event)"></app-range>
   </ion-segment>
   <ion-segment *ngIf="!destroy">
     <ion-segment-button layout="icon-start" (click)="onClickGetValueAt()">

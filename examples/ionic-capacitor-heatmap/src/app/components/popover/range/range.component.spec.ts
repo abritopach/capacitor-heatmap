@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { OpacityRangeComponent } from './opacity-range.component';
+import { RangeComponent } from './range.component';
 
 describe('OpacityRangeComponent', () => {
-  let component: OpacityRangeComponent;
-  let fixture: ComponentFixture<OpacityRangeComponent>;
+  let component: RangeComponent;
+  let fixture: ComponentFixture<RangeComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ OpacityRangeComponent ],
+      declarations: [ RangeComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(OpacityRangeComponent);
+    fixture = TestBed.createComponent(RangeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

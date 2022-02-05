@@ -35,7 +35,6 @@ export class GoogleMapsHeatmapPage implements OnInit {
   } as google.maps.MapOptions;
 
   changedGradient = false;
-  changedRadius = false;
   destroy = false;
 
   DEFAULT_GRADIENT = [
@@ -52,6 +51,7 @@ export class GoogleMapsHeatmapPage implements OnInit {
     'rgba(255, 0, 0, 1)'
   ];
   opacity = 0.5;
+  radius = 20;
 
   @HostListener('window:resize', ['$event']) async onResize(event) {
     this.resizeHeatmap(event.target.innerWidth, event.target.innerHeight);
@@ -160,13 +160,13 @@ export class GoogleMapsHeatmapPage implements OnInit {
     console.log('resultChangeOpacity', resultChangeOpacity);
   }
 
-  onClickChangeRadius() {
-    this.changeRadius();
+  onClickChangeRadius(radius: number) {
+    this.radius = radius;
+    this.changeRadius(radius);
   }
 
-  async changeRadius() {
-    this.changedRadius = !this.changedRadius;
-    const resultChangeRadius = await Heatmap.radius(this.changedRadius ? 30 : 10);
+  async changeRadius(radius: number) {
+    const resultChangeRadius = await Heatmap.radius(radius);
     console.log('resultChangeRadius', resultChangeRadius);
   }
 

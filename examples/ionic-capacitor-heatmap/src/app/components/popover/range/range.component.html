@@ -1,0 +1,13 @@
+<ion-popover [trigger]="trigger">
+  <ng-template>
+    <ion-content>
+      <ion-item>
+        <ion-range [min]="min" [max]="max" [step]="step" pin [pinFormatter]="customFormatter" debounce="300"
+        [value]="defaultValue" (ionChange)="onClickChangeValue($event)">
+          <ion-icon slot="start" [name]="startIcon"></ion-icon>
+          <ion-icon slot="end" [name]="endIcon"></ion-icon>
+        </ion-range>
+      </ion-item>
+    </ion-content>
+  </ng-template>
+</ion-popover>
