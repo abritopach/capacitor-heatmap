@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { NtkmeButtonModule } from '@ctrl/ngx-github-buttons';
-import { OpacityRangeComponent } from '../components/popover/opacity-range/opacity-range.component';
+import { RangeComponent } from '../components/popover/range/range.component';
 
 @NgModule({
-    declarations: [OpacityRangeComponent],
+    declarations: [RangeComponent],
     imports: [
         CommonModule,
         FormsModule,
@@ -14,6 +14,6 @@ import { OpacityRangeComponent } from '../components/popover/opacity-range/opaci
         IonicModule,
         NtkmeButtonModule
     ],
-    exports: [CommonModule, FormsModule, IonicModule, NtkmeButtonModule, OpacityRangeComponent]
+    exports: [CommonModule, FormsModule, IonicModule, NtkmeButtonModule, RangeComponent]
 })
 export class SharedModule { }
