@@ -44,6 +44,10 @@ Currently you can choose from **four types** of heatmaps with only one plugin :)
 
 ![LeafletMapsHeatmap](readme_resources/leaflet_maps_heatmap.gif "LeafletMapsHeatmap")
 
+## Mapbox Maps Heatmap
+
+![MapboxMapsHeatmap](readme_resources/mapbox_maps_heatmap.gif "MapboxMapsHeatmap")
+
 # Capacitor
 
 Capacitor is a cross-platform API and code execution layer that makes it easy to call Native SDKs from web code and to write custom Native plugins that your app might need. Additionally, Capacitor provides first-class Progressive Web App support so you can write one app and deploy it to the app stores, and the mobile web.
@@ -413,6 +417,6 @@ Type: `Promise<{value: string}>`
 
 # TODO
 
-* Simple Heatmap, Google Maps Heatmap & Leaflet Maps Heaptmap for ANDROID.
-* Simple Heatmap, Google Maps Heatmap & Leaflet Maps Heaptmap for IOS.
+* Simple Heatmap, Google Maps Heatmap, Leaflet Maps Heaptmap & Mapbox Maps Heatmap for ANDROID.
+* Simple Heatmap, Google Maps Heatmap, Leaflet Maps Heaptmap & Mapbox Maps Heatmap for IOS.
 
