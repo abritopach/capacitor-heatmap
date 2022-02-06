@@ -24,6 +24,9 @@ export const Logs = {
     errors: {
         invalidOpacity: 'Invalid opacity value (must be between 0 and 1)',
         heatmapScreenShot: 'Unable to obtain a screenshot of the heatmap.'
+    },
+    warnings: {
+        mapboxDrawingBuffer: 'Remember to add the option (preserveDrawingBuffer: true) when initialising the Mapbox map in order to get a screenshot.'
     }
 }
 

@@ -217,6 +217,7 @@ export class MapboxMapsHeatmap extends BaseHeatmap {
             const canvas = await html2canvas(this._map.getContainer(), {
                 useCORS: true
             });
+            this._heatmapLogger.warn(`${Logs.heatmaps.mapbox} ${Logs.methods.getDataUrl}  WARNING -> ${Logs.warnings.mapboxDrawingBuffer}`);
             return canvas.toDataURL(type, imageQuality);
         } catch (error: unknown) {
             this._heatmapLogger.error(`${Logs.heatmaps.mapbox} ${Logs.methods.getDataUrl}  ERROR -> ${Logs.errors.heatmapScreenShot}`);
