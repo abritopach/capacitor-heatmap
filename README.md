@@ -70,12 +70,60 @@ INTERFACES & TYPES
  *
  * @interface
 */
-export interface IHeatmapLog {
+export interface HeatmapLog {
     log(primaryMessage: string, ...supportingData: any[]): void;
     debug(primaryMessage: string, ...supportingData: any[]): void;
     warn(primaryMessage: string, ...supportingData: any[]): void;
     error(primaryMessage: string, ...supportingData: any[]): void;
     info(primaryMessage: string, ...supportingData: any[]): void;
+}
+
+/**
+ * Description [Interface to define color scale options.]
+ *
+ * @author abrito
+ * @version 0.0.1
+ *
+ * @interface
+*/
+export interface ColorScale {
+    show: boolean;
+    position?: {
+        vertical: VerticalPosition;
+        horizontal: HorizontalPosition;
+    };
+    boxShadow?: string;
+    text?: {
+        start?: string;
+        end?: string;
+        color?: string;
+    },
+    background?: string;
+    gradientColorMode?: 'original' | 'inverted'
+}
+
+/**
+ * Description [Interface to define color scale styles.]
+ *
+ * @author abrito
+ * @version 0.0.1
+ *
+ * @interface
+*/
+export interface ColorScaleStyles {
+    width: number;
+    height: number;
+    borderRadius: string;
+    position: string;
+    zIndex: string;
+    marginTop: string;
+    margin: string;
+    padding: string;
+    boxShadow: string;
+    fillTextStart: string;
+    fillTextEnd: string;
+    fillTextColor: string;
+    background: string;
 }
 
 /**
@@ -86,12 +134,12 @@ export interface IHeatmapLog {
  *
  * @interface
 */
-export interface IHeatmapOptions {
+export interface HeatmapOptions {
     element: string;
-    type: IHeatmapType;
+    type: HeatmapType;
     data?: HeatmapData;
     debug?: boolean;
-    showColorScale?: boolean;
+    colorScale?: ColorScale;
 }
 
 /**
@@ -102,7 +150,7 @@ export interface IHeatmapOptions {
  *
  * @interface
 */
-export interface IHeatmapPosition {
+export interface Coordinate {
     x: number;
     y: number;
 }
@@ -115,16 +163,17 @@ export interface IHeatmapPosition {
  *
  * @interface
 */
-export interface IHeatmapPoint {
+export interface Point {
     x: number;
     y: number;
     thickness: number;
 }
 
-export enum IHeatmapType {
+export enum HeatmapType {
     Simple = 'simple',
     GoogleMaps = 'googlemaps',
-    LeafletMaps = 'leafletmaps'
+    LeafletMaps = 'leafletmaps',
+    MapboxMaps = 'mapboxmaps'
 }
 
 /**
@@ -135,17 +184,17 @@ export enum IHeatmapType {
  *
  * @interface
 */
-export interface IHeatmapDrawOptions {
+export interface HeatmapDrawOptions {
     opacity?: number,
     radius?: number,
     gradient?: HeatmapGradient | GMHeatmapGradient
-    data?:  HeatmapData | GMHeatmapData | LMHeatmapData
+    data?:  HeatmapData | GMHeatmapData | LMHeatmapData | MapboxHeatmapData
 }
 
 export type HeatmapGradient = Record<number, string>;
-export type HeatmapPoint = Array<number> | IHeatmapPoint;
-export type HeatmapPosition = Array<number> | IHeatmapPosition;
-export type HeatmapData = Array<Array<number> | IHeatmapPoint>;
+export type HeatmapPoint = number[] | Point;
+export type HeatmapPosition = number[] | Coordinate;
+export type HeatmapData = (number[] | Point)[];
 
 /**
  * Description [Interface to define google maps heatmap initialize options.]
@@ -155,9 +204,9 @@ export type HeatmapData = Array<Array<number> | IHeatmapPoint>;
  *
  * @interface
 */
-export interface IGMHeatmapOptions {
+export interface GMHeatmapOptions {
     map: google.maps.Map;
-    type: IHeatmapType;
+    type: HeatmapType;
     data?: GMHeatmapData;
     debug?: boolean;
 }
@@ -176,22 +225,55 @@ export type GMHeatmapData = google.maps.MVCArray<google.maps.LatLng | google.map
  *
  * @interface
 */
-export interface ILMHeatmapOptions {
+export interface LMHeatmapOptions {
     map: Map;
-    type: IHeatmapType;
+    type: HeatmapType;
     data?: LMHeatmapData;
     debug?: boolean;
 }
 
-export type LMHeatmapData = Array<LatLngExpression>;
+export type LMHeatmapData = LatLngExpression[];
 export type LMHeatmapPoint = LatLngExpression;
 export type LMHeatmapCoordinate = LatLngTuple;
+
+/**
+ * Description [Interface to define mapbox maps heatmap initialize options.]
+ *
+ * @author abrito
+ * @version 0.0.1
+ *
+ * @interface
+*/
+export interface MapboxHeatmapOptions {
+    map: mapboxgl.Map;
+    type: HeatmapType;
+    data?: MapboxHeatmapData;
+    debug?: boolean;
+}
+
+/**
+ * Description [Interface to define location.]
+ *
+ * @author abrito
+ * @version 0.0.1
+ *
+ * @interface
+*/
+export interface Location {
+    lat: number;
+    long: number;
+    thickness?: number;
+}
+
+export type MapboxHeatmapData = (number[] | Location)[];
+export type MapBoxHeatmapPoint = Location;
+export type MapboxHeatmapCoordinate = [number, number] | Location;
 
 ```
 
 ## Capacitor Heatmap WEB public API methods.
 
-### `initialize(options: IHeatmapOptions | IGMHeatmapOptions | ILMHeatmapOptions): Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer}>`
+### `initialize(options: IHeatmapOptions | IGMHeatmapOptions | ILMHeatmapOptions | MapboxHeatmapOptions): Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer | mapboxgl.Map}>`
 
 ```bash
 Initialize heatmap.
@@ -206,7 +288,7 @@ async initializeHeatmap() {
 
 #### Returns
 
-Type: `Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer}>`
+Type: `Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer | mapboxgl.Map}>`
 
 
 
@@ -223,9 +305,9 @@ async destroyHeatmap() {
 ```
 
 
-### Methods for handling heatmap data.
+### 📈 Methods for handling heatmap data.
 
-### `setData(data: HeatmapData | GMHeatmapData | LMHeatmapData): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData}>`
+### `setData(data: HeatmapData | GMHeatmapData | LMHeatmapData | MapboxHeatmapData): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData | MapboxHeatmapData}>`
 
 ```bash
 Set heatmap data of [[x, y, thickness], ...] or [{x: value, y: value, thickness: value},...] format.
@@ -236,11 +318,11 @@ const d = await Heatmap.setData(this.data);
 
 #### Returns
 
-Type: `Promise<{value: HeatmapData | GMHeatmapData}>`
+Type: `Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData | MapboxHeatmapData}>`
 
 
 
-### `getData(): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData}>`
+### `getData(): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData | MapboxHeatmapData}>`
 
 ```bash
 Get heatmap data of [[x, y, thickness], ...] format.
@@ -251,11 +333,11 @@ const d = await Heatmap.getData();
 
 #### Returns
 
-Type: `Promise<{value: HeatmapData | GMHeatmapData}>`
+Type: `Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData | MapboxHeatmapData}>`
 
 
 
-### ` getValueAt(position: HeatmapPosition | GMHeatmapCoordinate | LMHeatmapCoordinate): Promise<{value: number}>`
+### ` getValueAt(position: HeatmapPosition | GMHeatmapCoordinate | LMHeatmapCoordinate | MapboxHeatmapCoordinate): Promise<{value: number}>`
 
 ```bash
 Returns value at datapoint position.
@@ -270,7 +352,7 @@ Type: `Promise<{value: number}>`
 
 
 
-### `clearData(): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData}>`
+### `clearData(): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData | MapboxHeatmapData}>`
 
 ```bash
 Clear heatmap data.
@@ -281,11 +363,11 @@ const d = await Heatmap.clearData();
 
 #### Returns
 
-Type: `Promise<{value: HeatmapData | GMHeatmapData}>`
+Type: `Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData | MapboxHeatmapData}>`
 
 
 
-### `addPoint(point: HeatmapPoint | GMHeatmapPoint | LMHeatmapPoint): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData}>`
+### `addPoint(point: HeatmapPoint | GMHeatmapPoint | LMHeatmapPoint | MapBoxHeatmapPoint): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData | MapboxHeatmapData}>`
 
 ```bash
 Add new point to heatmap data.
@@ -300,7 +382,7 @@ canvas.onmousemove = (e) => {
 
 #### Returns
 
-Type: `Promise<{value: HeatmapData | GMHeatmapData}>`
+Type: `Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData | MapboxHeatmapData}>`
 
 
 
@@ -315,7 +397,7 @@ const newMax = Heatmap.setMax(18);
 
 
 
-### Methods for rendering heatmap.
+### 🎨 Methods for rendering heatmap.
 
 ### `draw(options: IHeatmapDrawOptions): Promise<{value: boolean}>`
 
@@ -335,7 +417,7 @@ Type: `Promise<{value: boolean}>`
 
 
 
-### Methods for handling heatmap appearance.
+### 🖌️ Methods for handling heatmap appearance.
 
 ### `resize(options: {width: number, height: number}): Promise<{value: {newWidth: number, newHeight: number}}>`
 
@@ -400,7 +482,7 @@ const resultRadius = await Heatmap.radius(rad);
 Type: `Promise<{value: number}>`
 
 
-### Method to obtain the image of the canvas.
+### 📸 Method to obtain the image of the canvas.
 
 ### `getDataURL(type: string, imageQuality: number): Promise<{value: string}>`
 
