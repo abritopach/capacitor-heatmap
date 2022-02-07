@@ -12,8 +12,8 @@ export interface HeatmapPlugin {
    *
    * @method
    * @name initialize
-   * @param {IHeatmapOptions | IGMHeatmapOptions} options - Json options object to initialize heatmap.
-   * @returns {Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer}>} Canvas Element or Google Maps Heatmap Layer.
+   * @param { HeatmapOptions | GMHeatmapOptions | LMHeatmapOptions | MapboxHeatmapOptions} options - Json options object to initialize heatmap.
+   * @returns {Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer | mapboxgl.Map}>} Canvas Element or Google Maps Heatmap Layer or Mapbox map.
   */
   initialize(options: HeatmapOptions | GMHeatmapOptions | LMHeatmapOptions | MapboxHeatmapOptions):
   Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer | mapboxgl.Map}>;
@@ -43,10 +43,10 @@ export interface HeatmapPlugin {
    *
    * @method
    * @name setData
-   * @param {HeatmapData | GMHeatmapData} data - Data to set.
-   * @returns {Promise<{value: HTMLCanvasElement | google.maps.visualization.HeatmapLayer}>} Canvas Element or Google Maps Heatmap Layer.
+   * @param {HeatmapData | GMHeatmapData | LMHeatmapData | MapboxHeatmapData} data - Data to set.
+   * @returns {Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData | MapboxHeatmapData}>} Heatmap data.
   */
-  setData(data: HeatmapData | GMHeatmapData | LMHeatmapData | MapboxHeatmapData): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData}>;
+  setData(data: HeatmapData | GMHeatmapData | LMHeatmapData | MapboxHeatmapData): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData | MapboxHeatmapData}>;
 
   /**
    * Description [This method get heatmap data of [[x, y, thickness], ...] or [{x: value, y: value, thickness: value},...] format.]
@@ -56,9 +56,21 @@ export interface HeatmapPlugin {
    *
    * @method
    * @name getData
-   * @returns {Promise<{value: HeatmapData | GMHeatmapData}>} Heatmap data.
+   * @returns {Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData | MapboxHeatmapData}>} Heatmap data.
   */
-  getData(): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData}>;
+  getData(): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData | MapboxHeatmapData}>;
+
+  /**
+   * Description [This method gets the value of the specified position.]
+   *
+   * @author abrito
+   * @version 0.0.1
+   *
+   * @method
+   * @name getValueAt
+   * @param {HeatmapPosition | GMHeatmapCoordinate | LMHeatmapCoordinate | MapboxHeatmapCoordinate} position - Position to get value.
+   * @returns {Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData | MapboxHeatmapData}>} Value obtained.
+  */
   getValueAt(position: HeatmapPosition | GMHeatmapCoordinate | LMHeatmapCoordinate | MapboxHeatmapCoordinate): Promise<{value: number}>;
 
   /**
@@ -69,19 +81,19 @@ export interface HeatmapPlugin {
    *
    * @method
    * @name clearData
-   * @returns {Promise<{value: HeatmapData | GMHeatmapData}>} Heatmap data.
+   * @returns {Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData | MapboxHeatmapData}>} Heatmap data.
   */
-  clearData(): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData}>;
+  clearData(): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData | MapboxHeatmapData}>;
 
   /**
    * Description [This method add new point to heatmap data.]
    *
    * @author abrito
    * @version 0.0.1
-   * @param {HeatmapPoint | GMHeatmapPoint} point - New point to add to heatmap data.
+   * @param {HeatmapPoint | GMHeatmapPoint | LMHeatmapPoint | MapBoxHeatmapPoint} point - New point to add to heatmap data.
    * @method
    * @name addPoint
-   * @returns {Promise<{value: HeatmapData | GMHeatmapData}>} Heatmap data.
+   * @returns {Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData | MapboxHeatmapData}>} Heatmap data.
   */
   addPoint(point: HeatmapPoint | GMHeatmapPoint | LMHeatmapPoint | MapBoxHeatmapPoint): Promise<{value: HeatmapData | GMHeatmapData | LMHeatmapData | MapboxHeatmapData}>;
 
@@ -129,7 +141,7 @@ export interface HeatmapPlugin {
    * @method
    * @name resize
    * @param {width: number, height: number} options - Json options object with new heatmap dimensions.
-   * @returns {Promise<{value: {newWidth: number, newHeight: number}}>} New dimensions.
+   * @returns {Promise<{value: {newWidth: number, newHeight: number}}>} New heatmap dimensions.
   */
   resize(options: {width: number, height: number}): Promise<{value: {newWidth: number, newHeight: number}}>;
 
