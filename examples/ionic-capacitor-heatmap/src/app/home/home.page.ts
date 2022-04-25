@@ -6,15 +6,12 @@ import { Heatmap } from 'capacitor-heatmap';
 import { HeatmapOptions, HeatmapType, HeatmapGradient, HeatmapDrawOptions, HeatmapPosition,
   VerticalPosition, HorizontalPosition } from 'capacitor-heatmap/dist/esm/models/models';
 import { Capacitor } from '@capacitor/core';
-<<<<<<< HEAD
 
 /* Project */
 
 // Services
 import { FakeHeatmapDataService } from '../services/fake-heatmap-data.service';
 import { CommonService } from '../services/common.service';
-=======
->>>>>>> 2dfaedffd52ef8ce13f6de352e9958afa205ffee
 
 window.requestAnimationFrame = window.requestAnimationFrame || window['webkitRequestAnimationFrame'];
 
