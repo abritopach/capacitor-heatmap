@@ -26,25 +26,25 @@
   "license": "MIT",
   "dependencies": {
     "html2canvas": "^1.4.1",
-    "leaflet": "^1.7.1",
-    "mapbox-gl": "^2.8.0"
+    "leaflet": "^1.8.0",
+    "mapbox-gl": "^2.8.2"
   },
   "devDependencies": {
-    "@capacitor/android": "^3.4.3",
-    "@capacitor/core": "^3.4.3",
+    "@capacitor/android": "^3.5.0",
+    "@capacitor/core": "^3.5.0",
     "@capacitor/docgen": "^0.2.0",
-    "@capacitor/ios": "^3.4.3",
+    "@capacitor/ios": "^3.5.0",
     "@ionic/eslint-config": "^0.3.0",
     "@ionic/prettier-config": "^2.0.0",
     "@ionic/swiftlint-config": "^1.1.2",
-    "@types/google.maps": "^3.48.5",
+    "@types/google.maps": "^3.48.6",
     "@types/html2canvas": "^1.0.0",
     "@types/leaflet": "^1.7.9",
-    "@types/mapbox-gl": "^2.6.3",
+    "@types/mapbox-gl": "^2.7.0",
     "eslint": "^7.32.0",
     "prettier": "^2.6.2",
     "rimraf": "^3.0.2",
-    "rollup": "^2.70.1",
+    "rollup": "^2.70.2",
     "swiftlint": "^1.0.1",
     "typescript": "^4.6.3"
   },
