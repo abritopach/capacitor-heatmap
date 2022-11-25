@@ -1,98 +1,98 @@
 [
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/anim/abc_popup_exit.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/anim/abc_popup_exit.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/anim/abc_shrink_fade_out_from_bottom.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/anim/abc_shrink_fade_out_from_bottom.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/anim/btn_checkbox_to_checked_icon_null_animation.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/anim/btn_checkbox_to_checked_icon_null_animation.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/anim/btn_checkbox_to_unchecked_box_inner_merged_animation.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/anim/btn_checkbox_to_unchecked_box_inner_merged_animation.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/anim/btn_radio_to_on_mtrl_ring_outer_animation.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/anim/btn_radio_to_on_mtrl_ring_outer_animation.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/anim/btn_checkbox_to_checked_icon_null_animation.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/anim/btn_checkbox_to_checked_icon_null_animation.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/anim/abc_slide_out_top.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/anim/abc_slide_out_top.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/anim/abc_grow_fade_in_from_bottom.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/anim/abc_grow_fade_in_from_bottom.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/anim/btn_checkbox_to_checked_box_inner_merged_animation.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/anim/btn_checkbox_to_checked_box_inner_merged_animation.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/anim/btn_radio_to_on_mtrl_ring_outer_path_animation.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/anim/btn_radio_to_on_mtrl_ring_outer_path_animation.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/anim/btn_radio_to_off_mtrl_ring_outer_path_animation.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/anim/btn_radio_to_off_mtrl_ring_outer_path_animation.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/anim/btn_checkbox_to_unchecked_check_path_merged_animation.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/anim/btn_checkbox_to_unchecked_check_path_merged_animation.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/anim/abc_tooltip_enter.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/anim/abc_tooltip_enter.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/anim/abc_tooltip_enter.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/anim/abc_tooltip_enter.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/anim/btn_checkbox_to_unchecked_check_path_merged_animation.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/anim/btn_checkbox_to_unchecked_check_path_merged_animation.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/anim/btn_radio_to_off_mtrl_dot_group_animation.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/anim/btn_radio_to_off_mtrl_dot_group_animation.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/anim/abc_shrink_fade_out_from_bottom.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/anim/abc_shrink_fade_out_from_bottom.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/anim/abc_fade_in.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/anim/abc_fade_in.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/anim/btn_checkbox_to_unchecked_icon_null_animation.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/anim/btn_checkbox_to_unchecked_icon_null_animation.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/anim/btn_checkbox_to_checked_box_inner_merged_animation.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/anim/btn_checkbox_to_checked_box_inner_merged_animation.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/anim/btn_radio_to_on_mtrl_dot_group_animation.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/anim/btn_radio_to_on_mtrl_dot_group_animation.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/anim/abc_tooltip_exit.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/anim/abc_tooltip_exit.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/anim/abc_tooltip_exit.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/anim/abc_tooltip_exit.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/anim/abc_slide_in_top.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/anim/abc_slide_in_top.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/anim/abc_slide_in_top.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/anim/abc_slide_in_top.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/anim/abc_popup_exit.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/anim/abc_popup_exit.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/anim/btn_radio_to_off_mtrl_dot_group_animation.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/anim/btn_radio_to_off_mtrl_dot_group_animation.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/anim/btn_checkbox_to_unchecked_icon_null_animation.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/anim/btn_checkbox_to_unchecked_icon_null_animation.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/anim/abc_slide_out_bottom.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/anim/abc_slide_out_bottom.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/anim/abc_slide_out_bottom.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/anim/abc_slide_out_bottom.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/anim/btn_checkbox_to_unchecked_box_inner_merged_animation.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/anim/btn_checkbox_to_unchecked_box_inner_merged_animation.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/anim/btn_radio_to_off_mtrl_ring_outer_path_animation.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/anim/btn_radio_to_off_mtrl_ring_outer_path_animation.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/anim/btn_radio_to_on_mtrl_ring_outer_path_animation.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/anim/btn_radio_to_on_mtrl_ring_outer_path_animation.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/anim/abc_slide_in_bottom.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/anim/abc_slide_in_bottom.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/anim/abc_fade_out.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/anim/abc_fade_out.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/anim/btn_radio_to_on_mtrl_ring_outer_animation.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/anim/btn_radio_to_on_mtrl_ring_outer_animation.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/anim/btn_radio_to_off_mtrl_ring_outer_animation.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/anim/btn_radio_to_off_mtrl_ring_outer_animation.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/anim/abc_slide_out_top.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/anim/abc_slide_out_top.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/anim/btn_checkbox_to_checked_box_outer_merged_animation.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/anim/btn_checkbox_to_checked_box_outer_merged_animation.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/anim/abc_fade_out.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/anim/abc_fade_out.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/anim/abc_slide_in_bottom.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/anim/abc_slide_in_bottom.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/anim/btn_radio_to_on_mtrl_dot_group_animation.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/anim/btn_radio_to_on_mtrl_dot_group_animation.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/anim/abc_fade_in.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/anim/abc_fade_in.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/anim/abc_popup_enter.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/anim/abc_popup_enter.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/anim/abc_popup_enter.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/anim/abc_popup_enter.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/anim/btn_radio_to_off_mtrl_ring_outer_animation.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/anim/btn_radio_to_off_mtrl_ring_outer_animation.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/anim/abc_grow_fade_in_from_bottom.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/anim/abc_grow_fade_in_from_bottom.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/anim/btn_checkbox_to_checked_box_outer_merged_animation.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/anim/btn_checkbox_to_checked_box_outer_merged_animation.xml"
     }
 ]

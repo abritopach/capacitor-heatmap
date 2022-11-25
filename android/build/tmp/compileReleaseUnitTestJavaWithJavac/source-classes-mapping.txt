@@ -1,2 +1,0 @@
-com/getcapacitor/ExampleUnitTest.java
- com.getcapacitor.ExampleUnitTest

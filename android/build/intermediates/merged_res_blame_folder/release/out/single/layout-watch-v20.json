@@ -1,10 +1,10 @@
 [
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/layout-watch-v20/abc_alert_dialog_title_material.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/layout-watch-v20/abc_alert_dialog_title_material.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/layout-watch-v20/abc_alert_dialog_title_material.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/layout-watch-v20/abc_alert_dialog_title_material.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/layout-watch-v20/abc_alert_dialog_button_bar_material.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/layout-watch-v20/abc_alert_dialog_button_bar_material.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/layout-watch-v20/abc_alert_dialog_button_bar_material.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/layout-watch-v20/abc_alert_dialog_button_bar_material.xml"
     }
 ]

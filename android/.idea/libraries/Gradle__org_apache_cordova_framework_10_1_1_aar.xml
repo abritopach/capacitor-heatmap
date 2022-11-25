@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.cordova:framework:10.1.1@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/150438c23a92a854e3909c24256c31b3/transformed/jetified-framework-10.1.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/150438c23a92a854e3909c24256c31b3/transformed/jetified-framework-10.1.1/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.cordova/framework/10.1.1/a5702f8549012eed0daa3a1edad30ef6f377324d/framework-10.1.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
