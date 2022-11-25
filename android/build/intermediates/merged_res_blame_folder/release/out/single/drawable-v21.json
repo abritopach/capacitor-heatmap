@@ -1,26 +1,26 @@
 [
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/drawable-v21/abc_action_bar_item_background_material.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/drawable-v21/abc_action_bar_item_background_material.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/drawable-v21/abc_list_divider_material.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/drawable-v21/abc_list_divider_material.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/drawable-v21/abc_btn_colored_material.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/drawable-v21/abc_btn_colored_material.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/drawable-v21/abc_edit_text_material.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/drawable-v21/abc_edit_text_material.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/drawable-v21/abc_list_divider_material.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/drawable-v21/abc_list_divider_material.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/drawable-v21/abc_action_bar_item_background_material.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/drawable-v21/abc_action_bar_item_background_material.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/drawable-v21/notification_action_background.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/4256020f6bfc7069f5462874d314ddd1/transformed/core-1.3.2/res/drawable-v21/notification_action_background.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/drawable-v21/abc_btn_colored_material.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/drawable-v21/abc_btn_colored_material.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/drawable-v21/abc_dialog_material_background.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/drawable-v21/abc_dialog_material_background.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/drawable-v21/abc_dialog_material_background.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/drawable-v21/abc_dialog_material_background.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/drawable-v21/abc_edit_text_material.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/drawable-v21/abc_edit_text_material.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/drawable-v21/notification_action_background.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-core-1.8.0-2:/drawable-v21/notification_action_background.xml"
     }
 ]

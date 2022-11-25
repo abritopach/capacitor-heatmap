@@ -1,0 +1,120 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.adrbrpa.capacitorheatmap.capacitorheatmap.test" >
+4
+5    <uses-sdk
+5-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest4132108447655892070.xml:5:5-74
+6        android:minSdkVersion="22"
+6-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest4132108447655892070.xml:5:15-41
+7        android:targetSdkVersion="32" />
+7-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest4132108447655892070.xml:5:42-71
+8
+9    <instrumentation
+9-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest4132108447655892070.xml:11:5-15:100
+10        android:name="androidx.test.runner.AndroidJUnitRunner"
+10-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest4132108447655892070.xml:11:22-76
+11        android:functionalTest="false"
+11-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest4132108447655892070.xml:14:22-52
+12        android:handleProfiling="false"
+12-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest4132108447655892070.xml:13:22-53
+13        android:label="Tests for com.adrbrpa.capacitorheatmap.capacitorheatmap.test"
+13-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest4132108447655892070.xml:15:22-98
+14        android:targetPackage="com.adrbrpa.capacitorheatmap.capacitorheatmap.test" />
+14-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest4132108447655892070.xml:12:22-96
+15
+16    <uses-permission android:name="android.permission.REORDER_TASKS" />
+16-->[androidx.test:core:1.4.0] /Users/abrito/.gradle/caches/transforms-3/d5bb158bbf9c679e0b4cbeed21452887/transformed/jetified-core-1.4.0/AndroidManifest.xml:24:5-72
+16-->[androidx.test:core:1.4.0] /Users/abrito/.gradle/caches/transforms-3/d5bb158bbf9c679e0b4cbeed21452887/transformed/jetified-core-1.4.0/AndroidManifest.xml:24:22-69
+17
+18    <queries>
+18-->[androidx.test:runner:1.4.0] /Users/abrito/.gradle/caches/transforms-3/b9710638e73a0085f5de53cfd78f00c2/transformed/runner-1.4.0/AndroidManifest.xml:24:5-28:15
+19        <package android:name="androidx.test.orchestrator" />
+19-->[androidx.test:runner:1.4.0] /Users/abrito/.gradle/caches/transforms-3/b9710638e73a0085f5de53cfd78f00c2/transformed/runner-1.4.0/AndroidManifest.xml:25:9-62
+19-->[androidx.test:runner:1.4.0] /Users/abrito/.gradle/caches/transforms-3/b9710638e73a0085f5de53cfd78f00c2/transformed/runner-1.4.0/AndroidManifest.xml:25:18-59
+20        <package android:name="androidx.test.services" />
+20-->[androidx.test:runner:1.4.0] /Users/abrito/.gradle/caches/transforms-3/b9710638e73a0085f5de53cfd78f00c2/transformed/runner-1.4.0/AndroidManifest.xml:26:9-58
+20-->[androidx.test:runner:1.4.0] /Users/abrito/.gradle/caches/transforms-3/b9710638e73a0085f5de53cfd78f00c2/transformed/runner-1.4.0/AndroidManifest.xml:26:18-55
+21        <package android:name="com.google.android.apps.common.testing.services" />
+21-->[androidx.test:runner:1.4.0] /Users/abrito/.gradle/caches/transforms-3/b9710638e73a0085f5de53cfd78f00c2/transformed/runner-1.4.0/AndroidManifest.xml:27:9-83
+21-->[androidx.test:runner:1.4.0] /Users/abrito/.gradle/caches/transforms-3/b9710638e73a0085f5de53cfd78f00c2/transformed/runner-1.4.0/AndroidManifest.xml:27:18-80
+22    </queries>
+23
+24    <application
+24-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest4132108447655892070.xml:7:5-9:19
+25        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+25-->[androidx.core:core:1.8.0] /Users/abrito/.gradle/caches/transforms-3/2647c6f9e207279b3fe6085096ed5274/transformed/core-1.8.0/AndroidManifest.xml:24:18-86
+26        android:debuggable="true" >
+27        <uses-library android:name="android.test.runner" />
+27-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest4132108447655892070.xml:8:9-60
+27-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest4132108447655892070.xml:8:23-57
+28
+29        <activity
+29-->[androidx.test:core:1.4.0] /Users/abrito/.gradle/caches/transforms-3/d5bb158bbf9c679e0b4cbeed21452887/transformed/jetified-core-1.4.0/AndroidManifest.xml:27:9-34:20
+30            android:name="androidx.test.core.app.InstrumentationActivityInvoker$BootstrapActivity"
+30-->[androidx.test:core:1.4.0] /Users/abrito/.gradle/caches/transforms-3/d5bb158bbf9c679e0b4cbeed21452887/transformed/jetified-core-1.4.0/AndroidManifest.xml:28:13-99
+31            android:exported="true"
+31-->[androidx.test:core:1.4.0] /Users/abrito/.gradle/caches/transforms-3/d5bb158bbf9c679e0b4cbeed21452887/transformed/jetified-core-1.4.0/AndroidManifest.xml:29:13-36
+32            android:theme="@android:style/Theme" >
+32-->[androidx.test:core:1.4.0] /Users/abrito/.gradle/caches/transforms-3/d5bb158bbf9c679e0b4cbeed21452887/transformed/jetified-core-1.4.0/AndroidManifest.xml:30:13-49
+33            <intent-filter>
+33-->[androidx.test:core:1.4.0] /Users/abrito/.gradle/caches/transforms-3/d5bb158bbf9c679e0b4cbeed21452887/transformed/jetified-core-1.4.0/AndroidManifest.xml:31:13-33:29
+34                <action android:name="android.intent.action.MAIN" />
+34-->[androidx.test:core:1.4.0] /Users/abrito/.gradle/caches/transforms-3/d5bb158bbf9c679e0b4cbeed21452887/transformed/jetified-core-1.4.0/AndroidManifest.xml:32:17-69
+34-->[androidx.test:core:1.4.0] /Users/abrito/.gradle/caches/transforms-3/d5bb158bbf9c679e0b4cbeed21452887/transformed/jetified-core-1.4.0/AndroidManifest.xml:32:25-66
+35            </intent-filter>
+36        </activity>
+37        <activity
+37-->[androidx.test:core:1.4.0] /Users/abrito/.gradle/caches/transforms-3/d5bb158bbf9c679e0b4cbeed21452887/transformed/jetified-core-1.4.0/AndroidManifest.xml:35:9-42:20
+38            android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity"
+38-->[androidx.test:core:1.4.0] /Users/abrito/.gradle/caches/transforms-3/d5bb158bbf9c679e0b4cbeed21452887/transformed/jetified-core-1.4.0/AndroidManifest.xml:36:13-95
+39            android:exported="true"
+39-->[androidx.test:core:1.4.0] /Users/abrito/.gradle/caches/transforms-3/d5bb158bbf9c679e0b4cbeed21452887/transformed/jetified-core-1.4.0/AndroidManifest.xml:37:13-36
+40            android:theme="@android:style/Theme" >
+40-->[androidx.test:core:1.4.0] /Users/abrito/.gradle/caches/transforms-3/d5bb158bbf9c679e0b4cbeed21452887/transformed/jetified-core-1.4.0/AndroidManifest.xml:38:13-49
+41            <intent-filter>
+41-->[androidx.test:core:1.4.0] /Users/abrito/.gradle/caches/transforms-3/d5bb158bbf9c679e0b4cbeed21452887/transformed/jetified-core-1.4.0/AndroidManifest.xml:31:13-33:29
+42                <action android:name="android.intent.action.MAIN" />
+42-->[androidx.test:core:1.4.0] /Users/abrito/.gradle/caches/transforms-3/d5bb158bbf9c679e0b4cbeed21452887/transformed/jetified-core-1.4.0/AndroidManifest.xml:32:17-69
+42-->[androidx.test:core:1.4.0] /Users/abrito/.gradle/caches/transforms-3/d5bb158bbf9c679e0b4cbeed21452887/transformed/jetified-core-1.4.0/AndroidManifest.xml:32:25-66
+43            </intent-filter>
+44        </activity>
+45        <activity
+45-->[androidx.test:core:1.4.0] /Users/abrito/.gradle/caches/transforms-3/d5bb158bbf9c679e0b4cbeed21452887/transformed/jetified-core-1.4.0/AndroidManifest.xml:43:9-50:20
+46            android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyFloatingActivity"
+46-->[androidx.test:core:1.4.0] /Users/abrito/.gradle/caches/transforms-3/d5bb158bbf9c679e0b4cbeed21452887/transformed/jetified-core-1.4.0/AndroidManifest.xml:44:13-103
+47            android:exported="true"
+47-->[androidx.test:core:1.4.0] /Users/abrito/.gradle/caches/transforms-3/d5bb158bbf9c679e0b4cbeed21452887/transformed/jetified-core-1.4.0/AndroidManifest.xml:45:13-36
+48            android:theme="@android:style/Theme.Dialog" >
+48-->[androidx.test:core:1.4.0] /Users/abrito/.gradle/caches/transforms-3/d5bb158bbf9c679e0b4cbeed21452887/transformed/jetified-core-1.4.0/AndroidManifest.xml:46:13-56
+49            <intent-filter>
+49-->[androidx.test:core:1.4.0] /Users/abrito/.gradle/caches/transforms-3/d5bb158bbf9c679e0b4cbeed21452887/transformed/jetified-core-1.4.0/AndroidManifest.xml:31:13-33:29
+50                <action android:name="android.intent.action.MAIN" />
+50-->[androidx.test:core:1.4.0] /Users/abrito/.gradle/caches/transforms-3/d5bb158bbf9c679e0b4cbeed21452887/transformed/jetified-core-1.4.0/AndroidManifest.xml:32:17-69
+50-->[androidx.test:core:1.4.0] /Users/abrito/.gradle/caches/transforms-3/d5bb158bbf9c679e0b4cbeed21452887/transformed/jetified-core-1.4.0/AndroidManifest.xml:32:25-66
+51            </intent-filter>
+52        </activity>
+53
+54        <provider
+54-->[androidx.emoji2:emoji2:1.0.0] /Users/abrito/.gradle/caches/transforms-3/34b7b16762785fdc67fca8e4fd055a7d/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:26:9-34:20
+55            android:name="androidx.startup.InitializationProvider"
+55-->[androidx.emoji2:emoji2:1.0.0] /Users/abrito/.gradle/caches/transforms-3/34b7b16762785fdc67fca8e4fd055a7d/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:27:13-67
+56            android:authorities="com.adrbrpa.capacitorheatmap.capacitorheatmap.test.androidx-startup"
+56-->[androidx.emoji2:emoji2:1.0.0] /Users/abrito/.gradle/caches/transforms-3/34b7b16762785fdc67fca8e4fd055a7d/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:28:13-68
+57            android:exported="false" >
+57-->[androidx.emoji2:emoji2:1.0.0] /Users/abrito/.gradle/caches/transforms-3/34b7b16762785fdc67fca8e4fd055a7d/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:29:13-37
+58            <meta-data
+58-->[androidx.emoji2:emoji2:1.0.0] /Users/abrito/.gradle/caches/transforms-3/34b7b16762785fdc67fca8e4fd055a7d/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:31:13-33:52
+59                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+59-->[androidx.emoji2:emoji2:1.0.0] /Users/abrito/.gradle/caches/transforms-3/34b7b16762785fdc67fca8e4fd055a7d/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:32:17-75
+60                android:value="androidx.startup" />
+60-->[androidx.emoji2:emoji2:1.0.0] /Users/abrito/.gradle/caches/transforms-3/34b7b16762785fdc67fca8e4fd055a7d/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:33:17-49
+61            <meta-data
+61-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/abrito/.gradle/caches/transforms-3/711f0ca417a7aa98e20b5ffd6ab7f839/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:31:13-33:52
+62                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+62-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/abrito/.gradle/caches/transforms-3/711f0ca417a7aa98e20b5ffd6ab7f839/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:32:17-78
+63                android:value="androidx.startup" />
+63-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/abrito/.gradle/caches/transforms-3/711f0ca417a7aa98e20b5ffd6ab7f839/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:33:17-49
+64        </provider>
+65    </application>
+66
+67</manifest>

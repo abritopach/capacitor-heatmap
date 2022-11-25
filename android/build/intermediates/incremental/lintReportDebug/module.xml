@@ -1,0 +1,18 @@
+<lint-module
+    format="1"
+    dir="/Users/abrito/Documents/capacitor/capacitor-heatmap/android"
+    name=":"
+    type="LIBRARY"
+    maven=":android:"
+    gradle="7.2.1"
+    buildFolder="build"
+    bootClassPath="/Users/abrito/Library/Android/sdk/platforms/android-32/android.jar:/Users/abrito/Library/Android/sdk/build-tools/30.0.3/core-lambda-stubs.jar"
+    javaSourceLevel="11"
+    compileTarget="android-32"
+    neverShrinking="true">
+  <lintOptions
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true"/>
+  <variant name="debug"/>
+</lint-module>

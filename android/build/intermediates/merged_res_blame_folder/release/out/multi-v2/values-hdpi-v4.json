@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
+            "outputFile": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/values-hdpi-v4/values-hdpi-v4.xml",
             "map": [
                 {
-                    "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "source": "/Users/abrito/.gradle/caches/transforms-3/974c8c08dcb0f7e262991c2b1d176fe5/transformed/appcompat-1.4.2/res/values-hdpi-v4/values-hdpi-v4.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -17,10 +17,10 @@
             ]
         },
         {
-            "outputFile": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/values-hdpi-v4/values-hdpi-v4.xml",
+            "outputFile": "com.adrbrpa.capacitorheatmap.capacitorheatmap-mergeReleaseResources-16:/values-hdpi-v4/values-hdpi-v4.xml",
             "map": [
                 {
-                    "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "source": "/Users/abrito/.gradle/caches/transforms-3/974c8c08dcb0f7e262991c2b1d176fe5/transformed/appcompat-1.4.2/res/values-hdpi-v4/values-hdpi-v4.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
