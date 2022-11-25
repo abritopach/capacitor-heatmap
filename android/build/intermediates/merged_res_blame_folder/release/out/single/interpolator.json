@@ -1,30 +1,30 @@
 [
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/interpolator/btn_radio_to_off_mtrl_animation_interpolator_0.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/interpolator/btn_radio_to_off_mtrl_animation_interpolator_0.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/interpolator/btn_checkbox_checked_mtrl_animation_interpolator_1.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/interpolator/btn_checkbox_checked_mtrl_animation_interpolator_1.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/interpolator/btn_checkbox_checked_mtrl_animation_interpolator_1.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/interpolator/btn_checkbox_checked_mtrl_animation_interpolator_1.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/interpolator/btn_radio_to_on_mtrl_animation_interpolator_0.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/interpolator/btn_radio_to_on_mtrl_animation_interpolator_0.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/interpolator/fast_out_slow_in.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/interpolator/fast_out_slow_in.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/interpolator/fast_out_slow_in.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/interpolator/fast_out_slow_in.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/interpolator/btn_checkbox_unchecked_mtrl_animation_interpolator_0.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/interpolator/btn_checkbox_unchecked_mtrl_animation_interpolator_0.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/interpolator/btn_checkbox_unchecked_mtrl_animation_interpolator_0.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/interpolator/btn_checkbox_unchecked_mtrl_animation_interpolator_0.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/interpolator/btn_checkbox_checked_mtrl_animation_interpolator_0.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/interpolator/btn_checkbox_checked_mtrl_animation_interpolator_0.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/interpolator/btn_checkbox_unchecked_mtrl_animation_interpolator_1.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/interpolator/btn_checkbox_unchecked_mtrl_animation_interpolator_1.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/interpolator/btn_radio_to_on_mtrl_animation_interpolator_0.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/interpolator/btn_radio_to_on_mtrl_animation_interpolator_0.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/interpolator/btn_radio_to_off_mtrl_animation_interpolator_0.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/interpolator/btn_radio_to_off_mtrl_animation_interpolator_0.xml"
     },
     {
-        "merged": "/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/res/merged/release/interpolator/btn_checkbox_unchecked_mtrl_animation_interpolator_1.xml",
-        "source": "/Users/abrito/.gradle/caches/transforms-3/6282d5ad90b4f5ad97279e0e657be671/transformed/appcompat-1.2.0/res/interpolator/btn_checkbox_unchecked_mtrl_animation_interpolator_1.xml"
+        "merged": "com.adrbrpa.capacitorheatmap.capacitorheatmap-merged_res-18:/interpolator/btn_checkbox_checked_mtrl_animation_interpolator_0.xml",
+        "source": "com.adrbrpa.capacitorheatmap.capacitorheatmap-appcompat-1.4.2-9:/interpolator/btn_checkbox_checked_mtrl_animation_interpolator_0.xml"
     }
 ]

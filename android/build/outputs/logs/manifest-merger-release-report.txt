@@ -1,8 +1,8 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:2:3-4:14
-INJECTED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:2:3-4:14
-INJECTED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:2:3-4:14
+ADDED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:2:3-5:14
+INJECTED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:2:3-5:14
+INJECTED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:2:3-5:14
 	package
 		ADDED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml:3:7-62
 		INJECTED from /Users/abrito/Documents/capacitor/capacitor-heatmap/android/src/main/AndroidManifest.xml

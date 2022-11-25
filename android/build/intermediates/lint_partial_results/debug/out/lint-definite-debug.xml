@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 7.2.1" type="incidents">
+
+    <incident
+        id="MissingClass"
+        severity="error"
+        message="Class referenced in the layout file, `androidx.coordinatorlayout.widget.CoordinatorLayout`, was not found in the project or the libraries">
+        <location
+            file="${:*debug*sourceProvider*0*resDir*0}/layout/bridge_layout_main.xml"
+            line="2"
+            column="1"
+            startOffset="39"
+            endLine="15"
+            endColumn="55"
+            endOffset="590"/>
+    </incident>
+
+    <incident
+        id="AndroidGradlePluginVersion"
+        severity="warning"
+        message="A newer version of com.android.tools.build:gradle than 7.2.1 is available: 7.3.1. (There is also a newer version of 7.2.𝑥 available, if upgrading to 7.3.1 is difficult: 7.2.2)">
+        <fix-alternatives>
+            <fix-replace
+                description="Change to 7.3.1"
+                family="Update versions"
+                oldString="7.2.1"
+                replacement="7.3.1"/>
+            <fix-replace
+                description="Change to 7.2.2"
+                family="Update versions"
+                robot="true"
+                independent="true"
+                oldString="7.2.1"
+                replacement="7.2.2"/>
+        </fix-alternatives>
+        <location
+            file="${:*projectDir}/build.gradle"
+            line="14"
+            column="9"
+            startOffset="605"
+            endLine="14"
+            endColumn="57"
+            endOffset="653"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.appcompat:appcompat than 1.4.2 is available: 1.5.1">
+        <location
+            file="${:*projectDir}/build.gradle"
+            line="53"
+            column="20"
+            startOffset="1721"
+            endLine="53"
+            endColumn="76"
+            endOffset="1777"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.test.ext:junit than 1.1.3 is available: 1.1.4">
+        <location
+            file="${:*projectDir}/build.gradle"
+            line="55"
+            column="31"
+            startOffset="1859"
+            endLine="55"
+            endColumn="78"
+            endOffset="1906"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.test.espresso:espresso-core than 3.4.0 is available: 3.5.0">
+        <location
+            file="${:*projectDir}/build.gradle"
+            line="56"
+            column="31"
+            startOffset="1937"
+            endLine="56"
+            endColumn="98"
+            endOffset="2004"/>
+    </incident>
+
+</incidents>

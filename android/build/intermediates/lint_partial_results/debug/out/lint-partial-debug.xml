@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 7.2.1" type="partial_results">
+    <map id="UnusedResources">
+        <location id="R.string.my_string"
+            file="${:*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="2"
+            column="13"
+            startOffset="24"
+            endLine="2"
+            endColumn="29"
+            endOffset="40"/>
+        <location id="R.layout.bridge_layout_main"
+            file="${:*debug*sourceProvider*0*resDir*0}/layout/bridge_layout_main.xml"
+            line="2"
+            column="1"
+            startOffset="39"
+            endLine="15"
+            endColumn="55"
+            endOffset="590"/>
+        <entry
+            name="model"
+            string="id[webview(D)],layout[bridge_layout_main(D)],string[my_string(D)];;;;"/>
+    </map>
+
+</incidents>
