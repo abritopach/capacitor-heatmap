@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.getcapacitor.ExampleUnitTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-11-25T20:41:26" hostname="MacBook-Pro-de-Adrian.local" time="0.001">
+<testsuite name="com.getcapacitor.ExampleUnitTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-11-28T19:26:47" hostname="MacBook-Pro-de-Adrian.local" time="0.002">
   <properties/>
-  <testcase name="addition_isCorrect" classname="com.getcapacitor.ExampleUnitTest" time="0.001"/>
+  <testcase name="addition_isCorrect" classname="com.getcapacitor.ExampleUnitTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
