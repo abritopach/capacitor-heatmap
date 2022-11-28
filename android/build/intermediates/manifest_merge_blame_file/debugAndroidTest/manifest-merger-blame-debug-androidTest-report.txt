@@ -3,24 +3,24 @@
 3    package="com.adrbrpa.capacitorheatmap.capacitorheatmap.test" >
 4
 5    <uses-sdk
-5-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest13555060299161062447.xml:5:5-74
+5-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest7508181002954496280.xml:5:5-74
 6        android:minSdkVersion="22"
-6-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest13555060299161062447.xml:5:15-41
+6-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest7508181002954496280.xml:5:15-41
 7        android:targetSdkVersion="32" />
-7-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest13555060299161062447.xml:5:42-71
+7-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest7508181002954496280.xml:5:42-71
 8
 9    <instrumentation
-9-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest13555060299161062447.xml:11:5-15:100
+9-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest7508181002954496280.xml:11:5-15:100
 10        android:name="androidx.test.runner.AndroidJUnitRunner"
-10-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest13555060299161062447.xml:11:22-76
+10-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest7508181002954496280.xml:11:22-76
 11        android:functionalTest="false"
-11-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest13555060299161062447.xml:14:22-52
+11-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest7508181002954496280.xml:14:22-52
 12        android:handleProfiling="false"
-12-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest13555060299161062447.xml:13:22-53
+12-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest7508181002954496280.xml:13:22-53
 13        android:label="Tests for com.adrbrpa.capacitorheatmap.capacitorheatmap.test"
-13-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest13555060299161062447.xml:15:22-98
+13-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest7508181002954496280.xml:15:22-98
 14        android:targetPackage="com.adrbrpa.capacitorheatmap.capacitorheatmap.test" />
-14-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest13555060299161062447.xml:12:22-96
+14-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest7508181002954496280.xml:12:22-96
 15
 16    <uses-permission android:name="android.permission.REORDER_TASKS" />
 16-->[androidx.test:core:1.4.0] /Users/abrito/.gradle/caches/transforms-3/d5bb158bbf9c679e0b4cbeed21452887/transformed/jetified-core-1.4.0/AndroidManifest.xml:24:5-72
@@ -40,13 +40,13 @@
 22    </queries>
 23
 24    <application
-24-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest13555060299161062447.xml:7:5-9:19
+24-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest7508181002954496280.xml:7:5-9:19
 25        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 25-->[androidx.core:core:1.8.0] /Users/abrito/.gradle/caches/transforms-3/2647c6f9e207279b3fe6085096ed5274/transformed/core-1.8.0/AndroidManifest.xml:24:18-86
 26        android:debuggable="true" >
 27        <uses-library android:name="android.test.runner" />
-27-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest13555060299161062447.xml:8:9-60
-27-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest13555060299161062447.xml:8:23-57
+27-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest7508181002954496280.xml:8:9-60
+27-->/Users/abrito/Documents/capacitor/capacitor-heatmap/android/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest7508181002954496280.xml:8:23-57
 28
 29        <activity
 29-->[androidx.test:core:1.4.0] /Users/abrito/.gradle/caches/transforms-3/d5bb158bbf9c679e0b4cbeed21452887/transformed/jetified-core-1.4.0/AndroidManifest.xml:27:9-34:20
